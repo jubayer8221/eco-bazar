@@ -1,3 +1,4 @@
+import { title } from "process";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -11,6 +12,9 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      fontFamily:{
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },
