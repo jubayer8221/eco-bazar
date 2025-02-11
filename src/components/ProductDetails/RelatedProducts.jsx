@@ -45,7 +45,10 @@ const RelatedProducts = () => {
     <div
       className={`${styles.related_products_container} bg_white p_4 rounded_lg shadow_md`}
     >
-      <h2 className={styles.related_products_title}>Related Products</h2>
+      <div className={`${styles.related_products_title_container} center`}>
+        <h2 className={`${styles.related_products_title}`}>Related Products</h2>
+      </div>
+
       <div className={`${styles.related_products_grid}`}>
         {products.map((product) => (
           <div key={product.id} className={styles.product_card}>

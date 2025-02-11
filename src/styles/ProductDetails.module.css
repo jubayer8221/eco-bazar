@@ -8,7 +8,7 @@
 /* styles For Related Products  */
 
 .related_products_container {
-  max-width: 1200px;
+  max-width: 1320x;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem;
@@ -18,10 +18,16 @@
 }
 
 .related_products_title {
-  font-size: 1.5rem;
-  font-weight: normal;
+  font-size: 32px;
+  font-weight: 600;
   margin-bottom: 2rem;
   color: #374151;
+  text-align: center;
+}
+.related_products_title_container {
+  width: 1320px;
+  height: 38px;
+  margin-bottom: 2rem;
 }
 
 /* Responsive Grid - This is already responsive! */
@@ -62,6 +68,9 @@
   overflow: hidden;
 }
 
+.product_card:hover {
+  border: 1px solid #16a34a;
+}
 .sale_badge {
   position: absolute;
   top: 0.5rem;
@@ -109,7 +118,7 @@
 }
 
 .sale_price {
-  color: #22c55e;
+  color: #1a1a1a;
   font-weight: normal;
 }
 
@@ -140,11 +149,13 @@
 }
 
 .icon_button.cart_button {
-  color: #22c55e;
+  color: #1a1a1a;
 }
 
 .icon_button.cart_button:hover {
   color: #16a34a;
+  border: 1px solid #16a34a;
+  border-radius: 50%;
 }
 
 .icon_button:focus {

@@ -14,7 +14,7 @@ import AddToCartButton from "./AddToCartButton";
 import RelatedProducts from "@/components/ProductDetails/RelatedProducts";
 
 const ProductPage = () => {
-  const [quantity, setQuantity] = useState(1); // Initialize quantity to 1 or your desired default
+  const [quantity, setQuantity] = useState(1); // Initialize quantity to 1 or desired default
   const [activeTab, setActiveTab] = useState("Descriptions"); // Add state for activeTab
 
   return (

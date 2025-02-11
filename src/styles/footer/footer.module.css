@@ -1,0 +1,138 @@
+.footer {
+  background: #1a1a1a;
+  color: aliceblue;
+  width: 1920;
+  height: 368;
+  gap: 60px;
+  padding-top: 60px;
+  padding-right: 300px;
+  padding-left: 300px;
+}
+
+.footer_container {
+  display: flex;
+  flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+  justify-content: space-between; /* Distribute space between columns */
+  max-width: 1200px; /* Adjust as needed */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer_container > div {
+  margin-bottom: 2rem; /* Spacing between column groups */
+}
+
+.footer_container > div:first-child {
+  width: 30%; /* Logo and description column - adjust as needed */
+  min-width: 250px; /* Minimum width for logo column */
+}
+
+.footer_container > div:nth-child(n + 2):nth-child(-n + 6) {
+  /* Targeting navigation columns 2-6 */
+  width: 15%; /* Navigation link columns - adjust as needed */
+  min-width: 120px; /* Minimum width for nav columns */
+}
+
+.footer_container > div:last-child {
+  width: 100%; /* Full width for copyright and payment icons row */
+  margin-top: 3rem; /* Space before copyright/payment row */
+  padding-top: 2rem;
+  border-top: 1px solid #4b5563; /* Light divider line - similar to Tailwind gray-600 border-top */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Vertically align copyright and icons */
+}
+
+.footer_container img {
+  margin-bottom: 1rem; /* Space below logo image */
+  max-width: 100%; /* Ensure logo image is responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.footer_container h1 {
+  font-size: 1.5rem; /* Example font size for Ecobazar */
+  font-weight: bold; /* Make "Ecobazar" bold */
+  margin-bottom: 0.5rem; /* Space below Ecobazar text */
+  color: #f9fafb; /* Match text color */
+}
+
+.footer_container p {
+  font-size: 1rem; /* Adjust font size for paragraph text */
+  line-height: 1.6; /* Improve readability */
+  color: #d1d5db; /* Slightly lighter text for paragraph */
+}
+
+.footer_container ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.footer_container li {
+  margin-bottom: 0.75rem; /* Spacing between list items */
+}
+
+.footer_container li:first-child {
+  font-weight: bold; /* Bold first list item in each column (e.g., "My Account") */
+  color: #f9fafb; /* Match text color */
+}
+
+.footer_container li a {
+  text-decoration: none;
+  color: #d1d5db; /* Link color */
+  transition: color 0.2s ease; /* Smooth hover transition */
+}
+
+.footer_container li a:hover {
+  color: #f9fafb; /* Lighter color on hover */
+}
+.footer_link_col li {
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0%;
+}
+.footer_container > div:last-child > div {
+  display: flex;
+  align-items: center; /* Vertically align payment icons */
+}
+
+.footer_container > div:last-child > div img {
+  margin-left: 0.5rem; /* Spacing between payment icons */
+  margin-bottom: 0; /* Reset margin bottom for icons */
+  height: auto; /* Adjust icon height if needed */
+  width: auto; /* Adjust icon width if needed */
+  max-height: 20px; /* Limit icon height if needed */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .footer_container {
+    flex-direction: column; /* Stack columns vertically on smaller screens */
+    align-items: flex-start; /* Align columns to the start on smaller screens */
+  }
+
+  .footer_container > div {
+    width: 100% !important; /* Make columns full width on smaller screens */
+    min-width: auto; /* Reset min-width */
+    text-align: left; /* Align text to left in columns */
+  }
+
+  .footer_container > div:last-child {
+    flex-direction: column; /* Stack copyright and icons vertically */
+    align-items: flex-start; /* Align to start on smaller screens */
+    text-align: left; /* Align copyright text left */
+  }
+
+  .footer_container > div:last-child > div {
+    margin-top: 1rem; /* Add space above payment icons when stacked */
+    justify-content: flex-start; /* Align payment icons to start */
+    flex-wrap: wrap; /* Allow icons to wrap if needed */
+  }
+
+  .footer_container > div:last-child > div img {
+    margin-right: 0.5rem; /* Add right margin for wrapped icons */
+    margin-left: 0; /* Reset left margin */
+  }
+}
