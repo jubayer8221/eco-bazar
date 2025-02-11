@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import ProductDescription from "@/components/ProductDetails/ProductDiscription";
-import RelatedProduct from "@/components/ProductDetails/RelatedProducts";
 import styles from "@/styles/productDetails.module.css";
 import {
   FaFacebookF,
