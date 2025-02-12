@@ -41,7 +41,7 @@ const ProductPage = () => {
           <div className="text-xl font-semibold mt-2">
             <span className="line-through text-gray-500">$48.00</span>
             <span className="text-red-500 ml-2">$17.28</span>
-            <span className="text-sm text-red-600 ml-2">(64% Off)</span>
+            <span className="text-sm text-red-600 ml-2">64% Off</span>
           </div>
 
           <div>
@@ -52,10 +52,10 @@ const ProductPage = () => {
               </div>
               <div className="flex">
                 <h1>Share item</h1>
-                <img src="" alt="" />
-                <img src="" alt="" />
-                <img src="" alt="" />
-                <img src="" alt="" />
+                <img src="/Mastercard.png" alt="" />
+                <img src="/vis-logo.png" alt="" />
+                <img src="/secure-payment.png" alt="" />
+                <img src="/ApplePay.png" alt="" />
               </div>
             </div>
             <p>

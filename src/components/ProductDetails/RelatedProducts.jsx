@@ -1,3 +1,5 @@
+"use client";
+
 // components/RelatedProducts.jsx
 import React from "react";
 import Image from "next/image";
