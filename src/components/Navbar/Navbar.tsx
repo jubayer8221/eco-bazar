@@ -5,7 +5,7 @@ import Bottom from './Bottom'
 
 const Navbar = () => {
   return (
-    <div >
+    <div className='w-full'>
         {/* mobaile */}
 
         {/* top navbar  */}

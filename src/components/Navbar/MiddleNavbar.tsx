@@ -1,25 +1,32 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { GoSearch } from "react-icons/go";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 
 const MiddleNavbar = () => {
+    const [searchIconR, setsearchIconR] = useState('');
   return (
     <>
-        <div className="pt-8 pb-8 pl-[300px] pr-[300px] flex justify-between bg-white">
+        <div className="pt-6 pb-6 pl-[300px] pr-[300px] flex justify-between bg-white">
              {/* logo */}
              <div className=' flex items-center gap-1'>
                 <Image src="/icons/logo.png" alt='' width={32} height={30} />
                 <samp className='font-poppins font-medium text-[32px] leading-[38px] tracking-[-0.03em] text-[#002603]'>Ecobazar</samp>
              </div>
              {/* search */}
-             <div className=' flex items-center border rounded-lg overflow-hidden'>
+             <div className=' relative w-[400px] border border-gray-300 rounded-lg overflow-hidden flex items-center'>
                 <div className='p-2'>
-                <GoSearch className='w-[15px] h-[15px] text-[#1A1A1A]' />
+                    {
+                        !searchIconR && (
+                            <GoSearch className='absolute left-3 bottom-[12px] h-4 w-4 text-gray-400' />
+                        )
+                    }
+                
                 </div>
-                <input type="text" placeholder='search' className=' flex-grow outline-none' />
-                <button className='text-[14px] bg-[#00B207] pt-[14px] pb-[14px] pr-[24px] pl-[24px] text-white'>Search</button>
+                <input type="text" placeholder='search' className=' w-full pl-3 outline-none text-gray-700' value={searchIconR} onChange={(e)=>setsearchIconR(e.target.value)} />
+                <button className='text-[14px] bg-[#00B207] pt-[12px] pb-[12px] pr-[24px] pl-[24px] text-white'>Search</button>
              </div>
              {/* icon  */}
              <div className='flex items-center gap-5'>
@@ -32,7 +39,7 @@ const MiddleNavbar = () => {
                         <div className='relative cursor-pointer'>
                         <HiOutlineShoppingBag className='w-[25px] h-[25px] text-[#1A1A1A]' />
                         </div>
-                        <div className='absolute bg-[#2C742F] w-3 h-3 flex items-center justify-center rounded-full text-white text-[10px] top-[81px] right-[380px]'>
+                        <div className='absolute bg-[#2C742F] w-3 h-3 flex items-center justify-center rounded-full text-white text-[10px] top-[70px] right-[379px]'>
                             2
                         </div>
                     </div>
