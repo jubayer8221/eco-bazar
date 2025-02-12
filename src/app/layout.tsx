@@ -31,6 +31,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+
         <FooterPage></FooterPage>
       </body>
     </html>

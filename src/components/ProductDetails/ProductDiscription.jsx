@@ -87,14 +87,14 @@ export default function ProductDescription() {
                 className="rounded-lg max-w-full"
               />
             </div>
-            <div className="flex space-x-6 mt-6 shadow-md border m-2 h-24">
-              <div className="p-4 bg-gray-100 rounded-lg w-60 h-12">
+            <div className="flex bg-gray-100 space-x-6 mt-6 shadow-md border m-2 h-24">
+              <div className="p-4 rounded-lg w-60 h-12">
                 <h3 className="font-normal">💰 64% Discount</h3>
                 <p className="text-sm text-gray-600">
                   Save 64% on your purchase.
                 </p>
               </div>
-              <div className="p-4 bg-gray-100 rounded-lg w-60 h-12">
+              <div className="p-4 rounded-lg w-60 h-12">
                 <h3 className="font-normal">🌱 100% Organic</h3>
                 <p className="text-sm text-gray-600">
                   Guaranteed fresh and organic vegetables.

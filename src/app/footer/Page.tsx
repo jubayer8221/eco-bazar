@@ -4,7 +4,7 @@ import styles from "@/styles/footer/footer.module.css";
 
 export default function FooterPage() {
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer}`}>
       {/* Apply footer class to footer element */}
       <div className={`${styles.footer_container} flex`}>
         <div className="footer_logo_desc">
@@ -56,7 +56,7 @@ export default function FooterPage() {
       </div>
       {/* Footer_bottom class */}
 
-      <div className={styles.footer_bottom}>
+      <div className={`${styles.footer_bottom}`}>
         <div>
           <p>Ecobazar eCommerce @2021. All Rights Reserved</p>
         </div>
