@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Home from "@/components/Home/Home";
 
-export default function Home() {
+export default function page() {
   return (
     <div>
-      <h1>Eco Bazar</h1>
+      <Home />
     </div>
   );
 }
