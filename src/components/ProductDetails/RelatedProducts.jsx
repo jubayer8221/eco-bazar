@@ -1,3 +1,5 @@
+"use client";
+
 // components/RelatedProducts.jsx
 import React from "react";
 import Image from "next/image";
@@ -45,33 +47,38 @@ const RelatedProducts = () => {
     <div
       className={`${styles.related_products_container} bg_white p_4 rounded_lg shadow_md`}
     >
-      <h2 className={styles.related_products_title}>Related Products</h2>
+      <div className={`${styles.related_products_title_container} center`}>
+        <h2 className={`${styles.related_products_title}`}>Related Products</h2>
+      </div>
+
       <div className={`${styles.related_products_grid}`}>
         {products.map((product) => (
-          <div key={product.id} className={styles.product_card}>
-            {product.sale && <div className={styles.sale_badge}>Sale 50%</div>}
+          <div key={product.id} className={`${styles.product_card}`}>
+            {product.sale && (
+              <div className={`${styles.sale_badge}`}>Sale 50%</div>
+            )}
             <div className={styles.product_image_container}>
               <Image
                 src={product.image}
                 alt={product.name}
                 layout="fill"
                 objectFit="cover"
-                className={styles.product_image}
+                className={`${styles.product_image}`}
               />
             </div>
-            <div className={styles.product_details}>
-              <h3 className={styles.product_name}>{product.name}</h3>
-              <div className={styles.product_price_container}>
+            <div className={`${styles.product_details}`}>
+              <h3 className={`${styles.product_name}`}>{product.name}</h3>
+              <div className={`${styles.product_price_container}`}>
                 <span className={styles.sale_price}>
                   ${product.price.toFixed(2)}
                 </span>
                 {product.originalPrice && (
-                  <span className={styles.original_price}>
+                  <span className={`${styles.original_price}`}>
                     ${product.originalPrice.toFixed(2)}
                   </span>
                 )}
               </div>
-              <div className={styles.product_actions}>
+              <div className={`${styles.product_actions}`}>
                 <button
                   className={`${styles.icon_button} ${styles.wishlist_button}`}
                 >

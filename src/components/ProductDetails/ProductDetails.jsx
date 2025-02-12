@@ -14,14 +14,12 @@ import AddToCartButton from "./AddToCartButton";
 import RelatedProducts from "@/components/ProductDetails/RelatedProducts";
 
 const ProductPage = () => {
-  const [quantity, setQuantity] = useState(1); // Initialize quantity to 1 or your desired default
+  const [quantity, setQuantity] = useState(1); // Initialize quantity to 1 or desired default
   const [activeTab, setActiveTab] = useState("Descriptions"); // Add state for activeTab
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
-      {/* Product Details */}
       <div className="grid md:grid-cols-2 gap-6">
-        {/* Image Section */}
         <div>
           <Image
             src="/cabbage.png"
@@ -31,6 +29,7 @@ const ProductPage = () => {
             className="rounded-lg"
           />
         </div>
+
         {/* Details Section */}
         <div>
           <h1 className="text-3xl font-bold">Chinese Cabbage</h1>
@@ -42,11 +41,30 @@ const ProductPage = () => {
           <div className="text-xl font-semibold mt-2">
             <span className="line-through text-gray-500">$48.00</span>
             <span className="text-red-500 ml-2">$17.28</span>
-            <span className="text-sm text-red-600 ml-2">(64% Off)</span>
+            <span className="text-sm text-red-600 ml-2">64% Off</span>
           </div>
-          <p className="mt-4 text-gray-600">
-            A fresh and healthy choice for your meals.
-          </p>
+
+          <div>
+            <div className="flex justify-between">
+              <div className="flex">
+                <h1>Brand</h1>
+                <img src="/logo.png" alt="" />
+              </div>
+              <div className="flex">
+                <h1>Share item</h1>
+                <img src="/Mastercard.png" alt="" />
+                <img src="/vis-logo.png" alt="" />
+                <img src="/secure-payment.png" alt="" />
+                <img src="/ApplePay.png" alt="" />
+              </div>
+            </div>
+            <p>
+              Class aptent taciti sociosqu ad litora torquent per conubia
+              nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel
+              consequat nec, ultrices et ipsum. Nulla varius magna a consequat
+              pulvinar.
+            </p>
+          </div>
 
           <div className="flex justify-between">
             <div className="flex w-32 h-12 items-center space-x-4 mt-4 shadow-sm">
