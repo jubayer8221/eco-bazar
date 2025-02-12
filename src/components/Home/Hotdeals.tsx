@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import HotdealsCart from "./HotdealsCart";
 
 const hotDealsProduct = [
@@ -42,6 +42,7 @@ const hotDealsProduct = [
     name: "Fresh Cauliflower",
     price: "$12.00",
     image: "/images/hot5.png",
+
     rating: 4,
   },
   {
@@ -74,6 +75,7 @@ const hotDealsProduct = [
     price: "$12.00",
     image: "/images/hot9.png",
     rating: 5,
+    reviews: 524,
     sale: "40%",
   },
   {
@@ -96,12 +98,15 @@ const hotDealsProduct = [
     id: 12,
     name: "Surjipur Mango",
     price: "$34.00",
+    reviews: 524,
     image: "/images/hot6.png",
     rating: 4,
   },
 ];
 
 const Hotdeals = () => {
+    const [isHover, setIsHover] = useState(false);
+    
   return (
     <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 mt-14 bg-[#F7F7F7] font-poppins">
       <div className="mb-8 flex items-center justify-between">
@@ -116,7 +121,7 @@ const Hotdeals = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
         {
             hotDealsProduct.map(product => (
-                <HotdealsCart key={product.id} img={product.image} title={product.name} price={product.price} rating={product.rating} sale={product.sale} oldPrice={product.oldPrice} bestSale={product.bestSale} />
+                <HotdealsCart key={product.id} img={product.image} title={product.name} price={product.price} rating={product.rating} sale={product.sale} oldPrice={product.oldPrice} bestSale={product.bestSale} reviews={product.reviews} />
             ))
         }
       </div>
