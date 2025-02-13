@@ -8,7 +8,6 @@ const products = [
     title: "Sale of the Month",
     subtitle: "BEST DEALS",
     buttonText: "Shop Now",
-    background: "bg-blue-500", // Background color is no longer directly used on card container
     image: "/image/fruits.png",
     discount: "00 : 02 : 18 : 46",
   },
@@ -16,7 +15,6 @@ const products = [
     title: "Low-Fat Meat",
     subtitle: "85% FAT FREE",
     buttonText: "Shop Now",
-    background: "bg-black", // Background color is no longer directly used on card container
     image: "/image/meat.png",
     price: "$79.99",
   },
@@ -24,8 +22,7 @@ const products = [
     title: "100% Fresh Fruit",
     subtitle: "SUMMER SALE",
     buttonText: "Shop Now",
-    background: "bg-yellow-400", // Background color is no longer directly used on card container
-    image: "/image/apple.png",
+    image: "/image/fruitscover.png",
     discount: "64% OFF",
   },
 ];
