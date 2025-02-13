@@ -33,9 +33,8 @@ export default function ProductDescription() {
           {/* Left Section (50% width) */}
           <div className="w-1/2">
             {activeTab === "Descriptions" && (
-              <div className="mt-8  pt-6">
-                <h2 className="text-2xl font-bold">Description</h2>
-                <p className="mt-4 text-gray-600 text-justify">
+              <div className="">
+                <p className=" text-gray-600 text-justify">
                   Sed commodo aliquam dui ac porta. Fusce ipsum felis, imperdiet
                   at posuere ac, viverra at mauris. Maecenas tincidunt ligula a
                   sem vestibulum pharetra. Maecenas auctor tortor lacus, nec
@@ -59,20 +58,71 @@ export default function ProductDescription() {
               </div>
             )}
             {activeTab === "Additional Information" && (
-              <p className="text-gray-700">
-                Here is some additional information about the product. It's
-                fresh, organic, and delivered right to your doorstep.
-              </p>
+              <div className="w-[513] text-gray-600">
+                <p>
+                  <span className="font-normal text-black">Weight: </span>
+                  <span className=" p-8 ">03</span>
+                </p>
+                <p>
+                  <span className="font-normal text-black">Color: </span>
+                  <span className="p-9">Green</span>
+                </p>
+                <p>
+                  <span className="font-normal text-black">Type:</span>
+                  <span className="p-11">Organic</span>
+                </p>
+                <p>
+                  <span className="font-normal text-black">Category:</span>
+                  <span className="p-8">Vegetables</span>
+                </p>
+                <p>
+                  <span className="font-normal text-black">Stock Status:</span>
+                  <span className="p-8">Available</span>
+                  <span className="text-gray-400">(5,413)</span>
+                </p>
+                <p>
+                  <span className="font-normal text-black">Tags:</span>
+                  <span className="ml-2 p-7 space-x-2">
+                    <a href="#" className="text-black hover:underline">
+                      Vegetables
+                    </a>
+                    ,
+                    <a href="#" className="text-black hover:underline">
+                      Healthy
+                    </a>
+                    ,
+                    <a href="#" className="text-black underline">
+                      Chinese
+                    </a>
+                    ,
+                    <a href="#" className="text-black hover:underline">
+                      Cabbage
+                    </a>
+                    ,
+                    <a href="#" className="text-black hover:underline">
+                      Green Cabbage
+                    </a>
+                  </span>
+                </p>
+              </div>
             )}
             {activeTab === "Customer Feedback" && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {["Great product!", "Loved it!", "Highly recommended!"].map(
-                  (feedback, index) => (
-                    <div key={index} className="p-4 shadow-md">
-                      <p className="text-gray-800">{feedback}</p>
-                    </div>
-                  )
-                )}
+              <div className="   grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  "Great product!",
+                  "Avarage",
+                  "Loved it!",
+                  "Highly recommended!",
+                  "Not that Good!",
+                  "Bad",
+                ].map((feedback, index) => (
+                  <div
+                    key={index}
+                    className="p-4 shadow-md border hover:border-green-600"
+                  >
+                    <p className="text-gray-800">{feedback}</p>
+                  </div>
+                ))}
               </div>
             )}
           </div>
@@ -88,18 +138,37 @@ export default function ProductDescription() {
                 className="rounded-lg max-w-full"
               />
             </div>
+
+            {/* Discount and Organic small Banner */}
             <div className="flex bg-gray-100 space-x-6 mt-6 shadow-md border m-2 h-24">
-              <div className="p-4 rounded-lg w-60 h-12">
-                <h3 className="font-normal">💰 64% Discount</h3>
-                <p className="text-sm text-gray-600">
-                  Save 64% on your purchase.
-                </p>
+              {/* Discount Banner */}
+              <div className="p-4 mt-5 flex items-center rounded-lg w-60 h-12">
+                <img
+                  src="image/discount.png"
+                  alt="Discount"
+                  className="w-8 h-8"
+                />
+                <div className="ml-2">
+                  <h3 className="font-normal">64% Discount</h3>
+                  <p className="text-sm text-gray-600">
+                    Save 64% on your purchase.
+                  </p>
+                </div>
               </div>
-              <div className="p-4 rounded-lg w-60 h-12">
-                <h3 className="font-normal">🌱 100% Organic</h3>
-                <p className="text-sm text-gray-600">
-                  Guaranteed fresh and organic vegetables.
-                </p>
+
+              {/* Organic Banner */}
+              <div className="p-4 mt-5 flex items-center rounded-lg w-60 h-12">
+                <img
+                  src="image/organic.png"
+                  alt="Organic"
+                  className="w-8 h-8"
+                />
+                <div className="ml-2">
+                  <h3 className="font-normal">100% Organic</h3>
+                  <p className="text-sm text-gray-600">
+                    Guaranteed fresh and organic vegetables.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

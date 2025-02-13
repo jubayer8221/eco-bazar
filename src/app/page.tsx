@@ -10,7 +10,7 @@ export default function page() {
   return (
     <div>
       <Home />
-      {/* <ProductPage></ProductPage> */}
+      <ProductPage></ProductPage>
       <PopularCategories></PopularCategories>
       <PopularProductCard></PopularProductCard>
       <Hotdeals></Hotdeals>

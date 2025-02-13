@@ -9,7 +9,8 @@ const products = [
     subtitle: "BEST DEALS",
     buttonText: "Shop Now",
     image: "/image/fruits.png",
-    discount: "00 : 02 : 18 : 46",
+    date: "00  :  02  :  18  :  46",
+    datetext: "DAYS   HOURS   MINS   SECS",
   },
   {
     title: "Low-Fat Meat",
@@ -30,10 +31,10 @@ const products = [
 // ProductCard Component (Modified to use Image as background)
 const ProductCard = ({ product, index }) => {
   return (
-    <div className="h-[1320] w-[536]">
+    <div className="h-[1220] w-[536]">
       <div
         key={index}
-        className={`  rounded-xl w-[345px] relative overflow-hidden h-[536px]`} // Removed background color, added overflow-hidden
+        className={`  rounded-xl w-[335px] relative overflow-hidden h-[436px]`} // Removed background color, added overflow-hidden
       >
         <div className="justify-center absolute inset-0">
           {/* Image as background, fills container */}
@@ -51,8 +52,11 @@ const ProductCard = ({ product, index }) => {
             {product.subtitle}
           </h3>
           <h2 className="text-2xl font-bold">{product.title}</h2>
-          {product.discount && (
-            <p className="text-lg font-bold">{product.discount}</p>
+          {product.date && (
+            <p className="font-poppins text-lg w-[290]">{product.date}</p>
+          )}
+          {product.datetext && (
+            <p className="text-xs  font-poppins">{product.datetext}</p>
           )}
           {product.price && (
             <p className="text-lg font-bold text-yellow-300">
