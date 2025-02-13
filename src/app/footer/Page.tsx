@@ -56,19 +56,17 @@ export default function FooterPage() {
       </div>
       {/* Footer_bottom class */}
 
-      <div className={`${styles.footer_bottom}`}>
+      <div className={`${styles.footer_bottom} justify-between`}>
         <div>
           <p>Ecobazar eCommerce @2021. All Rights Reserved</p>
         </div>
         <div>
-          <div>
-            <Image
-              src="/payment_icon.png"
-              alt="Payment Methods"
-              width={300}
-              height={20}
-            />
-          </div>
+          <Image
+            src="/payment_icon.png"
+            alt="Payment Methods"
+            width={300}
+            height={20}
+          />
         </div>
       </div>
     </footer>

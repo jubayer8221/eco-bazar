@@ -10,31 +10,37 @@ const categoriesData = [
     id: 1,
     price: 20,
     name: "Green Apple",
-    image: "/image/popularCards/image_1.png",
+    image: "/image/apple.png",
   },
   {
     id: 2,
     price: 25,
     name: "Fresh Indian Malta",
-    image: "/images/vegetables.png",
+    image: "/image/malta.png",
   },
-  { id: 3, price: 15, name: "Chinese cabage", image: "/images/meat.png" },
-  { id: 4, price: 18, name: "Green Lettuce", image: "/images/snacks.png" },
-  { id: 5, price: 22, name: "Eggplant", image: "/images/beverages.png" },
-  { id: 6, price: 30, name: "Big Potatoes", image: "/images/beauty.png" },
-  { id: 7, price: 12, name: "Corn", image: "/images/bakery.png" },
-  { id: 8, price: 28, name: "Fresh Cauliflower", image: "/images/baking.png" },
-  { id: 9, price: 20, name: "Green Capsicum", image: "/images/cooking.png" },
-  { id: 10, price: 10, name: "Green Chili", image: "/images/diabetic.png" },
+  { id: 3, price: 15, name: "Chinese cabage", image: "/image/cabbage.png" },
+  { id: 4, price: 18, name: "Green Lettuce", image: "/image/lettuce.png" },
+  { id: 5, price: 22, name: "Eggplant", image: "/image/eggplant.png" },
+  { id: 6, price: 30, name: "Big Potatoes", image: "/image/potatoes.png" },
+  { id: 7, price: 12, name: "Corn", image: "/image/corn.png" },
+  {
+    id: 8,
+    price: 28,
+    name: "Fresh Cauliflower",
+    image: "/image/cauliflower.png",
+  },
+  { id: 9, price: 20, name: "Green Capsicum", image: "/image/capsicum.png" },
+  { id: 10, price: 10, name: "Green Chili", image: "/image/chili.png" },
   {
     id: 11,
     price: 35,
     name: "Dish Detergents",
-    image: "/images/detergents.png",
+    image: "/image/lettuce.png",
   },
-  { id: 12, price: 50, name: "Oil", image: "/images/oil.png" },
-  { id: 13, price: 40, name: "Dairy Products", image: "/images/dairy.png" },
-  { id: 14, price: 60, name: "Frozen Items", image: "/images/frozen.png" },
+  { id: 12, price: 50, name: "Oil", image: "/image/cabbage.png" },
+  { id: 5, price: 22, name: "Eggplant", image: "/image/eggplant.png" },
+  { id: 13, price: 40, name: "Dairy Products", image: "/image/corn.png" },
+  { id: 14, price: 60, name: "Frozen Items", image: "/image/chili.png" },
 ];
 
 export default function PopularProductCard() {
@@ -53,31 +59,34 @@ export default function PopularProductCard() {
   return (
     <div>
       <div className="container p-6 max-w-6xl mx-auto px-4 py-8">
-        <h2 className="text-2xl font-bold mb-4">Popular Products</h2>
+        <div className="flex justify-between mx-8">
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Popular Products</h2>
+          </div>
+          <div>
+            {categoriesData.length > 10 && (
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className="text-[#00B207] text-[16px] leading-6 font-medium"
+              >
+                {showAll ? "Show Less ←" : "View All →"}
+              </button>
+            )}
+          </div>
+        </div>
 
         {/* Category Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 m-6">
-          {categories
-            .slice(0, showAll ? categories.length : 10)
-            .map((category) => (
+          {(showAll ? categoriesData : categoriesData.slice(0, 10)).map(
+            (category) => (
               <CategoryCard
                 key={category.id}
                 name={category.name}
                 image={category.image}
-                price={category.price}
               />
-            ))}
+            )
+          )}
         </div>
-
-        {/* View All Button */}
-        {!showAll && (
-          <button
-            onClick={() => setShowAll(true)}
-            className="mt-4 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700"
-          >
-            View All
-          </button>
-        )}
       </div>
       <PopularProductOffer></PopularProductOffer>
     </div>

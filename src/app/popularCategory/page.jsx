@@ -22,44 +22,44 @@ const categoriesData = [
 ];
 
 export default function PopularCategories() {
-  const [categories, setCategories] = useState(categoriesData);
   const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
-    const savedCategories = localStorage.getItem("categories");
-    if (savedCategories) {
-      setCategories(JSON.parse(savedCategories));
-    } else {
+    if (!localStorage.getItem("categories")) {
       localStorage.setItem("categories", JSON.stringify(categoriesData));
     }
   }, []);
 
   return (
     <div className="container p-6 max-w-6xl mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-4">Popular Categories</h2>
+      <div className="flex justify-between mx-8">
+        <div>
+          <h2 className="text-2xl font-bold mb-4">Popular Categories</h2>
+        </div>
+        <div>
+          {categoriesData.length > 12 && (
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="text-[#00B207] text-[16px] leading-6 font-medium"
+            >
+              {showAll ? "Show Less ←" : "View All →"}
+            </button>
+          )}
+        </div>
+      </div>
 
       {/* Category Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 m-6">
-        {categories
-          .slice(0, showAll ? categories.length : 12)
-          .map((category) => (
+        {(showAll ? categoriesData : categoriesData.slice(0, 12)).map(
+          (category) => (
             <CategoryCard
               key={category.id}
               name={category.name}
               image={category.image}
             />
-          ))}
+          )
+        )}
       </div>
-
-      {/* View All Button */}
-      {!showAll && categories.length > 12 && (
-        <button
-          onClick={() => setShowAll(true)}
-          className="mt-4 px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 transition-colors duration-200"
-        >
-          View All
-        </button>
-      )}
     </div>
   );
 }

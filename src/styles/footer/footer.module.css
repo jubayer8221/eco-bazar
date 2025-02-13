@@ -31,17 +31,12 @@
   width: 15%;
   min-width: 120px;
 }
-
 .footer_container > div:last-child {
   width: 100%;
-  margin-top: 3rem;
-  /* padding-top: 2rem; */
-  border-top: 1px solid #4b5563; /* Light divider line - similar to Tailwind gray-600 border-top */
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Vertically align copyright and icons */
+  align-items: center;
 }
-
 .footer_container img {
   margin-bottom: 1rem; /* Space below logo image */
   max-width: 100%; /* Ensure logo image is responsive */

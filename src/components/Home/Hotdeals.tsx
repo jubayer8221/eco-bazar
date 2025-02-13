@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from "react";
 import HotdealsCart from "./HotdealsCart";
 
@@ -105,8 +106,8 @@ const hotDealsProduct = [
 ];
 
 const Hotdeals = () => {
-    const [isHover, setIsHover] = useState(false);
-    
+  const [isHover, setIsHover] = useState(false);
+
   return (
     <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 mt-14 bg-[#F7F7F7] font-poppins">
       <div className="mb-8 flex items-center justify-between">
@@ -119,11 +120,19 @@ const Hotdeals = () => {
       </div>
       {/* hot list */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
-        {
-            hotDealsProduct.map(product => (
-                <HotdealsCart key={product.id} img={product.image} title={product.name} price={product.price} rating={product.rating} sale={product.sale} oldPrice={product.oldPrice} bestSale={product.bestSale} reviews={product.reviews} />
-            ))
-        }
+        {hotDealsProduct.map((product) => (
+          <HotdealsCart
+            key={product.id}
+            img={product.image}
+            title={product.name}
+            price={product.price}
+            rating={product.rating}
+            sale={product.sale ?? ""}
+            oldPrice={product.oldPrice ?? ""}
+            bestSale={product.bestSale ?? "false"}
+            reviews={product.reviews ?? 0}
+          />
+        ))}
       </div>
     </div>
   );

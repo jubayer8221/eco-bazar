@@ -8,36 +8,48 @@ const products = [
     title: "Sale of the Month",
     subtitle: "BEST DEALS",
     buttonText: "Shop Now",
-    background: "bg-blue-500",
-    image: "/image/popularCards/discount_cards/fruits.png",
+    background: "bg-blue-500", // Background color is no longer directly used on card container
+    image: "/image/fruits.png",
     discount: "00 : 02 : 18 : 46",
   },
   {
     title: "Low-Fat Meat",
     subtitle: "85% FAT FREE",
     buttonText: "Shop Now",
-    background: "bg-black",
-    image: "/image/popularCards/discount_cards/meat.png", // Replace with your image path
+    background: "bg-black", // Background color is no longer directly used on card container
+    image: "/image/meat.png",
     price: "$79.99",
   },
   {
     title: "100% Fresh Fruit",
     subtitle: "SUMMER SALE",
     buttonText: "Shop Now",
-    background: "bg-yellow-400",
-    image: "/image/popularCards/discount_cards/apple.png", // Replace with your image path
+    background: "bg-yellow-400", // Background color is no longer directly used on card container
+    image: "/image/apple.png",
     discount: "64% OFF",
   },
 ];
 
-export default function PopularProductOffer() {
+// ProductCard Component (Modified to use Image as background)
+const ProductCard = ({ product, index }) => {
   return (
-    <div className="flex justify-center space-x-6 p-6">
-      {products.map((product, index) => (
-        <div
-          key={index}
-          className={`rounded-xl p-6 w-80 text-white ${product.background}`}
-        >
+    <div className="h-[1320] w-[536]">
+      <div
+        key={index}
+        className={`  rounded-xl w-[345px] relative overflow-hidden h-[536px]`} // Removed background color, added overflow-hidden
+      >
+        <div className="justify-center absolute inset-0">
+          {/* Image as background, fills container */}
+          <Image
+            src={product.image}
+            alt={product.title}
+            fill
+            sizes="100%"
+            className="object-cover object-center rounded-xl" // Rounded corners for the image too
+          />
+        </div>
+
+        <div className=" text-center p-6 relative z-10 text-white">
           <h3 className="text-sm uppercase font-semibold">
             {product.subtitle}
           </h3>
@@ -50,17 +62,21 @@ export default function PopularProductOffer() {
               Started at {product.price}
             </p>
           )}
-          <button className="mt-4 bg-white text-black px-4 py-2 rounded-full">
+          <button className="justify-center mt-4 bg-white font-semibold text-[#00B207] px-4 py-2 rounded-full">
             {product.buttonText} →
           </button>
-          <Image
-            src={product.image}
-            alt={product.title}
-            width={300}
-            height={200}
-            className="mt-4 rounded-lg"
-          />
         </div>
+      </div>
+    </div>
+  );
+};
+
+// PopularProductOffer Component (No changes needed here)
+export default function PopularProductOffer() {
+  return (
+    <div className="flex justify-center items-center space-x-6 p-6">
+      {products.map((product, index) => (
+        <ProductCard key={index} product={product} index={index} />
       ))}
     </div>
   );
