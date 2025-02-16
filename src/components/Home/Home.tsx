@@ -2,7 +2,7 @@ import React from 'react'
 import Banner from './Banner'
 import BBanner from './BBanner'
 import Hotdeals from './Hotdeals'
-import SalesBanner from './SalesBanner'
+import FeaturedProducts from './FeaturedProducts'
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
       <Banner />
       <BBanner />
       <Hotdeals />
-      <SalesBanner />
+      <FeaturedProducts />
     </div>
   )
 }
