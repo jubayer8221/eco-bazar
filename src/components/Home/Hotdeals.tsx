@@ -120,7 +120,8 @@ const Hotdeals = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
         {
             hotDealsProduct.map(product => (
-                <HotdealsCart key={product.id} img={product.image} title={product.name} price={product.price} rating={product.rating} sale={product.sale} oldPrice={product.oldPrice} bestSale={product.bestSale} reviews={product.reviews} />
+                <HotdealsCart key={product.id} img={product.image} title={product.name} price={product.price} rating={product.rating} sale={product.sale ?? ""} oldPrice={product.oldPrice ?? ""} bestSale={product.bestSale} 
+                reviews={product.reviews ?? 0} />
             ))
         }
       </div>

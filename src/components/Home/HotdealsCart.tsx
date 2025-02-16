@@ -16,8 +16,8 @@ interface propsType {
   rating: number;
   sale: string;
   oldPrice: string;
-  bestSale: string;
-  reviews: number;
+  bestSale?: boolean;
+  reviews?: number;
 }
 
 const HotdealsCart: React.FC<propsType> = ({

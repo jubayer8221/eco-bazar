@@ -3,6 +3,7 @@ import Banner from './Banner'
 import BBanner from './BBanner'
 import Hotdeals from './Hotdeals'
 import FeaturedProducts from './FeaturedProducts'
+import FeadBack from './FeadBack'
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <BBanner />
       <Hotdeals />
       <FeaturedProducts />
+      <FeadBack />
     </div>
   )
 }

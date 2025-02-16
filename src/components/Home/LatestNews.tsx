@@ -10,8 +10,10 @@ const LatestNews = () => {
         </h2>
       </div>
       {/* cart  */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-5">
-        <LatestNewsCart />
+      <div className="w-full overflow-x-auto scrollbar-hiden">
+        <div className="flex gap-5 min-w-[1200px] px-4">
+          <LatestNewsCart />
+        </div>
       </div>
     </div>
   );
