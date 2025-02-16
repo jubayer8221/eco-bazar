@@ -37,9 +37,9 @@ const categoriesData = [
     image: "/image/lettuce.png",
   },
   { id: 12, price: "$50", name: "Oil", image: "/image/cabbage.png" },
-  { id: 5, price: "$22", name: "Eggplant", image: "/image/eggplant.png" },
-  { id: 13, price: "$40", name: "Dairy Products", image: "/image/corn.png" },
-  { id: 14, price: "$60", name: "Frozen Items", image: "/image/chili.png" },
+  { id: 13, price: "$22", name: "Eggplant", image: "/image/eggplant.png" },
+  { id: 14, price: "$40", name: "Dairy Products", image: "/image/corn.png" },
+  { id: 15, price: "$60", name: "Frozen Items", image: "/image/chili.png" },
 ];
 
 export default function PopularProductCard() {
@@ -57,7 +57,7 @@ export default function PopularProductCard() {
 
   return (
     <div>
-      <div className="container p-6 max-w-6xl mx-auto px-4 py-8">
+      <div className="container p-6 max-w-5xl mx-auto px-4 py-8">
         <div className="flex justify-between mx-8">
           <div>
             <h2 className="text-2xl font-bold mb-4">Popular Products</h2>

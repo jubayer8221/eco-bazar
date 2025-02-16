@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import ProductDescription from "@/components/ProductDetails/ProductDiscription";
-import styles from "@/styles/productDetails.module.css";
+
 import {
   FaFacebookF,
   FaTwitter,
@@ -14,12 +14,12 @@ import {
 import AddToCartButton from "./AddToCartButton";
 import RelatedProducts from "@/components/ProductDetails/RelatedProducts";
 
-const ProductPage = () => {
+const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1); // Initialize quantity to 1 or desired default
   const [activeTab, setActiveTab] = useState("Descriptions"); // Add state for activeTab
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="p-6 mx-auto font-poppins items-center pl-[300px] pr-[300px] pb-[40px] h-[506px] shadow-md">
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <Image
@@ -129,4 +129,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ProductDetails;
