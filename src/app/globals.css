@@ -3,4 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.scrollbar-hiden::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .scrollbar-hiden{
+    scrollbar-width: none;
+  }
