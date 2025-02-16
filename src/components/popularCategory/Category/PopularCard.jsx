@@ -1,8 +1,9 @@
+"use client";
 import React from "react";
 
 const PopularCard = ({ name, image }) => {
   return (
-    <div className="border rounded-lg shadow-md p-4 text-center hover:shadow-lg transition-all">
+    <div className="border rounded-lg shadow-md p-4 text-center hover:shadow-lg hover:border-green-600 hover:text-green-600 transition-all">
       <img
         src={image}
         alt={name}

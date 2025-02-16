@@ -17,7 +17,11 @@ interface propsType {
   sale: string;
   oldPrice: string;
   bestSale?: boolean;
+<<<<<<< HEAD
   reviews?: number;
+=======
+  reviews: number;
+>>>>>>> 795a3960f7d19d560008dac981a7296d5402a228
 }
 
 const HotdealsCart: React.FC<propsType> = ({
@@ -28,7 +32,7 @@ const HotdealsCart: React.FC<propsType> = ({
   sale,
   oldPrice,
   bestSale,
-  reviews
+  reviews,
 }) => {
   const [isHover, setIsHover] = useState(false);
   const generateRating = (rating: number) => {
@@ -141,32 +145,55 @@ const HotdealsCart: React.FC<propsType> = ({
       <div className="pb-3 bottom-0 mt-2">
         <h3 className="text-[14px] leading-[21px] text-[#4D4D4D]">{title}</h3>
         {isHover ? (
-          <p className="text-4 leading-6 font-medium">{price} <del className="text-[#808080] text-4">{oldPrice}</del> <span className="text-[12px] text-[#808080] leading-4">({reviews} Feedback)</span></p>
+          <p className="text-4 leading-6 font-medium">
+            {price} <del className="text-[#808080] text-4">{oldPrice}</del>{" "}
+            <span className="text-[12px] text-[#808080] leading-4">
+              ({reviews} Feedback)
+            </span>
+          </p>
         ) : (
           <div className="flex items-center justify-between">
-            <p className="text-4 leading-6 font-medium">{price} <del className="text-[#808080] text-4">{oldPrice}</del></p>
+            <p className="text-4 leading-6 font-medium">
+              {price} <del className="text-[#808080] text-4">{oldPrice}</del>
+            </p>
             <div className="bg-[#F2F2F2] w-6 h-6 rounded-full p-1 flex items-center justify-center">
               <HiOutlineShoppingBag className="" />
             </div>
           </div>
         )}
-        <div className={`mt-2 ${isHover ? "flex items-center justify-center" : ""}`}>{generateRating(rating)}</div>
+        <div
+          className={`mt-2 ${
+            isHover ? "flex items-center justify-center" : ""
+          }`}
+        >
+          {generateRating(rating)}
+        </div>
 
-        {
-            isHover ? (
-                <div>
-                    <p className="text-[12px] text-[#808080] leading-4 mt-2">Hurry up! Offer ends In:</p>
-                    <div className="flex justify-center gap-4 mt-2">
-                        <div className="text-[18px] font-medium flex flex-col items-center justify-center">01 <span className="text-[10px] text-[#999999]">DAYS</span></div>
-                        <div className="text-[18px] font-medium flex flex-col items-center justify-center">23 <span className="text-[10px] text-[#999999]">HOURS</span></div>
-                        <div className="text-[#808080]">:</div>
-                        <div className="text-[18px] font-medium flex flex-col items-center justify-center">34 <span className="text-[10px] text-[#999999]">MINS</span></div>
-                        <div className="text-[#808080]">:</div>
-                        <div className="text-[18px] font-medium flex flex-col items-center justify-center">57 <span className="text-[10px] text-[#999999]">SECS</span></div>
-                    </div>
-                </div>
-            ) : ""
-        }
+        {isHover ? (
+          <div>
+            <p className="text-[12px] text-[#808080] leading-4 mt-2">
+              Hurry up! Offer ends In:
+            </p>
+            <div className="flex justify-center gap-4 mt-2">
+              <div className="text-[18px] font-medium flex flex-col items-center justify-center">
+                01 <span className="text-[10px] text-[#999999]">DAYS</span>
+              </div>
+              <div className="text-[18px] font-medium flex flex-col items-center justify-center">
+                23 <span className="text-[10px] text-[#999999]">HOURS</span>
+              </div>
+              <div className="text-[#808080]">:</div>
+              <div className="text-[18px] font-medium flex flex-col items-center justify-center">
+                34 <span className="text-[10px] text-[#999999]">MINS</span>
+              </div>
+              <div className="text-[#808080]">:</div>
+              <div className="text-[18px] font-medium flex flex-col items-center justify-center">
+                57 <span className="text-[10px] text-[#999999]">SECS</span>
+              </div>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
