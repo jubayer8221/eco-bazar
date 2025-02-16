@@ -31,7 +31,7 @@ export default function PopularCategories() {
   }, []);
 
   return (
-    <div className="container p-6 max-w-6xl mx-auto px-4 py-8">
+    <div className="container p-6 max-w-5xl mx-auto px-4 py-8">
       <div className="flex justify-between mx-8">
         <div>
           <h2 className="text-2xl font-bold mb-4">Popular Categories</h2>

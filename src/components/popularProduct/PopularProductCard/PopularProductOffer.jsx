@@ -31,10 +31,10 @@ const products = [
 // ProductCard Component (Modified to use Image as background)
 const ProductCard = ({ product, index }) => {
   return (
-    <div className="h-[1220] w-[536]">
+    <div className="max-w-5xl h-[1220] w-[536]">
       <div
         key={index}
-        className={`  rounded-xl w-[335px] relative overflow-hidden h-[436px]`} // Removed background color, added overflow-hidden
+        className={`  rounded-xl w-[300px] relative overflow-hidden h-[436px]`} // Removed background color, added overflow-hidden
       >
         <div className="justify-center absolute inset-0">
           {/* Image as background, fills container */}

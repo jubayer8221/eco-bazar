@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import HotdealsCart from "./HotdealsCart";
+import HotdealsCart from "@/components/Home/HotdealsCart";
 
 const hotDealsProduct = [
   {

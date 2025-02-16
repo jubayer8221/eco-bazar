@@ -19,7 +19,7 @@ const ProductDetails = () => {
   const [activeTab, setActiveTab] = useState("Descriptions"); // Add state for activeTab
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
+    <div className="p-6 mx-auto font-poppins items-center pl-[300px] pr-[300px] pb-[40px] h-[506px] shadow-md">
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <Image
