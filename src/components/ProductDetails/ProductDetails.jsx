@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import ProductDescription from "@/components/ProductDetails/ProductDiscription";
-import styles from "@/styles/productDetails.module.css";
+
 import {
   FaFacebookF,
   FaTwitter,
@@ -14,7 +14,7 @@ import {
 import AddToCartButton from "./AddToCartButton";
 import RelatedProducts from "@/components/ProductDetails/RelatedProducts";
 
-const ProductPage = () => {
+const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1); // Initialize quantity to 1 or desired default
   const [activeTab, setActiveTab] = useState("Descriptions"); // Add state for activeTab
 
@@ -129,4 +129,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ProductDetails;

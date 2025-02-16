@@ -16,7 +16,7 @@ interface propsType {
   rating: number;
   sale: string;
   oldPrice: string;
-  bestSale: string;
+  bestSale?: boolean;
   reviews: number;
 }
 
