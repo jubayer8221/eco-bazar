@@ -2,6 +2,7 @@
 import React from 'react'
 import { IoStar } from "react-icons/io5";
 import { CiStar } from "react-icons/ci";
+import Image from 'next/image';
 
 interface propsType {
     img: string;
@@ -72,18 +73,18 @@ const FeadBackCart: React.FC<propsType> = ({img, name, review, rating, role}) =>
     }
   return (
     <div>
-      <div className=''>
-        <h1>"</h1>
+      <div className='bg-[#FFFFFF] p-3 w-[295px] rounded-md'>
+        <h1 className='text-[#00B207] text-[32px] opacity-30'>"</h1>
         {/* review  */}
-        <p>{review}</p>
+        <p className='text-[#848484] text-[14px] leading-5 font-normal'>{review}</p>
 
         {/* info */}
-        <div>
-            <div>
-                <div>{img}</div>
+        <div className='flex items-center justify-between'>
+            <div className='flex items-center '>
+                <div className='w-[56px] h-[56px] rounded-full flex items-center'><Image src={img} alt='' width={40} height={40} /></div>
                 <div>
-                    <h5>{name}</h5>
-                    <p>{role}</p>
+                    <h5 className='text-[16px] font-medium leading-6'>{name}</h5>
+                    <p className='text-[14px] leading-5 font-normal text-[#999999]'>{role}</p>
                 </div>
             </div>
             <div className=''>{generateRating(rating)}</div>

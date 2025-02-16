@@ -4,6 +4,7 @@ import BBanner from './BBanner'
 import Hotdeals from './Hotdeals'
 import FeaturedProducts from './FeaturedProducts'
 import FeadBack from './FeadBack'
+import Blog from './Blog'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Hotdeals />
       <FeaturedProducts />
       <FeadBack />
+      <Blog />
     </div>
   )
 }
