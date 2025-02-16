@@ -87,46 +87,28 @@
   line-height: 21px;
   letter-spacing: 0%;
 }
-.footer_container > div:last-child > div {
-  display: flex;
-  align-items: center; /* Vertically align payment icons */
-}
-
-.footer_container > div:last-child > div img {
-  margin-left: 0.5rem; /* Spacing between payment icons */
-  margin-bottom: 0; /* Reset margin bottom for icons */
-  height: auto; /* Adjust icon height if needed */
-  width: auto; /* Adjust icon width if needed */
-  max-height: 20px;
-}
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .footer_container {
-    flex-direction: column; /* Stack columns vertically on smaller screens */
-    align-items: flex-start; /* Align columns to the start on smaller screens */
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .footer_container > div {
-    width: 100% !important; /* Make columns full width on smaller screens */
+    width: 100% !important;
     min-width: auto; /* Reset min-width */
     text-align: left; /* Align text to left in columns */
   }
 
   .footer_container > div:last-child {
     flex-direction: column; /* Stack copyright and icons vertically */
-    align-items: flex-start; /* Align to start on smaller screens */
-    text-align: left; /* Align copyright text left */
-  }
-
-  .footer_container > div:last-child > div {
-    margin-top: 1rem; /* Add space above payment icons when stacked */
-    justify-content: flex-start; /* Align payment icons to start */
-    flex-wrap: wrap; /* Allow icons to wrap if needed */
+    align-items: flex-start;
+    text-align: left;
   }
 
   .footer_container > div:last-child > div img {
-    margin-right: 0.5rem; /* Add right margin for wrapped icons */
-    margin-left: 0; /* Reset left margin */
+    margin-right: 0.5rem;
+    margin-left: 0;
   }
 }

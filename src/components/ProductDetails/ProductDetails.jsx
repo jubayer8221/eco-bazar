@@ -10,6 +10,7 @@ import {
   FaPinterest,
   FaInstagram,
 } from "react-icons/fa";
+
 import AddToCartButton from "./AddToCartButton";
 import RelatedProducts from "@/components/ProductDetails/RelatedProducts";
 
@@ -32,30 +33,47 @@ const ProductPage = () => {
 
         {/* Details Section */}
         <div>
-          <h1 className="text-3xl font-bold">Chinese Cabbage</h1>
-          <p className="text-green-600 font-medium">In Stock</p>
-          <div className="flex items-center mt-2 text-orange-500">
-            ⭐⭐⭐⭐
-            <span className="ml-2 text-gray-600">4 Reviews</span>
+          <div className="flex">
+            <h1 className="text-5xl font-bold">Chinese Cabbage</h1>
+            <p className="text-green-600 font-normal bg-[#20B52633] rounded w-20 h-6 text-center">
+              In Stock
+            </p>
           </div>
+          <div className="flex items-center gap-10 ">
+            <div className="flex items-center my-2 py-2">
+              ⭐⭐⭐⭐
+              <span className="ml-2 text-gray-600">4 Reviews</span>
+            </div>
+            <div className="item-center my-2 py-2">
+              <p className=" font-semibold">
+                SKU <span className="font-light">2,51,594</span>
+              </p>
+            </div>
+          </div>
+
           <div className="text-xl font-semibold mt-2">
             <span className="line-through text-gray-500">$48.00</span>
             <span className="text-red-500 ml-2">$17.28</span>
-            <span className="text-sm text-red-600 ml-2">64% Off</span>
+            <span className="bg-red-100 rounded font-normal text-red-600 ml-2 text-sm">
+              64% Off
+            </span>
           </div>
 
           <div>
-            <div className="flex justify-between">
-              <div className="flex">
-                <h1>Brand</h1>
-                <img src="/logo.png" alt="" />
+            <div className="flex justify-between py-5">
+              <div className="flex gap-3 items-center">
+                <h1 className="center">Brand</h1>
+                <img src="/image/brand.png" alt="" />
               </div>
-              <div className="flex">
+              <div className="flex gap-4 items-center">
                 <h1>Share item</h1>
-                <img src="/Mastercard.png" alt="" />
-                <img src="/vis-logo.png" alt="" />
-                <img src="/secure-payment.png" alt="" />
-                <img src="/ApplePay.png" alt="" />
+                <FaFacebookF
+                  className=" border rounded-full text-white border-green-600 w-9 h-9 p-2  bg-[#00B207]
+]"
+                />
+                <FaTwitter className=" w-9 h-9 p-2" />
+                <FaPinterest className=" w-9 h-9 p-2" />
+                <FaInstagram className=" w-9 h-9 p-2" />
               </div>
             </div>
             <p>
@@ -90,6 +108,17 @@ const ProductPage = () => {
 
             <button className=" mt-4 ml-4 p-2 border rounded-full">❤</button>
           </div>
+          <ul className=" my-5">
+            <li className=" font-bold">
+              Catagory: <span className="font-light">Vegetables</span>
+            </li>
+            <li className=" font-bold">
+              Tag:
+              <span className=" font-light px-1">
+                Vegetables Healthy Chinese Cabbage Green Cabbage
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
       <ProductDescription></ProductDescription>
