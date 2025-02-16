@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import styles from "@/styles/footer/footer.module.css";
@@ -12,7 +10,14 @@ export default function FooterPage() {
         <div className="footer_logo_desc">
           {/* You can add a class here if needed, or leave as is */}
           <div className="flex gap-2">
-            <img src="/image/logo.png" alt="Ecobazar Logo" />
+            <Image
+              className="w-10 h-8"
+              src="/icons/logo.png"
+              alt="Payment Methods"
+              width={30}
+              height={20}
+            />
+            {/* <img src="/image/logo.png" alt="Ecobazar Logo" /> */}
             <h1>Ecobazar</h1>
           </div>
           <p className="text-justify">
