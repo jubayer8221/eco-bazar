@@ -129,7 +129,7 @@ const Hotdeals = () => {
             rating={product.rating}
             sale={product.sale ?? ""}
             oldPrice={product.oldPrice ?? ""}
-            bestSale={product.bestSale ?? "false"}
+            bestSale={product.bestSale}
             reviews={product.reviews ?? 0}
           />
         ))}
