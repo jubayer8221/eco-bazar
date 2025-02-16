@@ -1,3 +1,4 @@
+import React from "react";
 import Home from "@/components/home/Home";
 // import ProductDetails from "@/components/ProductDetails/ProductDetails";
 import PopularCategories from "@/components/popularCategory/page";
