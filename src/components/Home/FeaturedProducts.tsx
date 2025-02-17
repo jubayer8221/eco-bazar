@@ -10,10 +10,7 @@ const FeaturedProduct = [
       oldPrice: "$24.00",
       image: "/images/hot1.png",
       sale: "50%",
-      bestSale: true,
       rating: 5,
-      reviews: 524,
-      featured: true,
     },
     {
       id: 2,
@@ -63,7 +60,7 @@ const FeaturedProducts = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
             {
                 FeaturedProduct.map((product)=> (
-                    <FeaturedProductCart key={product.id} title={product.name} img={product.image} sale={product.sale ?? "0%"} price={product.price} rating={product.rating} oldPrice={product.oldPrice ?? "0"} reviews={0} />
+                    <FeaturedProductCart key={product.id} title={product.name} img={product.image} sale={product.sale ?? ""} price={product.price} rating={product.rating} oldPrice={product.oldPrice?? ""} />
                 ))
             }
           </div>
