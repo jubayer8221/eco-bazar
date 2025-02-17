@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import FolowInstagram from './FolowInstagram'
 
 const Blog = () => {
   return (
@@ -17,12 +16,6 @@ const Blog = () => {
               
             </React.Fragment>
           ))}
-        </div>
-        {/* Follow us on instagram  */}
-        <div className='w-full overflow-x-auto scrollbar-hiden'>
-          <div className=''>
-            <FolowInstagram />
-          </div>
         </div>
       </div>
     </div>

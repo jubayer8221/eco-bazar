@@ -8,6 +8,7 @@ import Blog from './Blog'
 import PopularCategories from '../popularCategory/page'
 import PopularProductCard from '../popularProduct/page'
 import SalesBanner from './SalesBanner'
+import FolowInstagram from './FolowInstagram'
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       <FeaturedProducts />
       <FeadBack />
       <Blog />
+      <FolowInstagram />
     </div>
   );
 };

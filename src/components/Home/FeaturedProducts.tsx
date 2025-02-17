@@ -47,7 +47,7 @@ const FeaturedProduct = [
 
 const FeaturedProducts = () => {
     return (
-        <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 font-poppins">
+        <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[140px] md:pr[140px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 font-poppins">
           <div className="mb-8 flex items-center justify-between">
             <h2 className="text-[20px] xl:text-[32px] font-semibold leading-9 text-[#1A1A1A]">
               Featured Products

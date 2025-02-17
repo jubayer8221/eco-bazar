@@ -5,15 +5,27 @@ import { CiUser } from "react-icons/ci";
 import { VscComment } from "react-icons/vsc";
 
 const LatestNewsCart = () => {
-  const [isHover, setIsHover] = useState(false);
+  const [isHover, setIsHover] = useState([false, false]);
+
+  const handleMouseEnter = (index: number) =>{
+    const updateState = [...isHover];
+    updateState[index] = true;
+    setIsHover(updateState);
+  }
+  const handleMouseLeave = (index: number) =>{
+    const updateState = [...isHover];
+    updateState[index] = false;
+    setIsHover(updateState);
+  }
+
   return (
     <>
-      <div className="flex gap-x-5">
+      <div className="flex gap-x-5 cursor-pointer">
         {/* cart  */}
         <div
           className="w-[290px] border border-[#E6E6E6] rounded-[8px]"
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
+          onMouseEnter={() => handleMouseEnter(0)}
+          onMouseLeave={() => handleMouseLeave(0)}
         >
           {/* image */}
           <div className="">
@@ -40,7 +52,7 @@ const LatestNewsCart = () => {
                 </h6>
               </div>
             </div>
-            {isHover ? (
+            {isHover[0] ? (
               <h3 className="mt-2 text-[18px] text-[#2C742F] font-medium leading-[25px]">
                 Curabitur porttitor orci eget neque accumsan venenatis. Nunc
                 fermentum.
@@ -58,8 +70,8 @@ const LatestNewsCart = () => {
         </div>
         <div
           className="w-[290px] border border-[#E6E6E6] rounded-[8px]"
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
+          onMouseEnter={() => handleMouseEnter(1)}
+          onMouseLeave={() => handleMouseLeave(1)}
         >
           {/* image */}
           <div className="">
@@ -86,7 +98,7 @@ const LatestNewsCart = () => {
                 </h6>
               </div>
             </div>
-            {isHover ? (
+            {isHover[1] ? (
               <h3 className="mt-2 text-[18px] text-[#2C742F] font-medium leading-[25px]">
                 Curabitur porttitor orci eget neque accumsan venenatis. Nunc
                 fermentum.
@@ -104,8 +116,8 @@ const LatestNewsCart = () => {
         </div>
         <div
           className="w-[290px] border border-[#E6E6E6] rounded-[8px]"
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
+          onMouseEnter={() => handleMouseEnter(2)}
+          onMouseLeave={() => handleMouseLeave(2)}
         >
           {/* image */}
           <div className="">
@@ -132,7 +144,7 @@ const LatestNewsCart = () => {
                 </h6>
               </div>
             </div>
-            {isHover ? (
+            {isHover[2] ? (
               <h3 className="mt-2 text-[18px] text-[#2C742F] font-medium leading-[25px]">
                 Curabitur porttitor orci eget neque accumsan venenatis. Nunc
                 fermentum.
@@ -150,8 +162,8 @@ const LatestNewsCart = () => {
         </div>
         <div
           className="w-[290px] border border-[#E6E6E6] rounded-[8px]"
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
+          onMouseEnter={() => handleMouseEnter(3)}
+          onMouseLeave={() => handleMouseLeave(3)}
         >
           {/* image */}
           <div className="">
@@ -178,7 +190,7 @@ const LatestNewsCart = () => {
                 </h6>
               </div>
             </div>
-            {isHover ? (
+            {isHover[3] ? (
               <h3 className="mt-2 text-[18px] text-[#2C742F] font-medium leading-[25px]">
                 Curabitur porttitor orci eget neque accumsan venenatis. Nunc
                 fermentum.
@@ -196,8 +208,8 @@ const LatestNewsCart = () => {
         </div>
         <div
           className="w-[290px] border border-[#E6E6E6] rounded-[8px]"
-          onMouseEnter={() => setIsHover(true)}
-          onMouseLeave={() => setIsHover(false)}
+          onMouseEnter={() => handleMouseEnter(4)}
+          onMouseLeave={() => handleMouseLeave(4)}
         >
           {/* image */}
           <div className="">
@@ -224,7 +236,7 @@ const LatestNewsCart = () => {
                 </h6>
               </div>
             </div>
-            {isHover ? (
+            {isHover[4] ? (
               <h3 className="mt-2 text-[18px] text-[#2C742F] font-medium leading-[25px]">
                 Curabitur porttitor orci eget neque accumsan venenatis. Nunc
                 fermentum.
