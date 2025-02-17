@@ -14,7 +14,7 @@ interface propsType {
   title: string;
   price: string;
   rating: number;
-  sale: string;
+  sale?: string;
   oldPrice: string;
   bestSale?: boolean;
   reviews: number;

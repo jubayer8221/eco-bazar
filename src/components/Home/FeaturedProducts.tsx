@@ -1,6 +1,6 @@
 import React from 'react'
-import FeaturedProductCart from './FeaturedProductCart';
 import LatestNews from './LatestNews';
+import FeaturedProductCart from './FeaturedProductCart';
 
 const FeaturedProduct = [
     {
@@ -63,7 +63,7 @@ const FeaturedProducts = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
             {
                 FeaturedProduct.map((product)=> (
-                    <FeaturedProductCart key={product.id} title={product.name} img={product.image} sale={product.sale} price={product.price} oldPrice={product.oldPrice} rating={product.rating} />
+                    <FeaturedProductCart key={product.id} title={product.name} img={product.image} sale={product.sale ?? "0%"} price={product.price} rating={product.rating} oldPrice={product.oldPrice ?? "0"} reviews={0} />
                 ))
             }
           </div>

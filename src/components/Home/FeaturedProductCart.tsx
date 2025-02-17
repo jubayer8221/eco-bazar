@@ -7,16 +7,14 @@ import { CiStar } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { BsEye } from "react-icons/bs";
 
-import Link from "next/link";
 
 interface propsType {
   img: string;
   title: string;
   price: string;
   rating: number;
-  sale: string;
-  oldPrice: string;
-  bestSale: string;
+  sale?: string;
+  oldPrice?: string;
   reviews: number;
 }
 
