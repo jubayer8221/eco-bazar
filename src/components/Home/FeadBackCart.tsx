@@ -74,7 +74,7 @@ const FeadBackCart: React.FC<propsType> = ({img, name, review, rating, role}) =>
   return (
     <div>
       <div className='bg-[#FFFFFF] p-3 w-[295px] rounded-md'>
-        <h1 className='text-[#00B207] text-[32px] opacity-30'>"</h1>
+        <h1 className='text-[#00B207] text-[32px] opacity-30'>&quot;</h1>
         {/* review  */}
         <p className='text-[#848484] text-[14px] leading-5 font-normal'>{review}</p>
 

@@ -124,7 +124,7 @@ const Hotdeals = () => {
 
         {
             hotDealsProduct.map(product => (
-                <HotdealsCart key={product.id} img={product.image} title={product.name} price={product.price} rating={product.rating} sale={product.sale ?? ""} oldPrice={product.oldPrice ?? ""} bestSale={product.bestSale} 
+                <HotdealsCart key={product.id} img={product.image} title={product.name} price={product.price} rating={product.rating} sale={product.sale ?? "0%"} oldPrice={product.oldPrice ?? ""} bestSale={product.bestSale} 
                 reviews={product.reviews ?? 0} />
             ))
         }
