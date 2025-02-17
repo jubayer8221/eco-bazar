@@ -19,7 +19,7 @@
 }
 
 .footer_container > div {
-  margin-bottom: 2rem; /* Spacing between column groups */
+  margin-bottom: 5rem; /* Spacing between column groups */
 }
 
 .footer_container > div:first-child {
@@ -31,12 +31,7 @@
   width: 15%;
   min-width: 120px;
 }
-.footer_container > div:last-child {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .footer_container img {
   margin-bottom: 1rem; /* Space below logo image */
   max-width: 100%; /* Ensure logo image is responsive */
