@@ -7,15 +7,13 @@ import { CiStar } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { BsEye } from "react-icons/bs";
 
-
 interface propsType {
   img: string;
   title: string;
   price: string;
+  oldPrice: string;
   rating: number;
   sale?: string;
-  oldPrice?: string;
-  reviews: number;
 }
 
 const FeaturedProductCart: React.FC<propsType> = ({
