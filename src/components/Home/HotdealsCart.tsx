@@ -17,11 +17,7 @@ interface propsType {
   sale: string;
   oldPrice: string;
   bestSale?: boolean;
-<<<<<<< HEAD
-  reviews?: number;
-=======
   reviews: number;
->>>>>>> 795a3960f7d19d560008dac981a7296d5402a228
 }
 
 const HotdealsCart: React.FC<propsType> = ({
