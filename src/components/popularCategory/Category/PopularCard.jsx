@@ -7,9 +7,9 @@ const PopularCard = ({ name, image }) => {
       <img
         src={image}
         alt={name}
-        className="w-full h-32 object-contain mx-auto"
+        className="w-full h-24 object-contain mx-auto"
       />
-      <p className="mt-2 font-semibold">{name}</p>
+      <p className="mt-1 font-semibold">{name}</p>
     </div>
   );
 };

@@ -16,7 +16,7 @@ function AddCartBtn() {
   return (
     <div>
       <button
-        className="text-white font-medium py-1 px-3 md:py-2 md:px-4 rounded-lg transition duration-300 text-xs md:text-sm bg-green-500 hover:bg-green-600"
+        className="text-white items-center font-medium py-1 px-3 md:py-2 md:px-4 rounded-lg transition duration-300 text-xs md:text-sm bg-green-500 hover:bg-green-600"
         onClick={handleButtonClick}
       >
         Add to Cart
