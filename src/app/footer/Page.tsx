@@ -26,7 +26,7 @@ export default function FooterPage() {
           </p>
           <div className="flex my-5">
             <p className="font-semibold">
-              <a href="tel:+[(219) 555-0114]">+(219) 555-0114</a>
+              <a href="tel:+[(219) 555-0114]">+(219)555-0114</a>
             </p>
             <p className=" text-gray-300 mx-5">or</p>
             <p>
