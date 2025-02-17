@@ -8,7 +8,7 @@ const LatestNewsCart = () => {
   const [isHover, setIsHover] = useState(false);
   return (
     <>
-      <div className="flex gap-5">
+      <div className="flex gap-x-5">
         {/* cart  */}
         <div
           className="w-[290px] border border-[#E6E6E6] rounded-[8px]"

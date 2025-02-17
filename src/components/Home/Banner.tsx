@@ -26,13 +26,13 @@ const Banner = () => {
             Shop now →
           </button>
         </div>
-        <div className="absolute bottom-0 right-[-10%] md:right-[-5%]">
+        <div className="absolute bottom-0 right-[-10%] md:right-[-5%] xl:right-[-18%]">
           <Image
             src="/images/bimage.png"
             alt="Organic Food"
             width={350}
             height={350}
-            className="w-[250px] md:w-[350px] h-auto"
+            className="w-[250px] md:w-[350px] xl:w-[450px] h-auto"
           />
         </div>
       </div>

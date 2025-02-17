@@ -11,7 +11,7 @@ const LatestNews = () => {
       </div>
       {/* cart  */}
       <div className="w-full overflow-x-auto scrollbar-hiden">
-        <div className="flex gap-5 min-w-[1200px] px-4">
+        <div className="flex gap-5 min-w-[1200px]">
           <LatestNewsCart />
         </div>
       </div>
