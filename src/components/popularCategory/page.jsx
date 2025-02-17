@@ -34,13 +34,15 @@ export default function PopularCategories() {
     <div className="container p-6 max-w-5xl mx-auto px-4 py-8">
       <div className="flex justify-between mx-8">
         <div>
-          <h2 className="text-2xl font-bold mb-4">Popular Categories</h2>
+          <h2 className="text-2xl sm:text-xl font-bold sm:font-normal mb-4">
+            Popular Categories
+          </h2>
         </div>
         <div>
           {categoriesData.length > 12 && (
             <button
               onClick={() => setShowAll(!showAll)}
-              className="text-[#00B207] text-[16px] leading-6 font-medium"
+              className="text-[#00B207] text-[16px] leading-6 font-medium sm:text-xs"
             >
               {showAll ? "Show Less ←" : "View All →"}
             </button>
@@ -49,7 +51,7 @@ export default function PopularCategories() {
       </div>
 
       {/* Category Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 m-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 m-6">
         {(showAll ? categoriesData : categoriesData.slice(0, 12)).map(
           (category) => (
             <CategoryCard
