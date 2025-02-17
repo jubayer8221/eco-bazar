@@ -41,57 +41,66 @@ export default function WishList() {
   };
 
   return (
-    <div className=" font-poppins items-center pl-[300px] pr-[300px] pb-[40px] h-[506px] border border-gray-200 rounded-[8px] bg-white shadow-md p-8">
-      <h2 className="items-center text-2xl font-bold text-center mb-6">
+    <div className="font-poppins max-w-full mx-auto px-3 md:px-8 lg:px-[200px] py-4 border border-gray-200 rounded-lg bg-white shadow-md">
+      <h2 className="text-xl md:text-2xl font-bold text-center mb-4">
         My Wishlist
       </h2>
-      <div className="items-center">
-        <table className="w-full border border-gray-200 rounded-lg">
+
+      <div className="overflow-x-auto">
+        <table className="w-full border border-gray-200 rounded-lg text-xs md:text-sm">
           <thead>
-            <tr className="bg-gray-100 text-left text-gray-600 uppercase text-sm">
-              <th className="p-4">Product</th>
-              <th className="p-4">Price</th>
-              <th className="p-4">Stock Status</th>
-              <th className="p-4">Action</th>
+            <tr className="bg-gray-100 text-left text-gray-600 uppercase">
+              <th className="p-2 md:p-3">Product</th>
+              <th className="p-2 md:p-3">Stock Status</th>
+              <th className="p-2 md:p-3">Action</th>
             </tr>
           </thead>
           <tbody>
             {wishlist.map((item) => (
               <tr key={item.id} className="border-t border-gray-200">
-                <td className="p-4 flex items-center space-x-4">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={50}
-                    height={50}
-                    className="rounded-md"
-                  />
-                  <span className="text-gray-800">{item.name}</span>
+                {/* For small devices, image, name, and price in a row */}
+                <td className="p-2 md:p-3 flex flex-col md:flex-row md:items-center md:space-x-4">
+                  <div className="flex items-center space-x-2 md:space-x-0">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      width={40}
+                      height={40}
+                      className="rounded-md"
+                    />
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
+                      <span className="text-gray-800 text-xs md:text-sm">
+                        {item.name}
+                      </span>
+                      <span className="font-semibold text-gray-800 text-xs md:text-sm">
+                        ${item.price.toFixed(2)}
+                      </span>
+                      {item.oldPrice && (
+                        <span className="text-gray-400 line-through text-[10px] md:text-xs">
+                          ${item.oldPrice.toFixed(2)}
+                        </span>
+                      )}
+                    </div>
+                  </div>
                 </td>
-                <td className="p-4">
-                  <span className="text-normal font-semibold text-gray-800">
-                    ${item.price.toFixed(2)}
-                  </span>
-                  {item.oldPrice && (
-                    <span className="text-gray-400 line-through ml-2">
-                      ${item.oldPrice.toFixed(2)}
-                    </span>
-                  )}
-                </td>
-                <td className="p-4">
+
+                {/* Stock Status */}
+                <td className="p-2 md:p-3">
                   {item.stock ? (
-                    <span className="bg-green-100 text-green-600 text-xs font-semibold px-3 py-1 rounded-full">
+                    <span className="bg-green-100 text-green-600 text-[10px] md:text-xs font-semibold px-2 py-1 rounded-full">
                       In Stock
                     </span>
                   ) : (
-                    <span className="bg-red-100 text-red-600 text-xs font-semibold px-3 py-1 rounded-full">
+                    <span className="bg-red-100 text-red-600 text-[10px] md:text-xs font-semibold px-2 py-1 rounded-full">
                       Out of Stock
                     </span>
                   )}
                 </td>
-                <td className="p-4 flex items-center space-x-4">
+
+                {/* Action Buttons */}
+                <td className="p-2 md:p-3 flex flex-wrap items-center space-x-2">
                   <button
-                    className={`text-white font-medium py-2 px-4 rounded-lg transition duration-300 ${
+                    className={`text-white font-medium py-1 px-2 md:px-3 rounded-lg transition duration-300 text-[10px] md:text-xs ${
                       item.stock
                         ? "bg-green-500 hover:bg-green-600"
                         : "bg-gray-300 cursor-not-allowed"
@@ -102,7 +111,7 @@ export default function WishList() {
                   </button>
                   <button
                     onClick={() => removeFromWishlist(item.id)}
-                    className="text-gray-500 hover:text-red-500 text-lg items-center"
+                    className="text-gray-500 hover:text-red-500 text-sm md:text-base"
                   >
                     ✖
                   </button>
@@ -114,12 +123,14 @@ export default function WishList() {
       </div>
 
       {/* Social Share */}
-      <div className="flex items-center space-x-4 mt-6">
-        <span className="text-gray-600 font-medium">Share:</span>
-        <FaFacebookF className="text-white text-lg cursor-pointer bg-green-500 rounded-full" />
-        <FaTwitter className="text-gray-500 text-lg cursor-pointer" />
-        <FaPinterestP className="text-gray-500 text-lg cursor-pointer" />
-        <FaInstagram className="text-gray-500 text-lg cursor-pointer" />
+      <div className="flex flex-wrap items-center justify-center space-x-2 md:space-x-3 mt-4">
+        <span className="text-gray-600 font-medium text-xs md:text-sm">
+          Share:
+        </span>
+        <FaFacebookF className="text-white text-[10px] md:text-xs cursor-pointer bg-green-500 rounded-full p-1" />
+        <FaTwitter className="text-gray-500 text-[10px] md:text-xs cursor-pointer" />
+        <FaPinterestP className="text-gray-500 text-[10px] md:text-xs cursor-pointer" />
+        <FaInstagram className="text-gray-500 text-[10px] md:text-xs cursor-pointer" />
       </div>
     </div>
   );
