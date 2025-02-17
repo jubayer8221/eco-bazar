@@ -7,8 +7,8 @@ import Image from 'next/image';
 
 const BBanner = () => {
   return (
-    <div className='pl-[300px] pr-[300px] font-poppins mt-5'>
-      <div className='bg-white drop-shadow-[0_4px_6px_rgba(0,38,3,0.08)] p-4 flex items-center justify-center gap-2'>
+    <div className='pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[140px] md:pr-[140px] xl:pl-[300px] xl:pr-[300px] xl:h-[500px] font-poppins gap-4 mt-5'>
+      <div className='bg-white drop-shadow-[0_4px_6px_rgba(0,38,3,0.08)] p-4 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 items-center justify-center gap-2'>
         {/* free shipping  */}
         <div className='flex items-center gap-3'>
             <LiaShippingFastSolid className='text-[#00B207] w-10 h-7' />
