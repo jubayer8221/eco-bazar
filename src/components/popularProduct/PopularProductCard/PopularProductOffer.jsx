@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const products = [
@@ -28,57 +28,144 @@ const products = [
   },
 ];
 
-// ProductCard Component (Modified to use Image as background)
+// ProductCard Component
 const ProductCard = ({ product, index }) => {
-  return (
-    <div className="max-w-5xl h-[1220] w-[536]">
-      <div
-        key={index}
-        className={`  rounded-xl w-[300px] relative overflow-hidden h-[436px]`} // Removed background color, added overflow-hidden
-      >
-        <div className="justify-center absolute inset-0">
-          {/* Image as background, fills container */}
-          <Image
-            src={product.image}
-            alt={product.title}
-            fill
-            sizes="100%"
-            className="object-cover object-center rounded-xl" // Rounded corners for the image too
-          />
-        </div>
+  const textColor = index === 2 ? "text-black" : "text-white";
 
-        <div className=" text-center p-6 relative z-10 text-white">
-          <h3 className="text-sm uppercase font-semibold">
-            {product.subtitle}
-          </h3>
-          <h2 className="text-2xl font-bold">{product.title}</h2>
-          {product.date && (
-            <p className="font-poppins text-lg w-[290]">{product.date}</p>
-          )}
-          {product.datetext && (
-            <p className="text-xs  font-poppins">{product.datetext}</p>
-          )}
-          {product.price && (
-            <p className="text-lg font-bold text-yellow-300">
-              Started at {product.price}
-            </p>
-          )}
-          <button className="justify-center mt-4 bg-white font-semibold text-[#00B207] px-4 py-2 rounded-full">
-            {product.buttonText} →
-          </button>
-        </div>
+  return (
+    <div className="w-full h-[436px] rounded-xl relative overflow-hidden">
+      {/* Image as background, fills container */}
+      <Image
+        src={product.image}
+        alt={product.title}
+        fill
+        sizes="100%"
+        className="object-cover object-center rounded-xl"
+      />
+
+      {/* Content */}
+      <div
+        className={`absolute inset-0 flex flex-col text-center p-6 ${textColor}`}
+      >
+        <h2 className="text-sm uppercase font-semibold">{product.subtitle}</h2>
+        <h2 className="text-2xl font-bold">{product.title}</h2>
+        {product.date && <p className="font-poppins text-lg">{product.date}</p>}
+        {product.datetext && (
+          <p className="text-xs font-poppins">{product.datetext}</p>
+        )}
+        {product.price && (
+          <p className="text-lg font-bold text-orange-600">
+            <span className={textColor}>Started at</span> {product.price}
+          </p>
+        )}
+        {product.discount && (
+          <p className="text-lg font-bold text-orange-600">
+            <span className={textColor}>Up to</span>{" "}
+            <span className="bg-black font-poppins text-sm rounded p-1">
+              {" "}
+              {product.discount}
+            </span>
+          </p>
+        )}
+        <button className="mt-4 bg-white font-semibold text-[#00B207] px-4 py-2 rounded-full">
+          {product.buttonText} →
+        </button>
       </div>
     </div>
   );
 };
 
-// PopularProductOffer Component (No changes needed here)
+// PopularProductOffer Component
 export default function PopularProductOffer() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Function to go to previous image
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? products.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Function to go to next image
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === products.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  // Auto-slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToNext();
+    }, 5000);
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+
   return (
-    <div className="flex justify-center items-center space-x-6 p-6">
-      {products.map((product, index) => (
-        <ProductCard key={index} product={product} index={index} />
-      ))}
+    <div className="relative max-w-5xl mx-auto">
+      {/* Slider Container for Small and Mid Devices */}
+      <div className="md:hidden relative overflow-hidden">
+        <div className="flex transition-transform duration-500 ease-in-out">
+          {products.map((product, index) => (
+            <div
+              key={index}
+              className="w-full flex-shrink-0 transition-transform duration-300"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              <ProductCard product={product} index={index} />
+            </div>
+          ))}
+        </div>
+
+        {/* Navigation Buttons (Visible only on small and mid devices) */}
+        <button
+          onClick={goToPrevious}
+          className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-3 rounded-full"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <button
+          onClick={goToNext}
+          className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-3 rounded-full"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Grid Layout for Large Devices (Laptops/Computers) */}
+      <div className="hidden md:grid md:grid-cols-3 gap-6 justify-center items-center">
+        {products.map((product, index) => (
+          <ProductCard key={index} product={product} index={index} />
+        ))}
+      </div>
     </div>
   );
 }
+// export default PopularProductOffer;

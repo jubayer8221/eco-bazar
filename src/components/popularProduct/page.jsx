@@ -75,7 +75,7 @@ export default function PopularProductCard() {
         </div>
 
         {/* Category Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 m-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 m-6 ">
           {(showAll ? categoriesData : categoriesData.slice(0, 10)).map(
             (category) => (
               <CategoryCard
@@ -83,6 +83,7 @@ export default function PopularProductCard() {
                 name={category.name}
                 image={category.image}
                 price={category.price}
+                className="sm:h-20"
               />
             )
           )}
