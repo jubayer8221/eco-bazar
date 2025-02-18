@@ -10,8 +10,10 @@ const MobaileNavbar = () => {
   const [usd, setUsd] = useState(false);
   const [open, setOpent] = useState(false);
   return (
-    <div>
+    <>
+  <div className="">
       <div className="flex items-center gap-8">
+        {/* eng, usd  */}
         <div className="flex items-center gap-2">
           <Link
             href="/"
@@ -53,13 +55,15 @@ const MobaileNavbar = () => {
             </div>
           )}
         </div>
+        {/* icon  */}
         <IoMdMenu
           className="text-[30px]"
           onClick={() => setOpent((prev) => !prev)}
         />
+        {/* menu  */}
       </div>
       {open && (
-        <div className="absolute p-3 md:px-[140px] bg-gradient-to-br from-black to-transparent w-full top-12 left-0 text-white h-[calc(100vh-80px)] flex justify-center z-20">
+        <div className="absolute p-3 md:px-[140px] bg-gradient-to-br from-black to-transparent w-full top-8 left-0 text-white h-screen flex justify-center ">
           {/* location
           <div className="w-1/3 flex items-center">
             <Image src="/icons/location.png" alt="" width={15} height={18} />
@@ -101,7 +105,12 @@ const MobaileNavbar = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
 export default MobaileNavbar;
+
+
+
+
