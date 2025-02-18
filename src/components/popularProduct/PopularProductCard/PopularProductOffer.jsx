@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const products = [
   {
@@ -67,9 +68,11 @@ const ProductCard = ({ product, index }) => {
           </p>
         )}
         <div className="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2">
-          <button className="w-[160px] bg-white font-semibold text-[#00B207] px-4 py-2 rounded-full">
-            {product.buttonText} →
-          </button>
+          <Link href="./ProductDetails">
+            <button className="w-[160px] bg-white font-semibold text-[#00B207] px-4 py-2 rounded-full hover:bg-[#00B207] hover:text-white">
+              {product.buttonText} →
+            </button>
+          </Link>
         </div>
       </div>
     </div>
