@@ -22,18 +22,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <Navbar />
-        {children}
+
+        {/* Content Wrapper to Push Footer Down */}
+        <main className="flex-1">{children}</main>
+
         <Subcribe />
-        <FooterPage></FooterPage>
+        <FooterPage />
       </body>
     </html>
   );

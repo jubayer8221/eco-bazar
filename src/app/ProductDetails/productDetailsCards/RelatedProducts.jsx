@@ -1,6 +1,5 @@
 "use client";
 
-// components/RelatedProducts.jsx
 import React from "react";
 import Image from "next/image";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -54,9 +53,7 @@ const RelatedProducts = () => {
       <div className={`${styles.related_products_grid}`}>
         {products.map((product) => (
           <div key={product.id} className={`${styles.product_card}`}>
-            {product.sale && (
-              <div className={`${styles.sale_badge}`}>Sale 50%</div>
-            )}
+            {product.sale}
             <div className={styles.product_image_container}>
               <Image
                 src={product.image}

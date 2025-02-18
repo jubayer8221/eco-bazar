@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Review from "@/components/ProductDetails/review/Review";
+import ReviewPage from "./review/page";
 
 export default function ProductDescription() {
   const [activeTab, setActiveTab] = useState("Descriptions");
@@ -109,8 +109,9 @@ export default function ProductDescription() {
               </div>
             )}
             {activeTab === "Customer Feedback" && (
-              <div className="   grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[
+              <div className="w-auto md:grid-cols-2 gap-4">
+                <ReviewPage className="p-4 shadow-md border hover:border-green-600"></ReviewPage>
+                {/* {[
                   "Great product!",
                   "Avarage",
                   "Loved it!",
@@ -124,7 +125,7 @@ export default function ProductDescription() {
                   >
                     <p className="text-gray-800">{feedback}</p>
                   </div>
-                ))}
+                ))} */}
               </div>
             )}
           </div>
