@@ -40,7 +40,7 @@ const Banner = () => {
       {/* Right Small Banners */}
       <div className="w-full md:w-full xl:w-1/3 xl:h-full flex flex-col md:flex-row xl:flex-col gap-4">
         {/* First Small Banner */}
-        <div className="relative xl:h-1/2">
+        <div className="relative xl:w-full md:w-1/2 xl:h-1/2">
           <Image
             src="/images/banner3.png"
             alt="Summer Sale"
@@ -65,7 +65,7 @@ const Banner = () => {
         </div>
 
         {/* Second Small Banner */}
-        <div className="relative xl:h-1/2 flex items-center justify-center text-center">
+        <div className="relative md:w-1/2 xl:w-full xl:h-1/2 flex items-center justify-center text-center">
           <Image
             src="/images/banner2.png"
             alt="Best Deal"
