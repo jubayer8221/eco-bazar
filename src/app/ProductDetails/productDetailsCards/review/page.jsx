@@ -1,4 +1,4 @@
-import Review from "@/components/ProductDetails/review/Review";
+import Review from "./Review";
 export default function ReviewPage() {
   const reviews = [
     {
@@ -35,7 +35,7 @@ export default function ReviewPage() {
   ];
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
+    <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
       {reviews.map((review, index) => (
         <Review key={index} {...review} />
       ))}
