@@ -9,7 +9,7 @@ const products = [
     subtitle: "BEST DEALS",
     buttonText: "Shop Now",
     image: "/image/fruits.png",
-    date: "00  :  02  :  18  :  46",
+    date: "00  :  02  : 18  :  46",
     datetext: "DAYS   HOURS   MINS   SECS",
   },
   {
@@ -62,14 +62,15 @@ const ProductCard = ({ product, index }) => {
           <p className="text-lg font-bold text-orange-600">
             <span className={textColor}>Up to</span>{" "}
             <span className="bg-black font-poppins text-sm rounded p-1">
-              {" "}
               {product.discount}
             </span>
           </p>
         )}
-        <button className="mt-4 bg-white font-semibold text-[#00B207] px-4 py-2 rounded-full">
-          {product.buttonText} →
-        </button>
+        <div className="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+          <button className="w-[160px] bg-white font-semibold text-[#00B207] px-4 py-2 rounded-full">
+            {product.buttonText} →
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -168,4 +169,3 @@ export default function PopularProductOffer() {
     </div>
   );
 }
-// export default PopularProductOffer;
