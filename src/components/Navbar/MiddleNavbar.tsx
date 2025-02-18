@@ -3,10 +3,12 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { GoSearch } from "react-icons/go";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
+import ShoppingCardPopup from '../ShoppingCardPopup';
 
 
 const MiddleNavbar = () => {
     const [searchIconR, setsearchIconR] = useState('');
+    const [totalCartAddShow, setTotalCartAddShow] = useState(false);
   return (
     <>
         <div className="pt-6 pb-6 pl-[300px] pr-[300px] flex justify-between bg-white">
@@ -34,7 +36,8 @@ const MiddleNavbar = () => {
                     <Image src="/icons/save.svg" alt='' width={28} height={24} className='text-black hover:text-white' />
                 </div>
                 <span className='text-[#E6E6E6]'>|</span>
-                <div className='flex items-center gap-1'>
+                {/* shopping cart  */}
+                <div className='flex items-center gap-1 cursor-pointer' onClick={()=>setTotalCartAddShow(prev => !prev)}>
                     <div>
                         <div className='relative cursor-pointer'>
                         <HiOutlineShoppingBag className='w-[25px] h-[25px] text-[#1A1A1A]' />
@@ -50,6 +53,13 @@ const MiddleNavbar = () => {
                 </div>
              </div>
         </div>
+        {
+            totalCartAddShow && (
+                <div>
+                    <ShoppingCardPopup />
+                </div>
+            )
+        }
     </>
   )
 }
