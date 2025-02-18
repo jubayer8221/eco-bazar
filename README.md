@@ -20,7 +20,7 @@ Eco Bazar is an e-commerce platform that provides fresh, organic, and high-quali
 ## Installation & Setup
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/eco-bazar.git
+   git clone https://github.com/username/eco-bazar.git
    ```
 2. Navigate to the project directory:
    ```sh
@@ -48,5 +48,5 @@ Contributions are welcome! Please follow these steps:
 This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
-For any inquiries or support, feel free to reach out at [your-email@example.com].
+For any inquiries or support, feel free to reach out at [jubayer8221@gmail.com].
 
