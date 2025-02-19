@@ -89,7 +89,7 @@
 @media (max-width: 768px) {
   .footer_container {
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
     margin-left: 0;
     text-align: left;
     padding-left: 0;

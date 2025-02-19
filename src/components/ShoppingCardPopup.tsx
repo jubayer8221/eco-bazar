@@ -79,7 +79,7 @@ const ShoppingCardPopup = () => {
                   Checkout
                 </button>
               </Link>
-              <Link href="/">
+              <Link href="/shoppingCart">
                 <button className="bg-[#4c5b4c] w-full text-[16px] font-semibold rounded-full py-4 px-10 border border-[#00B207] text-white">
                   Go To Cart
                 </button>
