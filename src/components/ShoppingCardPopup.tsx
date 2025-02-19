@@ -74,7 +74,7 @@ const ShoppingCardPopup = () => {
                 <p>{carts.length} Product</p>
                 <div>${totalPrice}</div>
               </div>
-              <Link href="/">
+              <Link href="/innerpage/billinginfo">
                 <button className="bg-[#00B207] w-full text-[16px] font-semibold rounded-full py-4 px-10 text-white">
                   Checkout
                 </button>
