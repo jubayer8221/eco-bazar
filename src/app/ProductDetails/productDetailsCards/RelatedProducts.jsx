@@ -17,7 +17,7 @@ const products = [
   {
     id: 2,
     name: "Chanise Cabbage",
-    image: "/cauliflower.png",
+    image: "/cabbage.png",
     price: 14.99,
     originalPrice: null,
     sale: false,
