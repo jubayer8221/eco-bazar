@@ -1,4 +1,5 @@
 import Review from "./Review";
+
 export default function ReviewPage() {
   const reviews = [
     {
@@ -35,11 +36,11 @@ export default function ReviewPage() {
   ];
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
+    <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10 sm:p-8 md:p-10 lg:p-12">
       {reviews.map((review, index) => (
         <Review key={index} {...review} />
       ))}
-      <button className="bg-green-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-green-600">
+      <button className="bg-green-500 text-white px-4 py-2 rounded-md mt-4 hover:bg-green-600 w-full sm:w-auto">
         Load More
       </button>
     </div>

@@ -6,6 +6,12 @@ import ReviewPage from "./review/page";
 
 export default function ProductDescription() {
   const [activeTab, setActiveTab] = useState("Descriptions");
+  const [isTabVisible, setIsTabVisible] = useState(false);
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+    setIsTabVisible(false);
+  };
 
   return (
     <div>
@@ -17,26 +23,32 @@ export default function ProductDescription() {
             (tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab)}
+                onClick={() => handleTabClick(tab)}
                 className={`px-6 py-2 ${
                   activeTab === tab
                     ? "border-b-2 border-green-500 text-green-500"
                     : "text-gray-500"
-                }`}
+                } ${isTabVisible ? "block" : "hidden"} sm:block`}
               >
                 {tab}
               </button>
             )
           )}
+          <button
+            onClick={() => setIsTabVisible(!isTabVisible)}
+            className="sm:hidden px-6 py-2 text-gray-500"
+          >
+            {activeTab}
+          </button>
         </div>
 
         {/* Main Content */}
-        <div className="flex justify-between gap-6 mt-6 max-w-6xl">
-          {/* Left Section (50% width) */}
-          <div className="w-1/2">
+        <div className="flex flex-col sm:flex-row justify-between gap-6 mt-6 max-w-6xl">
+          {/* Left Section */}
+          <div className="w-full sm:w-1/2">
             {activeTab === "Descriptions" && (
-              <div className="">
-                <p className=" text-gray-600 text-justify">
+              <div>
+                <p className="text-gray-600 text-justify">
                   Sed commodo aliquam dui ac porta. Fusce ipsum felis, imperdiet
                   at posuere ac, viverra at mauris. Maecenas tincidunt ligula a
                   sem vestibulum pharetra. Maecenas auctor tortor lacus, nec
@@ -60,31 +72,27 @@ export default function ProductDescription() {
               </div>
             )}
             {activeTab === "Additional Information" && (
-              <div className="w-[513] text-gray-600">
+              <div className="text-gray-600">
                 <p>
-                  <span className="font-normal text-black">Weight: </span>
-                  <span className=" p-8 ">03</span>
+                  <span className="font-normal text-black">Weight: </span>03
                 </p>
                 <p>
-                  <span className="font-normal text-black">Color: </span>
-                  <span className="p-9">Green</span>
+                  <span className="font-normal text-black">Color: </span>Green
                 </p>
                 <p>
-                  <span className="font-normal text-black">Type:</span>
-                  <span className="p-11">Organic</span>
+                  <span className="font-normal text-black">Type:</span> Organic
                 </p>
                 <p>
-                  <span className="font-normal text-black">Category:</span>
-                  <span className="p-8">Vegetables</span>
+                  <span className="font-normal text-black">Category:</span>{" "}
+                  Vegetables
                 </p>
                 <p>
-                  <span className="font-normal text-black">Stock Status:</span>
-                  <span className="p-8">Available</span>
-                  <span className="text-gray-400">(5,413)</span>
+                  <span className="font-normal text-black">Stock Status:</span>{" "}
+                  Available <span className="text-gray-400">(5,413)</span>
                 </p>
                 <p>
                   <span className="font-normal text-black">Tags:</span>
-                  <span className="ml-2 p-7 space-x-2">
+                  <span className="ml-2 space-x-2">
                     <a href="#" className="text-black hover:underline">
                       Vegetables
                     </a>
@@ -110,28 +118,13 @@ export default function ProductDescription() {
             )}
             {activeTab === "Customer Feedback" && (
               <div className="w-auto md:grid-cols-2 gap-4">
-                <ReviewPage className="p-4 shadow-md border hover:border-green-600"></ReviewPage>
-                {/* {[
-                  "Great product!",
-                  "Avarage",
-                  "Loved it!",
-                  "Highly recommended!",
-                  "Not that Good!",
-                  "Bad",
-                ].map((feedback, index) => (
-                  <div
-                    key={index}
-                    className="p-4 shadow-md border hover:border-green-600"
-                  >
-                    <p className="text-gray-800">{feedback}</p>
-                  </div>
-                ))} */}
+                <ReviewPage className="p-4 shadow-md border hover:border-green-600" />
               </div>
             )}
           </div>
 
-          {/* Right Section (50% width) */}
-          <div className="w-1/2">
+          {/* Right Section */}
+          <div className="w-full sm:w-1/2">
             <div className="bg-white p-4 rounded-lg shadow-md">
               <Image
                 src="/delivery_man.png"
@@ -142,13 +135,15 @@ export default function ProductDescription() {
               />
             </div>
 
-            {/* Discount and Organic small Banner */}
+            {/* Discount and Organic Small Banner */}
             <div className="flex bg-gray-100 space-x-6 mt-6 shadow-md border m-2 h-24">
               {/* Discount Banner */}
               <div className="p-4 mt-5 flex items-center rounded-lg w-60 h-12">
-                <img
-                  src="image/discount.png"
+                <Image
+                  src="/image/discount.png"
                   alt="Discount"
+                  width={32}
+                  height={32}
                   className="w-8 h-8"
                 />
                 <div className="ml-2">
@@ -161,9 +156,11 @@ export default function ProductDescription() {
 
               {/* Organic Banner */}
               <div className="p-4 mt-5 flex items-center rounded-lg w-60 h-12">
-                <img
-                  src="image/organic.png"
+                <Image
+                  src="/image/organic.png"
                   alt="Organic"
+                  width={32}
+                  height={32}
                   className="w-8 h-8"
                 />
                 <div className="ml-2">
