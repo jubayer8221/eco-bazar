@@ -14,14 +14,14 @@ const Bottom = () => {
         <Link href="/popularproducts" className="flex items-center">
           Shop <IoIosArrowDown className="w-3" />
         </Link>
-        <Link href="/" className="flex items-center">
+        <Link href="/popularproducts" className="flex items-center">
           Pages <IoIosArrowDown className="w-3" />
         </Link>
-        <Link href="/" className="flex items-center">
+        <Link href="/blog" className="flex items-center">
           Blog <IoIosArrowDown className="w-3" />
         </Link>
-        <Link href="/">About Us</Link>
-        <Link href="/">Contact Us</Link>
+        <Link href="/aboutUs">About Us</Link>
+        <Link href="/contactUs">Contact Us</Link>
       </div>
       {/* phone */}
       <div className="flex items-center gap-2">
