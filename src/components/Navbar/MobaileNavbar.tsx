@@ -88,7 +88,7 @@ const MobaileNavbar = () => {
             </Link>
             <Link href="/" className="text-[16px] hover:text-[#00B207] hover:font-bold">About Us</Link>
             <Link href="/" className="text-[16px] hover:text-[#00B207] hover:font-bold">Contact Us</Link>
-            <Link href="/" className="text-[16px] hover:text-[#00B207] hover:font-bold">Cart(2)</Link>
+            <Link href="/innerpage/billinginfo" className="text-[16px] hover:text-[#00B207] hover:font-bold">Cart(2)</Link>
             <Link href="/" className="text-[16px] hover:text-[#00B207] hover:font-bold">(219) 555-0114</Link>
           </div>
           {/* singin login */}
