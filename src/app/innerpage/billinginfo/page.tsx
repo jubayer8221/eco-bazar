@@ -200,8 +200,8 @@ const BillingInfo = () => {
         <h1>Order summary</h1>
         {/* product  */}
         <div className="mb-10">
-          {carts.map((cart) => (
-            <div className="flex items-center justify-between gap-1">
+          {carts.map((cart, index) => (
+            <div key={index} className="flex items-center justify-between gap-1">
               <div className="flex items-center justify-center gap-1">
                 <Image src={cart.image} alt="" width={50} height={50} />
                 <p className="text-[12px]">
