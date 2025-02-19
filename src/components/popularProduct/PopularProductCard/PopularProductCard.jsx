@@ -21,12 +21,12 @@ const CartIcon = () => (
 
 const PopularCard = ({ name, image, price }) => {
   return (
-    <div className="shadow-md h-[407] p-4 text-left border border-transparent hover:shadow-lg hover:border-green-700 transition-all">
+    <div className="shadow-md h-[240px] px-2 text-left border border-transparent hover:shadow-lg hover:border-green-700 transition-all mb-0 pb-0">
       {/* Product Image */}
       <img
         src={image}
         alt={name}
-        className="w-full h-32 object-contain mx-auto"
+        className="w-full h-30 object-contain mx-auto"
       />
       {/* Product Name with Hover Effect */}
       <p className="mt-2 text-gray-700 hover:text-green-600 transition-colors cursor-pointer">
