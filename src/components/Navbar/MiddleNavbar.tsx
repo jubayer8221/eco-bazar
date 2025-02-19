@@ -13,21 +13,22 @@ const MiddleNavbar = () => {
     <>
       <div className="pt-6 pb-6 pl-[300px] pr-[300px] flex justify-between bg-white">
         {/* logo */}
-        <div className=" flex items-center gap-1">
+        <div className=" flex flex-row items-center gap-1">
           <Link href={"Home"}>
             <Image src="/icons/logo.png" alt="" width={32} height={30} />
-            <samp className="font-poppins font-medium text-[32px] leading-[38px] tracking-[-0.03em] text-[#002603]">
+            
+          </Link>
+          <samp className="font-poppins font-medium text-[32px] leading-[38px] tracking-[-0.03em] text-[#002603]">
               Ecobazar
             </samp>
-          </Link>
         </div>
         {/* search */}
-        <div className=" relative w-[400px] border border-gray-300 rounded-lg overflow-hidden flex items-center">
+        <div className=" relative w-[400px] h-11 border border-gray-300 rounded-lg overflow-hidden flex items-center">
           <div className="p-2">
             {!searchIconR && (
               <GoSearch className="absolute left-3 bottom-[12px] h-4 w-4 text-gray-400" />
             )}
-          </div>
+          </div> 
           <input
             type="text"
             placeholder="search"
@@ -63,7 +64,7 @@ const MiddleNavbar = () => {
                 <HiOutlineShoppingBag className="w-[25px] h-[25px] text-[#1A1A1A]" />
               </div>
 
-              <div className="absolute bg-[#2C742F] w-3 h-3 flex items-center justify-center rounded-full text-white text-[10px] top-[70px] right-[379px]">
+              <div className="absolute bg-[#2C742F] w-3 h-3 flex items-center justify-center rounded-full text-white text-[10px] top-[68px] right-[379px]">
                 2
               </div>
             </div>
