@@ -201,7 +201,10 @@ const BillingInfo = () => {
         {/* product  */}
         <div className="mb-10">
           {carts.map((cart) => (
-            <div className="flex items-center justify-between gap-1">
+            <div
+              key={cart.id}
+              className="flex items-center justify-between gap-1"
+            >
               <div className="flex items-center justify-center gap-1">
                 <Image src={cart.image} alt="" width={50} height={50} />
                 <p className="text-[12px]">
@@ -232,14 +235,14 @@ const BillingInfo = () => {
           <h1 className="my-3">Payment Method</h1>
           <div className="flex flex-col gap-1 mb-8">
             <div className="flex items-center gap-1">
-            <input
+              <input
                 type="checkbox"
                 className="w-[16px] h-[16px] accent-[#00B207] border-2 border-[#00B207] rounded-full"
               />
               <p className="text[#4D4D4D] text-[14px]">Cash on Delivery</p>
             </div>
             <div className="flex items-center gap-1">
-            <input
+              <input
                 type="checkbox"
                 className="w-[16px] h-[16px] accent-[#00B207] border-2 border-[#00B207] rounded-full"
               />
