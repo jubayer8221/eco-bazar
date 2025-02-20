@@ -14,13 +14,12 @@ const MiddleNavbar = () => {
       <div className="pt-6 pb-6 pl-[300px] pr-[300px] flex justify-between bg-white">
         {/* logo */}
         <div className=" flex flex-row items-center gap-1">
-          <Link href={"Home"}>
+          <Link href="/">
             <Image src="/icons/logo.png" alt="" width={32} height={30} />
-            
           </Link>
           <samp className="font-poppins font-medium text-[32px] leading-[38px] tracking-[-0.03em] text-[#002603]">
-              Ecobazar
-            </samp>
+            Ecobazar
+          </samp>
         </div>
         {/* search */}
         <div className=" relative w-[400px] h-11 border border-gray-300 rounded-lg overflow-hidden flex items-center">
@@ -28,7 +27,7 @@ const MiddleNavbar = () => {
             {!searchIconR && (
               <GoSearch className="absolute left-3 bottom-[12px] h-4 w-4 text-gray-400" />
             )}
-          </div> 
+          </div>
           <input
             type="text"
             placeholder="search"
