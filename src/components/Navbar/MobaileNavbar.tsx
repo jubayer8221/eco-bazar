@@ -3,17 +3,70 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
+import { MdClose } from "react-icons/md";
+
+type NavItem = {
+  label: string;
+  link?: string;
+  children?: NavItem[];
+  iocnImage?: string;
+};
+
+const navItems: NavItem[] = [
+  {
+    label: "Home",
+    link: "#",
+    children: [
+      { label: "Category", link: "/" },
+      { label: "Wishlist", link: "#" },
+      { label: "Shopping cart", link: "#" },
+    ],
+  },
+  {
+    label: "Shop",
+    link: "#",
+    children: [
+      { label: "Category", link: "#" },
+      { label: "Wishlist", link: "#" },
+      { label: "Shopping cart", link: "#" },
+    ],
+  },
+  {
+    label: "Blog",
+    link: "#",
+    children: [
+      { label: "Category", link: "#" },
+      { label: "Wishlist", link: "#" },
+      { label: "Shopping cart", link: "#" },
+    ],
+  },
+  {
+    label: "Pages",
+    link: "#",
+    children: [
+      { label: "Category", link: "#" },
+      { label: "Wishlist", link: "#" },
+      { label: "Shopping cart", link: "#" },
+    ],
+  },
+  { label: "Cart (2)", link: "/innerpage/billinginfo" },
+  { label: "Contact Us", link: "#" },
+];
 
 const MobaileNavbar = () => {
   const [langues, setLangues] = useState(false);
-  // const [languesChange, setLanguesChange] = useState('');
   const [usd, setUsd] = useState(false);
-  const [open, setOpent] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const toggleDropdown = (label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  };
+
   return (
     <>
       <div className="">
         <div className="flex items-center gap-8">
-          {/* eng, usd  */}
           <div className="flex items-center gap-2">
             <Link
               href="/"
@@ -30,103 +83,63 @@ const MobaileNavbar = () => {
               USD <IoIosArrowDown className="w-3" />
             </Link>
             {langues && (
-              <div className=" rounded-sm text-sm p-1 absolute top-11 shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20 text-white bg-black">
+              <div className="rounded-sm text-sm p-1 absolute top-11 shadow-lg z-20 text-white bg-black">
                 <p>Eng</p>
                 <p>Bng</p>
-                {/* <form action="" onSubmit={handleLanguesChange} className="flex flex-col gap-y-1">
-                    <select name="language" id="language">
-                        <option value="English">Eng</option>
-                        <option value="Bangla">Bng</option>
-                    </select>
-                    </form> */}
               </div>
             )}
-            {/* USD */}
             {usd && (
-              <div className=" rounded-sm text-sm p-1 absolute top-11 shadow-[0_3px_10px_rgb(0,0,0,0.2)] text-white bg-black z-20">
+              <div className="rounded-sm text-sm p-1 absolute top-11 shadow-lg text-white bg-black z-20">
                 <p>USD</p>
                 <p>BDT</p>
-                {/* <form action="" onSubmit={handleLanguesChange} className="flex flex-col gap-y-1">
-                    <select name="language" id="language">
-                        <option value="English">Eng</option>
-                        <option value="Bangla">Bng</option>
-                    </select>
-                    </form> */}
               </div>
             )}
           </div>
-          {/* icon  */}
           <IoMdMenu
-            className="text-[30px]"
-            onClick={() => setOpent((prev) => !prev)}
+            className="text-[30px] cursor-pointer"
+            onClick={() => setOpen((prev) => !prev)}
           />
-          {/* menu  */}
         </div>
-        {open && (
-          <div className="absolute p-3 md:px-[140px] bg-gradient-to-br from-black to-transparent w-full top-8 left-0 text-white h-screen flex justify-center ">
-            {/* location
-          <div className="w-1/3 flex items-center">
-            <Image src="/icons/location.png" alt="" width={15} height={18} />
-            <span className=" font-poppins text-[12px] ml-1">
-              Store Location: Lincoln- 344, Illinois, Chicago, USA
-            </span>
-          </div> */}
 
-            <div className="">
-              {/* menu  */}
-              <div className="flex flex-col items-center justify-center gap-4 font-poppins text-white">
-                <Link
-                  href="/"
-                  className="text-[16px] flex items-center hover:font-bold hover:text-[#00B207]"
-                >
-                  Home <IoIosArrowDown className="w-3" />
-                </Link>
-                <Link
-                  href="/popularproducts"
-                  className="text-[16px] flex items-center hover:font-bold hover:text-[#00B207]"
-                >
-                  Shop <IoIosArrowDown className="w-3" />
-                </Link>
-                <Link
-                  href="/popularproducts"
-                  className="text-[16px] flex items-center hover:font-bold hover:text-[#00B207]"
-                >
-                  Pages <IoIosArrowDown className="w-3" />
-                </Link>
-                <Link
-                  href="/blog"
-                  className="text-[16px] flex items-center hover:font-bold hover:text-[#00B207]"
-                >
-                  Blog <IoIosArrowDown className="w-3" />
-                </Link>
-                <Link
-                  href="/aboutUs"
-                  className="text-[16px] hover:text-[#00B207] hover:font-bold"
-                >
-                  About Us
-                </Link>
-                <Link
-                  href="/contactUs"
-                  className="text-[16px] hover:text-[#00B207] hover:font-bold"
-                >
-                  Contact Us
-                </Link>
-                <Link
-                  href="/shoppingCart"
-                  className="text-[16px] hover:text-[#00B207] hover:font-bold"
-                >
-                  Cart(2)
-                </Link>
-                <Link
-                  href="/"
-                  className="text-[16px] hover:text-[#00B207] hover:font-bold"
-                >
-                  (219) 555-0114
-                </Link>
-              </div>
-              {/* singin login */}
+        {open && (
+          <div className="absolute p-8 w-[65%] md:w-[40%] top-0 left-0 bg-[#437c45] opacity-80 h-screen text-white ease-in duration-500">
+            <div
+              className="cursor-pointer flex justify-end"
+              onClick={() => setOpen((prev) => !prev)}
+            >
+              <MdClose size={25} />
+            </div>
+            <div className="flex flex-col gap-4 transition-all">
+              {navItems.map((d, i) => (
+                <div key={i} className="relative px-2 py-3">
+                  <p
+                    className="flex cursor-pointer items-center gap-2 text-white hover:text-[#00B207]"
+                    onClick={() => toggleDropdown(d.label)}
+                  >
+                    <span>{d.label}</span>
+                    {d.children && (
+                      <IoIosArrowDown
+                        className={`text-xs transition-all ${openDropdown === d.label ? "rotate-180" : ""}`}
+                      />
+                    )}
+                  </p>
+                  {openDropdown === d.label && d.children && (
+                    <div className="mt-2 flex flex-col gap-1 rounded-lg py-2">
+                      {d.children.map((ch, idx) => (
+                        <Link
+                          key={idx}
+                          href={ch.link ?? "/"}
+                          className="flex cursor-pointer items-center py-1 pl-6 pr-8 hover:text-[#00B207]"
+                        >
+                          <span>{ch.label}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
               <div className="flex gap-1 mt-3">
-                <Link href="/singin">Sing in</Link>
+                <Link href="/singin">Sign in</Link>
                 <span>/</span>
                 <Link href="/login">Login</Link>
               </div>
