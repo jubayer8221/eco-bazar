@@ -3,26 +3,138 @@ import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { BiPhoneCall } from "react-icons/bi";
 
+type NavItem = {
+  label: string;
+  link?: string;
+  children?: NavItem[];
+  iocnImage?: string;
+};
+
+const navItems: NavItem[] = [
+  {
+    label: "Home",
+    link: "#",
+    children: [
+      {
+        label: "Category",
+        link: "#",
+        iocnImage: "",
+      },
+      {
+        label: "Wishlist",
+        link: "#",
+        iocnImage: "",
+      },
+      {
+        label: "Shopping cart",
+        link: "#",
+        iocnImage: "",
+      },
+    ],
+  },
+  {
+    label: "Shop",
+    link: "#",
+    children: [
+      {
+        label: "Category",
+        link: "#",
+      },
+      {
+        label: "Wishlist",
+        link: "#",
+      },
+      {
+        label: "Shopping cart",
+        link: "#",
+      },
+    ],
+  },
+  {
+    label: "Blog",
+    link: "#",
+    children: [
+      {
+        label: "Category",
+        link: "#",
+      },
+      {
+        label: "Wishlist",
+        link: "#",
+      },
+      {
+        label: "Shopping cart",
+        link: "#",
+      },
+    ],
+  },
+  
+  {
+    label: "Pages",
+    link: "#",
+    children: [
+      {
+        label: "Category",
+        link: "#",
+      },
+      {
+        label: "Wishlist",
+        link: "#",
+      },
+      {
+        label: "Shopping cart",
+        link: "#",
+      },
+    ],
+  },
+  {
+    label: "About Us",
+    link: "#",
+  },
+  {
+    label: "Contact Us",
+    link: "#",
+  },
+];
+
 const Bottom = () => {
   return (
-    <div className="pt-4 pb-4 pl-[300px] pr-[300px] bg-black flex items-center justify-between">
-      <div className="flex items-center text-[#999999] text-[14px] leading-[21px] gap-[32px]">
-        <Link href="/" className="flex items-center hover:text-white">
-          Home <IoIosArrowDown className="w-3" />
-        </Link>
+    <div className="pl-[300px] pr-[300px] bg-black flex items-center justify-between">
+      {/* menu  */}
+      <div className="hidden md:flex items-center gap-4 transition-all">
+          {navItems.map((d, i) => (
+            <Link
+              key={i}
+              href={d.link ?? "#"}
+              className="relative group  px-2 py-3 transition-all "
+            >
+              <p className="flex cursor-pointer items-center gap-2 text-neutral-400 group-hover:text-[#00B207] ">
+                <span>{d.label}</span>
+                {d.children && (
+                  <IoIosArrowDown className=" rotate-180  transition-all group-hover:rotate-0" />
+                )}
+              </p>
 
-        <Link href="/popularproducts" className="flex items-center">
-          Shop <IoIosArrowDown className="w-3" />
-        </Link>
-        <Link href="/popularproducts" className="flex items-center">
-          Pages <IoIosArrowDown className="w-3" />
-        </Link>
-        <Link href="/blog" className="flex items-center">
-          Blog <IoIosArrowDown className="w-3" />
-        </Link>
-        <Link href="/aboutUs">About Us</Link>
-        <Link href="/contactUs">Contact Us</Link>
-      </div>
+              {/* dropdown */}
+              {d.children && (
+                <div className="absolute   right-0   top-10 hidden w-auto  flex-col gap-1   rounded-lg bg-white py-3 shadow-md  transition-all group-hover:flex ">
+                  {d.children.map((ch, i) => (
+                    <Link
+                      key={i}
+                      href={ch.link ?? "#"}
+                      className=" flex cursor-pointer items-center  py-1 pl-6 pr-8  text-neutral-400 hover:text-[#00B207]  "
+                    >
+                      {/* item */}
+                      <span className="whitespace-nowrap   pl-3 ">
+                        {ch.label}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </Link>
+          ))}
+        </div>
       {/* phone */}
       <div className="flex items-center gap-2">
         <BiPhoneCall className="w-5 h-5 text-white" />

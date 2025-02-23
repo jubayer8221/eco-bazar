@@ -13,13 +13,14 @@ const MiddleNavbar = () => {
     <>
       <div className="pt-6 pb-6 pl-[300px] pr-[300px] flex justify-between bg-white">
         {/* logo */}
-        <div className=" flex flex-row items-center gap-1">
-          <Link href="/">
+        <div className=" ">
+          <Link href="/" className="flex flex-row items-center gap-1">
             <Image src="/icons/logo.png" alt="" width={32} height={30} />
+            <samp className="font-poppins font-medium text-[32px] leading-[38px] tracking-[-0.03em] text-[#002603]">
+              Ecobazar
+            </samp>
           </Link>
-          <samp className="font-poppins font-medium text-[32px] leading-[38px] tracking-[-0.03em] text-[#002603]">
-            Ecobazar
-          </samp>
+          
         </div>
         {/* search */}
         <div className=" relative w-[400px] h-11 border border-gray-300 rounded-lg overflow-hidden flex items-center">

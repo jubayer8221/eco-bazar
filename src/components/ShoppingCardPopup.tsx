@@ -27,19 +27,25 @@ const ShoppingCardPopup = () => {
     0
   );
   const [closePopup, setClosePopup] = useState(true);
-  // console.log(totalPrice)
+
   return (
     <>
       {closePopup && (
-        <div className="absolute top-0 right-0 bg-black bg-opacity-50 w-full h-[calc(100vh)] z-20 flex justify-end font-poppins">
-          <div className="bg-white w-1/4 h-full p-4 flex flex-col justify-between">
+        <div
+          className="absolute top-0 right-0 bg-black bg-opacity-50 w-full h-[calc(100vh)] z-20 flex justify-end font-poppins"
+          onClick={() => setClosePopup(false)}
+        >
+          <div
+            className="bg-white w-1/4 h-full p-4 flex flex-col justify-between"
+            onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside
+          >
             {/* top section */}
             <div>
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-[20px] leading-7">
                   Shopping Card ({carts.length})
                 </h3>
-                <button onClick={() => setClosePopup((prev) => !prev)}>
+                <button onClick={() => setClosePopup(false)}>
                   <IoMdClose className="text-[13px] text-[#1A1A1A]" />
                 </button>
               </div>

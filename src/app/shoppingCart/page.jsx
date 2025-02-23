@@ -38,9 +38,11 @@ const ShoppingCart = () => {
   };
 
   return (
-    <div className="mx-auto font-poppins text-xs my-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-[1320px]">
-        <h1 className="text-2xl font-bold mb-4 py-5 text-center">
+    <div className="mx-auto mt-16 xl:mt-48 font-poppins text-xs my-10">
+      {/* Content container with max-width */}
+      <div className="max-w-[1320px] px-4 lg:px-[300px]">
+        <h1 className="text-2xl font-bold mb-4 text-center">
+
           My Shopping Cart
         </h1>
 
