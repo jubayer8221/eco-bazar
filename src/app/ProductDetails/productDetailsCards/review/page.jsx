@@ -4,14 +4,14 @@ export default function ReviewPage() {
   const reviews = [
     {
       name: "Kristin Watson",
-      avatar: "/avatar1.jpg", // Replace with your image path
+      avatar: "/image/reviewimg.png",
       rating: 5,
       date: "2 min ago",
       comment: "Duis at ullamcorper nulla, eu dictum eros.",
     },
     {
       name: "Jane Cooper",
-      avatar: "/avatar2.jpg",
+      avatar: "/image/reviewimg.png",
       rating: 5,
       date: "30 Apr, 2021",
       comment:
@@ -19,7 +19,7 @@ export default function ReviewPage() {
     },
     {
       name: "Jacob Jones",
-      avatar: "/avatar3.jpg",
+      avatar: "/image/reviewimg.png",
       rating: 5,
       date: "2 min ago",
       comment:
@@ -27,9 +27,9 @@ export default function ReviewPage() {
     },
     {
       name: "Ralph Edwards",
-      avatar: "/avatar4.jpg",
+      avatar: "/image/reviewimg.png",
       rating: 5,
-      date: "2 min ago",
+      date: "10 min ago",
       comment:
         "200+ Canton Pak Choi Bok Choy Chinese Cabbage Seeds Heirloom Non-GMO Productive Brassica...",
     },
