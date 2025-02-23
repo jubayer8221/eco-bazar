@@ -20,7 +20,7 @@ const MiddleNavbar = () => {
               Ecobazar
             </samp>
           </Link>
-          
+
         </div>
         {/* search */}
         <div className=" relative w-[400px] h-11 border border-gray-300 rounded-lg overflow-hidden flex items-center">

@@ -40,22 +40,22 @@ export default function FooterPage() {
           <div className="w-1/2 md:w-auto">
             <ul>
               <li className="font-bold pt-2">
-                <Link href="/my-account" className="hover:text-green-500 ">
+                <Link href="/" className="hover:text-green-500 ">
                   My Account
                 </Link>
               </li>
               <li>
-                <Link href="/order-history" className="hover:text-green-500">
+                <Link href="/orderhistory" className="hover:text-green-500">
                   Order History
                 </Link>
               </li>
               <li>
-                <Link href="/shopping-cart" className="hover:text-green-500">
+                <Link href="/shoppingCart" className="hover:text-green-500">
                   Shopping Cart
                 </Link>
               </li>
               <li>
-                <Link href="/wishlist" className="hover:text-green-500">
+                <Link href="/Wishlist" className="hover:text-green-500">
                   Wishlist
                 </Link>
               </li>
@@ -69,17 +69,17 @@ export default function FooterPage() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-green-500">
+                <Link href="/contactUs" className="hover:text-green-500">
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="/terms-condition" className="hover:text-green-500">
+                <Link href="/aboutUs" className="hover:text-green-500">
                   Terms & Condition
                 </Link>
               </li>
               <li>
-                <Link href="/privacy-policy" className="hover:text-green-500">
+                <Link href="/privacypolicy" className="hover:text-green-500">
                   Privacy Policy
                 </Link>
               </li>
@@ -88,28 +88,28 @@ export default function FooterPage() {
           <div className="w-1/2 md:w-auto">
             <ul>
               <li className="font-bold pt-2">
-                <Link href="/about" className="hover:text-green-500">
+                <Link href="/aboutUs" className="hover:text-green-500">
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/proxy" className="hover:text-green-500">
+                <Link href="/" className="hover:text-green-500">
                   Proxy
                 </Link>
               </li>
 
               <li>
-                <Link href="/shop" className="hover:text-green-500">
+                <Link href="/popularproducts" className="hover:text-green-500">
                   Shop
                 </Link>
               </li>
               <li>
-                <Link href="/product" className="hover:text-green-500">
+                <Link href="/popularproducts" className="hover:text-green-500">
                   Product
                 </Link>
               </li>
               <li>
-                <Link href="/track-order" className="hover:text-green-500">
+                <Link href="/" className="hover:text-green-500">
                   Track Order
                 </Link>
               </li>
@@ -118,28 +118,28 @@ export default function FooterPage() {
           <div className="w-1/2 md:w-auto">
             <ul>
               <li className="font-bold pt-2">
-                <Link href="/categories" className="hover:text-green-500">
+                <Link href="/popularproducts" className="hover:text-green-500">
                   Categories
                 </Link>
               </li>
 
               <li>
-                <Link href="/meat-fish" className="hover:text-green-500">
+                <Link href="/popularproducts" className="hover:text-green-500">
                   Meat & Fish
                 </Link>
               </li>
               <li>
-                <Link href="/bread-bakery" className="hover:text-green-500">
+                <Link href="/popularproducts" className="hover:text-green-500">
                   Bread & Bakery
                 </Link>
               </li>
               <li>
-                <Link href="/beauty-health" className="hover:text-green-500">
+                <Link href="/popularproducts" className="hover:text-green-500">
                   Beauty & Health
                 </Link>
               </li>
               <li>
-                <Link href="/fruit-vegetables" className="hover:text-green-500">
+                <Link href="/popularproducts" className="hover:text-green-500">
                   Fruit & Vegetables
                 </Link>
               </li>
