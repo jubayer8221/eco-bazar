@@ -9,7 +9,6 @@ import Link from "next/link";
 const MiddleNavbar = () => {
   const [searchIconR, setsearchIconR] = useState("");
   const [totalCartAddShow, setTotalCartAddShow] = useState(false);
-  const[closePopup, setClosePopup] = useState(true);
   return (
     <>
       <div className="pt-6 pb-6 pl-[300px] pr-[300px] flex justify-between bg-white">
