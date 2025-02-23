@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-
 const carts = [
   {
     id: 1,
@@ -23,21 +22,17 @@ const carts = [
 const BillingInfo = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
-
   const countries = ["USA", "Canada", "UK", "Australia"];
   const states = ["California", "Texas", "New York", "Florida"];
-
   const totalPrice = carts.reduce(
     (sum, cart) => sum + cart.price * cart.quantity,
     0
   );
-
   return (
     <div className="mt-16 xl:mt-[180px] pl-3 pr-3 py-3 sm:pl-[100px] sm:pr-[100px] md:pl-[140px] md:pr-[140px] xl:pl-[300px] xl:pr-[300px] flex flex-col xl:flex-row justify-between gap-3 font-poppins">
       {/* Billing Information */}
       <div className="flex flex-col gap-3">
         <h1 className="text-[24px] leading-9">Billing Information</h1>
-
         {/* First Name, Last Name, Company Name */}
         <div className="w-full flex flex-col xl:flex-row items-center justify-between gap-2">
           <div className="w-full flex flex-col gap-1">
@@ -67,7 +62,6 @@ const BillingInfo = () => {
             />
           </div>
         </div>
-
         {/* Street Address */}
         <div className="flex flex-col">
           <label className="text-[14px] leading-5">Street Address</label>
@@ -77,7 +71,6 @@ const BillingInfo = () => {
             className="bg-[#FFFFFF] border border-[#E6E6E6] rounded-sm p-2 w-full"
           />
         </div>
-
         {/* Country/Region, States, Zip Code */}
         <div className="flex items-center gap-20">
           <div className="flex gap-2">
@@ -91,7 +84,6 @@ const BillingInfo = () => {
                   placeholder="Selected"
                   className="w-full pl-1 outline-none"
                 />
-
                 <IoIosArrowDown className="text-[#999999]" />
                 <select
                   onChange={(e) => setSelectedCountry(e.target.value)}
@@ -108,7 +100,6 @@ const BillingInfo = () => {
                 </select>
               </div>
             </div>
-
             {/* State Dropdown */}
             <div className="flex flex-col gap-1 relative">
               <label className="text-[14px] leading-5">States</label>
@@ -136,7 +127,6 @@ const BillingInfo = () => {
               </div>
             </div>
           </div>
-
           {/* Zip Code */}
           <div className="flex flex-col gap-1">
             <label className="text-[14px] leading-5">Zip code</label>
@@ -147,7 +137,6 @@ const BillingInfo = () => {
             />
           </div>
         </div>
-
         {/* Email, Phone */}
         <div className="flex items-center justify-between gap-4">
           <div className="flex flex-col w-1/2 gap-1">
@@ -194,14 +183,16 @@ const BillingInfo = () => {
           </div>
         </div>
       </div>
-
       {/* Order Summary */}
       <div className="w-full xl:w-1/3 border border-[#E6E6E6] p-3 rounded-md">
         <h1>Order summary</h1>
         {/* product  */}
         <div className="mb-10">
-          {carts.map((cart, index) => (
-            <div key={index} className="flex items-center justify-between gap-1">
+          {carts.map((cart) => (
+            <div
+              key={cart.id}
+              className="flex items-center justify-between gap-1"
+            >
               <div className="flex items-center justify-center gap-1">
                 <Image src={cart.image} alt="" width={50} height={50} />
                 <p className="text-[12px]">
@@ -226,20 +217,19 @@ const BillingInfo = () => {
           <p className="text-[#4D4D4D] text-[14px]">Total:</p>
           <p className="text-[18px] font-medium">${totalPrice}</p>
         </div>
-
         {/* paymet method  */}
         <div>
           <h1 className="my-3">Payment Method</h1>
           <div className="flex flex-col gap-1 mb-8">
             <div className="flex items-center gap-1">
-            <input
+              <input
                 type="checkbox"
                 className="w-[16px] h-[16px] accent-[#00B207] border-2 border-[#00B207] rounded-full"
               />
               <p className="text[#4D4D4D] text-[14px]">Cash on Delivery</p>
             </div>
             <div className="flex items-center gap-1">
-            <input
+              <input
                 type="checkbox"
                 className="w-[16px] h-[16px] accent-[#00B207] border-2 border-[#00B207] rounded-full"
               />
@@ -254,7 +244,6 @@ const BillingInfo = () => {
             </div>
           </div>
         </div>
-
         <Link href="/">
           <button className="bg-[#00B207] w-full py-[12px] text-[16px] text-white font-medium rounded-full">
             Place Order
@@ -264,5 +253,4 @@ const BillingInfo = () => {
     </div>
   );
 };
-
 export default BillingInfo;

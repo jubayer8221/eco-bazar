@@ -28,7 +28,7 @@ const MiddleNavbar = () => {
             {!searchIconR && (
               <GoSearch className="absolute left-3 bottom-[12px] h-4 w-4 text-gray-400" />
             )}
-          </div> 
+          </div>
           <input
             type="text"
             placeholder="search"
