@@ -49,7 +49,7 @@ const navItems: NavItem[] = [
       { label: "Shopping cart", link: "#" },
     ],
   },
-  { label: "Cart (2)", link: "/innerpage/billinginfo" },
+  { label: "Cart (2)", link: "/shoppingCart" },
   { label: "Contact Us", link: "#" },
 ];
 
@@ -119,25 +119,28 @@ const MobaileNavbar = () => {
               <div className="flex flex-col gap-4 transition-all">
                 {navItems.map((d, i) => (
                   <div key={i} className="relative px-2 py-3">
-                    <p
-                      className="flex cursor-pointer items-center gap-2 text-black hover:text-[#00B207]"
-                      onClick={() => toggleDropdown(d.label)}
-                    >
-                      <span>{d.label}</span>
-                      {d.children && (
-                        <IoIosArrowDown
-                          className={`text-xs transition-all ${
-                            openDropdown === d.label ? "rotate-180" : ""
-                          }`}
-                        />
-                      )}
-                    </p>
+
+                    <Link href={d.link ?? "#"}>
+                      <p
+                        className="flex cursor-pointer items-center gap-2 text-black hover:text-[#00B207]"
+                        onClick={() => toggleDropdown(d.label)}
+                      >
+                        <span>{d.label}</span>
+                        {d.children && (
+                          <IoIosArrowDown
+                            className={`text-xs transition-all ${
+                              openDropdown === d.label ? "rotate-180" : ""
+                            }`}
+                          />
+                        )}
+                      </p>
+                    </Link>
                     {openDropdown === d.label && d.children && (
                       <div className="mt-2 flex flex-col gap-1 rounded-lg py-2">
                         {d.children.map((ch, idx) => (
                           <Link
                             key={idx}
-                            href={ch.link ?? "/"}
+                            href={ch.link ?? "#"}
                             className="flex cursor-pointer items-center py-1 pl-6 pr-8 hover:text-[#00B207]"
                           >
                             <span>{ch.label}</span>
