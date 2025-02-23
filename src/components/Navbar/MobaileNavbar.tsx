@@ -49,7 +49,7 @@ const navItems: NavItem[] = [
       { label: "Shopping cart", link: "#" },
     ],
   },
-  { label: "Cart (2)", link: "/innerpage/billinginfo" },
+  { label: "Cart (2)", link: "/shoppingCart" },
   { label: "Contact Us", link: "#" },
 ];
 
@@ -135,7 +135,7 @@ const MobaileNavbar = () => {
                         {d.children.map((ch, idx) => (
                           <Link
                             key={idx}
-                            href={ch.link ?? "/"}
+                            href={ch.link ?? ""}
                             className="flex cursor-pointer items-center py-1 pl-6 pr-8 hover:text-[#00B207]"
                           >
                             <span>{ch.label}</span>
