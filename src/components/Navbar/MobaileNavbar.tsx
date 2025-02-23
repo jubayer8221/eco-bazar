@@ -15,11 +15,11 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     label: "Home",
-    link: "#",
+    link: "/",
     children: [
-      { label: "Category", link: "/" },
-      { label: "Wishlist", link: "#" },
-      { label: "Shopping cart", link: "#" },
+      { label: "Category", link: "/pupularproducts" },
+      { label: "Wishlist", link: "/Wishlist" },
+      { label: "Shopping cart", link: "shoppingCart" },
     ],
   },
   {
@@ -119,6 +119,7 @@ const MobaileNavbar = () => {
               <div className="flex flex-col gap-4 transition-all">
                 {navItems.map((d, i) => (
                   <div key={i} className="relative px-2 py-3">
+
                     <Link href={d.link ?? "#"}>
                       <p
                         className="flex cursor-pointer items-center gap-2 text-black hover:text-[#00B207]"

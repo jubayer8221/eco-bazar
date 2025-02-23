@@ -93,25 +93,21 @@ export default function ProductDescription() {
                 <p>
                   <span className="font-normal text-black">Tags:</span>
                   <span className="ml-2 space-x-2">
-                    <a href="#" className="text-black hover:underline">
+                    <Link href="#" className="text-black hover:underline">
                       Vegetables
-                    </a>
+                    </Link>
                     ,
-                    <a href="#" className="text-black hover:underline">
+                    <Link href="#" className="text-black hover:underline">
                       Healthy
-                    </a>
+                    </Link>
                     ,
-                    <a href="#" className="text-black underline">
-                      Chinese
-                    </a>
+                    <Link href="#" className="text-black underline">
+                      Chinese Cabbage
+                    </Link>
                     ,
-                    <a href="#" className="text-black hover:underline">
-                      Cabbage
-                    </a>
-                    ,
-                    <a href="#" className="text-black hover:underline">
+                    <Link href="#" className="text-black hover:underline">
                       Green Cabbage
-                    </a>
+                    </Link>
                   </span>
                 </p>
               </div>

@@ -4,7 +4,7 @@ import Hotdeals from "@/components/Home/Hotdeals";
 import PopularCategories from "@/components/popularCategory/page";
 export default function page() {
   return (
-    <div>
+    <div className="mt-16 xl:mt-48">
       <PopularCategories></PopularCategories>
       <PopularProductCard></PopularProductCard>
       <Hotdeals></Hotdeals>
