@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import ReviewPage from "./review/page";
+import Link from "next/link";
 
 export default function ProductDescription() {
   const [activeTab, setActiveTab] = useState("Descriptions");
@@ -93,7 +94,7 @@ export default function ProductDescription() {
                 <p>
                   <span className="font-normal text-black">Tags:</span>
                   <span className="ml-2 space-x-2">
-                    <Link href="#" className="text-black hover:underline">
+                    <Link href="/" className="text-black hover:underline">
                       Vegetables
                     </Link>
                     ,
