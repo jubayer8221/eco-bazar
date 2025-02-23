@@ -18,7 +18,7 @@ export default function ProductDescription() {
       {/* Description Section */}
       <div className="max-w-6xl mx-auto p-6">
         {/* Tab Navigation */}
-        <div className="flex border-b">
+        <div className="flex flex-col xl:flex-row border-b">
           {["Descriptions", "Additional Information", "Customer Feedback"].map(
             (tab) => (
               <button
