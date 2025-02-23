@@ -161,28 +161,28 @@ export default function FooterPage() {
             alt="Payment Method 4"
             width={50}
             height={20}
-            className="cursor-pointer h-[35px] w-[40px]"
+            className="cursor-pointer h-[35px] w-[45px] p-2 bg-black border border-gray-300 rounded-md"
           />
           <Image
             src="/icons/Mastercard.png"
             alt="Payment Method 1"
             width={50}
             height={20}
-            className="cursor-pointer h-[35px] w-[30px]"
+            className="cursor-pointer h-[35px] w-[40px] p-2 bg-black border border-gray-300 rounded-md"
           />
           <Image
             src="/icons/money_back.png"
             alt="Payment Method 2"
             width={50}
             height={20}
-            className="cursor-pointer h-[35px] w-[30px]"
+            className="cursor-pointer h-[35px] w-[40px] p-2 bg-black border border-gray-300 rounded-md"
           />
           <Image
             src="/icons/secure-payment.png"
             alt="Payment Method 3"
             width={50}
             height={20}
-            className="cursor-pointer h-[35px] w-[30px]"
+            className="cursor-pointer h-[35px] w-[40px] p-2 bg-black border border-gray-300 rounded-md"
           />
         </div>
       </div>
