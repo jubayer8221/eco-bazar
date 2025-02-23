@@ -15,11 +15,11 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     label: "Home",
-    link: "/",
+    link: "#",
     children: [
       { label: "Category", link: "/pupularproducts" },
       { label: "Wishlist", link: "/Wishlist" },
-      { label: "Shopping cart", link: "shoppingCart" },
+      { label: "Shopping cart", link: "/shoppingCart" },
     ],
   },
   {
