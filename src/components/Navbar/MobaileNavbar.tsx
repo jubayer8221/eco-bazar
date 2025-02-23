@@ -102,46 +102,54 @@ const MobaileNavbar = () => {
         </div>
 
         {open && (
-          <div className="absolute p-8 w-[65%] md:w-[40%] top-0 left-0 bg-[#437c45] opacity-80 h-screen text-white ease-in duration-500">
+          <div
+            className="absolute top-0 left-0 w-full h-screen bg-black bg-opacity-0 z-10"
+            onClick={() => setOpen(false)}
+          >
             <div
-              className="cursor-pointer flex justify-end"
-              onClick={() => setOpen((prev) => !prev)}
+              className="absolute p-8 w-[65%] md:w-[40%] top-0 left-0 bg-gray-100 bg-opacity-90 h-screen text-black ease-in duration-500"
+              onClick={(e) => e.stopPropagation()}
             >
-              <MdClose size={25} />
-            </div>
-            <div className="flex flex-col gap-4 transition-all">
-              {navItems.map((d, i) => (
-                <div key={i} className="relative px-2 py-3">
-                  <p
-                    className="flex cursor-pointer items-center gap-2 text-white hover:text-[#00B207]"
-                    onClick={() => toggleDropdown(d.label)}
-                  >
-                    <span>{d.label}</span>
-                    {d.children && (
-                      <IoIosArrowDown
-                        className={`text-xs transition-all ${openDropdown === d.label ? "rotate-180" : ""}`}
-                      />
+              <div
+                className="cursor-pointer flex justify-end"
+                onClick={() => setOpen(false)}
+              >
+                <MdClose size={25} />
+              </div>
+              <div className="flex flex-col gap-4 transition-all">
+                {navItems.map((d, i) => (
+                  <div key={i} className="relative px-2 py-3">
+                    <p
+                      className="flex cursor-pointer items-center gap-2 text-black hover:text-[#00B207]"
+                      onClick={() => toggleDropdown(d.label)}
+                    >
+                      <span>{d.label}</span>
+                      {d.children && (
+                        <IoIosArrowDown
+                          className={`text-xs transition-all ${openDropdown === d.label ? "rotate-180" : ""}`}
+                        />
+                      )}
+                    </p>
+                    {openDropdown === d.label && d.children && (
+                      <div className="mt-2 flex flex-col gap-1 rounded-lg py-2">
+                        {d.children.map((ch, idx) => (
+                          <Link
+                            key={idx}
+                            href={ch.link ?? "/"}
+                            className="flex cursor-pointer items-center py-1 pl-6 pr-8 hover:text-[#00B207]"
+                          >
+                            <span>{ch.label}</span>
+                          </Link>
+                        ))}
+                      </div>
                     )}
-                  </p>
-                  {openDropdown === d.label && d.children && (
-                    <div className="mt-2 flex flex-col gap-1 rounded-lg py-2">
-                      {d.children.map((ch, idx) => (
-                        <Link
-                          key={idx}
-                          href={ch.link ?? "/"}
-                          className="flex cursor-pointer items-center py-1 pl-6 pr-8 hover:text-[#00B207]"
-                        >
-                          <span>{ch.label}</span>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
+                  </div>
+                ))}
+                <div className="flex gap-1 mt-3">
+                  <Link href="/singin">Sign in</Link>
+                  <span>/</span>
+                  <Link href="/login">Login</Link>
                 </div>
-              ))}
-              <div className="flex gap-1 mt-3">
-                <Link href="/singin">Sign in</Link>
-                <span>/</span>
-                <Link href="/login">Login</Link>
               </div>
             </div>
           </div>
