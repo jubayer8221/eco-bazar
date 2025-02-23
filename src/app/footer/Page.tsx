@@ -26,11 +26,11 @@ export default function FooterPage() {
           </p>
           <div className="flex my-2 gap-5 justify-between mr-2">
             <p className="text-xs">
-              <a href="tel:+2195550114">+(219) 555-0114</a>
+              <Link href="tel:+2195550114">+(219) 555-0114</Link>
             </p>
             <p className="hidden sm:block">or</p>
             <p className="text-xs">
-              <a href="mailto:proxy@gmail.com">proxy@gmail.com</a>
+              <Link href="mailto:proxy@gmail.com">proxy@gmail.com</Link>
             </p>
           </div>
         </div>

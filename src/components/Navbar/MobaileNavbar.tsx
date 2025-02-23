@@ -15,11 +15,11 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     label: "Home",
-    link: "#",
+    link: "/",
     children: [
-      { label: "Category", link: "/" },
-      { label: "Wishlist", link: "#" },
-      { label: "Shopping cart", link: "#" },
+      { label: "Category", link: "/pupularproducts" },
+      { label: "Wishlist", link: "/Wishlist" },
+      { label: "Shopping cart", link: "shoppingCart" },
     ],
   },
   {
@@ -126,7 +126,9 @@ const MobaileNavbar = () => {
                       <span>{d.label}</span>
                       {d.children && (
                         <IoIosArrowDown
-                          className={`text-xs transition-all ${openDropdown === d.label ? "rotate-180" : ""}`}
+                          className={`text-xs transition-all ${
+                            openDropdown === d.label ? "rotate-180" : ""
+                          }`}
                         />
                       )}
                     </p>

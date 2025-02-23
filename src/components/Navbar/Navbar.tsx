@@ -14,9 +14,9 @@ const Navbar = () => {
         <Link href="./">
           <div className=" flex items-center gap-1">
             <Image src="/icons/logo.png" alt="" width={20} height={20} />
-            <samp className="font-poppins font-medium text-[20px] leading-[20px] tracking-[-0.03em] text-[#002603]">
+            <span className="font-poppins font-medium text-[20px] leading-[20px] tracking-[-0.03em] text-[#002603]">
               Ecobazar
-            </samp>
+            </span>
           </div>
         </Link>
         <MobaileNavbar />

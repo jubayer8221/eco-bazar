@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState } from "react";
 
 const LoginPage = () => {
@@ -91,15 +92,18 @@ const LoginPage = () => {
           <div className="mt-4 text-center text-red-500">{feedbackMessage}</div>
         )}
         <div className="flex justify-between mt-4">
-          <a
+          <Link
             href="/forgot-password"
             className="text-sm text-blue-600 hover:underline"
           >
             Forgot Password?
-          </a>
-          <a href="/signup" className="text-sm text-blue-600 hover:underline">
+          </Link>
+          <Link
+            href="/signup"
+            className="text-sm text-blue-600 hover:underline"
+          >
             Sign Up
-          </a>
+          </Link>
         </div>
         <button
           onClick={handleGoogleLogin}
