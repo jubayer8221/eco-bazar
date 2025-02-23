@@ -19,7 +19,7 @@ const ProductDetails = () => {
   const [activeTab, setActiveTab] = useState("Descriptions");
 
   return (
-    <div className="min-h-screen flex flex-col justify-between p-6 mx-auto font-poppins items-center md:px-[300px] pb-[40px] shadow-md my-5">
+    <div className="mt-16 xl:mt-48 min-h-screen flex flex-col justify-between p-6 mx-auto font-poppins items-center md:px-[300px] pb-[40px] shadow-md my-5">
       <div className="flex-1 w-full">
         <div className="grid md:grid-cols-2 gap-6">
           <div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import Image from "next/image";
+import Link from "next/link";
 
 const ShoppingCart = () => {
   const [cartItems, setCartItems] = useState([
@@ -150,9 +151,9 @@ const ShoppingCart = () => {
                 <p className="font-semibold">${cartTotal.toFixed(2)}</p>
               </div>
             </div>
-            <button className="bg-[#00B207] text-white w-full lg:w-[276px] px-4 py-2 my-5 mx-3 rounded-full hover:bg-green-600">
+            <Link href="/innerpage/billinginfo"><button className="bg-[#00B207] text-white w-full lg:w-[276px] px-4 py-2 my-5 mx-3 rounded-full hover:bg-green-600">
               Proceed to Checkout
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>
