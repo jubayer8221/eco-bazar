@@ -81,6 +81,7 @@ const BillingInfo = () => {
                 <input
                   type="text"
                   value={selectedCountry}
+                  onChange={(e)=>setSelectedCountry(e.target.value)}
                   placeholder="Selected"
                   className="w-full pl-1 outline-none"
                 />
@@ -107,6 +108,7 @@ const BillingInfo = () => {
                 <input
                   type="text"
                   value={selectedState}
+                  onChange={(e)=>setSelectedState(e.target.value)}
                   placeholder="Selected"
                   className="w-full pl-1 outline-none"
                 />
