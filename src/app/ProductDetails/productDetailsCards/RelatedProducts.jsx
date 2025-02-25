@@ -42,7 +42,7 @@ const products = [
 
 const RelatedProducts = () => {
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md">
+    <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 mt-14 bg-[#F7F7F7] font-poppins">
       <div className="text-center mb-4">
         <h2 className="text-2xl font-semibold">Related Products</h2>
       </div>
