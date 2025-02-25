@@ -56,11 +56,13 @@ export default function PopularProductCard() {
   }, []);
 
   return (
-    <div>
-      <div className="container p-6 max-w-5xl mx-auto px-4 py-8">
+    <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 mt-14 bg-[#F7F7F7] font-poppins">
+      <div className="mx-auto">
         <div className="flex justify-between mx-8">
           <div>
-            <h2 className="text-2xl font-bold mb-4">Popular Products</h2>
+            <h2 className="text-[20px] xl:text-[32px] font-semibold leading-9 text-[#1A1A1A]">
+              Popular Products
+            </h2>
           </div>
           <div>
             {categoriesData.length > 10 && (
