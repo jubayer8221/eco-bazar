@@ -12,7 +12,7 @@ const PopularCard = ({ name, image }) => {
         height={100}
         className="w-full h-24 object-contain mx-auto"
       />
-      <p className="mt-1 font-semibold">{name}</p>
+      <p className="mt-1 font-normal md:text-sm sm:text-xs">{name}</p>
     </div>
   );
 };

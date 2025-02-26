@@ -68,7 +68,7 @@ export default function PopularProductCard() {
             {categoriesData.length > 10 && (
               <button
                 onClick={() => setShowAll(!showAll)}
-                className="text-[#00B207] text-[16px] leading-6 font-medium md:text-xm sm:text-xs my-8"
+                className="text-[#00B207] text-[14px] xl:text-[16px] leading-6 font-medium my-8"
               >
                 {showAll ? "Show Less ←" : "View All →"}
               </button>
