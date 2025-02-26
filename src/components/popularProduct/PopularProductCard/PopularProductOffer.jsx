@@ -34,7 +34,7 @@ const ProductCard = ({ product, index }) => {
   const textColor = index === 2 ? "text-black" : "text-white";
 
   return (
-    <div className="font-poppins mx-0 mt-12">
+    <div className="font-poppins mx-0 mt-12 ">
       <div className="w-auto h-[435px] md:h-[300px] lg:h-[375px] rounded-xl relative overflow-hidden ">
         {/* Image as background, fills container */}
         <Image

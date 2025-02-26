@@ -3,30 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
-
-const carts = [
-  {
-    id: 1,
-    name: "Fresh Indian Orange",
-    price: 12.0,
-    image: "/images/hot2.png",
-    quantity: 1,
-  },
-  {
-    id: 2,
-    name: "Green Apple",
-    price: 14.0,
-    image: "/images/hot3.png",
-    quantity: 2,
-  },
-];
+import { useCart } from "@/components/context/CartContext"; // ✅ Use the global cart state
 
 const ShoppingCardPopup = () => {
-  const totalPrice = carts.reduce(
-    (sum, cart) => sum + cart.price * cart.quantity,
+  const { cart, removeFromCart } = useCart(); // ✅ Get cart data from context
+  const [closePopup, setClosePopup] = useState(true);
+
+  // ✅ Calculate total price dynamically
+  const totalPrice = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
     0
   );
-  const [closePopup, setClosePopup] = useState(true);
 
   return (
     <>
@@ -39,52 +26,69 @@ const ShoppingCardPopup = () => {
             className="bg-white w-1/4 h-full p-4 flex flex-col justify-between"
             onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside
           >
-            {/* top section */}
+            {/* ✅ Top Section */}
             <div>
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-[20px] leading-7">
-                  Shopping Card ({carts.length})
+                  Shopping Cart ({cart.length}) {/* ✅ Dynamic cart count */}
                 </h3>
                 <button onClick={() => setClosePopup(false)}>
                   <IoMdClose className="text-[13px] text-[#1A1A1A]" />
                 </button>
               </div>
-              {carts.map((cart) => (
-                <div
-                  key={cart.id}
-                  className="flex items-center justify-between border-b border-b-[#E6E6E6]"
-                >
-                  <div className="flex items-center gap-1">
-                    <Image src={cart.image} alt="" width={120} height={100} />
-                    <div>
-                      <h5 className="text-[14px] leading-5 font-normal">
-                        {cart.name}
-                      </h5>
-                      <p className="text-[14px] font-medium">
-                        <span className="text-[#808080]">
-                          {cart.quantity} kg x
-                        </span>{" "}
-                        {cart.price}
-                      </p>
+
+              {/* ✅ Show empty cart message */}
+              {cart.length === 0 ? (
+                <p className="text-center text-gray-500">Your cart is empty.</p>
+              ) : (
+                cart.map((item) => (
+                  <div
+                    key={item.id}
+                    className="flex items-center justify-between border-b border-b-[#E6E6E6] py-2"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        width={80}
+                        height={80}
+                      />
+                      <div>
+                        <h5 className="text-[14px] leading-5">{item.name}</h5>
+                        <p className="text-[14px] font-medium">
+                          <span className="text-[#808080]">
+                            {item.quantity} x
+                          </span>{" "}
+                          ${item.price}
+                        </p>
+                      </div>
                     </div>
+                    <button
+                      onClick={() => removeFromCart(item.id)}
+                      className="w-[22px] h-[22px] rounded-full border border-[#CCCCCC] flex items-center justify-center"
+                    >
+                      <IoMdClose className="text-[13px]" />
+                    </button>
                   </div>
-                  <div className="w-[22px] h-[22px] rounded-full border border-[#CCCCCC] bg-none flex items-center justify-center">
-                    <IoMdClose className="text-2" />
-                  </div>
-                </div>
-              ))}
+                ))
+              )}
             </div>
-            {/* bottom section  */}
+
+            {/* ✅ Bottom Section */}
             <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between">
-                <p>{carts.length} Product</p>
-                <div>${totalPrice}</div>
+                <p>{cart.length} Product(s)</p>
+                <div>${totalPrice.toFixed(2)}</div> {/* ✅ Fixed total price */}
               </div>
+
+              {/* ✅ Navigate to Billing Page */}
               <Link href="/innerpage/billinginfo">
                 <button className="bg-[#00B207] w-full text-[16px] font-semibold rounded-full py-4 px-10 text-white">
                   Checkout
                 </button>
               </Link>
+
+              {/* ✅ Navigate to Cart Page */}
               <Link href="/shoppingCart">
                 <button className="bg-[#4c5b4c] w-full text-[16px] font-semibold rounded-full py-4 px-10 border border-[#00B207] text-white">
                   Go To Cart
