@@ -60,7 +60,7 @@ const FeaturedProducts = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
             {
                 FeaturedProduct.map((product)=> (
-                    <FeaturedProductCart key={product.id} title={product.name} img={product.image} sale={product.sale ?? ""} price={product.price} rating={product.rating} oldPrice={product.oldPrice?? ""} />
+                    <FeaturedProductCart key={product.id} id={product.id} title={product.name} img={product.image} sale={product.sale ?? ""} price={product.price} rating={product.rating} oldPrice={product.oldPrice?? ""} />
                 ))
             }
           </div>

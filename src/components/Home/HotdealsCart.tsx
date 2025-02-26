@@ -11,7 +11,7 @@ interface ProductProps {
   id: number;
   img: string;
   title: string;
-  price: number | string;
+  price: number;
   rating?: number;
   sale?: string;
   oldPrice?: string;
