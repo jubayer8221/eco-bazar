@@ -26,17 +26,17 @@ const navItems: NavItem[] = [
     label: "Shop",
     link: "#",
     children: [
-      { label: "Category", link: "#" },
-      { label: "Wishlist", link: "#" },
-      { label: "Shopping cart", link: "#" },
+      { label: "Category", link: "/popularproducts" },
+      { label: "Wishlist", link: "/Wishlist" },
+      { label: "Shopping cart", link: "/shoppingCart" },
     ],
   },
   {
     label: "Blog",
     link: "#",
     children: [
-      { label: "Category", link: "#" },
-      { label: "Wishlist", link: "#" },
+      { label: "News", link: "/blog" },
+      { label: "Wishlist", link: "/Wishlist" },
       { label: "Shopping cart", link: "#" },
     ],
   },
@@ -44,13 +44,20 @@ const navItems: NavItem[] = [
     label: "Pages",
     link: "#",
     children: [
-      { label: "Category", link: "#" },
-      { label: "Wishlist", link: "#" },
-      { label: "Shopping cart", link: "#" },
+      { label: "Category", link: "/popularproducts" },
+      { label: "Wishlist", link: "/Wishlist" },
+      { label: "Privacy Policy", link: "/privacypolicy" },
     ],
   },
   { label: "Cart (2)", link: "/shoppingCart" },
+<<<<<<< HEAD
   { label: "About Us", link: "/aboutUs" },
+=======
+  {
+    label: "About Us",
+    link: "/aboutUs",
+  },
+>>>>>>> be5e8ddb7a9eee69e7f60dca0473ce3f16df1713
   {
     label: "Contact Us",
     link: "/contactUs",

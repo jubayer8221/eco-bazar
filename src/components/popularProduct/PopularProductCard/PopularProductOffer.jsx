@@ -34,45 +34,51 @@ const ProductCard = ({ product, index }) => {
   const textColor = index === 2 ? "text-black" : "text-white";
 
   return (
-    <div className="w-full h-[436px] rounded-xl relative overflow-hidden">
-      {/* Image as background, fills container */}
-      <Image
-        src={product.image}
-        alt={product.title}
-        fill
-        sizes="100%"
-        className="object-cover object-center rounded-xl"
-      />
+    <div className="font-poppins mx-0 mt-12">
+      <div className="w-auto h-[435px] md:h-[300px] lg:h-[375px] rounded-xl relative overflow-hidden ">
+        {/* Image as background, fills container */}
+        <Image
+          src={product.image}
+          alt={product.title}
+          fill
+          sizes="100%"
+          className="object-cover object-center rounded-xl"
+        />
 
-      {/* Content */}
-      <div
-        className={`absolute inset-0 flex flex-col text-center p-6 ${textColor}`}
-      >
-        <h2 className="text-sm uppercase font-semibold">{product.subtitle}</h2>
-        <h2 className="text-2xl font-bold">{product.title}</h2>
-        {product.date && <p className="font-poppins text-lg">{product.date}</p>}
-        {product.datetext && (
-          <p className="text-xs font-poppins">{product.datetext}</p>
-        )}
-        {product.price && (
-          <p className="text-lg font-bold text-orange-600">
-            <span className={textColor}>Started at</span> {product.price}
-          </p>
-        )}
-        {product.discount && (
-          <p className="text-lg font-bold text-orange-600">
-            <span className={textColor}>Up to</span>{" "}
-            <span className="bg-black font-poppins text-sm rounded p-1">
-              {product.discount}
-            </span>
-          </p>
-        )}
-        <div className="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2">
-          <Link href="./ProductDetails">
-            <button className="w-[160px] bg-white font-semibold text-[#00B207] px-4 py-2 rounded-full hover:bg-[#00B207] hover:text-white">
-              {product.buttonText} →
-            </button>
-          </Link>
+        {/* Content */}
+        <div
+          className={`absolute inset-0 flex flex-col text-center py-16 md:py-10 ${textColor}`}
+        >
+          <h2 className="text-sm uppercase font-semibold ">
+            {product.subtitle}
+          </h2>
+          <h2 className="text-lg font-semibold">{product.title}</h2>
+          {product.date && (
+            <p className="font-poppins text-sm">{product.date}</p>
+          )}
+          {product.datetext && (
+            <p className="text-xs font-poppins">{product.datetext}</p>
+          )}
+          {product.price && (
+            <p className="text-lg font-semibold text-orange-600">
+              <span className={textColor}>Started at</span> {product.price}
+            </p>
+          )}
+          {product.discount && (
+            <p className="text-lg font-bold text-orange-600">
+              <span className={textColor}>Up to</span>{" "}
+              <span className="bg-black font-poppins text-sm rounded p-1">
+                {product.discount}
+              </span>
+            </p>
+          )}
+          <div className="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+            <Link href="./ProductDetails">
+              <button className="w-[160px] bg-white font-semibold text-[#00B207] px-4 py-2 rounded-lg hover:bg-[#00B207] hover:text-white md:w-[120px] md:text-xs">
+                {product.buttonText}
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

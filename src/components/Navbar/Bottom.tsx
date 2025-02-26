@@ -13,7 +13,16 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     label: "Home",
+<<<<<<< HEAD
     link: "/",
+=======
+    link: "#",
+    children: [
+      { label: "Category", link: "/popularproducts" },
+      { label: "Wishlist", link: "/Wishlist" },
+      { label: "Shopping cart", link: "/shoppingCart" },
+    ],
+>>>>>>> be5e8ddb7a9eee69e7f60dca0473ce3f16df1713
   },
   {
     label: "Shop",
@@ -21,52 +30,52 @@ const navItems: NavItem[] = [
     children: [
       {
         label: "Category",
-        link: "#",
+        link: "/popularproducts",
       },
       {
         label: "Wishlist",
-        link: "#",
+        link: "/Wishlist",
       },
       {
         label: "Shopping cart",
-        link: "#",
+        link: "/shoppingCart",
       },
     ],
   },
   {
     label: "Blog",
-    link: "#",
+    link: "/blog",
     children: [
       {
-        label: "Category",
-        link: "#",
+        label: "News",
+        link: "/blog",
       },
       {
         label: "Wishlist",
-        link: "#",
+        link: "/Wishlist",
       },
       {
         label: "Shopping cart",
-        link: "#",
+        link: "/shoppingCart",
       },
     ],
   },
-  
+
   {
     label: "Pages",
     link: "#",
     children: [
       {
-        label: "Category",
-        link: "#",
+        label: "Product Details",
+        link: "/ProductDetails",
       },
       {
         label: "Wishlist",
-        link: "#",
+        link: "/Wishlist",
       },
       {
-        label: "Shopping cart",
-        link: "#",
+        label: "Privacy Policy",
+        link: "/privacypolicy",
       },
     ],
   },
@@ -85,18 +94,25 @@ const Bottom = () => {
     <div className="pl-[300px] pr-[300px] bg-black flex items-center justify-between">
       {/* menu  */}
       <div className="hidden md:flex items-center gap-4 transition-all">
+<<<<<<< HEAD
           {navItems.map((d, i) => (
             <div
               key={i}
               className="relative group px-2 py-3 transition-all "
             >
               <Link href={d.link ?? "#"}>
+=======
+        {navItems.map((d, i) => (
+          <div key={i} className="relative group px-2 py-3 transition-all ">
+            <Link href={d.link ?? "#"}>
+>>>>>>> be5e8ddb7a9eee69e7f60dca0473ce3f16df1713
               <p className="flex cursor-pointer items-center gap-2 text-neutral-400 group-hover:text-[#00B207] ">
                 <span>{d.label}</span>
                 {d.children && (
                   <IoIosArrowDown className=" rotate-180 transition-all group-hover:rotate-0" />
                 )}
               </p>
+<<<<<<< HEAD
               </Link>
 
               {/* dropdown */}
@@ -119,6 +135,28 @@ const Bottom = () => {
             </div>
           ))}
         </div>
+=======
+            </Link>
+
+            {/* dropdown */}
+            {d.children && (
+              <div className="absolute right-0 top-10 hidden w-auto flex-col gap-1 rounded-lg bg-white py-3 shadow-md transition-all group-hover:flex ">
+                {d.children.map((ch, i) => (
+                  <Link
+                    key={i}
+                    href={ch.link ?? "#"}
+                    className=" flex cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-[#00B207]  "
+                  >
+                    {/* item */}
+                    <span className="whitespace-nowrap pl-3 ">{ch.label}</span>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+>>>>>>> be5e8ddb7a9eee69e7f60dca0473ce3f16df1713
       {/* phone */}
       <div className="flex items-center gap-2">
         <BiPhoneCall className="w-5 h-5 text-white" />
