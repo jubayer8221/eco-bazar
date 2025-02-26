@@ -13,24 +13,7 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     label: "Home",
-    link: "#",
-    children: [
-      {
-        label: "Category",
-        link: "#",
-        iocnImage: "",
-      },
-      {
-        label: "Wishlist",
-        link: "#",
-        iocnImage: "",
-      },
-      {
-        label: "Shopping cart",
-        link: "#",
-        iocnImage: "",
-      },
-    ],
+    link: "/",
   },
   {
     label: "Shop",
@@ -89,11 +72,11 @@ const navItems: NavItem[] = [
   },
   {
     label: "About Us",
-    link: "#",
+    link: "/aboutUs",
   },
   {
     label: "Contact Us",
-    link: "#",
+    link: "/contactUs",
   },
 ];
 
@@ -103,17 +86,18 @@ const Bottom = () => {
       {/* menu  */}
       <div className="hidden md:flex items-center gap-4 transition-all">
           {navItems.map((d, i) => (
-            <Link
+            <div
               key={i}
-              href={d.link ?? "#"}
               className="relative group px-2 py-3 transition-all "
             >
+              <Link href={d.link ?? "#"}>
               <p className="flex cursor-pointer items-center gap-2 text-neutral-400 group-hover:text-[#00B207] ">
                 <span>{d.label}</span>
                 {d.children && (
                   <IoIosArrowDown className=" rotate-180 transition-all group-hover:rotate-0" />
                 )}
               </p>
+              </Link>
 
               {/* dropdown */}
               {d.children && (
@@ -132,7 +116,7 @@ const Bottom = () => {
                   ))}
                 </div>
               )}
-            </Link>
+            </div>
           ))}
         </div>
       {/* phone */}
