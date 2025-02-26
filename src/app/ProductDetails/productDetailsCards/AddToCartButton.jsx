@@ -16,7 +16,7 @@ function AddToCartButton() {
   return (
     <div className="flex flex-col items-center">
       <button
-        className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-12 m-2 mt-4 flex items-center justify-center bg-green-600 text-white text-center px-6 py-2 rounded-md"
+        className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-40 xl:max-w-xl h-12 mx-2 px-2 mt-4 flex items-center justify-center bg-green-600 text-white text-center lg:px-[70px] py-2 rounded-md md:text-sm md:text-wrap"
         onClick={handleButtonClick}
       >
         Add to Cart

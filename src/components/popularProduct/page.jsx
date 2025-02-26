@@ -56,11 +56,11 @@ export default function PopularProductCard() {
   }, []);
 
   return (
-    <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 mt-14 bg-[#F7F7F7] font-poppins">
+    <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] font-poppins">
       <div className="mx-auto">
-        <div className="flex justify-between mx-8">
+        <div className="flex justify-between">
           <div>
-            <h2 className="text-[20px] xl:text-[32px] font-semibold leading-9 text-[#1A1A1A]">
+            <h2 className="text-[20px] xl:text-[32px] font-semibold leading-9 text-[#1A1A1A] my-8">
               Popular Products
             </h2>
           </div>
@@ -68,7 +68,7 @@ export default function PopularProductCard() {
             {categoriesData.length > 10 && (
               <button
                 onClick={() => setShowAll(!showAll)}
-                className="text-[#00B207] text-[16px] leading-6 font-medium"
+                className="text-[#00B207] text-[14px] xl:text-[16px] leading-6 font-medium my-8"
               >
                 {showAll ? "Show Less ←" : "View All →"}
               </button>
@@ -77,7 +77,7 @@ export default function PopularProductCard() {
         </div>
 
         {/* Category Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 m-6 ">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {(showAll ? categoriesData : categoriesData.slice(0, 10)).map(
             (category) => (
               <CategoryCard

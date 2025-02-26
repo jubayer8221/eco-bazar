@@ -42,51 +42,56 @@ const products = [
 
 const RelatedProducts = () => {
   return (
-    <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 mt-14 bg-[#F7F7F7] font-poppins">
-      <div className="text-center mb-4">
-        <h2 className="text-2xl font-semibold">Related Products</h2>
-      </div>
+    <div className="mt-8">
+      <div className="bg-white p-4 ">
+        <div className="text-center mb-4">
+          <h2 className="text-2xl font-semibold">Related Products</h2>
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {products.map((product) => (
-          <div key={product.id} className="relative border p-4 rounded-lg">
-            {product.sale && (
-              <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded z-10">
-                Sale 50%
-              </span>
-            )}
-            <div className="relative h-48 w-full mb-4">
-              <Image
-                src={product.image}
-                alt={product.name}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg"
-              />
-            </div>
-            <div className="text-center">
-              <h3 className="text-lg font-poppins mb-2">{product.name}</h3>
-              <div className="flex justify-center items-center space-x-2 mb-4">
-                <span className="text-md font-semibold text-green-600">
-                  ${product.price.toFixed(2)}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className="relative border p-4 rounded-lg hover:border-green-500"
+            >
+              {product.sale && (
+                <span className="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded z-10">
+                  Sale 50%
                 </span>
-                {product.originalPrice && (
-                  <span className="text-sm line-through text-gray-500">
-                    ${product.originalPrice.toFixed(2)}
-                  </span>
-                )}
+              )}
+              <div className="relative h-48 w-full mb-4">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg"
+                />
               </div>
-              <div className="flex justify-between mx-5 space-x-4">
-                <button className="p-2 rounded-full border border-gray-300 hover:bg-red-600">
-                  <AiOutlineHeart size={20} />
-                </button>
-                <button className="p-2 rounded-full border border-gray-300 hover:bg-green-600">
-                  <BsCartPlusFill size={20} />
-                </button>
+              <div className="text-center">
+                <h3 className="text-lg font-poppins mb-2">{product.name}</h3>
+                <div className="flex justify-center items-center space-x-2 mb-4">
+                  <span className="text-md font-semibold text-green-600">
+                    ${product.price.toFixed(2)}
+                  </span>
+                  {product.originalPrice && (
+                    <span className="text-sm line-through text-gray-500">
+                      ${product.originalPrice.toFixed(2)}
+                    </span>
+                  )}
+                </div>
+                <div className="flex justify-between mx-5 space-x-4">
+                  <button className="p-2 rounded-full border border-gray-300 hover:bg-red-600">
+                    <AiOutlineHeart size={20} />
+                  </button>
+                  <button className="p-2 rounded-full border border-gray-300 hover:bg-green-600">
+                    <BsCartPlusFill size={20} />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
