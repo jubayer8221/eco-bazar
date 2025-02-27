@@ -42,11 +42,7 @@ export default function WishList() {
   };
 
   return (
-<<<<<<< HEAD
     <div className="xl:mt-32 font-poppins max-w-full mx-auto px-2 md:px-12 lg:px-[300px] py-6 h-auto border border-gray-200 rounded-[8px] bg-white shadow-md">
-=======
-    <div className="font-poppins max-w-full mx-auto px-2 md:px-12 lg:px-[300px] py-6 h-auto border border-gray-200 rounded-[8px] bg-white shadow-md xl:mt-48 mt-24">
->>>>>>> be5e8ddb7a9eee69e7f60dca0473ce3f16df1713
       <h2 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6">
         My Wishlist
       </h2>
