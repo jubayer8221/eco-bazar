@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import FooterPage from "./footer/Page";
+import Subcribe from "@/components/Home/Subcribe";
+import { CartProvider } from "@/components/context/CartContext"; // ✅ Import the CartProvider
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,17 +23,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        <Navbar />
-        {children}
-        <FooterPage></FooterPage>
+        {/* ✅ Wrap Everything Inside CartProvider */}
+        <CartProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Subcribe />
+          <FooterPage />
+        </CartProvider>
       </body>
     </html>
   );

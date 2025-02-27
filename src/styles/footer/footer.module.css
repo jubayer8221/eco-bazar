@@ -7,6 +7,8 @@
   padding-top: 60px;
   padding-right: 300px;
   padding-left: 300px;
+  position: relative;
+  bottom: 0;
 }
 
 .footer_container {
@@ -19,7 +21,7 @@
 }
 
 .footer_container > div {
-  margin-bottom: 2rem; /* Spacing between column groups */
+  margin-bottom: 5rem; /* Spacing between column groups */
 }
 
 .footer_container > div:first-child {
@@ -28,15 +30,10 @@
 }
 
 .footer_container > div:nth-child(n + 2):nth-child(-n + 6) {
-  width: 15%;
+  width: 12%;
   min-width: 120px;
 }
-.footer_container > div:last-child {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .footer_container img {
   margin-bottom: 1rem; /* Space below logo image */
   max-width: 100%; /* Ensure logo image is responsive */
@@ -58,8 +55,8 @@
 
 .footer_container ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: auto;
+  margin: auto;
 }
 
 .footer_container li {
@@ -92,23 +89,38 @@
 @media (max-width: 768px) {
   .footer_container {
     flex-direction: column;
-    align-items: flex-start;
+    /* align-items: flex-start; */
+    margin-left: 0;
+    text-align: left;
+    padding-left: 0;
+  }
+
+  .footer {
+    background: #1a1a1a;
+    color: aliceblue;
+    width: 100%;
+    height: auto;
+    padding: 60px 20px; /* Adjusted padding */
   }
 
   .footer_container > div {
-    width: 100% !important;
-    min-width: auto; /* Reset min-width */
-    text-align: left; /* Align text to left in columns */
-  }
-
-  .footer_container > div:last-child {
-    flex-direction: column; /* Stack copyright and icons vertically */
-    align-items: flex-start;
+    width: 100%;
     text-align: left;
   }
 
-  .footer_container > div:last-child > div img {
-    margin-right: 0.5rem;
-    margin-left: 0;
+  .footer_container > div:last-child {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer_container ul {
+    margin: 0;
+    padding: 0;
+  }
+  .footer_container li {
+    margin-bottom: 0.5rem; /* Reduce the space between list items */
+  }
+
+  .footer_container > div:not(:first-child) ul {
+    margin-top: 0.5rem; /* Reduce space between ul groups */
   }
 }

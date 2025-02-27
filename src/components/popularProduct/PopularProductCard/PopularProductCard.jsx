@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 
 // Cart Icon Component
 const CartIcon = () => (
@@ -21,15 +22,17 @@ const CartIcon = () => (
 
 const PopularCard = ({ name, image, price }) => {
   return (
-    <div className="shadow-md h-[407] p-4 text-left border border-transparent hover:shadow-lg hover:border-green-700 transition-all">
+    <div className="shadow-md h-[240px] px-2 text-left border border-transparent hover:shadow-lg hover:border-green-700 transition-all mb-0 pb-0">
       {/* Product Image */}
-      <img
+      <Image
         src={image}
         alt={name}
-        className="w-full h-32 object-contain mx-auto"
+        width={200}
+        height={200}
+        className="w-[130px] h-[135px] object-contain mx-auto"
       />
       {/* Product Name with Hover Effect */}
-      <p className="mt-2 text-gray-700 hover:text-green-600 transition-colors cursor-pointer">
+      <p className="text-gray-700 hover:text-green-600 transition-colors cursor-pointer">
         {name}
       </p>
 

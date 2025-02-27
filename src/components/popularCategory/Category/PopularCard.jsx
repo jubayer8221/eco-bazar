@@ -1,15 +1,18 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 
 const PopularCard = ({ name, image }) => {
   return (
     <div className="border rounded-lg shadow-md p-4 text-center hover:shadow-lg hover:border-green-600 hover:text-green-600 transition-all">
-      <img
+      <Image
         src={image}
         alt={name}
-        className="w-full h-32 object-contain mx-auto"
+        width={100}
+        height={100}
+        className="w-full h-24 object-contain mx-auto"
       />
-      <p className="mt-2 font-semibold">{name}</p>
+      <p className="mt-1 font-normal md:text-sm sm:text-xs">{name}</p>
     </div>
   );
 };

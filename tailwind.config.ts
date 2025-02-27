@@ -16,6 +16,9 @@ export default {
       fontFamily:{
         poppins: ["Poppins", "sans-serif"],
       },
+      backgroundImage:{
+        blackOverlay: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%)",
+      },
     },
   },
   plugins: [],
