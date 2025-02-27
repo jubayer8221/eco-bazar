@@ -50,14 +50,6 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "Cart (2)", link: "/shoppingCart" },
-<<<<<<< HEAD
-  { label: "About Us", link: "/aboutUs" },
-=======
-  {
-    label: "About Us",
-    link: "/aboutUs",
-  },
->>>>>>> be5e8ddb7a9eee69e7f60dca0473ce3f16df1713
   {
     label: "Contact Us",
     link: "/contactUs",

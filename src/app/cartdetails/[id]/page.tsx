@@ -45,7 +45,7 @@ const FeaturedProduct = [
     id: 2,
     name: "Chinese cabbage",
     price: "$12.00",
-    
+
     oldPrice: null,
     image: "/images/hot2.png",
     thumbnails: [
@@ -223,7 +223,7 @@ const CartDetails = () => {
                   <Image
                     key={index}
                     src={img}
-                    alt=""
+                    alt="image"
                     width={60}
                     height={60}
                     className={` md:w-[100px] md:h-[100px] xl:w-[60px] xl:h-[60px] cursor-pointer hover:border hover:border-[#00B207]`}
@@ -242,7 +242,7 @@ const CartDetails = () => {
             <div>
               <Image
                 src={selectedImage}
-                alt=""
+                alt="image"
                 width={300}
                 height={300}
                 className="md:w-[400px] md:h-[400px] xl:w-[300px] xl:h-[300px]"
@@ -276,7 +276,11 @@ const CartDetails = () => {
                 <del className="text-[#808080] text-4">{data.oldPrice}</del>
               </p>
               <p className="">
-                {data.sale && <p className="text-[12 px] bg-[#EA4B481A] px-3 py-1 rounded-full text-[#EA4B48]">{data.sale} off</p>}
+                {data.sale && (
+                  <p className="text-[12 px] bg-[#EA4B481A] px-3 py-1 rounded-full text-[#EA4B48]">
+                    {data.sale} off
+                  </p>
+                )}
               </p>
             </div>
             <hr className="text-[#E6E6E6] w-full mt-2 mb-4" />
@@ -345,7 +349,6 @@ const CartDetails = () => {
           </div>
         </div>
       </div>
-
 
       {/* Description Section */}
       <div className="mt-10 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[140px] md:pr-[140px] xl:pl-[300px] xl:pr-[300px] font-poppins">
