@@ -7,7 +7,6 @@ type NavItem = {
   label: string;
   link?: string;
   children?: NavItem[];
-  iocnImage?: string;
 };
 
 const navItems: NavItem[] = [
@@ -68,9 +67,10 @@ const Bottom = () => {
               </p>
             </Link>
 
-            {/* dropdown */}
+            {/* Dropdown */}
             {d.children && (
               <div className="absolute right-0 top-10 hidden w-auto flex-col gap-1 rounded-lg bg-white py-3 shadow-md transition-all group-hover:flex">
+
                 {d.children.map((ch, i) => (
                   <Link
                     key={i}
@@ -86,6 +86,7 @@ const Bottom = () => {
         ))}
       </div>
 
+      {/* Phone */}
       {/* phone */}
       <div className="flex items-center gap-2">
         <BiPhoneCall className="w-5 h-5 text-white" />

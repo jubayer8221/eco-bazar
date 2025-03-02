@@ -15,12 +15,7 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     label: "Home",
-    link: "#",
-    children: [
-      { label: "Category", link: "/popularproducts" },
-      { label: "Wishlist", link: "/Wishlist" },
-      { label: "Shopping cart", link: "/shoppingCart" },
-    ],
+    link: "/",
   },
   {
     label: "Shop",
@@ -50,6 +45,11 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "Cart (2)", link: "/shoppingCart" },
+
+  {
+    label: "About Us",
+    link: "/aboutUs",
+  },
   {
     label: "Contact Us",
     link: "/contactUs",

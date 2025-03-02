@@ -131,6 +131,649 @@ const FeaturedProduct = [
     category: "Vegetables",
     tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
   },
+
+  // popular catagoriy
+  {
+    id: 6,
+    name: "Fresh Fruit",
+    image: "/image/image1.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 7,
+    name: "Fresh Vegetables",
+    image: "/image/image_1.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 8,
+    name: "Meat & Fish",
+    image: "/image/image_2.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 9,
+    name: "Snacks",
+    image: "/image/image_3.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 10,
+    name: "Beverages",
+    image: "/image/image_4.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 11,
+    name: "Beauty & Health",
+    image: "/image/image_5.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 12,
+    name: "Bread & Bakery",
+    image: "/image/image_6.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 13,
+    name: "Baking Needs",
+    image: "/image/image_7.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 14,
+    name: "Cooking",
+    image: "/image/image_8.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 15,
+    name: "Diabetic Food",
+    image: "/image/image_9.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 16,
+    name: "Dish Detergents",
+    image: "/image/image_10.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 17,
+    name: "Oil",
+    image: "/image/image_11.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 18,
+    name: "Dairy Products",
+    image: "/image/image_1.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 19,
+    name: "Frozen Items",
+    image: "/image/image_1.png",
+    price: "$12.00",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+
+  // proplar product
+
+  {
+    id: 20,
+    price: "$20",
+    name: "Green Apple",
+    image: "/image/apple.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 21,
+    price: "$25",
+    name: "Fresh Indian Malta",
+    image: "/image/malta.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 22,
+    price: "$15",
+    name: "Chinese cabage",
+    image: "/image/cabbage.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 23,
+    price: "$18",
+    name: "Green Lettuce",
+    image: "/image/lettuce.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 24,
+    price: "$22",
+    name: "Eggplant",
+    image: "/image/eggplant.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 25,
+    price: "$30",
+    name: "Big Potatoes",
+    image: "/image/potatoes.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 26,
+    price: "$12",
+    name: "Corn",
+    image: "/image/corn.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 27,
+    price: "$28",
+    name: "Fresh Cauliflower",
+    image: "/image/cauliflower.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 28,
+    price: "$20",
+    name: "Green Capsicum",
+    image: "/image/capsicum.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 29,
+    price: "$10",
+    name: "Green Chili",
+    image: "/image/chili.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 30,
+    price: "$35",
+    name: "Dish Detergents",
+    image: "/image/lettuce.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 31,
+    price: "$50",
+    name: "Oil",
+    image: "/image/cabbage.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 32,
+    price: "$22",
+    name: "Eggplant",
+    image: "/image/eggplant.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 33,
+    price: "$40",
+    name: "Dairy Products",
+    image: "/image/corn.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
+  {
+    id: 34,
+    price: "$60",
+    name: "Frozen Items",
+    image: "/image/chili.png",
+    oldPrice: null,
+    rating: 4,
+    sale: "40%",
+    thumbnails: [
+      "/images/hot1.png",
+      "/images/hot2.png",
+      "/images/hot3.png",
+      "/images/hot4.png",
+    ],
+    stock: "In Stock",
+    description:
+      "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
+    brand: "Farmunity",
+    sku: "2,51,594",
+    category: "Vegetables",
+    tags: ["Vegetables", "Healthy", "Chinese", "Cabbage", "Green Cabbage"],
+  },
 ];
 
 const CartDetails = () => {
@@ -204,7 +847,8 @@ const CartDetails = () => {
 
   return data ? (
     <>
-      <div className="mt-16 md:mt-12 xl:mt-48 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[140px] md:pr-[140px] xl:pl-[300px] xl:pr-[300px] font-poppins">
+      {/* product details  */}
+      <div className="mt-16 md:mt-12 xl:mt-48 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] font-poppins">
         <div className="flex flex-col md:flex-col xl:flex-row items-center gap-y-3 xl:gap-1">
           {/* left side image show  */}
           <div className="w-full sm:w-fullmd:w-full xl:w-1/2 flex md:justify-between md:items-center xl:flex-row space-x-1">
@@ -357,7 +1001,7 @@ const CartDetails = () => {
       </div>
 
       {/* Description Section */}
-      <div className="mt-10 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[140px] md:pr-[140px] xl:pl-[300px] xl:pr-[300px] font-poppins">
+      <div className="mt-10 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] font-poppins">
         {/* Tab Navigation */}
         <div className="flex flex-col xl:flex-row border-b">
           {["Descriptions", "Additional Information", "Customer Feedback"].map(
@@ -474,9 +1118,9 @@ const CartDetails = () => {
             </div>
 
             {/* Discount and Organic Small Banner */}
-            <div className="flex bg-gray-100 space-x-6 mt-6 shadow-md border m-2 h-24">
+            <div className="flex flex-col md:flex-col xl:flex-row gap-2 mt-4">
               {/* Discount Banner */}
-              <div className="p-4 mt-5 flex items-center rounded-lg w-60 h-12">
+              <div className="w-full md:w-full bg-gray-100 p-4 flex items-center gap-2 rounded-lg">
                 <Image
                   src="/image/discount.png"
                   alt="Discount"
@@ -484,7 +1128,7 @@ const CartDetails = () => {
                   height={32}
                   className="w-8 h-8"
                 />
-                <div className="ml-2">
+                <div className="">
                   <h3 className="font-normal">64% Discount</h3>
                   <p className="text-sm text-gray-600">
                     Save 64% on your purchase.
@@ -493,7 +1137,7 @@ const CartDetails = () => {
               </div>
 
               {/* Organic Banner */}
-              <div className="p-4 mt-5 flex items-center rounded-lg w-60 h-12">
+              <div className="w-full md:w-full p-4 bg-gray-100 flex items-center gap-2 rounded-lg ">
                 <Image
                   src="/image/organic.png"
                   alt="Organic"
@@ -501,7 +1145,7 @@ const CartDetails = () => {
                   height={32}
                   className="w-8 h-8"
                 />
-                <div className="ml-2">
+                <div className="">
                   <h3 className="font-normal">100% Organic</h3>
                   <p className="text-sm text-gray-600">
                     Guaranteed fresh and organic vegetables.
@@ -514,12 +1158,12 @@ const CartDetails = () => {
       </div>
 
       {/* relative product  */}
-      <div className="bg-white p-4 rounded-lg shadow-md mt-10 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[140px] md:pr-[140px] xl:pl-[300px] xl:pr-[300px] font-poppins">
+      <div className="bg-white p-4 rounded-lg shadow-md mt-10 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] font-poppins">
         <div className="text-center mb-4">
           <h2 className="text-2xl font-semibold">Related Products</h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {FeaturedProduct.map((product) => (
             <div key={product.id} className="relative border p-4 rounded-lg">
               {product.sale && (

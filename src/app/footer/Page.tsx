@@ -4,10 +4,10 @@ import Link from "next/link";
 
 export default function FooterPage() {
   return (
-    <footer className="px-3 sm:px-[100px] md:px-[140px] xl:px-[300px] bg-[#1a1a1a] text-white">
-      <div className="max-w-5xl w-full flex justify-between md:flex gap-2">
+    <footer className="pt-4 pb-4 px-3 sm:px-[100px] md:px-[100px] xl:px-[300px] bg-[#1a1a1a] text-white">
+      <div className="w-full flex flex-col md:flex-row xl:flex-row justify-between gap-4">
         {/* First Section */}
-        <div className="w-full md:w-1/3">
+        <div className="w-full md:w-[70%] xl:w-[60%]">
           <div className="flex gap-2 items-center">
             <Image
               className="w-10 h-8"
@@ -20,15 +20,13 @@ export default function FooterPage() {
           </div>
           <p className="text-xs mt-2">
             Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis
-            dui, eget bibendum magna congue nec.Morbi cursus porttitor enim
-            lobortis molestie. Duis gravida turpis dui, eget bibendum magna
-            congue nec.
+            dui, eget bibendum magna congue nec.
           </p>
-          <div className="flex my-2 gap-5 justify-between mr-2">
+          <div className="flex flex-row md:flex-col xl:flex-row mt-2 gap-4 md:gap-y-1 xl:gap-4 items-center md:items-start xl:items-center">
             <p className="text-xs">
               <Link href="tel:+2195550114">+(219) 555-0114</Link>
             </p>
-            <p className="hidden sm:block">or</p>
+            <p className="">or</p>
             <p className="text-xs">
               <Link href="mailto:proxy@gmail.com">proxy@gmail.com</Link>
             </p>
@@ -36,8 +34,8 @@ export default function FooterPage() {
         </div>
 
         {/* Links Sections */}
-        <div className="w-full md:w-2/3 flex flex-wrap md:flex-nowrap justify-between text-xs">
-          <div className="w-1/2 md:w-auto">
+        <div className="w-full flex flex-row gap-6 justify-between text-xs">
+          <div className="md:w-auto">
             <ul>
               <li className="font-bold pt-2">
                 <Link href="/" className="hover:text-green-500 ">
@@ -61,7 +59,7 @@ export default function FooterPage() {
               </li>
             </ul>
           </div>
-          <div className="w-1/2 md:w-auto">
+          <div className="md:w-auto">
             <ul>
               <li className="font-bold pt-2">
                 <Link href="/helps" className="hover:text-green-500">
@@ -85,7 +83,7 @@ export default function FooterPage() {
               </li>
             </ul>
           </div>
-          <div className="w-1/2 md:w-auto">
+          <div className="md:w-auto">
             <ul>
               <li className="font-bold pt-2">
                 <Link href="/aboutUs" className="hover:text-green-500">
@@ -115,7 +113,7 @@ export default function FooterPage() {
               </li>
             </ul>
           </div>
-          <div className="w-1/2 md:w-auto">
+          <div className="hidden xl:block">
             <ul>
               <li className="font-bold pt-2">
                 <Link href="/popularproducts" className="hover:text-green-500">
@@ -151,11 +149,11 @@ export default function FooterPage() {
       <hr />
 
       {/* Footer Bottom Section */}
-      <div className="max-w-5xl w-full flex justify-between mt-6 flex-wrap gap-3 text-xs text-gray-300 lg:mx-[300px]">
+      <div className="w-full flex items-center justify-between mt-6 text-xs text-gray-300">
         <div>
           <p className="text-center">© 2025 Ecobazar. All Rights Reserved.</p>
         </div>
-        <div className="flex gap-4 justify-between lg:mr-[140px]">
+        <div className="flex gap-4 justify-between">
           <Image
             src="/icons/visa-logo.png"
             alt="Payment Method 4"
