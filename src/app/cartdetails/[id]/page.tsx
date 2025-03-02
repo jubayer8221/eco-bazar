@@ -14,6 +14,7 @@ import Image from "next/image";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCartPlusFill } from "react-icons/bs";
 import Link from "next/link";
+import AddToCartButton from "@/app/ProductDetails/productDetailsCards/AddToCartButton";
 // import Review from "../../ProductDetails/productDetailsCards/review/Review";
 
 const FeaturedProduct = [
@@ -240,13 +241,15 @@ const CartDetails = () => {
             </div>
             {/* main image  */}
             <div>
-              <Image
-                src={selectedImage}
-                alt="image"
-                width={300}
-                height={300}
-                className="md:w-[400px] md:h-[400px] xl:w-[300px] xl:h-[300px]"
-              />
+              {selectedImage ? (
+                <Image
+                  src={selectedImage}
+                  alt="image"
+                  width={300}
+                  height={300}
+                  className="md:w-[400px] md:h-[400px] xl:w-[300px] xl:h-[300px]"
+                />
+              ) : null}
             </div>
           </div>
 
@@ -326,7 +329,10 @@ const CartDetails = () => {
                   <FiMinus className="w-4 h-4" />
                 </button>
               </div>
-              <button className="px-[60px] py-[12px] bg-[#00B207] text-white text-[14px] font-semibold flex items-center gap-1 rounded-full">
+              <button
+                onClick={AddToCartButton}
+                className="px-[60px] py-[12px] bg-[#00B207] text-white text-[14px] font-semibold flex items-center gap-1 rounded-full"
+              >
                 Add to Cart <HiOutlineShoppingBag />
               </button>
               <div className="p-2 bg-[#20B5261A] rounded-full text-[#2C742F] hover:bg-[#00B207] hover:text-white transition duration-300">
