@@ -1,30 +1,32 @@
 "use client";
+import { useCart } from "@/components/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-const carts = [
-  {
-    id: 1,
-    name: "Fresh Indian Orange",
-    price: 12.0,
-    image: "/images/hot2.png",
-    quantity: 1,
-  },
-  {
-    id: 2,
-    name: "Green Apple",
-    price: 14.0,
-    image: "/images/hot3.png",
-    quantity: 2,
-  },
-];
+
+//   {
+//     id: 1,
+//     name: "Fresh Indian Orange",
+//     price: 12.0,
+//     image: "/images/hot2.png",
+//     quantity: 1,
+//   },
+//   {
+//     id: 2,
+//     name: "Green Apple",
+//     price: 14.0,
+//     image: "/images/hot3.png",
+//     quantity: 2,
+//   },
+// ];
 const BillingInfo = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const countries = ["USA", "Canada", "UK", "Australia"];
   const states = ["California", "Texas", "New York", "Florida"];
-  const totalPrice = carts.reduce(
+  const {cart} = useCart();
+  const totalPrice = cart.reduce(
     (sum, cart) => sum + cart.price * cart.quantity,
     0
   );
@@ -72,8 +74,8 @@ const BillingInfo = () => {
           />
         </div>
         {/* Country/Region, States, Zip Code */}
-        <div className="flex items-center gap-20">
-          <div className="flex gap-2">
+        <div className="flex md:items-center xl:items-center gap-20">
+          <div className="flex flex-col md:flex-row xl:flex-row gap-2">
             {/* Country Dropdown */}
             <div className="flex flex-col gap-1 relative">
               <label className="text-[14px] leading-5">Country / Region</label>
@@ -190,7 +192,7 @@ const BillingInfo = () => {
         <h1>Order summary</h1>
         {/* product  */}
         <div className="mb-10">
-          {carts.map((cart) => (
+          {cart.map((cart) => (
             <div
               key={cart.id}
               className="flex items-center justify-between gap-1"
