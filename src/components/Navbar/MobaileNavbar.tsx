@@ -20,11 +20,11 @@ const navItems: NavItem[] = [
   },
   {
     label: "Shop",
-    link: "#",
+    link: "/home",
     children: [
       { label: "Category", link: "/popularproducts" },
-      { label: "Wishlist", link: "/Wishlist" },
-      { label: "Shopping cart", link: "/shoppingCart" },
+      { label: "Popular Products", link: "/Wishlist" },
+      { label: "Hot Deals", link: "/shoppingCart" },
     ],
   },
   {
@@ -32,17 +32,7 @@ const navItems: NavItem[] = [
     link: "#",
     children: [
       { label: "News", link: "/blog" },
-      { label: "Wishlist", link: "/Wishlist" },
-      { label: "Shopping cart", link: "#" },
-    ],
-  },
-  {
-    label: "Pages",
-    link: "#",
-    children: [
-      { label: "Category", link: "/popularproducts" },
-      { label: "Wishlist", link: "/Wishlist" },
-      { label: "Privacy Policy", link: "/privacypolicy" },
+      { label: "Latest News", link: "/innerpage/blog" },
     ],
   },
 
