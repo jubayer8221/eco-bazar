@@ -15,9 +15,10 @@ const ShoppingCart = () => {
   };
 
   return (
-    <div className="mx-auto lg:px-16 mt-[70px] mb-5 xl:mt-48 justify-between font-poppins text-xs">
+    <div className="mx-auto mt-16 xl:mt-48 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] font-poppins text-xs my-10">
       {/* Content container with max-width */}
-      <div className="max-w-[1320px] px-4 lg:px-[250px] justify-between">
+      <div className="w-full">
+
         <h1 className="text-2xl font-bold mb-4 text-center">
           My Shopping Cart
         </h1>

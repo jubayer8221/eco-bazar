@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdClose } from "react-icons/md";
+import { useCart } from "../context/CartContext";
 
 type NavItem = {
   label: string;
@@ -34,16 +35,11 @@ const navItems: NavItem[] = [
       { label: "Latest News", link: "/innerpage/blog" },
     ],
   },
-  // {
-  //   label: "Pages",
-  //   link: "#",
-  //   children: [
-  //     { label: "Category", link: "/popularproducts" },
-  //     { label: "Wishlist", link: "/Wishlist" },
-  //     { label: "Privacy Policy", link: "/privacypolicy" },
-  //   ],
-  // },
-  { label: "Cart (0)", link: "/shoppingCart" },
+
+  {
+    label: "About Us",
+    link: "/aboutUs",
+  },
   {
     label: "Contact Us",
     link: "/contactUs",
@@ -51,8 +47,9 @@ const navItems: NavItem[] = [
 ];
 
 const MobaileNavbar = () => {
-  const [langues, setLangues] = useState(false);
-  const [usd, setUsd] = useState(false);
+  const {cart} = useCart();
+  // const [langues, setLangues] = useState(false);
+  // const [usd, setUsd] = useState(false);
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
@@ -68,18 +65,18 @@ const MobaileNavbar = () => {
             <Link
               href="/"
               className="flex items-center relative text-[12px]"
-              onClick={() => setLangues((prev) => !prev)}
+              // onClick={() => setLangues((prev) => !prev)}
             >
               Eng <IoIosArrowDown className="w-3" />
             </Link>
             <Link
               href="/"
               className="flex items-center text-[12px] relative"
-              onClick={() => setUsd((prev) => !prev)}
+              // onClick={() => setUsd((prev) => !prev)}
             >
               USD <IoIosArrowDown className="w-3" />
             </Link>
-            {langues && (
+            {/* {langues && (
               <div className="rounded-sm text-sm p-1 absolute top-11 shadow-lg z-20 text-white bg-black">
                 <p>Eng</p>
                 <p>Bng</p>
@@ -90,7 +87,7 @@ const MobaileNavbar = () => {
                 <p>USD</p>
                 <p>BDT</p>
               </div>
-            )}
+            )} */}
           </div>
           <IoMdMenu
             className="text-[30px] cursor-pointer"
@@ -146,6 +143,14 @@ const MobaileNavbar = () => {
                     )}
                   </div>
                 ))}
+                <div className="relative px-2 py-3">
+                <Link href="/shoppingCart">
+                  <p className="flex cursor-pointer items-center gap-2 text-black hover:text-[#00B207]">
+                    <span>Cart ({cart.length})</span>
+                  </p>
+                </Link>
+              </div>
+
                 <div className="flex gap-1 mt-3">
                   <Link href="/singin">Sign in</Link>
                   <span>/</span>

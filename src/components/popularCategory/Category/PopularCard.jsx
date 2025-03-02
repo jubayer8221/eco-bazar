@@ -1,10 +1,12 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-const PopularCard = ({ name, image }) => {
+const PopularCard = ({ name, image, id }) => {
   return (
-    <div className="border rounded-lg shadow-md p-4 text-center hover:shadow-lg hover:border-green-600 hover:text-green-600 transition-all">
+    <Link href={`/cartdetails/${id}`}>
+      <div className="border rounded-lg shadow-md p-4 text-center hover:shadow-lg hover:border-green-600 hover:text-green-600 transition-all">
       <Image
         src={image}
         alt={name}
@@ -14,6 +16,7 @@ const PopularCard = ({ name, image }) => {
       />
       <p className="mt-1 font-normal md:text-sm sm:text-xs">{name}</p>
     </div>
+    </Link>
   );
 };
 

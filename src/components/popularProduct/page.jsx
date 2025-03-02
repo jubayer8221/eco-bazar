@@ -7,7 +7,7 @@ import { FaStar } from "react-icons/fa";
 
 const categoriesData = [
   {
-    id: 1,
+    id: 20,
     price: "$20",
     name: "Green Apple",
     image: "/image/apple.png",
@@ -19,7 +19,7 @@ const categoriesData = [
     },
   },
   {
-    id: 2,
+    id: 21,
     price: "$25",
     name: "Fresh Indian Malta",
     image: "/image/malta.png",
@@ -30,68 +30,13 @@ const categoriesData = [
       star: <FaStar />,
     },
   },
+  { id: 22, price: "$15", name: "Chinese cabage", image: "/image/cabbage.png" },
+  { id: 23, price: "$18", name: "Green Lettuce", image: "/image/lettuce.png" },
+  { id: 24, price: "$22", name: "Eggplant", image: "/image/eggplant.png" },
+  { id: 25, price: "$30", name: "Big Potatoes", image: "/image/potatoes.png" },
+  { id: 26, price: "$12", name: "Corn", image: "/image/corn.png" },
   {
-    id: 3,
-    price: "$15",
-    name: "Chinese cabage",
-    image: "/image/cabbage.png",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    review: {
-      rating: 3.5,
-      star: <FaStar />,
-    },
-  },
-  {
-    id: 4,
-    price: "$18",
-    name: "Green Lettuce",
-    image: "/image/lettuce.png",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    review: {
-      rating: 4.2,
-      star: <FaStar />,
-    },
-  },
-  {
-    id: 5,
-    price: "$22",
-    name: "Eggplant",
-    image: "/image/eggplant.png",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    review: {
-      rating: 4.8,
-      star: <FaStar />,
-    },
-  },
-  {
-    id: 6,
-    price: "$30",
-    name: "Big Potatoes",
-    image: "/image/potatoes.png",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    review: {
-      rating: 4.1,
-      star: <FaStar />,
-    },
-  },
-  {
-    id: 7,
-    price: "$12",
-    name: "Corn",
-    image: "/image/corn.png",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    review: {
-      rating: 3.9,
-      star: <FaStar />,
-    },
-  },
-  {
-    id: 8,
+    id: 27,
     price: "$28",
     name: "Fresh Cauliflower",
     image: "/image/cauliflower.png",
@@ -102,32 +47,10 @@ const categoriesData = [
       star: <FaStar />,
     },
   },
+  { id: 28, price: "$20", name: "Green Capsicum", image: "/image/capsicum.png" },
+  { id: 29, price: "$10", name: "Green Chili", image: "/image/chili.png" },
   {
-    id: 9,
-    price: "$20",
-    name: "Green Capsicum",
-    image: "/image/capsicum.png",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    review: {
-      rating: 4.0,
-      star: <FaStar />,
-    },
-  },
-  {
-    id: 10,
-    price: "$10",
-    name: "Green Chili",
-    image: "/image/chili.png",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    review: {
-      rating: 3.7,
-      star: <FaStar />,
-    },
-  },
-  {
-    id: 11,
+    id: 30,
     price: "$35",
     name: "Dish Detergents",
     image: "/image/lettuce.png",
@@ -138,54 +61,11 @@ const categoriesData = [
       star: <FaStar />,
     },
   },
-  {
-    id: 12,
-    price: "$50",
-    name: "Oil",
-    image: "/image/cabbage.png",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    review: {
-      rating: 4.9,
-      star: <FaStar />,
-    },
-  },
-  {
-    id: 13,
-    price: "$22",
-    name: "Eggplant",
-    image: "/image/eggplant.png",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    review: {
-      rating: 4.5,
-      star: <FaStar />,
-    },
-  },
-  {
-    id: 14,
-    price: "$40",
-    name: "Dairy Products",
-    image: "/image/corn.png",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    review: {
-      rating: 4.7,
-      star: <FaStar />,
-    },
-  },
-  {
-    id: 15,
-    price: "$60",
-    name: "Frozen Items",
-    image: "/image/chili.png",
-    details:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    review: {
-      rating: 4.4,
-      star: <FaStar />,
-    },
-  },
+ 
+  { id: 31, price: "$50", name: "Oil", image: "/image/cabbage.png" },
+  { id: 32, price: "$22", name: "Eggplant", image: "/image/eggplant.png" },
+  { id: 33, price: "$40", name: "Dairy Products", image: "/image/corn.png" },
+  { id: 34, price: "$60", name: "Frozen Items", image: "/image/chili.png" },
 ];
 
 export default function PopularProductCard() {
@@ -231,6 +111,7 @@ export default function PopularProductCard() {
                 name={category.name}
                 image={category.image}
                 price={category.price}
+                id={category.id}
                 className="sm:h-20"
               />
             )
