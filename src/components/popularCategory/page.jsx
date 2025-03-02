@@ -2,24 +2,22 @@
 
 import { useEffect, useState } from "react";
 import CategoryCard from "./Category/PopularCard";
-import Image from "next/image";
-import Link from "next/link";
 
 const categoriesData = [
-  { id: 1, name: "Fresh Fruit", image: "/image/image1.png" },
-  { id: 2, name: "Fresh Vegetables", image: "/image/image_1.png" },
-  { id: 3, name: "Meat & Fish", image: "/image/image_2.png" },
-  { id: 4, name: "Snacks", image: "/image/image_3.png" },
-  { id: 5, name: "Beverages", image: "/image/image_4.png" },
-  { id: 6, name: "Beauty & Health", image: "/image/image_5.png" },
-  { id: 7, name: "Bread & Bakery", image: "/image/image_6.png" },
-  { id: 8, name: "Baking Needs", image: "/image/image_7.png" },
-  { id: 9, name: "Cooking", image: "/image/image_8.png" },
-  { id: 10, name: "Diabetic Food", image: "/image/image_9.png" },
-  { id: 11, name: "Dish Detergents", image: "/image/image_10.png" },
-  { id: 12, name: "Oil", image: "/image/image_11.png" },
-  { id: 13, name: "Dairy Products", image: "/image/image_1.png" },
-  { id: 14, name: "Frozen Items", image: "/image/image_1.png" },
+  { id: 6, name: "Fresh Fruit", image: "/image/image1.png" },
+  { id: 7, name: "Fresh Vegetables", image: "/image/image_1.png" },
+  { id: 8, name: "Meat & Fish", image: "/image/image_2.png" },
+  { id: 9, name: "Snacks", image: "/image/image_3.png" },
+  { id: 10, name: "Beverages", image: "/image/image_4.png" },
+  { id: 11, name: "Beauty & Health", image: "/image/image_5.png" },
+  { id: 12, name: "Bread & Bakery", image: "/image/image_6.png" },
+  { id: 13, name: "Baking Needs", image: "/image/image_7.png" },
+  { id: 14, name: "Cooking", image: "/image/image_8.png" },
+  { id: 15, name: "Diabetic Food", image: "/image/image_9.png" },
+  { id: 16, name: "Dish Detergents", image: "/image/image_10.png" },
+  { id: 17, name: "Oil", image: "/image/image_11.png" },
+  { id: 18, name: "Dairy Products", image: "/image/image_1.png" },
+  { id: 19, name: "Frozen Items", image: "/image/image_1.png" },
 ];
 
 export default function PopularCategories() {
@@ -60,6 +58,7 @@ export default function PopularCategories() {
                 key={category.id}
                 name={category.name}
                 image={category.image}
+                id={category.id}
               />
             )
           )}

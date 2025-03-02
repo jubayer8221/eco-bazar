@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 // Cart Icon Component
 const CartIcon = () => (
@@ -20,9 +21,10 @@ const CartIcon = () => (
   </svg>
 );
 
-const PopularCard = ({ name, image, price }) => {
+const PopularCard = ({ name, image, price, id }) => {
   return (
-    <div className="shadow-md h-[240px] px-2 text-left border border-transparent hover:shadow-lg hover:border-green-700 transition-all mb-0 pb-0">
+    <Link href={`/cartdetails/${id}`}>
+      <div className="shadow-md h-[240px] px-2 text-left border border-transparent hover:shadow-lg hover:border-green-700 transition-all mb-0 pb-0">
       {/* Product Image */}
       <Image
         src={image}
@@ -54,6 +56,7 @@ const PopularCard = ({ name, image, price }) => {
         </button>
       </div>
     </div>
+    </Link>
   );
 };
 

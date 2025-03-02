@@ -6,40 +6,40 @@ import PopularProductOffer from "./PopularProductCard/PopularProductOffer";
 
 const categoriesData = [
   {
-    id: 1,
+    id: 20,
     price: "$20",
     name: "Green Apple",
     image: "/image/apple.png",
   },
   {
-    id: 2,
+    id: 21,
     price: "$25",
     name: "Fresh Indian Malta",
     image: "/image/malta.png",
   },
-  { id: 3, price: "$15", name: "Chinese cabage", image: "/image/cabbage.png" },
-  { id: 4, price: "$18", name: "Green Lettuce", image: "/image/lettuce.png" },
-  { id: 5, price: "$22", name: "Eggplant", image: "/image/eggplant.png" },
-  { id: 6, price: "$30", name: "Big Potatoes", image: "/image/potatoes.png" },
-  { id: 7, price: "$12", name: "Corn", image: "/image/corn.png" },
+  { id: 22, price: "$15", name: "Chinese cabage", image: "/image/cabbage.png" },
+  { id: 23, price: "$18", name: "Green Lettuce", image: "/image/lettuce.png" },
+  { id: 24, price: "$22", name: "Eggplant", image: "/image/eggplant.png" },
+  { id: 25, price: "$30", name: "Big Potatoes", image: "/image/potatoes.png" },
+  { id: 26, price: "$12", name: "Corn", image: "/image/corn.png" },
   {
-    id: 8,
+    id: 27,
     price: "$28",
     name: "Fresh Cauliflower",
     image: "/image/cauliflower.png",
   },
-  { id: 9, price: "$20", name: "Green Capsicum", image: "/image/capsicum.png" },
-  { id: 10, price: "$10", name: "Green Chili", image: "/image/chili.png" },
+  { id: 28, price: "$20", name: "Green Capsicum", image: "/image/capsicum.png" },
+  { id: 29, price: "$10", name: "Green Chili", image: "/image/chili.png" },
   {
-    id: 11,
+    id: 30,
     price: "$35",
     name: "Dish Detergents",
     image: "/image/lettuce.png",
   },
-  { id: 12, price: "$50", name: "Oil", image: "/image/cabbage.png" },
-  { id: 13, price: "$22", name: "Eggplant", image: "/image/eggplant.png" },
-  { id: 14, price: "$40", name: "Dairy Products", image: "/image/corn.png" },
-  { id: 15, price: "$60", name: "Frozen Items", image: "/image/chili.png" },
+  { id: 31, price: "$50", name: "Oil", image: "/image/cabbage.png" },
+  { id: 32, price: "$22", name: "Eggplant", image: "/image/eggplant.png" },
+  { id: 33, price: "$40", name: "Dairy Products", image: "/image/corn.png" },
+  { id: 34, price: "$60", name: "Frozen Items", image: "/image/chili.png" },
 ];
 
 export default function PopularProductCard() {
@@ -85,6 +85,7 @@ export default function PopularProductCard() {
                 name={category.name}
                 image={category.image}
                 price={category.price}
+                id={category.id}
                 className="sm:h-20"
               />
             )

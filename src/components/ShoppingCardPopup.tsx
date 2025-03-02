@@ -36,13 +36,13 @@ const ShoppingCardPopup = () => {
           onClick={() => setClosePopup(false)}
         >
           <div
-            className="bg-white w-1/4 h-full p-4 flex flex-col justify-between"
+            className="bg-white w-[70%] md:w-[50%] xl:w-1/4 h-full p-4 flex flex-col justify-between"
             onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside
           >
             {/* top section */}
             <div>
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-[20px] leading-7">
+                <h3 className="text-[18px] md:text-[20px] leading-7">
                   Shopping Card ({carts.length})
                 </h3>
                 <button onClick={() => setClosePopup(false)}>
@@ -55,9 +55,9 @@ const ShoppingCardPopup = () => {
                   className="flex items-center justify-between border-b border-b-[#E6E6E6]"
                 >
                   <div className="flex items-center gap-1">
-                    <Image src={cart.image} alt="" width={120} height={100} />
+                    <Image src={cart.image} alt="" width={120} height={100} className="w-[80px] h-[80px] md:w-[120px] md:h-[100px]" />
                     <div>
-                      <h5 className="text-[14px] leading-5 font-normal">
+                      <h5 className="text-[12px] md:text-[14px] leading-5 font-normal">
                         {cart.name}
                       </h5>
                       <p className="text-[14px] font-medium">

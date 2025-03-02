@@ -10,8 +10,8 @@ const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
       {/* mobaile */}
-      <div className="absolute z-20 p-3 w-full sm:pl-[100px] sm:pr-[100px] md:pl-[140px] md:pr-[140px] flex items-center justify-between xl:hidden bg-white drop-shadow-[0px_2px_1px_rgba(229,229,229,1)]">
-        <Link href="./">
+      <div className="absolute z-20 p-3 w-full sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] flex items-center justify-between xl:hidden bg-white drop-shadow-[0px_2px_1px_rgba(229,229,229,1)]">
+        <Link href="/">
           <div className=" flex items-center gap-1">
             <Image src="/icons/logo.png" alt="" width={20} height={20} />
             <span className="font-poppins font-medium text-[20px] leading-[20px] tracking-[-0.03em] text-[#002603]">
