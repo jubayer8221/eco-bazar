@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import CategoryCard from "./PopularProductCard/PopularProductCard";
 import PopularProductOffer from "./PopularProductCard/PopularProductOffer";
+import { FaStar } from "react-icons/fa";
 
 const categoriesData = [
   {
@@ -10,12 +11,24 @@ const categoriesData = [
     price: "$20",
     name: "Green Apple",
     image: "/image/apple.png",
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    review: {
+      rating: 4.5,
+      star: <FaStar />,
+    },
   },
   {
     id: 21,
     price: "$25",
     name: "Fresh Indian Malta",
     image: "/image/malta.png",
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    review: {
+      rating: 4.0,
+      star: <FaStar />,
+    },
   },
   { id: 22, price: "$15", name: "Chinese cabage", image: "/image/cabbage.png" },
   { id: 23, price: "$18", name: "Green Lettuce", image: "/image/lettuce.png" },
@@ -27,6 +40,12 @@ const categoriesData = [
     price: "$28",
     name: "Fresh Cauliflower",
     image: "/image/cauliflower.png",
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    review: {
+      rating: 4.3,
+      star: <FaStar />,
+    },
   },
   { id: 28, price: "$20", name: "Green Capsicum", image: "/image/capsicum.png" },
   { id: 29, price: "$10", name: "Green Chili", image: "/image/chili.png" },
@@ -35,7 +54,14 @@ const categoriesData = [
     price: "$35",
     name: "Dish Detergents",
     image: "/image/lettuce.png",
+    details:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    review: {
+      rating: 4.6,
+      star: <FaStar />,
+    },
   },
+ 
   { id: 31, price: "$50", name: "Oil", image: "/image/cabbage.png" },
   { id: 32, price: "$22", name: "Eggplant", image: "/image/eggplant.png" },
   { id: 33, price: "$40", name: "Dairy Products", image: "/image/corn.png" },

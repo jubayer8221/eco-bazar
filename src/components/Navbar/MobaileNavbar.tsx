@@ -46,8 +46,6 @@ const navItems: NavItem[] = [
   },
   { label: "Cart (2)", link: "/shoppingCart" },
 
-  { label: "About Us", link: "/aboutUs" },
-
   {
     label: "About Us",
     link: "/aboutUs",

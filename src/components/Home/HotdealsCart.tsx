@@ -1,36 +1,38 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
-
-import { IoStar } from "react-icons/io5";
-import { CiStar } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { BsEye } from "react-icons/bs";
+import { IoStar } from "react-icons/io5";
+import { CiStar } from "react-icons/ci";
+import { useCart } from "@/components/context/CartContext"; // ✅ Import cart context
 
-import Link from "next/link";
-
-interface propsType {
+interface ProductProps {
+  id: number;
   img: string;
   title: string;
-  price: string;
-  rating: number;
+  price: number;
+  rating?: number;
   sale?: string;
-  oldPrice: string;
+  oldPrice?: string;
   bestSale?: boolean;
-  reviews: number;
+  reviews?: number;
 }
 
-const HotdealsCart: React.FC<propsType> = ({
+const HotdealsCart: React.FC<ProductProps> = ({
+  id,
   img,
   title,
   price,
   rating,
-  sale,
   oldPrice,
+  sale,
   bestSale,
   reviews,
 }) => {
+  const { addToCart } = useCart();
   const [isHover, setIsHover] = useState(false);
+
   const generateRating = (rating: number) => {
     switch (rating) {
       case 1:
@@ -87,6 +89,7 @@ const HotdealsCart: React.FC<propsType> = ({
         return null;
     }
   };
+
   return (
     <div
       className={`bg-white relative overflow-hidden border pt-1 px-2 border-[#F2F2F2] max-w[400px] xl:max-w-[570px] transition-all duration-300 ${
@@ -116,7 +119,7 @@ const HotdealsCart: React.FC<propsType> = ({
           src={img}
           width={isHover ? 525 : 264}
           height={isHover ? 446 : 240}
-          alt=""
+          alt="product image"
         />
       </div>
       {/* button show hover */}
@@ -125,11 +128,16 @@ const HotdealsCart: React.FC<propsType> = ({
           <div className="p-3 rounded-full bg-[#F2F2F2] flex items-center justify-center">
             <Image src="/icons/save.svg" alt="" width={20} height={20} />
           </div>
-          <Link href="/">
-            <button className="text-white bg-[#00B207] pt-3 pb-3 px-8 py-8 rounded-full flex items-center justify-center gap-2 text-[14px] font-medium">
-              Add to Cart <HiOutlineShoppingBag className="w-4 h-4" />
-            </button>
-          </Link>
+
+          <button
+            onClick={() =>
+              addToCart({ id, name: title, price, image: img, quantity: 1 })
+            }
+            className="text-white bg-[#00B207] pt-3 pb-3 px-8 py-8 rounded-full flex items-center justify-center gap-2 text-[14px] font-medium"
+          >
+            Add to Cart <HiOutlineShoppingBag className="w-4 h-4" />
+          </button>
+
           <div className="w-[46px] h-[46px] rounded-full bg-[#F2F2F2] p-2 flex justify-center items-center">
             <BsEye className="w-4 h-4" />
           </div>
@@ -162,7 +170,7 @@ const HotdealsCart: React.FC<propsType> = ({
             isHover ? "flex items-center justify-center" : ""
           }`}
         >
-          {generateRating(rating)}
+          {rating && generateRating(rating)}
         </div>
 
         {isHover ? (

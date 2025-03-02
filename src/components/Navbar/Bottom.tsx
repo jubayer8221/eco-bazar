@@ -54,10 +54,10 @@ const navItems: NavItem[] = [
 const Bottom = () => {
   return (
     <div className="pl-[300px] pr-[300px] bg-black flex items-center justify-between">
-      {/* Menu */}
+      {/* menu */}
       <div className="hidden md:flex items-center gap-4 transition-all">
         {navItems.map((d, i) => (
-          <div key={i} className="relative group py-3 transition-all">
+          <div key={i} className="relative group px-2 py-3 transition-all">
             <Link href={d.link ?? "#"}>
               <p className="flex cursor-pointer items-center gap-2 text-neutral-400 group-hover:text-[#00B207]">
                 <span>{d.label}</span>
@@ -70,9 +70,10 @@ const Bottom = () => {
             {/* Dropdown */}
             {d.children && (
               <div className="absolute right-0 top-10 hidden w-auto flex-col gap-1 rounded-lg bg-white py-3 shadow-md transition-all group-hover:flex">
-                {d.children.map((ch, j) => (
+
+                {d.children.map((ch, i) => (
                   <Link
-                    key={j}
+                    key={i}
                     href={ch.link ?? "#"}
                     className="flex cursor-pointer items-center py-1 pl-6 pr-8 text-neutral-400 hover:text-[#00B207]"
                   >
@@ -86,6 +87,7 @@ const Bottom = () => {
       </div>
 
       {/* Phone */}
+      {/* phone */}
       <div className="flex items-center gap-2">
         <BiPhoneCall className="w-5 h-5 text-white" />
         <p className="text-white text-[14px] leading-[21px] font-medium font-poppins">

@@ -867,7 +867,7 @@ const CartDetails = () => {
                   <Image
                     key={index}
                     src={img}
-                    alt=""
+                    alt="image"
                     width={60}
                     height={60}
                     className={` md:w-[100px] md:h-[100px] xl:w-[60px] xl:h-[60px] cursor-pointer hover:border hover:border-[#00B207]`}
@@ -886,7 +886,7 @@ const CartDetails = () => {
             <div>
               <Image
                 src={selectedImage}
-                alt=""
+                alt="image"
                 width={300}
                 height={300}
                 className="md:w-[400px] md:h-[400px] xl:w-[300px] xl:h-[300px]"

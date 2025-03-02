@@ -4,46 +4,21 @@ import { useState } from "react";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import Image from "next/image";
 import Link from "next/link";
+import { useCart } from "@/components/context/CartContext"; // Import the useCart hook
 
 const ShoppingCart = () => {
-  const [cartItems, setCartItems] = useState([
-    {
-      id: 1,
-      image: "/image/capsicum.png",
-      name: "Capsicum",
-      price: 70.0,
-      quantity: 5,
-    },
-    {
-      id: 2,
-      image: "/image/chili.png",
-      name: "Chili",
-      price: 14.0,
-      quantity: 5,
-    },
-  ]);
-
-  const calculateSubtotal = (item) => item.price * item.quantity;
-  const cartTotal = cartItems.reduce(
-    (total, item) => total + calculateSubtotal(item),
-    0
-  );
+  const { cart, updateQuantity, totalPrice } = useCart(); // Use the cart context
 
   const handleQuantityChange = (id, newQuantity) => {
-    if (newQuantity < 1) return;
-    setCartItems(
-      cartItems.map((item) =>
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
-    );
+    if (newQuantity < 1) return; // Ensure quantity is at least 1
+    updateQuantity(id, newQuantity); // Update quantity in the global cart
   };
 
   return (
-    <div className="mx-auto mt-16 xl:mt-48 font-poppins text-xs my-10">
+    <div className="mx-auto mt-16 xl:mt-48 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] font-poppins text-xs my-10">
       {/* Content container with max-width */}
-      <div className="max-w-[1320px] px-4 lg:px-[300px]">
+      <div className="wi-full">
         <h1 className="text-2xl font-bold mb-4 text-center">
-
           My Shopping Cart
         </h1>
 
@@ -67,7 +42,7 @@ const ShoppingCart = () => {
                 </tr>
               </thead>
               <tbody>
-                {cartItems.map((item) => (
+                {cart.map((item) => (
                   <tr key={item.id} className="hover:bg-gray-50">
                     <td className="py-2 px-2 sm:px-4 border-b flex items-center gap-2">
                       <Image
@@ -106,17 +81,24 @@ const ShoppingCart = () => {
                       </div>
                     </td>
                     <td className="py-2 px-2 sm:px-4 border-b">
-                      ${calculateSubtotal(item).toFixed(2)}
+                      ${(item.price * item.quantity).toFixed(2)}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
             <div className="mt-4 flex justify-between flex-wrap gap-2">
-              <button className="bg-[#F2F2F2] text-[#4D4D4D] px-4 py-2 rounded hover:bg-[#ebe8e8]">
-                Return to Shop
-              </button>
-              <button className="bg-[#F2F2F2] text-[#4D4D4D] px-4 py-2 rounded hover:bg-[#ebe8e8]">
+              <Link href="/">
+                <button className="bg-[#F2F2F2] text-[#4D4D4D] px-4 py-2 rounded hover:bg-[#ebe8e8]">
+                  Return to Shop
+                </button>
+              </Link>
+              <button
+                onClick={() => {
+                  // Optional: Add logic to update the cart
+                }}
+                className="bg-[#F2F2F2] text-[#4D4D4D] px-4 py-2 rounded hover:bg-[#ebe8e8]"
+              >
                 Update Cart
               </button>
             </div>
@@ -140,7 +122,7 @@ const ShoppingCart = () => {
             <div className="space-y-2 text-xs">
               <div className="justify-between flex p-2">
                 <p>Subtotal:</p>
-                <p>${cartTotal.toFixed(2)}</p>
+                <p>${totalPrice.toFixed(2)}</p>
               </div>
               <div className="border-y-2 justify-between flex p-2">
                 <p>Shipping:</p>
@@ -148,12 +130,14 @@ const ShoppingCart = () => {
               </div>
               <div className="justify-between flex p-2">
                 <p className="font-normal">Total:</p>
-                <p className="font-semibold">${cartTotal.toFixed(2)}</p>
+                <p className="font-semibold">${totalPrice.toFixed(2)}</p>
               </div>
             </div>
-            <Link href="/innerpage/billinginfo"><button className="bg-[#00B207] text-white w-full lg:w-[276px] px-4 py-2 my-5 mx-3 rounded-full hover:bg-green-600">
-              Proceed to Checkout
-            </button></Link>
+            <Link href="/innerpage/billinginfo">
+              <button className="bg-[#00B207] text-white w-full lg:w-[276px] px-4 py-2 my-5 mx-3 rounded-full hover:bg-green-600">
+                Proceed to Checkout
+              </button>
+            </Link>
           </div>
         </div>
       </div>

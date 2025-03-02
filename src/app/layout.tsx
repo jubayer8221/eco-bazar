@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import FooterPage from "./footer/Page";
 import Subcribe from "@/components/Home/Subcribe";
+import { CartProvider } from "@/components/context/CartContext"; // ✅ Import the CartProvider
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,13 +29,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        <Navbar />
-
-        {/* Content Wrapper to Push Footer Down */}
-        <main className="flex-1">{children}</main>
-
-        <Subcribe />
-        <FooterPage />
+        {/* ✅ Wrap Everything Inside CartProvider */}
+        <CartProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Subcribe />
+          <FooterPage />
+        </CartProvider>
       </body>
     </html>
   );
