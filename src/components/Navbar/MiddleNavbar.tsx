@@ -5,11 +5,16 @@ import { GoSearch } from "react-icons/go";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import ShoppingCardPopup from "../ShoppingCardPopup";
 import Link from "next/link";
-import { useCart } from "@/components/context/CartContext";
+import { useCart } from "../context/CartContext";
 
 const MiddleNavbar = () => {
+  const {cart} = useCart();
+  const totalPrice = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
   const [searchIconR, setsearchIconR] = useState("");
-  const { cart, totalPrice } = useCart();
+  // const { cart, totalPrice } = useCart();
   const [totalCartAddShow, setTotalCartAddShow] = useState(false);
   return (
     <>
@@ -71,9 +76,8 @@ const MiddleNavbar = () => {
             </div>
             <div className="">
               <p className="text-[11px] leading-[13.5px">Shopping Cart:</p>
-              <p className="text-[14px] leading-[14px] font-medium">
-                ${totalPrice.toFixed(2)}
-              </p>
+
+              <p className="text-[14px] leading-[14px] font-medium">${totalPrice}</p>
             </div>
           </div>
         </div>

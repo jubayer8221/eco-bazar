@@ -57,7 +57,7 @@ const Bottom = () => {
       {/* menu */}
       <div className="hidden md:flex items-center gap-4 transition-all">
         {navItems.map((d, i) => (
-          <div key={i} className="relative group px-2 py-3 transition-all">
+          <div key={i} className="relative group py-3 transition-all">
             <Link href={d.link ?? "#"}>
               <p className="flex cursor-pointer items-center gap-2 text-neutral-400 group-hover:text-[#00B207]">
                 <span>{d.label}</span>

@@ -14,15 +14,20 @@ import Image from "next/image";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCartPlusFill } from "react-icons/bs";
 import Link from "next/link";
+<<<<<<< HEAD
+import { useCart } from "@/components/context/CartContext";
+=======
 import AddToCartButton from "@/app/ProductDetails/productDetailsCards/AddToCartButton";
+>>>>>>> fa615d7baf586c7fb503c078aa79ec3a4a55e793
 // import Review from "../../ProductDetails/productDetailsCards/review/Review";
 
 const FeaturedProduct = [
   {
     id: 1,
     name: "Chinese cabbage",
-    price: "$17.28",
-    oldPrice: "$48.00",
+    price: 17.28,
+    oldPrice: 48.00,
+    quantity: 1,
     image: "/images/hot1.png",
     thumbnails: [
       "/images/thumnail1.png",
@@ -45,8 +50,8 @@ const FeaturedProduct = [
   {
     id: 2,
     name: "Chinese cabbage",
-    price: "$12.00",
-
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     image: "/images/hot2.png",
     thumbnails: [
@@ -67,7 +72,8 @@ const FeaturedProduct = [
   {
     id: 3,
     name: "Green Lettuce",
-    price: "$9.00",
+    price: 9.00,
+    quantity: 1,
     oldPrice: null,
     image: "/images/hot3.png",
     thumbnails: [
@@ -90,7 +96,8 @@ const FeaturedProduct = [
   {
     id: 4,
     name: "Eggplant",
-    price: "$34.00",
+    price: 34.00,
+    quantity: 1,
     oldPrice: null,
     image: "/images/hot4.png",
     rating: 3,
@@ -112,7 +119,8 @@ const FeaturedProduct = [
   {
     id: 5,
     name: "Fresh Cauliflower",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     image: "/images/hot5.png",
     rating: 4,
@@ -137,7 +145,8 @@ const FeaturedProduct = [
     id: 6,
     name: "Fresh Fruit",
     image: "/image/image1.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -159,7 +168,8 @@ const FeaturedProduct = [
     id: 7,
     name: "Fresh Vegetables",
     image: "/image/image_1.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -181,7 +191,8 @@ const FeaturedProduct = [
     id: 8,
     name: "Meat & Fish",
     image: "/image/image_2.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -203,7 +214,8 @@ const FeaturedProduct = [
     id: 9,
     name: "Snacks",
     image: "/image/image_3.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -225,7 +237,8 @@ const FeaturedProduct = [
     id: 10,
     name: "Beverages",
     image: "/image/image_4.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -247,7 +260,8 @@ const FeaturedProduct = [
     id: 11,
     name: "Beauty & Health",
     image: "/image/image_5.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -269,7 +283,8 @@ const FeaturedProduct = [
     id: 12,
     name: "Bread & Bakery",
     image: "/image/image_6.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -291,7 +306,8 @@ const FeaturedProduct = [
     id: 13,
     name: "Baking Needs",
     image: "/image/image_7.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -313,7 +329,8 @@ const FeaturedProduct = [
     id: 14,
     name: "Cooking",
     image: "/image/image_8.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -335,7 +352,8 @@ const FeaturedProduct = [
     id: 15,
     name: "Diabetic Food",
     image: "/image/image_9.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -357,7 +375,8 @@ const FeaturedProduct = [
     id: 16,
     name: "Dish Detergents",
     image: "/image/image_10.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -379,7 +398,8 @@ const FeaturedProduct = [
     id: 17,
     name: "Oil",
     image: "/image/image_11.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -401,7 +421,8 @@ const FeaturedProduct = [
     id: 18,
     name: "Dairy Products",
     image: "/image/image_1.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -423,7 +444,8 @@ const FeaturedProduct = [
     id: 19,
     name: "Frozen Items",
     image: "/image/image_1.png",
-    price: "$12.00",
+    price: 12.00,
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -446,7 +468,8 @@ const FeaturedProduct = [
 
   {
     id: 20,
-    price: "$20",
+    price: 20.00,
+    quantity: 1,
     name: "Green Apple",
     image: "/image/apple.png",
     oldPrice: null,
@@ -468,9 +491,10 @@ const FeaturedProduct = [
   },
   {
     id: 21,
-    price: "$25",
+    price: 25.00,
     name: "Fresh Indian Malta",
     image: "/image/malta.png",
+    quantity: 1,
     oldPrice: null,
     rating: 4,
     sale: "40%",
@@ -490,11 +514,12 @@ const FeaturedProduct = [
   },
   {
     id: 22,
-    price: "$15",
+    price: 15.00,
     name: "Chinese cabage",
     image: "/image/cabbage.png",
     oldPrice: null,
     rating: 4,
+    quantity: 1,
     sale: "40%",
     thumbnails: [
       "/images/hot1.png",
@@ -512,12 +537,13 @@ const FeaturedProduct = [
   },
   {
     id: 23,
-    price: "$18",
+    price: 18.00,
     name: "Green Lettuce",
     image: "/image/lettuce.png",
     oldPrice: null,
     rating: 4,
     sale: "40%",
+    quantity: 1,
     thumbnails: [
       "/images/hot1.png",
       "/images/hot2.png",
@@ -534,10 +560,11 @@ const FeaturedProduct = [
   },
   {
     id: 24,
-    price: "$22",
+    price: 22.00,
     name: "Eggplant",
     image: "/image/eggplant.png",
     oldPrice: null,
+    quantity: 1,
     rating: 4,
     sale: "40%",
     thumbnails: [
@@ -556,7 +583,8 @@ const FeaturedProduct = [
   },
   {
     id: 25,
-    price: "$30",
+    price: 30.00,
+    quantity: 1,
     name: "Big Potatoes",
     image: "/image/potatoes.png",
     oldPrice: null,
@@ -578,7 +606,8 @@ const FeaturedProduct = [
   },
   {
     id: 26,
-    price: "$12",
+    price: 12.00,
+    quantity: 1,
     name: "Corn",
     image: "/image/corn.png",
     oldPrice: null,
@@ -600,10 +629,11 @@ const FeaturedProduct = [
   },
   {
     id: 27,
-    price: "$28",
+    price: 28.00,
     name: "Fresh Cauliflower",
     image: "/image/cauliflower.png",
     oldPrice: null,
+    quantity: 1,
     rating: 4,
     sale: "40%",
     thumbnails: [
@@ -622,12 +652,13 @@ const FeaturedProduct = [
   },
   {
     id: 28,
-    price: "$20",
+    price: 20.00,
     name: "Green Capsicum",
     image: "/image/capsicum.png",
     oldPrice: null,
     rating: 4,
     sale: "40%",
+    quantity: 1,
     thumbnails: [
       "/images/hot1.png",
       "/images/hot2.png",
@@ -644,10 +675,11 @@ const FeaturedProduct = [
   },
   {
     id: 29,
-    price: "$10",
+    price: 10.00,
     name: "Green Chili",
     image: "/image/chili.png",
     oldPrice: null,
+    quantity: 1,
     rating: 4,
     sale: "40%",
     thumbnails: [
@@ -666,12 +698,13 @@ const FeaturedProduct = [
   },
   {
     id: 30,
-    price: "$35",
+    price: 35.00,
     name: "Dish Detergents",
     image: "/image/lettuce.png",
     oldPrice: null,
     rating: 4,
     sale: "40%",
+    quantity: 1,
     thumbnails: [
       "/images/hot1.png",
       "/images/hot2.png",
@@ -688,8 +721,9 @@ const FeaturedProduct = [
   },
   {
     id: 31,
-    price: "$50",
+    price: 50.00,
     name: "Oil",
+    quantity: 1,
     image: "/image/cabbage.png",
     oldPrice: null,
     rating: 4,
@@ -710,11 +744,12 @@ const FeaturedProduct = [
   },
   {
     id: 32,
-    price: "$22",
+    price: 22.00,
     name: "Eggplant",
     image: "/image/eggplant.png",
     oldPrice: null,
     rating: 4,
+    quantity: 1,
     sale: "40%",
     thumbnails: [
       "/images/hot1.png",
@@ -732,7 +767,7 @@ const FeaturedProduct = [
   },
   {
     id: 33,
-    price: "$40",
+    price: 40.00,
     name: "Dairy Products",
     image: "/image/corn.png",
     oldPrice: null,
@@ -745,6 +780,7 @@ const FeaturedProduct = [
       "/images/hot4.png",
     ],
     stock: "In Stock",
+    quantity: 1,
     description:
       "Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla nibh diam, blandit vel consequat nec, ultrices et ipsum.",
     brand: "Farmunity",
@@ -754,7 +790,8 @@ const FeaturedProduct = [
   },
   {
     id: 34,
-    price: "$60",
+    price: 60.00,
+    quantity: 1,
     name: "Frozen Items",
     image: "/image/chili.png",
     oldPrice: null,
@@ -779,6 +816,8 @@ const FeaturedProduct = [
 const CartDetails = () => {
   const params = useParams();
   const [data, setData] = useState<(typeof FeaturedProduct)[0] | null>(null);
+  // add cart 
+  const {addToCart} = useCart();
 
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState<string>("");
@@ -919,7 +958,7 @@ const CartDetails = () => {
             </div>
             <div className="mt-3 flex items-center gap-1">
               <p className="text-4 text-[#2C742F] leading-6 font-medium">
-                {data.price}{" "}
+                ${data.price}{" "}
                 <del className="text-[#808080] text-4">{data.oldPrice}</del>
               </p>
               <p className="">
@@ -973,10 +1012,7 @@ const CartDetails = () => {
                   <FiMinus className="w-4 h-4" />
                 </button>
               </div>
-              <button
-                onClick={AddToCartButton}
-                className="px-[60px] py-[12px] bg-[#00B207] text-white text-[14px] font-semibold flex items-center gap-1 rounded-full"
-              >
+              <button onClick={()=>addToCart({id:data.id, image: data.image, name: data.name, quantity:data.quantity, price: data.price })} className="px-[60px] py-[12px] bg-[#00B207] text-white text-[14px] font-semibold flex items-center gap-1 rounded-full">
                 Add to Cart <HiOutlineShoppingBag />
               </button>
               <div className="p-2 bg-[#20B5261A] rounded-full text-[#2C742F] hover:bg-[#00B207] hover:text-white transition duration-300">
