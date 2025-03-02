@@ -14,7 +14,11 @@ import Image from "next/image";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCartPlusFill } from "react-icons/bs";
 import Link from "next/link";
+<<<<<<< HEAD
 import { useCart } from "@/components/context/CartContext";
+=======
+import AddToCartButton from "@/app/ProductDetails/productDetailsCards/AddToCartButton";
+>>>>>>> fa615d7baf586c7fb503c078aa79ec3a4a55e793
 // import Review from "../../ProductDetails/productDetailsCards/review/Review";
 
 const FeaturedProduct = [
@@ -920,13 +924,15 @@ const CartDetails = () => {
             </div>
             {/* main image  */}
             <div>
-              <Image
-                src={selectedImage}
-                alt="image"
-                width={300}
-                height={300}
-                className="md:w-[400px] md:h-[400px] xl:w-[300px] xl:h-[300px]"
-              />
+              {selectedImage ? (
+                <Image
+                  src={selectedImage}
+                  alt="image"
+                  width={300}
+                  height={300}
+                  className="md:w-[400px] md:h-[400px] xl:w-[300px] xl:h-[300px]"
+                />
+              ) : null}
             </div>
           </div>
 

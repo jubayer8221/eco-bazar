@@ -14,6 +14,7 @@ const MiddleNavbar = () => {
     0
   );
   const [searchIconR, setsearchIconR] = useState("");
+  // const { cart, totalPrice } = useCart();
   const [totalCartAddShow, setTotalCartAddShow] = useState(false);
   return (
     <>
@@ -26,7 +27,6 @@ const MiddleNavbar = () => {
               Ecobazar
             </samp>
           </Link>
-
         </div>
         {/* search */}
         <div className=" relative w-[400px] h-11 border border-gray-300 rounded-lg overflow-hidden flex items-center">
@@ -76,6 +76,7 @@ const MiddleNavbar = () => {
             </div>
             <div className="">
               <p className="text-[11px] leading-[13.5px">Shopping Cart:</p>
+
               <p className="text-[14px] leading-[14px] font-medium">${totalPrice}</p>
             </div>
           </div>

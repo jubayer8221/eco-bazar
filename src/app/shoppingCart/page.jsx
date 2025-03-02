@@ -17,13 +17,14 @@ const ShoppingCart = () => {
   return (
     <div className="mx-auto mt-16 xl:mt-48 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] font-poppins text-xs my-10">
       {/* Content container with max-width */}
-      <div className="wi-full">
+      <div className="w-full">
+
         <h1 className="text-2xl font-bold mb-4 text-center">
           My Shopping Cart
         </h1>
 
-        <div className="flex flex-col justify-center lg:flex-row gap-5">
-          <div className="w-full lg:w-[672px] border border-gray-300 rounded-lg p-4">
+        <div className="flex flex-col justify-between lg:flex-row gap-5">
+          <div className="w-full border border-gray-300 shadow-md rounded-lg p-4">
             <table className="w-full text-xs sm:text-sm">
               <thead>
                 <tr>
@@ -117,8 +118,10 @@ const ShoppingCart = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-[324px] h-auto lg:h-[296px] border border-gray-300 rounded-lg p-4">
-            <h2 className="text-md font-normal mb-4">Cart Total</h2>
+          <div className="w-full lg:w-[354px] h-auto lg:h-[296px] border border-gray-300 rounded-lg p-4">
+            <h2 className="text-md font-semibold mb-4 text-center">
+              Cart Total
+            </h2>
             <div className="space-y-2 text-xs">
               <div className="justify-between flex p-2">
                 <p>Subtotal:</p>
