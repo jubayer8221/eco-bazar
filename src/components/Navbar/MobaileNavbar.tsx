@@ -35,7 +35,6 @@ const navItems: NavItem[] = [
       { label: "Category", link: "/" },
       { label: "Wishlist", link: "/Wishlist" },
       { label: "Shopping Cart", link: "/shoppingCart" },
-      { label: "Privacy Policy", link: "/privacypolicy" },
     ],
   },
   {
