@@ -5,7 +5,7 @@ import SalesBanner from "@/components/Home/SalesBanner";
 
 export default function page() {
   return (
-    <div className="w-full">
+    <div className="mt-20 pt-20">
       {/* <PopularCategories /> */}
       <PopularProduct />
       <Hotdeals />

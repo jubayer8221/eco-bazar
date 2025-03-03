@@ -3,7 +3,7 @@ import Hotdeals from "@/components/Home/Hotdeals.tsx";
 
 export default function page() {
   return (
-    <div>
+    <div className="mt-20 pt-20">
       <Hotdeals></Hotdeals>
     </div>
   );
