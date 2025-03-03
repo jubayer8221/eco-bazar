@@ -1,16 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useCart } from "@/components/context/CartContext";
 
-function AddCartBtn() {
+function AddCartBtn({ id, image, price }) {
+  const { addToCart } = useCart();
   const [showPopup, setShowPopup] = useState(false);
 
-  const handleButtonClick = () => {
-    setShowPopup(true);
-  };
+  // Use useEffect to automatically close the popup
+  useEffect(() => {
+    let timer;
+    if (showPopup) {
+      timer = setTimeout(() => {
+        setShowPopup(false);
+      }, 2000);
+    }
 
-  const handleClosePopup = () => {
-    setShowPopup(false);
+    // Clean up timer when component unmounts or showPopup changes
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [showPopup]);
+
+  const handleButtonClick = () => {
+    addToCart({ id, image, price });
+    setShowPopup(true);
   };
 
   return (
@@ -23,15 +37,9 @@ function AddCartBtn() {
       </button>
 
       {showPopup && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center">
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-4 md:p-6 rounded-md items-center text-center shadow-lg w-11/12 md:w-auto">
-            <p className="text-sm md:text-base">Succesfully Added to Cart.</p>
-            <button
-              onClick={handleClosePopup}
-              className="mt-4 bg-red-500 text-white px-3 py-1 md:px-4 md:py-2 rounded-md text-xs md:text-sm"
-            >
-              Close
-            </button>
+            <p className="text-sm md:text-base">Successfully Added to Cart.</p>
           </div>
         </div>
       )}

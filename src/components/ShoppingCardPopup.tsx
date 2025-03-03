@@ -10,6 +10,7 @@ const ShoppingCardPopup = () => {
   const [closePopup, setClosePopup] = useState(true);
 
   // ✅ Calculate total price dynamically
+
   const totalPrice = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -31,7 +32,7 @@ const ShoppingCardPopup = () => {
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-[18px] md:text-[20px] leading-7">
                   Shopping Card ({cart.length})
-                </h3> 
+                </h3>
                 <button onClick={() => setClosePopup(false)}>
                   <IoMdClose className="text-[13px] text-[#1A1A1A]" />
                 </button>
@@ -58,7 +59,7 @@ const ShoppingCardPopup = () => {
                         <p className="text-[14px] font-medium">
                           <span className="text-[#808080]">
                             {item.quantity} x
-                          </span>{" "}
+                          </span>
                           ${item.price}
                         </p>
                       </div>
