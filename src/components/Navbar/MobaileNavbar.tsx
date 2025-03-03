@@ -20,11 +20,11 @@ const navItems: NavItem[] = [
   },
   {
     label: "Shop",
-    link: "/home",
+    link: "/innerpage/shop",
     children: [
-      { label: "Category", link: "/popularproducts" },
-      { label: "Popular Products", link: "/Wishlist" },
-      { label: "Hot Deals", link: "/shoppingCart" },
+      { label: "Featured Products", link: "/innerpage/featuredProducts" },
+      { label: "Popular Products", link: "/innerpage/popularProducts" },
+      { label: "Hot Deals", link: "/innerpage/hotDeals" },
     ],
   },
 
