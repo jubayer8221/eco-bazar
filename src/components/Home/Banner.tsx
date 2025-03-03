@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Banner = () => {
@@ -22,9 +23,11 @@ const Banner = () => {
             </p>
           </div>
 
+          <Link href="/innerpage/shop">
           <button className="mt-4 text-[14px] xl:text-[16px] leading-5 font-semibold bg-white text-green-700 px-4 py-2 xl:px-6 xl:py-3 rounded-full hover:bg-gray-900 hover:border hover:border-white hover:text-white cursor-pointer">
             Shop now →
           </button>
+          </Link>
         </div>
         <div className="absolute bottom-0 right-[-18%] md:right-[-8%] xl:right-[-15%]">
           <Image
@@ -78,9 +81,11 @@ const Banner = () => {
             <h2 className="text-[20px] md:text-[28px] xl:text-[25px] font-semibold">
               Special Products Deal of the Month
             </h2>
+            <Link href="/innerpage/hotDeals">
             <button className="text-[14px] md:text-[16px] mt-2 font-medium text-[#00B207]">
               Shop now →
             </button>
+            </Link>
           </div>
         </div>
       </div>

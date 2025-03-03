@@ -33,10 +33,10 @@ const BillingInfo = () => {
   return (
     <div className="mt-16 xl:mt-[180px] pl-3 pr-3 py-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] flex flex-col xl:flex-row justify-between gap-3 font-poppins">
       {/* Billing Information */}
-      <div className="flex flex-col gap-3">
+      <div className="w-full xl:w-[65%] flex flex-col gap-3">
         <h1 className="text-[24px] leading-9">Billing Information</h1>
         {/* First Name, Last Name, Company Name */}
-        <div className="w-full flex flex-col xl:flex-row items-center justify-between gap-2">
+        <div className="w-full grid grid-cols-1 xl:grid-cols-2 items-center gap-2">
           <div className="w-full flex flex-col gap-1">
             <label className="text-[14px] leading-5">First Name</label>
             <input
@@ -188,7 +188,7 @@ const BillingInfo = () => {
         </div>
       </div>
       {/* Order Summary */}
-      <div className="w-full xl:w-1/3 border border-[#E6E6E6] p-3 rounded-md">
+      <div className="w-full xl:w-[35%] border border-[#E6E6E6] p-3 rounded-md">
         <h1>Order summary</h1>
         {/* product  */}
         <div className="mb-10">
