@@ -16,11 +16,22 @@ const navItems: NavItem[] = [
   },
   {
     label: "Shop",
+    link: "/innerpage/shop",
+    children: [
+      { label: "Featured Products", link: "/innerpage/featuredProducts" },
+      { label: "Popular Products", link: "/innerpage/popularProducts" },
+      { label: "Hot Deals", link: "/innerpage/hotDeals" },
+    ],
+  },
+
+  {
+    label: "Pages",
     link: "#",
     children: [
-      { label: "Category", link: "/popularproducts" },
+      { label: "Category", link: "/" },
       { label: "Wishlist", link: "/Wishlist" },
-      { label: "Shopping cart", link: "/shoppingCart" },
+      { label: "Shopping Cart", link: "/shoppingCart" },
+      { label: "Privacy Policy", link: "/privacypolicy" },
     ],
   },
   {
@@ -28,26 +39,16 @@ const navItems: NavItem[] = [
     link: "/blog",
     children: [
       { label: "News", link: "/blog" },
-      { label: "Wishlist", link: "/Wishlist" },
-      { label: "Shopping cart", link: "/shoppingCart" },
-    ],
-  },
-  {
-    label: "Pages",
-    link: "#",
-    children: [
-      { label: "Product Details", link: "/ProductDetails" },
-      { label: "Wishlist", link: "/Wishlist" },
-      { label: "Privacy Policy", link: "/privacypolicy" },
+      { label: "Latest News", link: "/innerpage/blog" },
     ],
   },
   {
     label: "About Us",
     link: "/aboutUs",
-  },
-  {
-    label: "Contact Us",
-    link: "/contactUs",
+    children: [
+      { label: "Privacy Policy", link: "/privacypolicy" },
+      { label: "Contact Us", link: "/contactUs" },
+    ],
   },
 ];
 
@@ -70,7 +71,6 @@ const Bottom = () => {
             {/* Dropdown */}
             {d.children && (
               <div className="absolute right-0 top-10 hidden w-auto flex-col gap-1 rounded-lg bg-white py-3 shadow-md transition-all group-hover:flex">
-
                 {d.children.map((ch, i) => (
                   <Link
                     key={i}
