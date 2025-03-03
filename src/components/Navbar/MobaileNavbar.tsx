@@ -27,6 +27,17 @@ const navItems: NavItem[] = [
       { label: "Hot Deals", link: "/shoppingCart" },
     ],
   },
+
+  {
+    label: "Pages",
+    link: "#",
+    children: [
+      { label: "Category", link: "/" },
+      { label: "Wishlist", link: "/Wishlist" },
+      { label: "Shopping Cart", link: "/shoppingCart" },
+      { label: "Privacy Policy", link: "/privacypolicy" },
+    ],
+  },
   {
     label: "Blog",
     link: "#",
@@ -39,15 +50,15 @@ const navItems: NavItem[] = [
   {
     label: "About Us",
     link: "/aboutUs",
-  },
-  {
-    label: "Contact Us",
-    link: "/contactUs",
+    children: [
+      { label: "Privacy Policy", link: "/privacypolicy" },
+      { label: "Contact Us", link: "/contactUs" },
+    ],
   },
 ];
 
 const MobaileNavbar = () => {
-  const {cart} = useCart();
+  const { cart } = useCart();
   // const [langues, setLangues] = useState(false);
   // const [usd, setUsd] = useState(false);
   const [open, setOpen] = useState(false);
@@ -144,12 +155,12 @@ const MobaileNavbar = () => {
                   </div>
                 ))}
                 <div className="relative px-2 py-3">
-                <Link href="/shoppingCart">
-                  <p className="flex cursor-pointer items-center gap-2 text-black hover:text-[#00B207]">
-                    <span>Cart ({cart.length})</span>
-                  </p>
-                </Link>
-              </div>
+                  <Link href="/shoppingCart">
+                    <p className="flex cursor-pointer items-center gap-2 text-black hover:text-[#00B207]">
+                      <span>Cart ({cart.length})</span>
+                    </p>
+                  </Link>
+                </div>
 
                 <div className="flex gap-1 mt-3">
                   <Link href="/singin">Sign in</Link>
