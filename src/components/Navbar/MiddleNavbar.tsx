@@ -8,9 +8,9 @@ import Link from "next/link";
 import { useCart } from "../context/CartContext";
 
 const MiddleNavbar = () => {
-  const {cart} = useCart();
+  const { cart } = useCart();
   const totalPrice = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
+    (sum, item) => sum + item.price * (item.quantity ?? 0), // Safely access quantity
     0
   );
   const [searchIconR, setsearchIconR] = useState("");
@@ -77,7 +77,9 @@ const MiddleNavbar = () => {
             <div className="">
               <p className="text-[11px] leading-[13.5px">Shopping Cart:</p>
 
-              <p className="text-[14px] leading-[14px] font-medium">${totalPrice}</p>
+              <p className="text-[14px] leading-[14px] font-medium">
+                ${totalPrice}
+              </p>
             </div>
           </div>
         </div>

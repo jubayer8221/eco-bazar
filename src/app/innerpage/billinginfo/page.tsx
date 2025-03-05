@@ -5,31 +5,19 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
-//   {
-//     id: 1,
-//     name: "Fresh Indian Orange",
-//     price: 12.0,
-//     image: "/images/hot2.png",
-//     quantity: 1,
-//   },
-//   {
-//     id: 2,
-//     name: "Green Apple",
-//     price: 14.0,
-//     image: "/images/hot3.png",
-//     quantity: 2,
-//   },
-// ];
 const BillingInfo = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [selectedState, setSelectedState] = useState("");
   const countries = ["USA", "Canada", "UK", "Australia"];
   const states = ["California", "Texas", "New York", "Florida"];
-  const {cart} = useCart();
+  const { cart } = useCart();
+
+  // Calculate total price safely
   const totalPrice = cart.reduce(
-    (sum, cart) => sum + cart.price * cart.quantity,
+    (sum, item) => sum + item.price * (item.quantity || 1), // Default quantity to 1 if undefined
     0
   );
+
   return (
     <div className="mt-16 xl:mt-[180px] pl-3 pr-3 py-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] flex flex-col xl:flex-row justify-between gap-3 font-poppins">
       {/* Billing Information */}
@@ -83,7 +71,7 @@ const BillingInfo = () => {
                 <input
                   type="text"
                   value={selectedCountry}
-                  onChange={(e)=>setSelectedCountry(e.target.value)}
+                  onChange={(e) => setSelectedCountry(e.target.value)}
                   placeholder="Selected"
                   className="w-full pl-1 outline-none"
                 />
@@ -110,7 +98,7 @@ const BillingInfo = () => {
                 <input
                   type="text"
                   value={selectedState}
-                  onChange={(e)=>setSelectedState(e.target.value)}
+                  onChange={(e) => setSelectedState(e.target.value)}
                   placeholder="Selected"
                   className="w-full pl-1 outline-none"
                 />
@@ -192,18 +180,19 @@ const BillingInfo = () => {
         <h1>Order summary</h1>
         {/* product  */}
         <div className="mb-10">
-          {cart.map((cart) => (
+          {cart.map((item) => (
             <div
-              key={cart.id}
+              key={item.id}
               className="flex items-center justify-between gap-1"
             >
               <div className="flex items-center justify-center gap-1">
-                <Image src={cart.image} alt="" width={50} height={50} />
+                <Image src={item.image} alt="" width={50} height={50} />
                 <p className="text-[12px]">
-                  {cart.name} x{cart.quantity}
+                  {item.name} x{item.quantity || 1}{" "}
+                  {/* Default quantity to 1 */}
                 </p>
               </div>
-              <p className="text-[12px] font-medium">${cart.price}</p>
+              <p className="text-[12px] font-medium">${item.price}</p>
             </div>
           ))}
         </div>
