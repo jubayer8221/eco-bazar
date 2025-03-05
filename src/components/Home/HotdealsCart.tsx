@@ -5,7 +5,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 import { BsEye } from "react-icons/bs";
 import { IoStar } from "react-icons/io5";
 import { CiStar } from "react-icons/ci";
-import { useCart } from "@/components/context/CartContext"; // ✅ Import cart context
+import { useCart } from "@/components/context/CartContext"; // Import cart context
 
 interface ProductProps {
   id: number;
@@ -30,7 +30,7 @@ const HotdealsCart: React.FC<ProductProps> = ({
   bestSale,
   reviews,
 }) => {
-  const { addToCart } = useCart();
+  const { addToCart, addToWishlist } = useCart(); // Add addToWishlist from useCart
   const [isHover, setIsHover] = useState(false);
 
   const generateRating = (rating: number) => {
@@ -125,10 +125,22 @@ const HotdealsCart: React.FC<ProductProps> = ({
       {/* button show hover */}
       {isHover ? (
         <div className="flex items-center justify-between w-full">
-          <div className="p-3 rounded-full bg-[#F2F2F2] flex items-center justify-center">
-            <Image src="/icons/save.svg" alt="" width={20} height={20} />
+          {/* Wishlist button */}
+          <div
+            onClick={() =>
+              addToWishlist({ id, name: title, price, image: img })
+            }
+            className="p-3 rounded-full bg-[#F2F2F2] flex items-center justify-center cursor-pointer"
+          >
+            <Image
+              src="/icons/save.svg"
+              alt="Add to Wishlist"
+              width={20}
+              height={20}
+            />
           </div>
 
+          {/* Add to Cart button */}
           <button
             onClick={() =>
               addToCart({ id, name: title, price, image: img, quantity: 1 })
@@ -138,6 +150,7 @@ const HotdealsCart: React.FC<ProductProps> = ({
             Add to Cart <HiOutlineShoppingBag className="w-4 h-4" />
           </button>
 
+          {/* View button */}
           <div className="w-[46px] h-[46px] rounded-full bg-[#F2F2F2] p-2 flex justify-center items-center">
             <BsEye className="w-4 h-4" />
           </div>

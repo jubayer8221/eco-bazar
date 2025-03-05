@@ -7,56 +7,64 @@ import {
   ReactNode,
 } from "react";
 
-interface CartItem {
+interface Item {
   id: number;
   name: string;
   price: number;
   image: string;
-  quantity: number;
+  quantity?: number; // Only used for cart
 }
 
 interface CartContextType {
-  cart: CartItem[];
-  addToCart: (item: CartItem) => void;
+  cart: Item[];
+  wishlist: Item[]; // ✅ Wishlist state
+  addToCart: (item: Item) => void;
   removeFromCart: (id: number) => void;
+  updateQuantity: (id: number, newQuantity: number) => void;
   clearCart: () => void;
-  updateQuantity: (id: number, newQuantity: number) => void; // ✅ Added updateQuantity function
   totalPrice: number;
+  addToWishlist: (item: Item) => void; // ✅ Add to wishlist
+  removeFromWishlist: (id: number) => void; // ✅ Remove from wishlist
+  clearWishlist: () => void; // ✅ Clear wishlist
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<Item[]>([]);
+  const [wishlist, setWishlist] = useState<Item[]>([]); // ✅ Wishlist state
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // Load cart from localStorage on initial render
+  // Load cart & wishlist from localStorage on initial render
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedCart = localStorage.getItem("cart");
-      if (storedCart) {
-        setCart(JSON.parse(storedCart) as CartItem[]);
-      }
+      const storedWishlist = localStorage.getItem("wishlist");
+
+      if (storedCart) setCart(JSON.parse(storedCart));
+      if (storedWishlist) setWishlist(JSON.parse(storedWishlist));
     }
   }, []);
 
-  // Save cart to localStorage and update total price whenever cart changes
+  // Save cart & wishlist to localStorage and update total price whenever cart changes
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("cart", JSON.stringify(cart));
+      localStorage.setItem("wishlist", JSON.stringify(wishlist)); // ✅ Save wishlist
       setTotalPrice(
-        cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+        cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0)
       );
     }
-  }, [cart]);
+  }, [cart, wishlist]);
 
-  const addToCart = (item: CartItem) => {
+  // Cart Functions
+  const addToCart = (item: Item) => {
     setCart((prevCart) => {
       const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
       if (existingItem) {
         return prevCart.map((cartItem) =>
           cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            ? { ...cartItem, quantity: (cartItem.quantity || 1) + 1 }
             : cartItem
         );
       }
@@ -68,11 +76,6 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
-  const clearCart = () => {
-    setCart([]);
-  };
-
-  // ✅ Added function to update quantity
   const updateQuantity = (id: number, newQuantity: number) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
@@ -81,15 +84,43 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
+  const clearCart = () => {
+    setCart([]);
+  };
+
+  // Wishlist Functions
+  const addToWishlist = (item: Item) => {
+    setWishlist((prevWishlist) => {
+      if (!prevWishlist.find((wishlistItem) => wishlistItem.id === item.id)) {
+        return [...prevWishlist, item];
+      }
+      return prevWishlist; // Prevent duplicates
+    });
+  };
+
+  const removeFromWishlist = (id: number) => {
+    setWishlist((prevWishlist) =>
+      prevWishlist.filter((item) => item.id !== id)
+    );
+  };
+
+  const clearWishlist = () => {
+    setWishlist([]);
+  };
+
   return (
     <CartContext.Provider
       value={{
         cart,
+        wishlist, // ✅ Provide wishlist
         addToCart,
         removeFromCart,
-        clearCart,
         updateQuantity,
+        clearCart,
         totalPrice,
+        addToWishlist, // ✅ Provide wishlist functions
+        removeFromWishlist,
+        clearWishlist,
       }}
     >
       {children}
