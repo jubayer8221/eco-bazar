@@ -15,6 +15,7 @@ const hotDealsProduct = [
     rating: 5,
     reviews: 524,
     featured: true,
+    stock: 10,
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ const hotDealsProduct = [
     price: 12.0,
     image: "/images/hot2.png",
     rating: 4,
+    stock: 5,
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ const hotDealsProduct = [
     price: 9.0,
     image: "/images/hot3.png",
     rating: 4,
+    stock: false,
   },
   {
     id: 4,
