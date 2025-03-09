@@ -10,3 +10,26 @@
   .scrollbar-hiden{
     scrollbar-width: none;
   }
+
+  
+/* Fullscreen loader container */
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #000;
+  /* Optional: Black background */
+}
+
+/* Spinner style */
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  /* Light border */
+  border-top: 5px solid #ffffff;
+  /* Solid white top border for spinner effect */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
