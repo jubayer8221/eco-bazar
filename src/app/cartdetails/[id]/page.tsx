@@ -1,19 +1,66 @@
 "use client";
+
 import { useParams } from "next/navigation";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { IoStar } from "react-icons/io5";
 import { CiStar } from "react-icons/ci";
-import { FaGooglePlusG, FaInstagram } from "react-icons/fa";
+import { FaGooglePlusG, FaInstagram, FaTwitter } from "react-icons/fa";
 import { BiLogoFacebook } from "react-icons/bi";
-import { FaTwitter } from "react-icons/fa6";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 import { CiSaveUp1 } from "react-icons/ci";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import Image from "next/image";
-import { AiOutlineHeart } from "react-icons/ai";
-import { BsCartPlusFill } from "react-icons/bs";
-import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { addToCart } from "@/store/slices/cartSlice";
+import { setProductDetails, setQuantity, setSelectedImage } from "@/store/slices/cartDetailsSlice";
+
+const CartDetails = () => {
+  const params = useParams();
+  const dispatch = useDispatch();
+  const { selectedProduct, quantity, selectedImage } = useSelector((state: RootState) => state.cartDetails);
+
+  const thumbnailRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const fetchProductData = async () => {
+      const response = await fetch("http://localhost:4000/allProduct");
+      const products = await response.json();
+      const product = products.find((item: any) => item.id === Number(params.id));
+      if (product) {
+        dispatch(setProductDetails(product));
+      }
+    };
+    fetchProductData();
+  }, [params.id, dispatch]);
+
+  const scrollThumbnails = (direction: string) => {
+    if (thumbnailRef.current) {
+      const scrollAmount = 90;
+      thumbnailRef.current.scrollBy({
+        top: direction === "up" ? -scrollAmount : scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  };
+
+// "use client";
+// import { useParams } from "next/navigation";
+// import React, { useEffect, useRef, useState } from "react";
+// import { IoStar } from "react-icons/io5";
+// import { CiStar } from "react-icons/ci";
+// import { FaGooglePlusG, FaInstagram } from "react-icons/fa";
+// import { BiLogoFacebook } from "react-icons/bi";
+// import { FaTwitter } from "react-icons/fa6";
+// import { HiOutlineShoppingBag } from "react-icons/hi2";
+// import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+// import { CiSaveUp1 } from "react-icons/ci";
+// import { FiMinus, FiPlus } from "react-icons/fi";
+// import Image from "next/image";
+// import { AiOutlineHeart } from "react-icons/ai";
+// import { BsCartPlusFill } from "react-icons/bs";
+// import Link from "next/link";
 // import { useCart } from "@/components/context/CartContext";
 
 // import Review from "../../ProductDetails/productDetailsCards/review/Review";
