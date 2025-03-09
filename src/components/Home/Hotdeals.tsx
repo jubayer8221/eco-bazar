@@ -1,8 +1,21 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HotdealsCart from "@/components/Home/HotdealsCart";
 
+<<<<<<< HEAD
+interface product {
+  id: number;
+  image: string;
+  name: string;
+  price: number;
+  rating?: number;
+  sale?: string;
+  oldPrice?: string;
+  bestSale?: boolean;
+  reviews?: number;
+}
+=======
 const hotDealsProduct = [
   {
     id: 1,
@@ -107,7 +120,21 @@ const hotDealsProduct = [
     rating: 4,
   },
 ];
+>>>>>>> 8c8e9be3327fd827522256c151467c6f867f85c1
 const Hotdeals = () => {
+
+  const [hotDealsProduct, setHotDealsProduct] = useState<product[]>([]);
+  // console.log(hotDealsProduct[0])
+
+  useEffect(()=>{
+    const fatchData = async () =>{
+      const api = await fetch("http://localhost:4000/hotDealsProduct");
+       const data = await api.json();
+      setHotDealsProduct(data);
+    }
+    fatchData();
+  },[])
+
   return (
     <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 mt-14 bg-[#F7F7F7] font-poppins">
       <div className="mb-8 flex items-center justify-between">
@@ -122,7 +149,7 @@ const Hotdeals = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
         {hotDealsProduct.map((product) => (
           <HotdealsCart
-            key={product.id}
+            key={Math.random()}
             id={product.id}
             img={product.image}
             title={product.name}
