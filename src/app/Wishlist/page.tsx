@@ -23,10 +23,10 @@ export default function WishList() {
   const cart = useSelector((state: RootState) => state.cart.cart);
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
 
-  // ✅ State for notifications
+  // State for notifications
   const [notification, setNotification] = useState<string | null>(null);
 
-  // ✅ Show notification for 2 seconds
+  // Show notification for 2 seconds
   const showNotification = (message: string) => {
     setNotification(message);
     setTimeout(() => setNotification(null), 2000);
@@ -51,14 +51,14 @@ export default function WishList() {
         My Wishlist
       </h2>
 
-      {/* ✅ Notification Popup */}
+      {/* Notification Popup */}
       {notification && (
         <div className="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded-lg shadow-md transition-opacity">
           {notification}
         </div>
       )}
 
-      {/* ✅ Show Cart Summary */}
+      {/* Show Cart Summary */}
       <div className="text-center mb-6">
         <p className="text-lg font-semibold">
           You have {cart.length} item(s) in your cart.
@@ -117,7 +117,7 @@ export default function WishList() {
 
                 {/* Action Column */}
                 <td className="p-2 md:p-4 flex flex-wrap items-center space-x-1 md:space-x-4">
-                  {/* ✅ Add to Cart Button */}
+                  {/* Add to Cart Button */}
                   <button
                     onClick={() => handleAddToCart(item)}
                     className="bg-green-500 text-white py-1 px-2 md:py-2 md:px-4 rounded-lg text-[10px] sm:text-[7px] md:text-sm hover:bg-green-600"
@@ -125,7 +125,7 @@ export default function WishList() {
                     Add to Cart
                   </button>
 
-                  {/* ✅ Remove from Wishlist */}
+                  {/* Remove from Wishlist */}
                   <button
                     onClick={() => {
                       dispatch(removeFromWishlist(item.id));
