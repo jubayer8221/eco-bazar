@@ -1,18 +1,18 @@
 "use client";
+
 import Image from "next/image";
 import React, { useState } from "react";
 import { GoSearch } from "react-icons/go";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import ShoppingCardPopup from "../ShoppingCardPopup";
 import Link from "next/link";
-import { useCart } from "../context/CartContext";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 const MiddleNavbar = () => {
-  const { cart } = useCart();
-  const totalPrice = cart.reduce(
-    (sum, item) => sum + item.price * (item.quantity ?? 0), // Safely access quantity
-    0
-  );
+  const cart = useSelector((state: RootState) => state.cart.cart); // ✅ Redux cart state
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice); // ✅ Redux total price
+
   const [searchIconR, setsearchIconR] = useState("");
   // const { cart, totalPrice } = useCart();
   const [totalCartAddShow, setTotalCartAddShow] = useState(false);

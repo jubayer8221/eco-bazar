@@ -1,24 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { updateQuantity } from "@/store/slices/cartSlice";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import Image from "next/image";
 import Link from "next/link";
-import { useCart } from "@/components/context/CartContext"; // Import the useCart hook
 
 const ShoppingCart = () => {
-  const { cart, updateQuantity, totalPrice } = useCart(); // Use the cart context
+  const dispatch = useDispatch();
+  const cart = useSelector((state: RootState) => state.cart.cart);
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
 
-  const handleQuantityChange = (id, newQuantity) => {
-    if (newQuantity < 1) return; // Ensure quantity is at least 1
-    updateQuantity(id, newQuantity); // Update quantity in the global cart
+  const handleQuantityChange = (id: number, newQuantity: number) => {
+    if (newQuantity < 1) return;
+    dispatch(updateQuantity({ id, quantity: newQuantity }));
   };
 
   return (
     <div className="mx-auto mt-16 xl:mt-48 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] font-poppins text-xs my-10">
-      {/* Content container with max-width */}
       <div className="w-full">
-
         <h1 className="text-2xl font-bold mb-4 text-center">
           My Shopping Cart
         </h1>

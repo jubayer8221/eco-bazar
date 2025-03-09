@@ -3,18 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
-import { useCart } from "@/components/context/CartContext"; // ✅ Use the global cart state
+// import { useCart } from "@/components/context/CartContext";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { removeFromCart } from "@/store/slices/cartSlice";
 
 const ShoppingCardPopup = () => {
-  const { cart, removeFromCart } = useCart(); // ✅ Get cart data from context
+  const dispatch = useDispatch();
+  const cart = useSelector((state: RootState) => state.cart.cart);
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
   const [closePopup, setClosePopup] = useState(true);
 
   // ✅ Calculate total price dynamically
-
-  const totalPrice = cart.reduce(
-    (sum, item) => sum + item.price * (item.quantity ?? 0), // Safely access quantity
-    0
-  );
 
   return (
     <>
@@ -65,7 +65,7 @@ const ShoppingCardPopup = () => {
                       </div>
                     </div>
                     <button
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={() => dispatch(removeFromCart(item.id))}
                       className="w-[22px] h-[22px] rounded-full border border-[#CCCCCC] flex items-center justify-center"
                     >
                       <IoMdClose className="text-[13px]" />

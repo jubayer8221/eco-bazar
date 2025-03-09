@@ -14,7 +14,7 @@ import Image from "next/image";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCartPlusFill } from "react-icons/bs";
 import Link from "next/link";
-import { useCart } from "@/components/context/CartContext";
+// import { useCart } from "@/components/context/CartContext";
 
 
 interface alldata {
@@ -41,7 +41,7 @@ const CartDetails = () => {
 
   // console.log("product id: ", data, params.id)
   // add cart
-  const { addToCart } = useCart();
+  // const { addToCart } = useCart();
 
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState<string>("");

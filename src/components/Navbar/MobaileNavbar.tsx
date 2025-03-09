@@ -4,7 +4,8 @@ import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdClose } from "react-icons/md";
-import { useCart } from "../context/CartContext";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 type NavItem = {
   label: string;
@@ -57,9 +58,7 @@ const navItems: NavItem[] = [
 ];
 
 const MobaileNavbar = () => {
-  const { cart } = useCart();
-  // const [langues, setLangues] = useState(false);
-  // const [usd, setUsd] = useState(false);
+  const cart = useSelector((state: RootState) => state.cart.cart); // ✅ Redux cart state
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 

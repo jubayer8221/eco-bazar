@@ -1,15 +1,13 @@
-// // store/store.ts
-// import { configureStore } from "@reduxjs/toolkit";
-// import cartReducer from "./cartSlice";
+import { configureStore } from "@reduxjs/toolkit";
+import cartReducer from "./slices/cartSlice"; // Import cart reducer
+import wishlistReducer from "./slices/wishlistSliceLove";
 
-// const store = configureStore({
-//   reducer: {
-//     cart: cartReducer,
-//   },
-// });
+export const store = configureStore({
+  reducer: {
+    cart: cartReducer,
+    wishlist: wishlistReducer,
+  },
+});
 
-// // Export RootState and AppDispatch for TypeScript support
-// export type RootState = ReturnType<typeof store.getState>;
-// export type AppDispatch = typeof store.dispatch;
-
-// export default store;
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

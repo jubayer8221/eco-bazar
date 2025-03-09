@@ -8,15 +8,41 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
-import React from "react";
-import { useCart } from "@/components/context/CartContext"; // Ensure this is correctly imported
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { addToCart } from "@/store/slices/cartSlice";
+import {
+  // addToWishlist,
+  removeFromWishlist,
+} from "@/store/slices/wishlistSliceLove";
 
 export default function WishList() {
-  const { wishlist, addToCart, removeFromWishlist } = useCart(); // Use cart context
+  const dispatch = useDispatch();
+  const wishlist = useSelector((state: RootState) => state.wishlist.wishlist);
+  const cart = useSelector((state: RootState) => state.cart.cart);
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
 
-  const handleAddToCart = (item) => {
-    addToCart({ ...item, quantity: 1 }); // Add to cart with quantity 1
-    removeFromWishlist(item.id); // Remove from wishlist
+  // State for notifications
+  const [notification, setNotification] = useState<string | null>(null);
+
+  // Show notification for 2 seconds
+  const showNotification = (message: string) => {
+    setNotification(message);
+    setTimeout(() => setNotification(null), 2000);
+  };
+
+  //  Handle Adding to Wishlist
+  // const handleAddToWishlist = (item: any) => {
+  //   dispatch(addToWishlist(item));
+  //   showNotification(`Added to Wishlist: ${item.name}`);
+  // };
+
+  //  Handle Adding to Cart
+  const handleAddToCart = (item: any) => {
+    dispatch(addToCart({ ...item, quantity: 1 }));
+    dispatch(removeFromWishlist(item.id));
+    showNotification(`Added to Cart: ${item.name}`);
   };
 
   return (
@@ -24,6 +50,23 @@ export default function WishList() {
       <h2 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6">
         My Wishlist
       </h2>
+
+      {/* Notification Popup */}
+      {notification && (
+        <div className="fixed top-5 right-5 bg-green-500 text-white px-4 py-2 rounded-lg shadow-md transition-opacity">
+          {notification}
+        </div>
+      )}
+
+      {/* Show Cart Summary */}
+      <div className="text-center mb-6">
+        <p className="text-lg font-semibold">
+          You have {cart.length} item(s) in your cart.
+        </p>
+        <p className="text-md text-gray-600">
+          Total Cart Value: ${totalPrice.toFixed(2)}
+        </p>
+      </div>
 
       <div className="overflow-x-auto">
         <table className="w-full border border-gray-200 rounded-lg">
@@ -57,11 +100,6 @@ export default function WishList() {
                   <span className="font-poppins text-gray-800">
                     ${item.price.toFixed(2)}
                   </span>
-                  {item.oldPrice && (
-                    <span className="text-gray-400 line-through ml-1 md:ml-2">
-                      ${item.oldPrice.toFixed(2)}
-                    </span>
-                  )}
                 </td>
 
                 {/* Stock Status Column */}
@@ -82,19 +120,17 @@ export default function WishList() {
                   {/* Add to Cart Button */}
                   <button
                     onClick={() => handleAddToCart(item)}
-                    className={`text-white font-poppins py-1 px-1 md:py-2 md:px-4 rounded-lg transition duration-300 text-[10px] sm:text-[7px] md:text-sm ${
-                      item.stock
-                        ? "bg-green-500 hover:bg-green-600"
-                        : "bg-gray-400 cursor-not-allowed"
-                    }`}
-                    disabled={!item.stock}
+                    className="bg-green-500 text-white py-1 px-2 md:py-2 md:px-4 rounded-lg text-[10px] sm:text-[7px] md:text-sm hover:bg-green-600"
                   >
                     Add to Cart
                   </button>
 
                   {/* Remove from Wishlist */}
                   <button
-                    onClick={() => removeFromWishlist(item.id)}
+                    onClick={() => {
+                      dispatch(removeFromWishlist(item.id));
+                      showNotification(`Removed from Wishlist: ${item.name}`);
+                    }}
                     className="text-gray-500 hover:text-red-500 text-[10px] sm:text-xs md:text-lg"
                   >
                     <RxCross2 className="text-gray-500 hover:text-red-500 text-[10px] sm:text-xs md:text-lg cursor-pointer lg:ml-8" />
