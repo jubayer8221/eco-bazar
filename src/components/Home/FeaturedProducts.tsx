@@ -1,51 +1,31 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useState } from 'react'
 import LatestNews from './LatestNews';
 import FeaturedProductCart from './FeaturedProductCart';
 
-const FeaturedProduct = [
-    {
-      id: 1,
-      name: "Chinese cabbage",
-      price: "$12.00",
-      oldPrice: "$24.00",
-      image: "/images/hot1.png",
-      sale: "50%",
-      rating: 5,
-    },
-    {
-      id: 2,
-      name: "Chinese cabbage",
-      price: "$12.00",
-      image: "/images/hot2.png",
-      rating: 4,
-    },
-    {
-      id: 3,
-      name: "Green Lettuce",
-      price: "$9.00",
-      image: "/images/hot3.png",
-      rating: 4,
-    },
-    {
-      id: 4,
-      name: "Eggplant",
-      price: "$34.00",
-      image: "/images/hot4.png",
-      rating: 4,
-      sale: "40%",
-    },
-    {
-      id: 5,
-      name: "Fresh Cauliflower",
-      price: "$12.00",
-      image: "/images/hot5.png",
-  
-      rating: 4,
-    },
-   
-  ];
+interface product{
+  id: number;
+  image: string;
+  name: string;
+  price: number;
+  rating: number;
+  sale?: string;
+  oldPrice?: string;
+}
 
 const FeaturedProducts = () => {
+  const [FeaturedProduct, setFeaturedProduct] = useState<product[]>([]);
+
+  useEffect(()=>{
+    const featuredProductsFetch = async () =>{
+      const api = await fetch("http://localhost:4000/featuredProducts");
+      const data = await api.json();
+
+      setFeaturedProduct(data);
+    }
+
+    featuredProductsFetch();
+  },[])
     return (
         <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[140px] md:pr[140px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 font-poppins">
           <div className="mb-8 flex items-center justify-between">
