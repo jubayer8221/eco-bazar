@@ -43,7 +43,7 @@ const BillingInfo = () => {
         <div className="flex flex-col gap-1">
           <label className="text-[14px] leading-5">Country / Region</label>
           <select
-            onChange={(e) => setSelectedCountry(e.target.value)}
+            // onChange={(e) => setSelectedCountry(e.target.value)}
             className="bg-[#FFFFFF] border border-[#E6E6E6] rounded-sm p-2"
           >
             <option value="">Select Country</option>
@@ -57,7 +57,7 @@ const BillingInfo = () => {
         <div className="flex flex-col gap-1">
           <label className="text-[14px] leading-5">State</label>
           <select
-            onChange={(e) => setSelectedState(e.target.value)}
+            // onChange={(e) => setSelectedState(e.target.value)}
             className="bg-[#FFFFFF] border border-[#E6E6E6] rounded-sm p-2"
           >
             <option value="">Select State</option>
