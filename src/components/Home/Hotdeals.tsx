@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import HotdealsCart from "@/components/Home/HotdealsCart";
 
+<<<<<<< HEAD
 interface product {
   id: number;
   image: string;
@@ -14,6 +15,112 @@ interface product {
   bestSale?: boolean;
   reviews?: number;
 }
+=======
+const hotDealsProduct = [
+  {
+    id: 1,
+    name: "Chinese cabbage",
+    price: 12.0,
+    oldPrice: 24.0,
+    image: "/images/hot1.png",
+    sale: "50%",
+    bestSale: true,
+    rating: 5,
+    reviews: 524,
+    featured: true,
+    stock: 10,
+  },
+  {
+    id: 2,
+    name: "Chinese cabbage",
+    price: 12.0,
+    image: "/images/hot2.png",
+    rating: 4,
+    stock: 5,
+  },
+  {
+    id: 3,
+    name: "Green Lettuce",
+    price: 9.0,
+    image: "/images/hot3.png",
+    rating: 4,
+    stock: false,
+  },
+  {
+    id: 4,
+    name: "Eggplant",
+    price: 34.0,
+    image: "/images/hot4.png",
+    rating: 4,
+    sale: "40%",
+  },
+  {
+    id: 5,
+    name: "Fresh Cauliflower",
+    price: 12.0,
+    image: "/images/hot5.png",
+
+    rating: 4,
+  },
+  {
+    id: 6,
+    name: "Green Capsicum",
+    price: 9.0,
+    oldPrice: "$20.99",
+    sale: "50%",
+    image: "/images/hot6.png",
+    rating: 4,
+  },
+  {
+    id: 7,
+    name: "Green Chili",
+    price: 34.0,
+    image: "/images/hot7.png",
+    rating: 3,
+    sale: "40%",
+  },
+  {
+    id: 8,
+    name: "Big Potatoes",
+    price: 12.0,
+    image: "/images/hot8.png",
+    rating: 2,
+  },
+  {
+    id: 9,
+    name: "Corn",
+    price: 12.0,
+    image: "/images/hot9.png",
+    rating: 5,
+    reviews: 524,
+    sale: "40%",
+  },
+  {
+    id: 10,
+    name: "Red Chili",
+    price: 12.0,
+    image: "/images/hot1.png",
+    rating: 4,
+  },
+  {
+    id: 11,
+    name: "Red Tomatoes",
+    price: 9.0,
+    oldPrice: "$20.99",
+    sale: "50%",
+    image: "/images/hot5.png",
+    rating: 5,
+  },
+  {
+    id: 12,
+    name: "Surjipur Mango",
+    price: 34.0,
+    reviews: 524,
+    image: "/images/hot6.png",
+    rating: 4,
+  },
+];
+>>>>>>> 8c8e9be3327fd827522256c151467c6f867f85c1
 const Hotdeals = () => {
 
   const [hotDealsProduct, setHotDealsProduct] = useState<product[]>([]);

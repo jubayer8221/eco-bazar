@@ -12,7 +12,7 @@ const ShoppingCardPopup = () => {
   // ✅ Calculate total price dynamically
 
   const totalPrice = cart.reduce(
-    (sum, item) => sum + item.price * item.quantity,
+    (sum, item) => sum + item.price * (item.quantity ?? 0), // Safely access quantity
     0
   );
 
