@@ -1,36 +1,26 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
-// import React, { useState } from "react";
 import { IoMdClose } from "react-icons/io";
-import { useCart } from "@/components/context/CartContext"; // ✅ Use the global cart state
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { removeFromCart } from "@/store/slices/cartSlice";
 
 const OrderHistory = () => {
-  const { cart, removeFromCart } = useCart(); // ✅ Get cart data from context
-  // const [closePopup, setClosePopup] = useState(true);
-
-  // ✅ Calculate total price dynamically
-
-  const totalPrice = cart.reduce(
-    (sum, item) => sum + item.price * (item.quantity ?? 0), // Safely access quantity
-    0
-  );
+  const dispatch = useDispatch();
+  const cart = useSelector((state: RootState) => state.cart.cart); // ✅ Get cart data from Redux
+  const totalPrice = useSelector((state: RootState) => state.cart.totalPrice); // ✅ Get total price from Redux
 
   return (
     <>
-      <div
-        className="pl-3 pr-3 mt-16 md:mt-16 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] xl:h-[500px] font-poppins bg-white flex flex-col justify-between xl:mt-[200px] mb-5"
-        // onClick={(e) => e.stopPropagation()} // Prevents closing when clicking inside
-      >
-        {/* ✅ Top Section */}
+      <div className="pl-3 pr-3 mt-16 md:mt-16 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] xl:h-[500px] font-poppins bg-white flex flex-col justify-between xl:mt-[200px] mb-5">
+        {/* Top Section */}
         <div>
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-[18px] md:text-[20px] leading-7">
-              Shopping Card ({cart.length})
+              Shopping Cart ({cart.length})
             </h3>
-            {/* <button onClick={() => setClosePopup(false)}>
-                  <IoMdClose className="text-[13px] text-[#1A1A1A]" />
-                </button> */}
           </div>
 
           {/* ✅ Show empty cart message */}
@@ -52,13 +42,13 @@ const OrderHistory = () => {
                   <div>
                     <h5 className="text-[14px] leading-5">{item.name}</h5>
                     <p className="text-[14px] font-medium">
-                      <span className="text-[#808080]">{item.quantity} x</span>$
-                      {item.price}
+                      <span className="text-[#808080]">{item.quantity} x</span>{" "}
+                      ${item.price}
                     </p>
                   </div>
                 </div>
                 <button
-                  onClick={() => removeFromCart(item.id)}
+                  onClick={() => dispatch(removeFromCart(item.id))}
                   className="w-[22px] h-[22px] rounded-full border border-[#CCCCCC] flex items-center justify-center"
                 >
                   <IoMdClose className="text-[13px]" />
