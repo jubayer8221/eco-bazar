@@ -77,7 +77,9 @@ const CartDetails = () => {
   useEffect(() => {
     const fatchFeaturedProduct = () => {
       const productCartId = Number(params.id);
-      const productCart = allData.find((cart) => cart.id === productCartId);
+      const productCart = allData.find(
+        (cart) => Number(cart.id) === productCartId
+      );
       if (productCart) {
         setData(productCart);
       }
