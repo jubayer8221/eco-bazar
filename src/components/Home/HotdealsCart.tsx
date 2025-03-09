@@ -1,11 +1,14 @@
 "use client";
+
 import Image from "next/image";
 import React, { useState } from "react";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { BsEye } from "react-icons/bs";
 import { IoStar } from "react-icons/io5";
 import { CiStar } from "react-icons/ci";
-import { useCart } from "@/components/context/CartContext"; // Import cart context
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/store/slices/cartSlice";
+import { addToWishlist } from "@/store/slices/wishlistSlice"; // Import wishlist actions
 
 interface ProductProps {
   id: number;
@@ -30,64 +33,21 @@ const HotdealsCart: React.FC<ProductProps> = ({
   bestSale,
   reviews,
 }) => {
-  const { addToCart, addToWishlist } = useCart(); // Add addToWishlist from useCart
+  const dispatch = useDispatch();
   const [isHover, setIsHover] = useState(false);
 
   const generateRating = (rating: number) => {
-    switch (rating) {
-      case 1:
-        return (
-          <div className="flex gap-1 text-[#FF8A00]">
-            <IoStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-          </div>
-        );
-      case 2:
-        return (
-          <div className="flex gap-1 text-[#FF8A00]">
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-          </div>
-        );
-      case 3:
-        return (
-          <div className="flex gap-1 text-[#FF8A00]">
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-          </div>
-        );
-      case 4:
-        return (
-          <div className="flex gap-1 text-[#FF8A00]">
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-          </div>
-        );
-      case 5:
-        return (
-          <div className="flex gap-1 text-[#FF8A00]">
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-          </div>
-        );
-      default:
-        return null;
-    }
+    return (
+      <div className="flex gap-1 text-[#FF8A00]">
+        {Array.from({ length: 5 }, (_, index) =>
+          index < rating ? (
+            <IoStar key={index} className="text-[9.75px]" />
+          ) : (
+            <CiStar key={index} className="text-[9.75px]" />
+          )
+        )}
+      </div>
+    );
   };
 
   return (
@@ -128,7 +88,7 @@ const HotdealsCart: React.FC<ProductProps> = ({
           {/* Wishlist button */}
           <div
             onClick={() =>
-              addToWishlist({ id, name: title, price, image: img })
+              dispatch(addToWishlist({ id, name: title, price, image: img }))
             }
             className="p-3 rounded-full bg-[#F2F2F2] flex items-center justify-center cursor-pointer"
           >
@@ -143,7 +103,9 @@ const HotdealsCart: React.FC<ProductProps> = ({
           {/* Add to Cart button */}
           <button
             onClick={() =>
-              addToCart({ id, name: title, price, image: img, quantity: 1 })
+              dispatch(
+                addToCart({ id, name: title, price, image: img, quantity: 1 })
+              )
             }
             className="text-white bg-[#00B207] pt-3 pb-3 px-8 py-8 rounded-full flex items-center justify-center gap-2 text-[14px] font-medium"
           >

@@ -14,7 +14,7 @@ import Image from "next/image";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCartPlusFill } from "react-icons/bs";
 import Link from "next/link";
-import { useCart } from "@/components/context/CartContext";
+// import { useCart } from "@/components/context/CartContext";
 
 // import Review from "../../ProductDetails/productDetailsCards/review/Review";
 
@@ -814,7 +814,7 @@ const CartDetails = () => {
   const params = useParams();
   const [data, setData] = useState<(typeof FeaturedProduct)[0] | null>(null);
   // add cart
-  const { addToCart } = useCart();
+  // const { addToCart } = useCart();
 
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState<string>("");
