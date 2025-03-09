@@ -107,7 +107,7 @@ const HotdealsCart: React.FC<ProductProps> = ({
                 addToCart({ id, name: title, price, image: img, quantity: 1 })
               )
             }
-            className="text-white bg-[#00B207] pt-3 pb-3 px-8 py-8 rounded-full flex items-center justify-center gap-2 text-[14px] font-medium"
+            className="text-white bg-[#00B207] text-[12px] px-4 py-3 sm:px-4 sm:py-3 md:px-12 md:py-4 xl:px-8 xl:py-3 rounded-full flex items-center justify-center gap-2 md:text-[14px] xl:text-[14px] font-medium"
           >
             Add to Cart <HiOutlineShoppingBag className="w-4 h-4" />
           </button>

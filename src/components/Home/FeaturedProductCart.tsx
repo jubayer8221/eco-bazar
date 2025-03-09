@@ -12,7 +12,7 @@ interface propsType {
   id: number;
   img: string;
   title: string;
-  price: string;
+  price: number;
   oldPrice: string;
   rating: number;
   sale?: string;
@@ -137,7 +137,7 @@ const FeaturedProductCart: React.FC<propsType> = ({
             )}
             <div className="flex items-center justify-between">
               <p className="text-4 leading-6 font-medium">
-                {price} <del className="text-[#808080] text-4">{oldPrice}</del>
+                ${price} {oldPrice ? (<del className="text-[#808080] text-4">${oldPrice}</del>):""}
               </p>
 
               {isHover ? (
