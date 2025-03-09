@@ -258,15 +258,6 @@ const CartDetails = () => {
                     </button>
                   </div>
                   <button
-                    onClick={() =>
-                      addToCart({
-                        id: data.id,
-                        image: data.image,
-                        name: data.name,
-                        quantity: data.quantity,
-                        price: data.price,
-                      })
-                    }
                     className="px-[60px] py-[12px] bg-[#00B207] text-white text-[14px] font-semibold flex items-center gap-1 rounded-full"
                   >
                     Add to Cart <HiOutlineShoppingBag />
