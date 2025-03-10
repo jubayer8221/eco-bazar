@@ -2,6 +2,9 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { addToCart } from "@/store/slices/cartSlice";
+import { addToWishlist } from "@/store/slices/wishlistSlice";
+import { useDispatch } from "react-redux";
 
 // Cart Icon Component
 const CartIcon = () => (
@@ -22,21 +25,26 @@ const CartIcon = () => (
 );
 
 const PopularCard = ({ name, image, price, id }) => {
+  const dispatch = useDispatch();
+
   return (
-    <Link href={`/cartdetails/${id}`}>
-      <div className="shadow-md h-[240px] px-2 text-left border border-transparent hover:shadow-lg hover:border-green-700 transition-all mb-0 pb-0">
-      {/* Product Image */}
-      <Image
-        src={image}
-        alt={name}
-        width={200}
-        height={200}
-        className="w-[130px] h-[135px] object-contain mx-auto"
-      />
-      {/* Product Name with Hover Effect */}
-      <p className="text-gray-700 hover:text-green-600 transition-colors cursor-pointer">
-        {name}
-      </p>
+    <div className="shadow-md h-[240px] px-2 text-left border border-transparent hover:shadow-lg hover:border-green-700 transition-all mb-0 pb-0">
+      <Link href={`/cartdetails/${id}`}>
+        <div>
+          {/* Product Image */}
+          <Image
+            src={image}
+            alt={name}
+            width={200}
+            height={200}
+            className="w-[130px] h-[135px] object-contain mx-auto"
+          />
+          {/* Product Name with Hover Effect */}
+          <p className="text-gray-700 hover:text-green-600 transition-colors cursor-pointer">
+            {name}
+          </p>
+        </div>
+      </Link>
 
       {/* Price, Reviews, and Cart Button */}
       <div className="mt-2 flex justify-between items-center">
@@ -51,12 +59,24 @@ const PopularCard = ({ name, image, price, id }) => {
         </div>
 
         {/* Cart Button */}
-        <button className="p-2 text-green-600 hover:text-green-700 hover:border-green-700 transition-colors">
+        <button
+          onClick={() =>
+            dispatch(
+              addToCart({
+                id,
+                name,
+                price,
+                image,
+                quantity: 1,
+              })
+            )
+          }
+          className="p-2 text-green-600 hover:text-green-700 hover:border-green-700 transition-colors"
+        >
           <CartIcon />
         </button>
       </div>
     </div>
-    </Link>
   );
 };
 
