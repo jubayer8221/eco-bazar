@@ -118,7 +118,10 @@ const BillingInfo = () => {
           <p className="text-[18px] font-medium">${totalPrice}</p>
         </div>
         <Link href="/">
-          <button className="bg-[#00B207] w-full py-[12px] text-[16px] text-white font-medium rounded-full">
+          <button
+            className="bg-[#00B207] w-full py-[12px] text-[16px] text-white font-medium rounded-full"
+            onClick={() => alert("Order placed successfully")}
+          >
             Place Order
           </button>
         </Link>

@@ -15,7 +15,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BsCartPlusFill } from "react-icons/bs";
 import Link from "next/link";
 import { addToCart } from "@/store/slices/cartSlice";
-
+import { useDispatch } from "react-redux";
 // import Review from "../../ProductDetails/productDetailsCards/review/Review";
 
 interface alldata {
@@ -35,6 +35,7 @@ interface alldata {
   brand: string;
   oldPrice?: string;
 }
+
 const CartDetails = () => {
   const params = useParams();
   const [allData, setAlldata] = useState<alldata[]>([]);
@@ -115,6 +116,7 @@ const CartDetails = () => {
   // product discription
   const [activeTab, setActiveTab] = useState("Descriptions");
   const [isTabVisible, setIsTabVisible] = useState(false);
+  const dispatch = useDispatch();
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
@@ -249,15 +251,20 @@ const CartDetails = () => {
                   <FiMinus className="w-4 h-4" />
                 </button>
               </div>
+
+              {/* Add to Cart button */}
+
               <button
                 onClick={() =>
-                  addToCart({
-                    id: data.id,
-                    image: data.image,
-                    name: data.name,
-                    quantity: data.quantity,
-                    price: data.price,
-                  })
+                  dispatch(
+                    addToCart({
+                      id: data.id,
+                      name: data.name,
+                      price: data.price,
+                      image: data.image,
+                      quantity: 1,
+                    })
+                  )
                 }
                 className="px-[60px] py-[12px] bg-[#00B207] text-white text-[14px] font-semibold flex items-center gap-1 rounded-full"
               >

@@ -125,7 +125,7 @@ const HotdealsCart: React.FC<ProductProps> = ({
         <h3 className="text-[14px] leading-[21px] text-[#4D4D4D]">{title}</h3>
         {isHover ? (
           <p className="text-4 leading-6 font-medium">
-            {price} <del className="text-[#808080] text-4">{oldPrice}</del>{" "}
+            {price} <del className="text-[#808080] text-4">{oldPrice}</del>
             <span className="text-[12px] text-[#808080] leading-4">
               ({reviews} Feedback)
             </span>
