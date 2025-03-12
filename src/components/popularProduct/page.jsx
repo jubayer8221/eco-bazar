@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import CategoryCard from "./PopularProductCard/PopularProductCard";
 import PopularProductOffer from "./PopularProductCard/PopularProductOffer";
 import { FaStar } from "react-icons/fa";
+import { useGetPopularCategoriesQuery } from "@/store/slices/apiSlice";
 
 // const categoriesData = [
 //   {

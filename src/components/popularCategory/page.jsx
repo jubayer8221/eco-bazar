@@ -1,53 +1,40 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CategoryCard from "./Category/PopularCard";
-
-
+import { useGetPopularCategoriesQuery } from "@/store/slices/apiSlice";
 
 export default function PopularCategories() {
   const [showAll, setShowAll] = useState(false);
 
-  // data load 
-  const [categoriesData, setCategoriesData] = useState([]);
-  // console.log(categoriesData)
+  // Fetch categories using RTK Query
+  const {
+    data: categoriesData = [],
+    error,
+    isLoading,
+  } = useGetPopularCategoriesQuery();
 
-  useEffect(() => {
-    const dataFetch = async () => {
-      try {
-        const api = await fetch("https://ecobazar-backend-alpha.vercel.app/");
-        const data = await api.json(); // Await the JSON parsing
-        setCategoriesData(data.popular_categories)// Now it should work
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-  
-    dataFetch();
-  }, []);
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center py-5 w-full">
+        <p className="text-center py-5 text-green-500 border border-green-500 w-[250px] h-16 rounded-md flex items-center justify-center">
+          Loading...
+        </p>
+      </div>
+    );
 
-  // useEffect (()=>{
-  //   const categoriesDataFetch = async() =>{
-  //     try {
-  //       const api = await fetch("http://localhost:4000/popularCategories");
-  //       const data = await api.json();
-  //       setCategoriesData(data);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   }
-  //   categoriesDataFetch();
-  // }, [])
-
-  useEffect(() => {
-    if (!localStorage.getItem("categories")) {
-      localStorage.setItem("categories", JSON.stringify(categoriesData));
-    }
-  }, []);
+  if (error)
+    return (
+      <div className="flex justify-center items-center py-5 w-full">
+        <p className="text-center py-5 text-red-500 border border-red-500 w-[250px] h-16 rounded-md flex items-center justify-center">
+          Error fetching data
+        </p>
+      </div>
+    );
 
   return (
     <>
-      <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-10 pb-10  font-poppins">
+      <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-10 pb-10 font-poppins">
         <div className="flex justify-between">
           <div>
             <h2 className="text-[20px] xl:text-[32px] font-semibold leading-9 text-[#1A1A1A] my-8">

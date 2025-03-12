@@ -20,7 +20,9 @@ const Hotdeals = () => {
 
   useEffect(() => {
     const fatchData = async () => {
-      const api = await fetch("http://localhost:4000/hotDealsProduct");
+      const api = await fetch(
+        "https://ecobazar-backend-alpha.vercel.app//hotDealsProduct"
+      );
       const data = await api.json();
       setHotDealsProduct(data);
     };
