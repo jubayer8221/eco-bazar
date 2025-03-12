@@ -1,31 +1,34 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useGetFeaturedProductsQuery } from "@/store/slices/apiSlice";
 import LatestNews from "./LatestNews";
 import FeaturedProductCart from "./FeaturedProductCart";
 
-interface product {
-  id: number;
-  image: string;
-  name: string;
-  price: number;
-  rating: number;
-  sale?: string;
-  oldPrice?: string;
-}
-
 const FeaturedProducts = () => {
-  const [FeaturedProduct, setFeaturedProduct] = useState<product[]>([]);
+  const {
+    data: FeaturedProduct,
+    isLoading,
+    error,
+  } = useGetFeaturedProductsQuery();
 
-  useEffect(() => {
-    const featuredProductsFetch = async () => {
-      const api = await fetch("http://localhost:4000/featuredProducts");
-      const data = await api.json();
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center py-5 w-full">
+        <p className="text-center py-5 text-green-500 border border-green-500 w-[250px] h-16 rounded-md flex items-center justify-center">
+          Loading...
+        </p>
+      </div>
+    );
 
-      setFeaturedProduct(data);
-    };
+  if (error)
+    return (
+      <div className="flex justify-center items-center py-5 w-full">
+        <p className="text-center py-5 text-red-500 border border-red-500 w-[250px] h-16 rounded-md flex items-center justify-center">
+          Error fetching data
+        </p>
+      </div>
+    );
 
-    featuredProductsFetch();
-  }, []);
   return (
     <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[140px] md:pr[140px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 font-poppins">
       <div className="mb-8 flex items-center justify-between">
@@ -38,7 +41,7 @@ const FeaturedProducts = () => {
       </div>
       {/* Featured Products list */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
-        {FeaturedProduct.map((product) => (
+        {FeaturedProduct?.map((product) => (
           <FeaturedProductCart
             key={product.id}
             id={product.id}

@@ -8,8 +8,30 @@ export const apiSlice = createApi({
     getPopularCategories: builder.query<types[], void>({
       query: () => "/popularCategories",
     }),
+    getFeaturedProducts: builder.query<types[], void>({
+      query: () => "/featured_products",
+    }),
+    getPopularProducts: builder.query<types[], void>({
+      query: () => "/popularProduct",
+    }),
+    getHotDealsProducts: builder.query<types[], void>({
+      query: () => "/hotDealsProduct",
+    }),
+    getTestimonials: builder.query<types[], void>({
+      query: () => "/testimonial",
+    }),
+    getAllProducts: builder.query<types[], void>({
+      query: () => "/all_product",
+    }),
   }),
 });
 
-// Export hook for fetching categories
-export const { useGetPopularCategoriesQuery } = apiSlice;
+// Export hooks for fetching data
+export const {
+  useGetPopularCategoriesQuery,
+  useGetFeaturedProductsQuery,
+  useGetPopularProductsQuery,
+  useGetHotDealsProductsQuery,
+  useGetTestimonialsQuery,
+  useGetAllProductsQuery,
+} = apiSlice;
