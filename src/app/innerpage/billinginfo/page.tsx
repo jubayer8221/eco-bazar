@@ -222,7 +222,6 @@ const BillingInfo = () => {
             />
           </div>
         </div>
-
         {/* email phone  */}
         <div className="flex flex-col xl:flex-row items-center gap-4">
           <div className="flex flex-col gap-1 w-full">
@@ -243,7 +242,7 @@ const BillingInfo = () => {
           </div>
         </div>
         {/* ship to a different address  */}
-        <label className="flex items-center gap-1 cursor-pointer">
+        <div className="flex items-center gap-1">
           <input
             type="checkbox"
             name=""
@@ -253,8 +252,7 @@ const BillingInfo = () => {
           <span className="text-[14px] text-[#4D4D4D]">
             Ship to a different address
           </span>
-          {/* #4D4D4D */}
-        </label>
+        </div>
         {/* additinl info  */}
         <hr className="my-6" />
         <div>
@@ -339,4 +337,5 @@ const BillingInfo = () => {
     </div>
   );
 };
+
 export default BillingInfo;

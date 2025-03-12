@@ -61,7 +61,7 @@ import { FaStar } from "react-icons/fa";
 //       star: <FaStar />,
 //     },
 //   },
- 
+
 //   { id: 31, price: "$50", name: "Oil", image: "/image/cabbage.png" },
 //   { id: 32, price: "$22", name: "Eggplant", image: "/image/eggplant.png" },
 //   { id: 33, price: "$40", name: "Dairy Products", image: "/image/corn.png" },
@@ -82,9 +82,9 @@ export default function PopularProductCard() {
   // }, []);
 
   const [categoriesData, setCategoriesData] = useState([]);
-  console.log(categoriesData)
-  useEffect (()=>{
-    const categoriesDataFetch = async() =>{
+  console.log(categoriesData);
+  useEffect(() => {
+    const categoriesDataFetch = async () => {
       try {
         const api = await fetch("http://localhost:4000/popularProduct");
         const data = await api.json();
@@ -92,9 +92,9 @@ export default function PopularProductCard() {
       } catch (error) {
         console.error("Error fetching data:", error);
       }
-    }
+    };
     categoriesDataFetch();
-  }, [])
+  }, []);
   return (
     <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] font-poppins">
       <div className="mx-auto">

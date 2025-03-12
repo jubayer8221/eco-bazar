@@ -16,6 +16,7 @@ import {
   // addToWishlist,
   removeFromWishlist,
 } from "@/store/slices/wishlistSliceLove";
+import CartItem from "@/types/types";
 
 export default function WishList() {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ export default function WishList() {
   // };
 
   //  Handle Adding to Cart
-  const handleAddToCart = (item: any) => {
+  const handleAddToCart = (item: CartItem) => {
     dispatch(addToCart({ ...item, quantity: 1 }));
     dispatch(removeFromWishlist(item.id));
     showNotification(`Added to Cart: ${item.name}`);
@@ -119,7 +120,7 @@ export default function WishList() {
                 <td className="p-2 md:p-4 flex flex-wrap items-center space-x-1 md:space-x-4">
                   {/* Add to Cart Button */}
                   <button
-                    onClick={() => handleAddToCart(item)}
+                    onClick={() => handleAddToCart({ ...item, quantity: 1 })}
                     className="bg-green-500 text-white py-1 px-2 md:py-2 md:px-4 rounded-lg text-[10px] sm:text-[7px] md:text-sm hover:bg-green-600"
                   >
                     Add to Cart
