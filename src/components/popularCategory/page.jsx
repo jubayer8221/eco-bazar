@@ -14,12 +14,15 @@ export default function PopularCategories() {
     isLoading,
   } = useGetPopularCategoriesQuery();
 
-  if (isLoading) return;
-  <div className="flex justify-center items-center py-5 w-full">
-    <p className="text-center py-5 text-green-500 border border-green-500 w-[250px] h-16 rounded-md flex items-center justify-center">
-      Loading...
-    </p>
-  </div>;
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center py-5 w-full">
+        <p className="text-center py-5 text-green-500 border border-green-500 w-[250px] h-16 rounded-md flex items-center justify-center">
+          Loading...
+        </p>
+      </div>
+    );
+
   if (error)
     return (
       <div className="flex justify-center items-center py-5 w-full">
