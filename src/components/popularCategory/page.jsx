@@ -25,19 +25,34 @@ export default function PopularCategories() {
 
   // data load 
   const [categoriesData, setCategoriesData] = useState([]);
-  console.log(categoriesData)
-  useEffect (()=>{
-    const categoriesDataFetch = async() =>{
+  // console.log(categoriesData)
+
+  useEffect(() => {
+    const dataFetch = async () => {
       try {
-        const api = await fetch("http://localhost:4000/popularCategories");
-        const data = await api.json();
-        setCategoriesData(data);
+        const api = await fetch("https://ecobazar-backend-alpha.vercel.app/");
+        const data = await api.json(); // Await the JSON parsing
+        setCategoriesData(data.popular_categories)// Now it should work
       } catch (error) {
         console.error("Error fetching data:", error);
       }
-    }
-    categoriesDataFetch();
-  }, [])
+    };
+  
+    dataFetch();
+  }, []);
+
+  // useEffect (()=>{
+  //   const categoriesDataFetch = async() =>{
+  //     try {
+  //       const api = await fetch("http://localhost:4000/popularCategories");
+  //       const data = await api.json();
+  //       setCategoriesData(data);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   }
+  //   categoriesDataFetch();
+  // }, [])
 
   useEffect(() => {
     if (!localStorage.getItem("categories")) {
