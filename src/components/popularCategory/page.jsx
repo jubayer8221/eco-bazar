@@ -1,53 +1,37 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CategoryCard from "./Category/PopularCard";
-
-// const categoriesData = [
-//   { id: 6, name: "Fresh Fruit", image: "/image/image1.png" },
-//   { id: 7, name: "Vegetables", image: "/image/image_1.png" },
-//   { id: 8, name: "Meat & Fish", image: "/image/image_2.png" },
-//   { id: 9, name: "Snacks", image: "/image/image_3.png" },
-//   { id: 10, name: "Beverages", image: "/image/image_4.png" },
-//   { id: 11, name: "Beauty", image: "/image/image_5.png" },
-//   { id: 12, name: "Bakery", image: "/image/image_6.png" },
-//   { id: 13, name: "Baking Needs", image: "/image/image_7.png" },
-//   { id: 14, name: "Cooking", image: "/image/image_8.png" },
-//   { id: 15, name: "Diabetic Food", image: "/image/image_9.png" },
-//   { id: 16, name: "Detergents", image: "/image/image_10.png" },
-//   { id: 17, name: "Oil", image: "/image/image_11.png" },
-//   { id: 18, name: "Dairy Products", image: "/image/image_1.png" },
-//   { id: 19, name: "Frozen Items", image: "/image/image_1.png" },
-// ];
+import { useGetPopularCategoriesQuery } from "@/store/slices/apiSlice";
 
 export default function PopularCategories() {
   const [showAll, setShowAll] = useState(false);
 
-  // data load 
-  const [categoriesData, setCategoriesData] = useState([]);
-  console.log(categoriesData)
-  useEffect (()=>{
-    const categoriesDataFetch = async() =>{
-      try {
-        const api = await fetch("http://localhost:4000/popularCategories");
-        const data = await api.json();
-        setCategoriesData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-    categoriesDataFetch();
-  }, [])
+  // Fetch categories using RTK Query
+  const {
+    data: categoriesData = [],
+    error,
+    isLoading,
+  } = useGetPopularCategoriesQuery();
 
-  useEffect(() => {
-    if (!localStorage.getItem("categories")) {
-      localStorage.setItem("categories", JSON.stringify(categoriesData));
-    }
-  }, []);
+  if (isLoading) return;
+  <div className="flex justify-center items-center py-5 w-full">
+    <p className="text-center py-5 text-green-500 border border-green-500 w-[250px] h-16 rounded-md flex items-center justify-center">
+      Loading...
+    </p>
+  </div>;
+  if (error)
+    return (
+      <div className="flex justify-center items-center py-5 w-full">
+        <p className="text-center py-5 text-red-500 border border-red-500 w-[250px] h-16 rounded-md flex items-center justify-center">
+          Error fetching data
+        </p>
+      </div>
+    );
 
   return (
     <>
-      <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-10 pb-10  font-poppins">
+      <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-10 pb-10 font-poppins">
         <div className="flex justify-between">
           <div>
             <h2 className="text-[20px] xl:text-[32px] font-semibold leading-9 text-[#1A1A1A] my-8">
