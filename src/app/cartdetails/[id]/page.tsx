@@ -14,8 +14,9 @@ import Image from "next/image";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCartPlusFill } from "react-icons/bs";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/store/slices/cartSlice";
 // import { useCart } from "@/components/context/CartContext";
-
 
 interface alldata {
   id: number;
@@ -38,7 +39,7 @@ const CartDetails = () => {
   const params = useParams();
   const [allData, setAlldata] = useState<alldata[]>([]);
   const [data, setData] = useState<(typeof allData)[0] | null>(null);
-
+  const dispatch = useDispatch();
   // console.log("product id: ", data, params.id)
   // add cart
   // const { addToCart } = useCart();
@@ -92,15 +93,16 @@ const CartDetails = () => {
   //   }
   // }, [params.id, allData]);
 
-  useEffect(()=>{
-    if(!loading && params?.id && allData.length> 0){
+  useEffect(() => {
+    if (!loading && params?.id && allData.length > 0) {
       const productCartId = Number(params.id);
-      const productCart = allData.find((cart)=> Number(cart.id) ===productCartId);
+      const productCart = allData.find(
+        (cart) => Number(cart.id) === productCartId
+      );
       setData(productCart || null);
     }
-  },[params.id, allData, loading]);
+  }, [params.id, allData, loading]);
 
-  
   // default image setup
   useEffect(() => {
     if (data) {
@@ -270,6 +272,11 @@ const CartDetails = () => {
                     </button>
                   </div>
                   <button
+                    onClick={() =>
+                      dispatch(
+                        addToCart({ id:data.id, name: data.name, price: data.price, image: data.image, quantity: 1 })
+                      )
+                    }
                     className="px-[60px] py-[12px] bg-[#00B207] text-white text-[14px] font-semibold flex items-center gap-1 rounded-full"
                   >
                     Add to Cart <HiOutlineShoppingBag />
