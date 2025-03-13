@@ -35,65 +35,23 @@ const FeaturedProductCart: React.FC<propsType> = ({
   const dispatch = useDispatch();
 
   const generateRating = (rating: number) => {
-    switch (rating) {
-      case 1:
-        return (
-          <div className="flex gap-1 text-[#FF8A00]">
-            <IoStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-          </div>
-        );
-      case 2:
-        return (
-          <div className="flex gap-1 text-[#FF8A00]">
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-          </div>
-        );
-      case 3:
-        return (
-          <div className="flex gap-1 text-[#FF8A00]">
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-          </div>
-        );
-      case 4:
-        return (
-          <div className="flex gap-1 text-[#FF8A00]">
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <CiStar className="text-[9.75px]" />
-          </div>
-        );
-      case 5:
-        return (
-          <div className="flex gap-1 text-[#FF8A00]">
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-            <IoStar className="text-[9.75px]" />
-          </div>
-        );
-      default:
-        return null;
-    }
+    return (
+      <div className="flex gap-1 text-[#FF8A00]">
+        {[...Array(5)].map((_, index) =>
+          index < rating ? (
+            <IoStar key={index} className="text-[9.75px]" />
+          ) : (
+            <CiStar key={index} className="text-[9.75px]" />
+          )
+        )}
+      </div>
+    );
   };
+
   return (
     <>
       <div
-        className={`bg-white relative overflow-hidden border pt-1 px-2 border-[#F2F2F2] max-w[400px] xl:max-w-[570px] ${
+        className={`bg-white relative overflow-hidden border pt-1 px-2 border-[#F2F2F2] max-w[400px] xl:max-w-[570px] transition-all duration-200 ease-in-out ${
           isHover ? "border-[#2C742F]" : ""
         }`}
         onMouseEnter={() => setIsHover(true)}
@@ -106,11 +64,12 @@ const FeaturedProductCart: React.FC<propsType> = ({
             </span>
           )}
         </div>
-        {/* image */}
+
+        {/* Image */}
         <Link href={`/cartdetails/${id}`}>
           <div className="pt-5">
             <Image
-              className="w-full  h-auto"
+              className="w-full h-auto"
               src={img}
               width={264}
               height={240}
@@ -118,55 +77,55 @@ const FeaturedProductCart: React.FC<propsType> = ({
             />
           </div>
         </Link>
-        {/* icon show hover */}
-        {isHover ? (
-          <div className="absolute top-4 right-4 flex flex-col gap-2">
-            <div className="p-2 w-[40px] h-[40px] rounded-full bg-[#F2F2F2] flex items-center justify-center">
-              <button
-                onClick={() =>
-                  dispatch(
-                    addToWishlist({
-                      id,
-                      name: title,
-                      price,
-                      image: img,
-                    })
-                  )
-                }
-              >
-                <Image
-                  className="text-black bg-transparent"
-                  src="/icons/heart.svg"
-                  alt=""
-                  width={20}
-                  height={20}
-                />
-              </button>
-            </div>
-            <Link href={`/cartdetails/${id}`}>
-              <div className="w-[40px] h-[40px] rounded-full bg-[#F2F2F2] p-2 flex justify-center items-center">
-                <BsEye className="w-4 h-4" />
-              </div>
-            </Link>
+
+        {/* Hover Icons (Wishlist & Quick View) */}
+        <div
+          className={`absolute top-4 right-4 flex flex-col gap-2 transition-opacity duration-300 ${
+            isHover ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <div className="p-2 w-[40px] h-[40px] rounded-full bg-[#F2F2F2] flex items-center justify-center">
+            <button
+              onClick={() =>
+                dispatch(
+                  addToWishlist({
+                    id,
+                    name: title,
+                    price,
+                    image: img,
+                  })
+                )
+              }
+            >
+              <Image
+                className="text-black bg-transparent"
+                src="/icons/heart.svg"
+                alt=""
+                width={20}
+                height={20}
+              />
+            </button>
           </div>
-        ) : (
-          ""
-        )}
-        {/* info */}
+          <Link href={`/cartdetails/${id}`}>
+            <div className="w-[40px] h-[40px] rounded-full bg-[#F2F2F2] p-2 flex justify-center items-center">
+              <BsEye className="w-4 h-4" />
+            </div>
+          </Link>
+        </div>
+
+        {/* Product Info */}
         <div className="pb-3 bottom-0 mt-2">
-          {isHover ? (
-            <Link href={`/cartdetails/${id}`}>
-              <h3 className={`text-[14px] leading-[21px] text-[#00B207]`}>
-                {title}
-              </h3>
-            </Link>
-          ) : (
-            <Link href={`/cartdetails/${id}`}>
-              <h3 className={`text-[14px] leading-[21px] text-[#4D4D4D]`}>
-                {title}
-              </h3>
-            </Link>
-          )}
+          <Link href={`/cartdetails/${id}`}>
+            <h3
+              className={`text-[14px] leading-[21px] ${
+                isHover ? "text-[#00B207]" : "text-[#4D4D4D]"
+              }`}
+            >
+              {title}
+            </h3>
+          </Link>
+
+          {/* Price and Cart Button */}
           <div className="flex items-center justify-between">
             <p className="text-4 leading-6 font-medium">
               ${price}{" "}
@@ -177,35 +136,32 @@ const FeaturedProductCart: React.FC<propsType> = ({
               )}
             </p>
 
-            {isHover ? (
-              <div
-                className={`bg-[#00B207] text-white w-8 h-8 rounded-full p-1 flex items-center justify-center`}
+            {/* Cart Button (Fixed Size, No Movement) */}
+            <div className="w-8 h-8 flex items-center justify-center">
+              <button
+                className={`rounded-full p-1 flex items-center justify-center transition-all duration-200 ease-in-out active:scale-90 ${
+                  isHover
+                    ? "bg-[#00B207] text-white w-8 h-8"
+                    : "bg-[#F2F2F2] w-8 h-8"
+                }`}
+                onClick={() => {
+                  dispatch(
+                    addToCart({
+                      id,
+                      name: title,
+                      price,
+                      image: img,
+                      quantity: 1,
+                    })
+                  );
+                }}
               >
                 <HiOutlineShoppingBag className="w-5 h-5" />
-              </div>
-            ) : (
-              <div
-                className={`bg-[#F2F2F2] w-6 h-6 rounded-full p-1 flex items-center justify-center1}`}
-              >
-                <button
-                  onClick={() =>
-                    dispatch(
-                      addToCart({
-                        id,
-                        name: title,
-                        price,
-                        image: img,
-                        quantity: 1,
-                      })
-                    )
-                  }
-                  type="submit"
-                >
-                  <HiOutlineShoppingBag />
-                </button>
-              </div>
-            )}
+              </button>
+            </div>
           </div>
+
+          {/* Rating */}
           <div className={`mt-2`}>{generateRating(rating)}</div>
         </div>
       </div>

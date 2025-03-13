@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import HotdealsCart from "@/components/Home/HotdealsCart";
 
-interface product {
+interface Product {
   id: number;
   image: string;
   name: string;
@@ -14,19 +14,40 @@ interface product {
   bestSale?: boolean;
   reviews?: number;
 }
+
 const Hotdeals = () => {
-  const [hotDealsProduct, setHotDealsProduct] = useState<product[]>([]);
-  // console.log(hotDealsProduct[0])
+  const [hotDealsProduct, setHotDealsProduct] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    const fatchData = async () => {
-      const api = await fetch(
-        "https://ecobazar-backend-alpha.vercel.app/"
-      );
-      const data = await api.json();
-      setHotDealsProduct(data.hotDeals_product);
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        setError(""); // Reset error before fetching
+
+        const response = await fetch(
+          "https://ecobazar-backend-alpha.vercel.app/"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch hot deals");
+        }
+        const data = await response.json();
+
+        if (Array.isArray(data.hotDeals_product)) {
+          setHotDealsProduct(data.hotDeals_product);
+        } else {
+          throw new Error("Invalid data format received");
+        }
+      } catch (error) {
+        setError(error instanceof Error ? error.message : "An error occurred");
+        setHotDealsProduct([]);
+      } finally {
+        setLoading(false);
+      }
     };
-    fatchData();
+
+    fetchData();
   }, []);
 
   return (
@@ -39,23 +60,37 @@ const Hotdeals = () => {
           View all →
         </button>
       </div>
-      {/* hot list */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
-        {hotDealsProduct.map((product) => (
-          <HotdealsCart
-            key={Math.random()}
-            id={product.id}
-            img={product.image}
-            title={product.name}
-            price={product.price}
-            rating={product.rating}
-            sale={product.sale ?? "0%"}
-            oldPrice={product.oldPrice?.toString() ?? ""}
-            bestSale={product.bestSale}
-            reviews={product.reviews ?? 0}
-          />
-        ))}
-      </div>
+
+      {/* Loading & Error States */}
+      {loading ? (
+        <div className="text-center text-lg font-semibold text-gray-600">
+          Loading...
+        </div>
+      ) : error ? (
+        <div className="text-center text-red-500 text-lg font-semibold">
+          {error}
+        </div>
+      ) : (
+        <>
+          {/* Hot Deals Product List */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+            {hotDealsProduct.map((product) => (
+              <HotdealsCart
+                key={product.id}
+                id={product.id}
+                img={product.image}
+                title={product.name}
+                price={product.price}
+                rating={product.rating}
+                sale={product.sale ?? "0%"}
+                oldPrice={product.oldPrice?.toString() ?? ""}
+                bestSale={product.bestSale}
+                reviews={product.reviews ?? 0}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

@@ -2,64 +2,41 @@
 
 import { useEffect, useState } from "react";
 import CategoryCard from "./Category/PopularCard";
-// import { useGetPopularCategoriesQuery } from "@/store/slices/apiSlice";
 
 export default function PopularCategories() {
   const [showAll, setShowAll] = useState(false);
+  const [categories, setCategoriesData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  // Fetch categories using RTK Query
-  // const { data: categories = [], error, isLoading } = useGetPopularCategoriesQuery();
+  useEffect(() => {
+    const categoriesDataFetch = async () => {
+      try {
+        setLoading(true);
+        setError(""); // Reset error before fetching
 
-  // console.log("Categories Data:", categories); // Debugging
-
-  // Ensure categoriesData is an array
-  // const categories = Array.isArray(categoriesData?.categories) ? categoriesData.categories : [];
-
-   const [categories, setCategoriesData] = useState([]);
-    // console.log("categoriesData", categoriesData);
-    useEffect(() => {
-      const categoriesDataFetch = async () => {
-        try {
-          const response = await fetch(
-            "https://ecobazar-backend-alpha.vercel.app/"
-          );
-          const data = await response.json();
-          //console.log("API Response:", data.popular_product); // Check the full response
-          if (Array.isArray(data.popular_categories)) {
-            setCategoriesData(data.popular_categories);
-          } else {
-            console.error(
-              "popular_product is not an array:",
-              data.popular_categories
-            );
-            setCategoriesData([]); // Ensure it's always an array
-          }
-        } catch (error) {
-          console.error("Error fetching data:", error);
-          setCategoriesData([]); // Handle errors gracefully
+        const response = await fetch(
+          "https://ecobazar-backend-alpha.vercel.app/"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch popular categories");
         }
-      };
-      categoriesDataFetch();
-    }, []);
+        const data = await response.json();
 
-
-  // if (isLoading)
-  //   return (
-  //     <div className="flex justify-center items-center py-5 w-full">
-  //       <p className="text-center py-5 text-green-500 border border-green-500 w-[250px] h-16 rounded-md flex items-center justify-center">
-  //         Loading...
-  //       </p>
-  //     </div>
-  //   );
-
-  // if (error)
-  //   return (
-  //     <div className="flex justify-center items-center py-5 w-full">
-  //       <p className="text-center py-5 text-red-500 border border-red-500 w-[250px] h-16 rounded-md flex items-center justify-center">
-  //         Error fetching data
-  //       </p>
-  //     </div>
-  //   );
+        if (Array.isArray(data.popular_categories)) {
+          setCategoriesData(data.popular_categories);
+        } else {
+          throw new Error("Invalid data format received");
+        }
+      } catch (error) {
+        setError(error instanceof Error ? error.message : "An error occurred");
+        setCategoriesData([]); // Handle errors gracefully
+      } finally {
+        setLoading(false);
+      }
+    };
+    categoriesDataFetch();
+  }, []);
 
   return (
     <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] pt-10 pb-10 font-poppins">
@@ -77,12 +54,32 @@ export default function PopularCategories() {
         )}
       </div>
 
-      {/* Category Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-        {(showAll ? categories : categories.slice(0, 12)).map((category) => (
-          <CategoryCard key={category.id} name={category.name} image={category.image} id={category.id} />
-        ))}
-      </div>
+      {/* Loading & Error States */}
+      {loading ? (
+        <div className="text-center text-lg font-semibold text-gray-600">
+          Loading...
+        </div>
+      ) : error ? (
+        <div className="text-center text-red-500 text-lg font-semibold">
+          {error}
+        </div>
+      ) : (
+        <>
+          {/* Category Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+            {(showAll ? categories : categories.slice(0, 12)).map(
+              (category) => (
+                <CategoryCard
+                  key={category.id}
+                  name={category.name}
+                  image={category.image}
+                  id={category.id}
+                />
+              )
+            )}
+          </div>
+        </>
+      )}
     </div>
   );
 }
