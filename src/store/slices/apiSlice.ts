@@ -6,7 +6,10 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://ecobazar-backend-alpha.vercel.app" }), // Use your backend URL
   endpoints: (builder) => ({
     getPopularCategories: builder.query<types[], void>({
-      query: () => "/popularCategories",
+      query: () => "/popular_categories", // Update this if needed
+    }),
+    getAllProducts: builder.query<types[], void>({
+      query: () => "/products", // Update this endpoint to match your backend
     }),
     getFeaturedProducts: builder.query<types[], void>({
       query: () => "/featured_products",
@@ -20,9 +23,9 @@ export const apiSlice = createApi({
     getTestimonials: builder.query<types[], void>({
       query: () => "/testimonial",
     }),
-    getAllProducts: builder.query<types[], void>({
-      query: () => "/all_product",
-    }),
+    // getAllProducts: builder.query<types[], void>({
+    //   query: () => "/all_product",
+    // }),
   }),
 });
 

@@ -21,7 +21,7 @@ const Hotdeals = () => {
   useEffect(() => {
     const fatchData = async () => {
       const api = await fetch(
-        "https://ecobazar-backend-alpha.vercel.app//hotDealsProduct"
+        "https://ecobazar-backend-alpha.vercel.app/"
       );
       const data = await api.json();
       setHotDealsProduct(data.hotDeals_product);

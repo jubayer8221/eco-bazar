@@ -67,9 +67,9 @@ const CartDetails = () => {
     const fetchAllData = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:4000/allProduct");
+        const response = await fetch("https://ecobazar-backend-alpha.vercel.app/");
         const result = await response.json();
-        setAlldata(result);
+        setAlldata(result.all_product);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
