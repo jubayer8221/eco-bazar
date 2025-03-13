@@ -23,9 +23,9 @@ export const apiSlice = createApi({
     getTestimonials: builder.query<types[], void>({
       query: () => "/testimonial",
     }),
-    getAllProducts: builder.query<types[], void>({
-      query: () => "/all_product",
-    }),
+    // getAllProducts: builder.query<types[], void>({
+    //   query: () => "/all_product",
+    // }),
   }),
 });
 

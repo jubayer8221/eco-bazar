@@ -11,14 +11,23 @@ const FeaturedProducts = () => {
     error,
   } = useGetFeaturedProductsQuery();
 
-  console.log("Featured",FeaturedProduct)
-  useEffect(() => {
-    const featuredProductsFetch = async () => {
-      const api = await fetch("https://ecobazar-backend-alpha.vercel.app/");
-      const data = await api.json();
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center py-5 w-full">
+        <p className="text-center py-5 text-green-500 border border-green-500 w-[250px] h-16 rounded-md flex items-center justify-center">
+          Loading...
+        </p>
+      </div>
+    );
 
-      setFeaturedProduct(data.featured_products);
-    };
+  if (error)
+    return (
+      <div className="flex justify-center items-center py-5 w-full">
+        <p className="text-center py-5 text-red-500 border border-red-500 w-[250px] h-16 rounded-md flex items-center justify-center">
+          Error fetching data
+        </p>
+      </div>
+    );
 
   return (
     <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[140px] md:pr[140px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 font-poppins">
@@ -30,6 +39,7 @@ const FeaturedProducts = () => {
           View all →
         </button>
       </div>
+
       {/* Featured Products list */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
         {FeaturedProduct?.map((product) => (

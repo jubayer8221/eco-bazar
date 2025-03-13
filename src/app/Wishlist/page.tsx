@@ -120,7 +120,15 @@ export default function WishList() {
                 <td className="p-2 md:p-4 flex flex-wrap items-center space-x-1 md:space-x-4">
                   {/* Add to Cart Button */}
                   <button
-                    onClick={() => handleAddToCart({ ...item, quantity: 1 })}
+                    onClick={() =>
+                      handleAddToCart({
+                        ...item,
+                        quantity: 1,
+                        oldPrice: "0", // Default old price
+                        rating: 0, // Default rating
+                        sale: "", // Default sale
+                      })
+                    }
                     className="bg-green-500 text-white py-1 px-2 md:py-2 md:px-4 rounded-lg text-[10px] sm:text-[7px] md:text-sm hover:bg-green-600"
                   >
                     Add to Cart
