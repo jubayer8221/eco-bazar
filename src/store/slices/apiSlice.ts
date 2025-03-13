@@ -6,10 +6,13 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: "https://ecobazar-backend-alpha.vercel.app" }), // Use your backend URL
   endpoints: (builder) => ({
     getPopularCategories: builder.query<types[], void>({
-      query: () => "/popularCategories",
+      query: () => "/popular_categories", // Update this if needed
+    }),
+    getAllProducts: builder.query<types[], void>({
+      query: () => "/products", // Update this endpoint to match your backend
     }),
   }),
 });
 
-// Export hook for fetching categories
-export const { useGetPopularCategoriesQuery } = apiSlice;
+// Export hooks for fetching data
+export const { useGetPopularCategoriesQuery, useGetAllProductsQuery } = apiSlice;

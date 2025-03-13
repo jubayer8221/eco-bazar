@@ -6,69 +6,6 @@ import PopularProductOffer from "./PopularProductCard/PopularProductOffer";
 import { FaStar } from "react-icons/fa";
 import { useGetPopularCategoriesQuery } from "@/store/slices/apiSlice";
 
-// const categoriesData = [
-//   {
-//     id: 20,
-//     price: "$20",
-//     name: "Green Apple",
-//     image: "/image/apple.png",
-//     details:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-//     review: {
-//       rating: 4.5,
-//       star: <FaStar />,
-//     },
-//   },
-//   {
-//     id: 21,
-//     price: "$25",
-//     name: "Fresh Indian Malta",
-//     image: "/image/malta.png",
-//     details:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-//     review: {
-//       rating: 4.0,
-//       star: <FaStar />,
-//     },
-//   },
-//   { id: 22, price: "$15", name: "Chinese cabage", image: "/image/cabbage.png" },
-//   { id: 23, price: "$18", name: "Green Lettuce", image: "/image/lettuce.png" },
-//   { id: 24, price: "$22", name: "Eggplant", image: "/image/eggplant.png" },
-//   { id: 25, price: "$30", name: "Big Potatoes", image: "/image/potatoes.png" },
-//   { id: 26, price: "$12", name: "Corn", image: "/image/corn.png" },
-//   {
-//     id: 27,
-//     price: "$28",
-//     name: "Fresh Cauliflower",
-//     image: "/image/cauliflower.png",
-//     details:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-//     review: {
-//       rating: 4.3,
-//       star: <FaStar />,
-//     },
-//   },
-//   { id: 28, price: "$20", name: "Green Capsicum", image: "/image/capsicum.png" },
-//   { id: 29, price: "$10", name: "Green Chili", image: "/image/chili.png" },
-//   {
-//     id: 30,
-//     price: "$35",
-//     name: "Dish Detergents",
-//     image: "/image/lettuce.png",
-//     details:
-//       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-//     review: {
-//       rating: 4.6,
-//       star: <FaStar />,
-//     },
-//   },
-
-//   { id: 31, price: "$50", name: "Oil", image: "/image/cabbage.png" },
-//   { id: 32, price: "$22", name: "Eggplant", image: "/image/eggplant.png" },
-//   { id: 33, price: "$40", name: "Dairy Products", image: "/image/corn.png" },
-//   { id: 34, price: "$60", name: "Frozen Items", image: "/image/chili.png" },
-// ];
-
 export default function PopularProductCard() {
   ///const [categories, setCategories] = useState(categoriesData);
   const [showAll, setShowAll] = useState(false);
@@ -83,19 +20,32 @@ export default function PopularProductCard() {
   // }, []);
 
   const [categoriesData, setCategoriesData] = useState([]);
-  console.log(categoriesData);
+  // console.log("categoriesData", categoriesData);
   useEffect(() => {
     const categoriesDataFetch = async () => {
       try {
-        const api = await fetch("http://localhost:4000/popularProduct");
-        const data = await api.json();
-        setCategoriesData(data);
+        const response = await fetch(
+          "https://ecobazar-backend-alpha.vercel.app/"
+        );
+        const data = await response.json();
+        //console.log("API Response:", data.popular_product); // Check the full response
+        if (Array.isArray(data.popular_product)) {
+          setCategoriesData(data.popular_product);
+        } else {
+          console.error(
+            "popular_product is not an array:",
+            data.popular_product
+          );
+          setCategoriesData([]); // Ensure it's always an array
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
+        setCategoriesData([]); // Handle errors gracefully
       }
     };
     categoriesDataFetch();
   }, []);
+
   return (
     <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] font-poppins">
       <div className="mx-auto">
@@ -119,15 +69,14 @@ export default function PopularProductCard() {
 
         {/* Category Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {(showAll ? categoriesData : categoriesData.slice(0, 10)).map(
+          {(Array.isArray(categoriesData) ? categoriesData : []).map(
             (category) => (
               <CategoryCard
                 key={category.id}
+                id={category.id}
                 name={category.name}
                 image={category.image}
                 price={category.price}
-                id={category.id}
-                className="sm:h-20"
               />
             )
           )}

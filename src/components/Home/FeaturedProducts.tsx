@@ -16,12 +16,13 @@ interface product {
 const FeaturedProducts = () => {
   const [FeaturedProduct, setFeaturedProduct] = useState<product[]>([]);
 
+  console.log("Featured",FeaturedProduct)
   useEffect(() => {
     const featuredProductsFetch = async () => {
-      const api = await fetch("http://localhost:4000/featuredProducts");
+      const api = await fetch("https://ecobazar-backend-alpha.vercel.app/");
       const data = await api.json();
 
-      setFeaturedProduct(data);
+      setFeaturedProduct(data.featured_products);
     };
 
     featuredProductsFetch();
