@@ -3,44 +3,37 @@
 import { useEffect, useState } from "react";
 import CategoryCard from "./PopularProductCard/PopularProductCard";
 import PopularProductOffer from "./PopularProductCard/PopularProductOffer";
-import { FaStar } from "react-icons/fa";
-import { useGetPopularCategoriesQuery } from "@/store/slices/apiSlice";
 
 export default function PopularProductCard() {
-  ///const [categories, setCategories] = useState(categoriesData);
   const [showAll, setShowAll] = useState(false);
-
-  // useEffect(() => {
-  //   const savedCategories = localStorage.getItem("categories");
-  //   if (savedCategories) {
-  //     setCategories(JSON.parse(savedCategories));
-  //   } else {
-  //     localStorage.setItem("categories", JSON.stringify(categoriesData));
-  //   }
-  // }, []);
-
   const [categoriesData, setCategoriesData] = useState([]);
-  // console.log("categoriesData", categoriesData);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
   useEffect(() => {
     const categoriesDataFetch = async () => {
       try {
+        setLoading(true);
+        setError(""); // Reset error before fetching
+
         const response = await fetch(
           "https://ecobazar-backend-alpha.vercel.app/"
         );
+        if (!response.ok) {
+          throw new Error("Failed to fetch popular products");
+        }
         const data = await response.json();
-        //console.log("API Response:", data.popular_product); // Check the full response
+
         if (Array.isArray(data.popular_product)) {
           setCategoriesData(data.popular_product);
         } else {
-          console.error(
-            "popular_product is not an array:",
-            data.popular_product
-          );
-          setCategoriesData([]); // Ensure it's always an array
+          throw new Error("Invalid data format received");
         }
       } catch (error) {
-        console.error("Error fetching data:", error);
-        setCategoriesData([]); // Handle errors gracefully
+        setError(error instanceof Error ? error.message : "An error occurred");
+        setCategoriesData([]);
+      } finally {
+        setLoading(false);
       }
     };
     categoriesDataFetch();
@@ -67,20 +60,33 @@ export default function PopularProductCard() {
           </div>
         </div>
 
-        {/* Category Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {(Array.isArray(categoriesData) ? categoriesData : []).map(
-            (category) => (
-              <CategoryCard
-                key={category.id}
-                id={category.id}
-                name={category.name}
-                image={category.image}
-                price={category.price}
-              />
-            )
-          )}
-        </div>
+        {/* Loading & Error States */}
+        {loading ? (
+          <div className="text-center text-lg font-semibold text-gray-600">
+            Loading...
+          </div>
+        ) : error ? (
+          <div className="text-center text-red-500 text-lg font-semibold">
+            {error}
+          </div>
+        ) : (
+          <>
+            {/* Category Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {(showAll ? categoriesData : categoriesData.slice(0, 10)).map(
+                (category) => (
+                  <CategoryCard
+                    key={category.id}
+                    id={category.id}
+                    name={category.name}
+                    image={category.image}
+                    price={category.price}
+                  />
+                )
+              )}
+            </div>
+          </>
+        )}
       </div>
       <PopularProductOffer />
     </div>

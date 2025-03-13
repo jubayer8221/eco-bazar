@@ -1,33 +1,55 @@
 "use client";
-import React from "react";
-import { useGetFeaturedProductsQuery } from "@/store/slices/apiSlice";
+import React, { useEffect, useState } from "react";
 import LatestNews from "./LatestNews";
 import FeaturedProductCart from "./FeaturedProductCart";
 
-const FeaturedProducts = () => {
-  const {
-    data: FeaturedProduct,
-    isLoading,
-    error,
-  } = useGetFeaturedProductsQuery();
+// Define the TypeScript interface for a product
+interface Product {
+  id: number;
+  image: string;
+  name: string;
+  price: number;
+  rating?: number;
+  sale?: string;
+  oldPrice?: string;
+  bestSale?: boolean;
+  reviews?: number;
+}
 
-  if (isLoading)
-    return (
-      <div className="flex justify-center items-center py-5 w-full">
-        <p className="text-center py-5 text-green-500 border border-green-500 w-[250px] h-16 rounded-md flex items-center justify-center">
-          Loading...
-        </p>
-      </div>
-    );
+export default function FeaturedProducts() {
+  const [featuredProducts, setFeaturedProductsData] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  if (error)
-    return (
-      <div className="flex justify-center items-center py-5 w-full">
-        <p className="text-center py-5 text-red-500 border border-red-500 w-[250px] h-16 rounded-md flex items-center justify-center">
-          Error fetching data
-        </p>
-      </div>
-    );
+  useEffect(() => {
+    const featuredProductsDataFetch = async () => {
+      try {
+        setLoading(true);
+        setError(""); // Reset error before fetching
+
+        const response = await fetch(
+          "https://ecobazar-backend-alpha.vercel.app/"
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch featured products");
+        }
+        const data = await response.json();
+
+        if (Array.isArray(data.featured_products)) {
+          setFeaturedProductsData(data.featured_products);
+        } else {
+          throw new Error("Invalid data format received");
+        }
+      } catch (error) {
+        setError(error instanceof Error ? error.message : "An error occurred");
+        setFeaturedProductsData([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    featuredProductsDataFetch();
+  }, []);
 
   return (
     <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[140px] md:pr[140px] xl:pl-[300px] xl:pr-[300px] pt-24 pb-24 font-poppins">
@@ -40,28 +62,40 @@ const FeaturedProducts = () => {
         </button>
       </div>
 
-      {/* Featured Products list */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 ">
-        {FeaturedProduct?.map((product) => (
-          <FeaturedProductCart
-            key={product.id}
-            id={product.id}
-            title={product.name}
-            img={product.image}
-            sale={product.sale ?? ""}
-            price={product.price}
-            rating={product.rating}
-            oldPrice={product.oldPrice ?? ""}
-            quantity={1}
-          />
-        ))}
-      </div>
-      {/* latest news  */}
-      <div className="mt-12">
-        <LatestNews />
-      </div>
+      {/* Loading & Error States */}
+      {loading ? (
+        <div className="text-center text-lg font-semibold text-gray-600">
+          Loading...
+        </div>
+      ) : error ? (
+        <div className="text-center text-red-500 text-lg font-semibold">
+          {error}
+        </div>
+      ) : (
+        <>
+          {/* Featured Products list */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+            {featuredProducts.map((product) => (
+              <FeaturedProductCart
+                key={product.id}
+                id={product.id}
+                title={product.name}
+                img={product.image}
+                sale={product.sale ?? ""}
+                price={product.price}
+                rating={product.rating ?? 0}
+                oldPrice={product.oldPrice ?? "0"}
+                quantity={1}
+              />
+            ))}
+          </div>
+
+          {/* Latest News */}
+          <div className="mt-12">
+            <LatestNews />
+          </div>
+        </>
+      )}
     </div>
   );
-};
-
-export default FeaturedProducts;
+}

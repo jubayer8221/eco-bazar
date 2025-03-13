@@ -50,7 +50,9 @@ const PopularCard = ({ name, image, price, id }) => {
       <div className="mt-2 flex justify-between items-center">
         <div className="gap-2">
           {/* Price */}
-          <p className="text-green-600 flex-col">{price}</p>
+          <p className=" flex-col">
+            price: <span className="text-green-600 flex-col">{price}</span>{" "}
+          </p>
 
           {/* Reviews */}
           <div className="flex-col items-center">
