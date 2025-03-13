@@ -24,7 +24,7 @@ const Hotdeals = () => {
         "https://ecobazar-backend-alpha.vercel.app//hotDealsProduct"
       );
       const data = await api.json();
-      setHotDealsProduct(data);
+      setHotDealsProduct(data.hotDeals_product);
     };
     fatchData();
   }, []);
