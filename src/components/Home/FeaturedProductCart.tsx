@@ -84,7 +84,7 @@ const FeaturedProductCart: React.FC<propsType> = ({
             isHover ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="p-2 w-[40px] h-[40px] rounded-full bg-[#F2F2F2] flex items-center justify-center">
+          <div className="p-2 w-[40px] h-[40px] rounded-full hover:bg-[#00B207] bg-[#F2F2F2] flex items-center justify-center">
             <button
               onClick={() =>
                 dispatch(
@@ -96,6 +96,7 @@ const FeaturedProductCart: React.FC<propsType> = ({
                   })
                 )
               }
+              className="hover:bg-[#00B207]"
             >
               <Image
                 className="text-black bg-transparent"
@@ -107,7 +108,7 @@ const FeaturedProductCart: React.FC<propsType> = ({
             </button>
           </div>
           <Link href={`/cartdetails/${id}`}>
-            <div className="w-[40px] h-[40px] rounded-full bg-[#F2F2F2] p-2 flex justify-center items-center">
+            <div className="w-[40px] h-[40px] rounded-full bg-[#F2F2F2] hover:bg-[#00B207] hover:text-white p-2 flex justify-center items-center">
               <BsEye className="w-4 h-4" />
             </div>
           </Link>

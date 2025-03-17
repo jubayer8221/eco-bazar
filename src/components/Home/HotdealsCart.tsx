@@ -9,6 +9,7 @@ import { CiStar } from "react-icons/ci";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/store/slices/cartSlice";
 import { addToWishlist } from "@/store/slices/wishlistSlice"; // Import wishlist actions
+import Link from "next/link";
 
 interface ProductProps {
   id: number;
@@ -90,13 +91,14 @@ const HotdealsCart: React.FC<ProductProps> = ({
             onClick={() =>
               dispatch(addToWishlist({ id, name: title, price, image: img }))
             }
-            className="p-3 rounded-full bg-[#F2F2F2] flex items-center justify-center cursor-pointer"
+            className="p-3 rounded-full bg-[#F2F2F2] flex items-center justify-center cursor-pointer hover:bg-[#00B207] "
           >
             <Image
               src="/icons/save.svg"
               alt="Add to Wishlist"
               width={20}
               height={20}
+              className=""
             />
           </div>
 
@@ -113,9 +115,11 @@ const HotdealsCart: React.FC<ProductProps> = ({
           </button>
 
           {/* View button */}
-          <div className="w-[46px] h-[46px] rounded-full bg-[#F2F2F2] p-2 flex justify-center items-center">
+          <Link href={`/cartdetails/${id}`}>
+          <div className="w-[46px] h-[46px] rounded-full bg-[#F2F2F2] hover:text-white p-2 flex justify-center items-center hover:bg-[#00B207] ">
             <BsEye className="w-4 h-4" />
           </div>
+          </Link>
         </div>
       ) : (
         ""
