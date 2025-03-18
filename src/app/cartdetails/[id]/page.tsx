@@ -67,7 +67,9 @@ const CartDetails = () => {
     const fetchAllData = async () => {
       try {
         setLoading(true);
-        const response = await fetch("https://ecobazar-backend-steel.vercel.app/data/all_product");
+        const response = await fetch(
+          "https://ecobazar-backend-alpha.vercel.app/data/all_product"
+        );
         const result = await response.json();
         setAlldata(result);
       } catch (error) {
@@ -274,7 +276,13 @@ const CartDetails = () => {
                   <button
                     onClick={() =>
                       dispatch(
-                        addToCart({ id:data.id, name: data.name, price: data.price, image: data.image, quantity: 1 })
+                        addToCart({
+                          id: data.id,
+                          name: data.name,
+                          price: data.price,
+                          image: data.image,
+                          quantity: 1,
+                        })
                       )
                     }
                     className="px-[60px] py-[12px] bg-[#00B207] text-white text-[14px] font-semibold flex items-center gap-1 rounded-full"

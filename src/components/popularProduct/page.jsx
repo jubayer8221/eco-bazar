@@ -17,7 +17,7 @@ export default function PopularProductCard() {
         setError(""); // Reset error before fetching
 
         const response = await fetch(
-          "https://ecobazar-backend-steel.vercel.app/data/popular_product"
+          "https://ecobazar-backend-alpha.vercel.app/data/popular_product"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch popular products");

@@ -29,7 +29,7 @@ const Hotdeals = () => {
         setError(""); // Reset error before fetching
 
         const response = await fetch(
-          "ecobazar-backend-alpha.vercel.app/data/hotDeals_product"
+          "https://ecobazar-backend-alpha.vercel.app/data/hotDeals_product"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch hot deals");

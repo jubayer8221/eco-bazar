@@ -21,7 +21,7 @@ export default function FeaturedProducts() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  console.log("FeaturedProducts: ", featuredProducts)
+  console.log("FeaturedProducts: ", featuredProducts);
 
   useEffect(() => {
     const featuredProductsDataFetch = async () => {
@@ -30,7 +30,7 @@ export default function FeaturedProducts() {
         setError(""); // Reset error before fetching
 
         const response = await fetch(
-          "https://ecobazar-backend-steel.vercel.app/data/featured_products"
+          "https://ecobazar-backend-alpha.vercel.app/data/featured_products"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch featured products");
