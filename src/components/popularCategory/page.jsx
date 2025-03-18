@@ -5,9 +5,10 @@ import CategoryCard from "./Category/PopularCard";
 
 export default function PopularCategories() {
   const [showAll, setShowAll] = useState(false);
-  const [categories, setCategoriesData] = useState([]);
+  const [categories, setCategoriesData] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  console.log("categories: ", categories)
 
   useEffect(() => {
     const categoriesDataFetch = async () => {
@@ -16,15 +17,17 @@ export default function PopularCategories() {
         setError(""); // Reset error before fetching
 
         const response = await fetch(
-          "https://ecobazar-backend-alpha.vercel.app/"
+          "https://ecobazar-backend-steel.vercel.app/data/popular_categories"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch popular categories");
         }
         const data = await response.json();
 
-        if (Array.isArray(data.popular_categories)) {
-          setCategoriesData(data.popular_categories);
+        console.log("data categories: ", data)
+
+        if (Array.isArray(data)) {
+          setCategoriesData(data);
         } else {
           throw new Error("Invalid data format received");
         }

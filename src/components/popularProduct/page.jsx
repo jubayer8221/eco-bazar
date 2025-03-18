@@ -17,15 +17,15 @@ export default function PopularProductCard() {
         setError(""); // Reset error before fetching
 
         const response = await fetch(
-          "https://ecobazar-backend-alpha.vercel.app/"
+          "https://ecobazar-backend-steel.vercel.app/data/popular_product"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch popular products");
         }
         const data = await response.json();
 
-        if (Array.isArray(data.popular_product)) {
-          setCategoriesData(data.popular_product);
+        if (Array.isArray(data)) {
+          setCategoriesData(data);
         } else {
           throw new Error("Invalid data format received");
         }
