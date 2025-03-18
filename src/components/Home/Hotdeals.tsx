@@ -20,7 +20,7 @@ const Hotdeals = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  console.log("HotDeals Product: ", hotDealsProduct)
+  console.log("HotDeals Product: ", hotDealsProduct);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,12 +29,13 @@ const Hotdeals = () => {
         setError(""); // Reset error before fetching
 
         const response = await fetch(
-          "https://ecobazar-backend-steel.vercel.app/data/hotDeals_product"
+          "ecobazar-backend-alpha.vercel.app/data/hotDeals_product"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch hot deals");
         }
         const data = await response.json();
+        // console.log("HotDeals: ", data);
 
         if (Array.isArray(data)) {
           setHotDealsProduct(data);
