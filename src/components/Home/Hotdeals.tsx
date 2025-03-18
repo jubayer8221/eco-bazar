@@ -20,6 +20,8 @@ const Hotdeals = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  console.log("HotDeals Product: ", hotDealsProduct)
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,15 +29,15 @@ const Hotdeals = () => {
         setError(""); // Reset error before fetching
 
         const response = await fetch(
-          "https://ecobazar-backend-alpha.vercel.app/"
+          "https://ecobazar-backend-steel.vercel.app/data/hotDeals_product"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch hot deals");
         }
         const data = await response.json();
 
-        if (Array.isArray(data.hotDeals_product)) {
-          setHotDealsProduct(data.hotDeals_product);
+        if (Array.isArray(data)) {
+          setHotDealsProduct(data);
         } else {
           throw new Error("Invalid data format received");
         }
