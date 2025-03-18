@@ -21,6 +21,8 @@ export default function FeaturedProducts() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  console.log("FeaturedProducts: ", featuredProducts)
+
   useEffect(() => {
     const featuredProductsDataFetch = async () => {
       try {
@@ -28,15 +30,15 @@ export default function FeaturedProducts() {
         setError(""); // Reset error before fetching
 
         const response = await fetch(
-          "https://ecobazar-backend-alpha.vercel.app/"
+          "https://ecobazar-backend-steel.vercel.app/data/featured_products"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch featured products");
         }
         const data = await response.json();
 
-        if (Array.isArray(data.featured_products)) {
-          setFeaturedProductsData(data.featured_products);
+        if (Array.isArray(data)) {
+          setFeaturedProductsData(data);
         } else {
           throw new Error("Invalid data format received");
         }
