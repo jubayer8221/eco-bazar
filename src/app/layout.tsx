@@ -5,7 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import FooterPage from "./footer/Page";
 import Subcribe from "@/components/Home/Subcribe";
-import ReduxProvider from "@/store/Provider"; // ✅ Import Redux Provider
+import ReduxProvider from "@/store/Provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,8 +28,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <ReduxProvider>
-          {" "}
-          {/* ✅ Wrap with ReduxProvider */}
           <Navbar />
           <main className="flex-1">{children}</main>
           <Subcribe />
