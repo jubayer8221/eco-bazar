@@ -113,7 +113,7 @@ export default function PopularProductOffer() {
   }, []);
 
   return (
-    <div className="relative max-w-5xl mx-auto">
+    <div className="relative w-full">
       {/* Slider Container for Small and Mid Devices */}
       <div className="md:hidden relative overflow-hidden">
         <div className="flex transition-transform duration-500 ease-in-out">
