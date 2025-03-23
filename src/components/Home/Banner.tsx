@@ -30,6 +30,7 @@ const Banner = () => {
           </Link>
         </div>
         <div className="absolute bottom-0 right-[-13%] sm:right-[-10%] md:right-[-8%] xl:right-[-8%]">
+
           <Image
             src="/images/bimage.png"
             alt="Organic Food"

@@ -33,12 +33,6 @@ export default function WishList() {
     setTimeout(() => setNotification(null), 2000);
   };
 
-  //  Handle Adding to Wishlist
-  // const handleAddToWishlist = (item: any) => {
-  //   dispatch(addToWishlist(item));
-  //   showNotification(`Added to Wishlist: ${item.name}`);
-  // };
-
   //  Handle Adding to Cart
   const handleAddToCart = (item: CartItem) => {
     dispatch(addToCart({ ...item, quantity: 1 }));
@@ -48,6 +42,7 @@ export default function WishList() {
 
   return (
     <div className="xl:mt-32 font-poppins max-w-full mx-auto px-3 sm:px-[100px] md:px-[100px] xl:px-[100px] py-[80px] h-auto border border-gray-200 rounded-[8px] bg-white shadow-md">
+
       <h2 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6">
         My Wishlist
       </h2>
@@ -198,6 +193,7 @@ export default function WishList() {
             </div>
           </div>
         </div>
+
       </div>
 
       {/* Social Share */}
