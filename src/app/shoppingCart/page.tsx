@@ -18,7 +18,7 @@ const ShoppingCart = () => {
   };
 
   return (
-    <div className="mx-auto mt-16 xl:mt-48 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[200px] md:pr-[200px] font-poppins">
+    <div className="mx-auto mt-16 xl:mt-48 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:px-[100px] font-poppins">
       <div className="w-full">
         <h1 className="text-2xl font-bold mb-4 text-center">
           My Shopping Cart

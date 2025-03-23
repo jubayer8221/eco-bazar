@@ -159,9 +159,7 @@ export default function WishList() {
 
                       {/* New Row for Add to Cart & Remove (Only on Mobile) */}
                       <tr className="md:hidden">
-                        <td
-                          colSpan="3"
-                          className="p-2 flex justify-center space-x-4"
+                        <td className="p-2 flex justify-center space-x-4"
                         >
                           {/* Add to Cart Button */}
                           <button
