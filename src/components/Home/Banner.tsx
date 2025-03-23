@@ -8,7 +8,7 @@ const Banner = () => {
       {/* Left Main Banner */}
       <div className="py-8  px-8 w-full h-full md:w-full xl:w-full md:h-[300px] xl:h-full relative rounded-md bg-gradient-to-r from-green-900 to-green-500 flex items-center overflow-hidden">
         <div className="text-white pr-10 sm:pr-12">
-          <h1 className="font-semibold text-[25px] sm:text[35px] md:text-[25px] xl:text-[48px] leading-[38px] md:leading-[25px] xl:leading-[57px]">
+          <h1 className="font-semibold text-[25px] sm:text[35px] md:text-[25px] xl:text-[48px] xl:w-[95%] leading-[38px] md:leading-[25px] xl:leading-[57px]">
             Fresh & Healthy Organic Food
           </h1>
           <div className="border-l-[2px] border-[#84D187] px-2">
@@ -29,7 +29,7 @@ const Banner = () => {
           </button>
           </Link>
         </div>
-        <div className="absolute bottom-0 right-[-18%] md:right-[-8%] xl:right-[-15%]">
+        <div className="absolute bottom-0 right-[-13%] sm:right-[-10%] md:right-[-8%] xl:right-[-15%]">
           <Image
             src="/images/bimage.png"
             alt="Organic Food"
