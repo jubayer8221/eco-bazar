@@ -18,7 +18,7 @@ const ShoppingCart = () => {
   };
 
   return (
-    <div className="mx-auto mt-16 xl:mt-48 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] font-poppins text-xs my-10">
+    <div className="mx-auto mt-16 xl:mt-48 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[200px] md:pr-[200px] font-poppins">
       <div className="w-full">
         <h1 className="text-2xl font-bold mb-4 text-center">
           My Shopping Cart
@@ -119,7 +119,7 @@ const ShoppingCart = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-[354px] h-auto lg:h-[296px] border border-gray-300 rounded-lg p-4">
+          <div className="w-full h-auto lg:h-[296px] border border-gray-300 rounded-lg p-4">
             <h2 className="text-md font-semibold mb-4 text-center">
               Cart Total
             </h2>
