@@ -32,7 +32,7 @@ const FolowInstagram = () => {
   const [isHoverIndex, setIsHoverIndex] = useState<number | null>(null);
 
   return (
-    <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[140px] md:pr[140px] xl:pl-[300px] xl:pr-[300px] pb-10">
+    <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[140px] md:pr[140px] xl:pl-[100px] xl:pr-[100px] pb-10">
       {/* Follow us on instagram  */}
       <div className="">
         <h2 className="text-[20px] xl:text-[32px] leading-10 font-semibold mb-3 text-center">

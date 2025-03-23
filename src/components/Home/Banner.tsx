@@ -4,7 +4,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <div className="pl-3 pr-3 mt-16 md:mt-16 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] xl:h-[500px] font-poppins flex flex-col md:flex-col xl:flex-row justify-between bg-white gap-4 xl:mt-56">
+    <div className="pl-3 pr-3 mt-16 md:mt-16 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[100px] xl:pr-[100px] xl:h-[500px] font-poppins flex flex-col md:flex-col xl:flex-row justify-between bg-white gap-4 xl:mt-56">
       {/* Left Main Banner */}
       <div className="py-8  px-8 w-full h-full md:w-full xl:w-full md:h-[300px] xl:h-full relative rounded-md bg-gradient-to-r from-green-900 to-green-500 flex items-center overflow-hidden">
         <div className="text-white pr-10 sm:pr-12">

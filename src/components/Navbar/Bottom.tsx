@@ -53,7 +53,7 @@ const navItems: NavItem[] = [
 
 const Bottom = () => {
   return (
-    <div className="pl-[300px] pr-[300px] bg-black flex items-center justify-between">
+    <div className="pl-[100px] pr-[100px] bg-black flex items-center justify-between">
       {/* menu */}
       <div className="hidden md:flex items-center gap-4 transition-all">
         {navItems.map((d, i) => (

@@ -81,19 +81,6 @@ const CartDetails = () => {
     fetchAllData();
   }, []);
 
-  //  find the correct product after data is fatched
-  // useEffect(() => {
-  //   const fatchFeaturedProduct = () => {
-  //     const productCartId = Number(params.id);
-  //     const productCart = allData.find((cart) => Number(cart.id) === productCartId);
-  //     if (productCart) {
-  //       setData(productCart);
-  //     }
-  //   };
-  //   if (params?.id && allData.length) {
-  //     fatchFeaturedProduct();
-  //   }
-  // }, [params.id, allData]);
 
   useEffect(() => {
     if (!loading && params?.id && allData.length > 0) {
@@ -146,7 +133,7 @@ const CartDetails = () => {
       ) : data ? (
         <>
           {/* product details  */}
-          <div className="mt-16 md:mt-12 xl:mt-48 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] font-poppins">
+          <div className="mt-16 md:mt-12 xl:mt-48 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[100px] xl:pr-[100px] font-poppins">
             <div className="flex flex-col md:flex-col xl:flex-row items-center gap-y-3 xl:gap-1">
               {/* left side image show  */}
               <div className="w-full sm:w-fullmd:w-full xl:w-1/2 flex md:justify-between md:items-center xl:flex-row space-x-1">
@@ -312,7 +299,7 @@ const CartDetails = () => {
           </div>
 
           {/* Description Section */}
-          <div className="mt-10 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] font-poppins">
+          <div className="mt-10 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[100px] xl:pr-[100px] font-poppins">
             {/* Tab Navigation */}
             <div className="flex flex-col xl:flex-row border-b">
               {[
@@ -476,7 +463,7 @@ const CartDetails = () => {
           </div>
 
           {/* relative product  */}
-          <div className="bg-white p-4 rounded-lg shadow-md mt-10 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] font-poppins">
+          <div className="bg-white p-4 rounded-lg shadow-md mt-10 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[100px] xl:pr-[100px] font-poppins">
             <div className="text-center mb-4">
               <h2 className="text-2xl font-semibold">Related Products</h2>
             </div>

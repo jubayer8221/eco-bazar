@@ -18,7 +18,7 @@ const TopNabar = () => {
     // }
 
   return (
-    <div className="text-[12px] text-[#666666] pt-3 pb-3 pl-[300px] pr-[300px] flex justify-between bg-white drop-shadow-[0px_2px_1px_rgba(229,229,229,1)]">
+    <div className="text-[12px] text-[#666666] pt-3 pb-3 xl:pl-[100px] xl:pr-[100px] flex justify-between bg-white drop-shadow-[0px_2px_1px_rgba(229,229,229,1)]">
       <div className="flex items-center">
         <Image src="/icons/location.png" alt="" width={15} height={18} />
         <span className=" font-poppins ml-1">
