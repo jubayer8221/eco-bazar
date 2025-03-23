@@ -40,7 +40,7 @@ export default function PopularProductCard() {
   }, []);
 
   return (
-    <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[300px] xl:pr-[300px] font-poppins">
+    <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[100px] xl:pr-[100px] font-poppins">
       <div className="mx-auto">
         <div className="flex justify-between">
           <div>
