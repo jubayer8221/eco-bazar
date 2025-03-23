@@ -16,6 +16,7 @@ import { BsCartPlusFill } from "react-icons/bs";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/store/slices/cartSlice";
+import { updateQuantity } from "@/store/slices/cartSlice";
 // import { useCart } from "@/components/context/CartContext";
 
 interface alldata {
@@ -81,7 +82,6 @@ const CartDetails = () => {
     fetchAllData();
   }, []);
 
-
   useEffect(() => {
     if (!loading && params?.id && allData.length > 0) {
       const productCartId = Number(params.id);
@@ -115,6 +115,10 @@ const CartDetails = () => {
     );
   };
 
+   const handleQuantityChange = (id: number, newQuantity: number) => {
+      if (newQuantity < 1) return;
+      dispatch(updateQuantity({ id, quantity: newQuantity }));
+    };
   // product discription
   const [activeTab, setActiveTab] = useState("Descriptions");
   const [isTabVisible, setIsTabVisible] = useState(false);
@@ -245,15 +249,17 @@ const CartDetails = () => {
                 <div className="w-full flex items-center justify-between gap-3">
                   <div className="flex items-center border rounded-full border-[#E6E6E6] p-2 gap-2">
                     <button
-                      onClick={() => setQuantity(quantity + 1)}
+                      onClick={() =>
+                        handleQuantityChange(data.id, data.quantity + 1)
+                      }
                       className="p-1 bg-[#20B5261A] rounded-full hover:bg-[#00B207] hover:text-white text-[#2C742F]"
                     >
                       <FiPlus className="w-4 h-4" />
                     </button>
-                    <span>{quantity}</span>
+                    <span>{data.quantity}</span>
                     <button
                       onClick={() =>
-                        setQuantity(quantity > 1 ? quantity - 1 : 1)
+                        handleQuantityChange(data.id, data.quantity - 1)
                       }
                       className="p-1 bg-[#20B5261A] rounded-full hover:bg-[#00B207] hover:text-white text-[#2C742F]"
                     >
@@ -261,7 +267,8 @@ const CartDetails = () => {
                     </button>
                   </div>
                   <button
-                    onClick={() =>
+                    onClick={() => {
+                      setQuantity(quantity + 1);
                       dispatch(
                         addToCart({
                           id: data.id,
@@ -270,8 +277,8 @@ const CartDetails = () => {
                           image: data.image,
                           quantity: 1,
                         })
-                      )
-                    }
+                      );
+                    }}
                     className="px-[60px] py-[12px] bg-[#00B207] text-white text-[14px] font-semibold flex items-center gap-1 rounded-full"
                   >
                     Add to Cart <HiOutlineShoppingBag />
@@ -280,6 +287,7 @@ const CartDetails = () => {
                     <CiSaveUp1 className="w-6 h-6" />
                   </div>
                 </div>
+
                 <hr className="text-[#E6E6E6] w-full mt-3 mb-4" />
                 <p className="text-[12px] font-medium">
                   Category:{" "}
@@ -328,7 +336,7 @@ const CartDetails = () => {
             </div>
 
             {/* Main Content */}
-            <div className="flex flex-col sm:flex-row justify-between gap-6 mt-6 max-w-6xl">
+            <div className="flex flex-col sm:flex-row justify-between gap-6 mt-6 w-full">
               {/* Left Section */}
               <div className="w-full sm:w-1/2">
                 {activeTab === "Descriptions" && (
@@ -412,7 +420,7 @@ const CartDetails = () => {
 
               {/* Right Section */}
               <div className="w-full sm:w-1/2">
-                <div className="bg-white p-4 rounded-lg shadow-md">
+                <div className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center">
                   <Image
                     src="/delivery_man.png"
                     alt="Delivery"
