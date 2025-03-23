@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const SalesBanner = () => {
   return (
-    <div className="relative container mx-auto max-w-5xl px-4 sm:px-6 md:px-[100px] lg:px-16 py-6 md:py-10">
+    <div className="relative container mx-auto max-w-full sm:px-6 md:px-[100px] lg:px-[100px] py-6 md:py-10 px-[100px]">
       {/* Image */}
       <div className="relative">
         <Image
