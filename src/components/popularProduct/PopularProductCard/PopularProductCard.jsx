@@ -51,7 +51,7 @@ const PopularCard = ({ name, image, price, id }) => {
         <div className="gap-2">
           {/* Price */}
           <p className=" flex-col">
-            price: <span className="text-green-600 flex-col">{price}</span>{" "}
+            price: $<span className="text-green-600 flex-col">{price}</span>{" "}
           </p>
 
           {/* Reviews */}

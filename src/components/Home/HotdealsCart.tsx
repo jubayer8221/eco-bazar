@@ -116,9 +116,9 @@ const HotdealsCart: React.FC<ProductProps> = ({
 
           {/* View button */}
           <Link href={`/cartdetails/${id}`}>
-          <div className="w-[46px] h-[46px] rounded-full bg-[#F2F2F2] hover:text-white p-2 flex justify-center items-center hover:bg-[#00B207] ">
-            <BsEye className="w-4 h-4" />
-          </div>
+            <div className="w-[46px] h-[46px] rounded-full bg-[#F2F2F2] hover:text-white p-2 flex justify-center items-center hover:bg-[#00B207] ">
+              <BsEye className="w-4 h-4" />
+            </div>
           </Link>
         </div>
       ) : (
@@ -129,7 +129,7 @@ const HotdealsCart: React.FC<ProductProps> = ({
         <h3 className="text-[14px] leading-[21px] text-[#4D4D4D]">{title}</h3>
         {isHover ? (
           <p className="text-4 leading-6 font-medium">
-            {price} <del className="text-[#808080] text-4">{oldPrice}</del>
+            ${price} <del className="text-[#808080] text-4">${oldPrice}</del>
             <span className="text-[12px] text-[#808080] leading-4">
               ({reviews} Feedback)
             </span>
@@ -137,7 +137,7 @@ const HotdealsCart: React.FC<ProductProps> = ({
         ) : (
           <div className="flex items-center justify-between">
             <p className="text-4 leading-6 font-medium">
-              {price} <del className="text-[#808080] text-4">{oldPrice}</del>
+              ${price} <del className="text-[#808080] text-4">${oldPrice}</del>
             </p>
             <div className="bg-[#F2F2F2] w-6 h-6 rounded-full p-1 flex items-center justify-center">
               <HiOutlineShoppingBag className="" />
