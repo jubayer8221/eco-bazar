@@ -34,45 +34,49 @@ const ShoppingCardPopup = () => {
                   Shopping Card ({cart.length})
                 </h3>
                 <button onClick={() => setClosePopup(false)}>
-                  <IoMdClose className="text-[13px] text-[#1A1A1A]" />
+                  <IoMdClose className="text-[20px] text-[#1A1A1A]" />
                 </button>
               </div>
 
               {/* ✅ Show empty cart message */}
-              {cart.length === 0 ? (
-                <p className="text-center text-gray-500">Your cart is empty.</p>
-              ) : (
-                cart.map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex items-center justify-between border-b border-b-[#E6E6E6] py-2"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Image
-                        src={item.image}
-                        alt={item.name}
-                        width={80}
-                        height={80}
-                      />
-                      <div>
-                        <h5 className="text-[14px] leading-5">{item.name}</h5>
-                        <p className="text-[14px] font-medium">
-                          <span className="text-[#808080]">
-                            {item.quantity} x
-                          </span>
-                          ${item.price}
-                        </p>
-                      </div>
-                    </div>
-                    <button
-                      onClick={() => dispatch(removeFromCart(item.id))}
-                      className="w-[22px] h-[22px] rounded-full border border-[#CCCCCC] flex items-center justify-center"
+              <div className="scrollbar-hiden overflow-y-auto h-[400px]">
+                {cart.length === 0 ? (
+                  <p className="text-center text-gray-500">
+                    Your cart is empty.
+                  </p>
+                ) : (
+                  cart.map((item) => (
+                    <div
+                      key={item.id}
+                      className="flex items-center justify-between border-b border-b-[#E6E6E6] py-2"
                     >
-                      <IoMdClose className="text-[13px]" />
-                    </button>
-                  </div>
-                ))
-              )}
+                      <div className="flex items-center gap-2">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          width={80}
+                          height={80}
+                        />
+                        <div>
+                          <h5 className="text-[14px] leading-5">{item.name}</h5>
+                          <p className="text-[14px] font-medium">
+                            <span className="text-[#808080]">
+                              {item.quantity} x
+                            </span>
+                            ${item.price}
+                          </p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => dispatch(removeFromCart(item.id))}
+                        className="w-[22px] h-[22px] rounded-full border border-[#CCCCCC] flex items-center justify-center"
+                      >
+                        <IoMdClose className="text-[20px]" />
+                      </button>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
 
             {/* ✅ Bottom Section */}
