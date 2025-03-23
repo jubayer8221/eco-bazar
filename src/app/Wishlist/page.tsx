@@ -33,12 +33,6 @@ export default function WishList() {
     setTimeout(() => setNotification(null), 2000);
   };
 
-  //  Handle Adding to Wishlist
-  // const handleAddToWishlist = (item: any) => {
-  //   dispatch(addToWishlist(item));
-  //   showNotification(`Added to Wishlist: ${item.name}`);
-  // };
-
   //  Handle Adding to Cart
   const handleAddToCart = (item: CartItem) => {
     dispatch(addToCart({ ...item, quantity: 1 }));
@@ -47,7 +41,7 @@ export default function WishList() {
   };
 
   return (
-    <div className="xl:mt-32 font-poppins max-w-full mx-auto px-2 md:px-12 lg:px-[300px] py-[80px] h-auto border border-gray-200 rounded-[8px] bg-white shadow-md">
+    <div className="xl:mt-32 font-poppins max-w-full mx-auto px-2 md:px-12 lg:px-[100px] py-[80px] h-auto border border-gray-200 rounded-[8px] bg-white shadow-md">
       <h2 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6">
         My Wishlist
       </h2>
@@ -75,8 +69,8 @@ export default function WishList() {
             <tr className="bg-gray-100 text-left text-gray-600 uppercase text-[10px] sm:text-xs md:text-sm">
               <th className="p-2 md:p-4">Product</th>
               <th className="p-2 md:p-4">Price</th>
-              <th className="p-2 md:p-4">Stock Status</th>
-              <th className="p-2 md:p-4">Action</th>
+              <th className="p-2 md:p-4">Stock</th>
+              <th className="p-2 md:p-4 justify-end">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -99,25 +93,25 @@ export default function WishList() {
                 {/* Price Column */}
                 <td className="p-2 md:p-4 text-[10px] sm:text-[7px] md:text-base">
                   <span className="font-poppins text-gray-800">
-                    ${item.price.toFixed(2)}
+                    <p>${item.price.toFixed(2)}</p>
                   </span>
                 </td>
 
                 {/* Stock Status Column */}
                 <td className="p-2 md:p-4">
                   {item.stock ? (
-                    <span className="bg-green-100 text-green-600 text-[10px] sm:text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap">
+                    <span className="bg-green-100 text-green-600 lg:text-md text-auto sm:text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap">
                       In Stock
                     </span>
                   ) : (
-                    <span className="bg-red-100 text-red-600 text-[10px] sm:text-[6px] font-poppins px-1 py-1 rounded-full whitespace-nowrap">
+                    <span className="bg-red-100 text-red-600 text-auto sm:text-xs lg:text-md font-poppins px-1 py-1 rounded-full whitespace-nowrap">
                       Out of Stock
                     </span>
                   )}
                 </td>
 
                 {/* Action Column */}
-                <td className="p-2 md:p-4 flex flex-wrap items-center space-x-1 md:space-x-4">
+                <td className=" md:pb-2 flex flex-wrap justify-end space-x-1 md:space-x-4">
                   {/* Add to Cart Button */}
                   <button
                     onClick={() =>
@@ -140,9 +134,9 @@ export default function WishList() {
                       dispatch(removeFromWishlist(item.id));
                       showNotification(`Removed from Wishlist: ${item.name}`);
                     }}
-                    className="text-gray-500 hover:text-red-500 text-[10px] sm:text-xs md:text-lg"
+                    className="text-gray-500 hover:text-red-500 text-[10px] sm:text-xs hover:border-red-600 border border-black rounded-full p-2 md:text-lg cursor-pointer"
                   >
-                    <RxCross2 className="text-gray-500 hover:text-red-500 text-[10px] sm:text-xs md:text-lg cursor-pointer lg:ml-8" />
+                    <RxCross2 className="text-gray-500 hover:text-red-500 text-[10px] sm:text-xs md:text-2xl cursor-pointer" />
                   </button>
                 </td>
               </tr>
