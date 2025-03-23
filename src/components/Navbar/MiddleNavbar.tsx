@@ -32,7 +32,7 @@ const MiddleNavbar = () => {
         <div className=" relative w-[400px] h-11 border border-gray-300 rounded-lg overflow-hidden flex items-center">
           <div className="p-2">
             {!searchIconR && (
-              <GoSearch className="absolute left-3 bottom-[12px] h-4 w-4 text-gray-400" />
+              <GoSearch className="absolute left-1 bottom-[12px] text-gray-400 text-[20px]" />
             )}
           </div>
           <input
@@ -53,8 +53,8 @@ const MiddleNavbar = () => {
               <Image
                 src="/icons/save.svg"
                 alt=""
-                width={28}
-                height={24}
+                width={30}
+                height={30}
                 className="text-black hover:border-red-500"
               />
             </Link>
@@ -67,15 +67,15 @@ const MiddleNavbar = () => {
           >
             <div>
               <div className="relative cursor-pointer">
-                <HiOutlineShoppingBag className="w-[25px] h-[25px] text-[#1A1A1A]" />
+                <HiOutlineShoppingBag className="w-[30px] h-[30px] text-[#1A1A1A]" />
               </div>
 
-              <div className="absolute bg-[#2C742F] w-3 h-3 flex items-center justify-center rounded-full text-white text-[10px] top-[68px] right-[180px]">
+              <div className="absolute bg-[#2C742F] w-4 h-4 flex items-center justify-center rounded-full text-white text-[14px] top-[62px]">
                 {cart.length}
               </div>
             </div>
             <div className="">
-              <p className="text-[11px] leading-[13.5px">Shopping Cart:</p>
+              <p className="text-[14px] leading-[13.5px]">Shopping Cart:</p>
 
               <p className="text-[14px] leading-[14px] font-medium">
                 ${totalPrice}
