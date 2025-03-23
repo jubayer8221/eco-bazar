@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const SalesBanner = () => {
   return (
-    <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[100px] xl:pr-[100px] pt-24 pb-24 mt-14 font-poppins">
+    <div className="pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl[200px] md:pr[200px] xl:pl-[100px] xl:pr-[100px] pt-1 pb-1 mt-1 font-poppins">
       {/* Image */}
       <div className="relative">
         <Image
