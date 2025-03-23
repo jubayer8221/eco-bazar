@@ -18,7 +18,7 @@ const MiddleNavbar = () => {
   const [totalCartAddShow, setTotalCartAddShow] = useState(false);
   return (
     <>
-      <div className="pt-6 pb-6 pl-[300px] pr-[300px] flex justify-between bg-white">
+      <div className="pt-6 pb-6 xl:pl-[100px] xl:pr-[100px] flex justify-between bg-white">
         {/* logo */}
         <div className=" ">
           <Link href="/" className="flex flex-row items-center gap-1">
@@ -70,7 +70,7 @@ const MiddleNavbar = () => {
                 <HiOutlineShoppingBag className="w-[25px] h-[25px] text-[#1A1A1A]" />
               </div>
 
-              <div className="absolute bg-[#2C742F] w-3 h-3 flex items-center justify-center rounded-full text-white text-[10px] top-[68px] right-[379px]">
+              <div className="absolute bg-[#2C742F] w-3 h-3 flex items-center justify-center rounded-full text-white text-[10px] top-[68px] right-[180px]">
                 {cart.length}
               </div>
             </div>

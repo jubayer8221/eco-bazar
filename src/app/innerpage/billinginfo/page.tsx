@@ -41,7 +41,7 @@ const BillingInfo = () => {
   }, []);
 
   return (
-    <div className="mt-16 xl:mt-[180px] pl-3 pr-3 py-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[300px] xl:pr-[300px] flex flex-col xl:flex-row justify-between gap-3 font-poppins">
+    <div className="mt-16 xl:mt-[180px] pl-3 pr-3 py-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[100px] xl:pr-[100px] flex flex-col xl:flex-row justify-between gap-3 font-poppins">
       {/* billing info  */}
       <div className="w-full sm:w-full xl:w-[65%] flex flex-col gap-3">
         <h1 className="text-[24px] leading-9">Billing Information</h1>

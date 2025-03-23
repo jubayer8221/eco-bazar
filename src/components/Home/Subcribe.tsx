@@ -5,7 +5,7 @@ import { FaTwitter, FaPinterestP } from "react-icons/fa6";
 
 const Subscribe = () => {
   return (
-    <div className='px-3 sm:px-[100px] md:px-[140px] xl:px-[300px] py-7 bg-[#F7F7F7] font-poppins'>
+    <div className='px-3 sm:px-[100px] md:px-[140px] xl:px-[100px] py-7 bg-[#F7F7F7] font-poppins'>
       <div className='flex flex-col md:flex-col xl:flex-row items-center justify-between gap-10'>
         <div className='text-center md:text-center xl:text-left w-full'>
           <h1 className='text-[20px] sm:text-[22px] md:text-[22px] xl:text-[22px] leading-9 font-semibold'>
