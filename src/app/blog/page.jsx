@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 const newsPosts = [
@@ -232,6 +232,20 @@ export default function NewsPage() {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = newsPosts.slice(indexOfFirstPost, indexOfLastPost);
   const totalPages = Math.ceil(newsPosts.length / postsPerPage);
+
+  // Add/remove no-scroll class to body when modal is open/closed
+  useEffect(() => {
+    if (selectedPost) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
+    // Cleanup function to remove the class when the component unmounts
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [selectedPost]);
 
   return (
     <div className="container mx-auto p-4 sm:p-6 max-w-5xl">
