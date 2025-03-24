@@ -168,13 +168,13 @@ export default function FooterPage() {
             height={20}
             className="cursor-pointer h-[30px] w-[40px] xl:h-[35px] xl:w-[45px] p-2 bg-black border border-gray-300 rounded-md sm:w-[25px] sm:h-[25px]"
           />
-          {/* <Image
+          <Image
             src="/icons/money_back.png"
             alt="Payment Method 2"
             width={50}
             height={20}
             className="cursor-pointer h-[30px] w-[40px] xl:h-[35px] xl:w-[45px] p-2 bg-black border border-gray-300 rounded-md sm:w-[25px] sm:h-[25px]"
-          /> */}
+          />
           <Image
             src="/icons/secure-payment.png"
             alt="Payment Method 3"
