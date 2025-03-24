@@ -29,7 +29,7 @@ const Banner = () => {
           </button>
           </Link>
         </div>
-        <div className="absolute bottom-0 right-[-16%] sm:right-[-10%] md:right-[-8%] xl:right-[-8%]">
+        <div className="absolute bottom-0 right-[-15%] sm:right-[-10%] md:right-[-8%] xl:right-[-8%]">
 
           <Image
             src="/images/bimage.png"
