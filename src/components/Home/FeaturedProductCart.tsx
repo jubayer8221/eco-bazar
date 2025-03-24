@@ -6,6 +6,8 @@ import { IoStar } from "react-icons/io5";
 import { CiStar } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { BsEye } from "react-icons/bs";
+import { FaRegHeart } from "react-icons/fa";
+
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/store/slices/cartSlice";
@@ -84,29 +86,22 @@ const FeaturedProductCart: React.FC<propsType> = ({
             isHover ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div className="p-2 w-[40px] h-[40px] rounded-full hover:bg-[#00B207] bg-[#F2F2F2] flex items-center justify-center">
-            <button
-              onClick={() =>
-                dispatch(
-                  addToWishlist({
-                    id,
-                    name: title,
-                    price,
-                    image: img,
-                  })
-                )
-              }
-              className="hover:bg-[#00B207]"
-            >
-              <Image
-                className="text-black bg-transparent"
-                src="/icons/heart.svg"
-                alt=""
-                width={20}
-                height={20}
-              />
-            </button>
-          </div>
+          <button
+            onClick={() =>
+              dispatch(
+                addToWishlist({
+                  id,
+                  name: title,
+                  price,
+                  image: img,
+                })
+              )
+            }
+          >
+            <div className="w-[40px] h-[40px] rounded-full bg-[#F2F2F2] hover:bg-[#00B207] hover:text-white p-2 flex justify-center items-center">
+              <FaRegHeart className="w-4 h-4" />
+            </div>
+          </button>
           <Link href={`/cartdetails/${id}`}>
             <div className="w-[40px] h-[40px] rounded-full bg-[#F2F2F2] hover:bg-[#00B207] hover:text-white p-2 flex justify-center items-center">
               <BsEye className="w-4 h-4" />

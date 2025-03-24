@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import MobaileNavbar from "./MobaileNavbar";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
-import { CiHeart } from "react-icons/ci";
+import { FaRegHeart } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
@@ -34,7 +34,7 @@ const Navbar = () => {
         {/* mobaile save and shoping cart icon search */}
         <div className="fixed bottom-0 left-0 right-0 z-20 px-3 py-4 w-full sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] flex items-center justify-between xl:hidden bg-white drop-shadow-[1px_2px_0px_rgba(1,229,229,229)]">
           <Link href="/Wishlist">
-            <CiHeart className="text-[30px] text-black hover:text-[#00B207]" />
+            <FaRegHeart className="text-[30px] text-black hover:text-[#00B207]" />
           </Link>
           <div className=" relative border w-[250px] md:w-auto border-gray-300 rounded-lg overflow-hidden flex items-center">
             <div className="p-2 flex items-center">
