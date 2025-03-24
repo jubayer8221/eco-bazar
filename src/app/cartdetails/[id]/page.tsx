@@ -17,7 +17,7 @@ import Link from "next/link";
 
 import { useDispatch } from "react-redux";
 import { addToWishlist } from "@/store/slices/wishlistSlice";
-import { addToCart, updateQuantity } from "@/store/slices/cartSlice";
+import { addToCart } from "@/store/slices/cartSlice";
 
 interface alldata {
   id: number;
