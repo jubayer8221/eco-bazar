@@ -78,8 +78,8 @@ const HotdealsCart: React.FC<ProductProps> = ({
         <Image
           className={`w-full h-auto`}
           src={img}
-          width={isHover ? 525 : 264}
-          height={isHover ? 446 : 240}
+          width={isHover ? 480 : 214}
+          height={isHover ? 380 : 190}
           alt="product image"
         />
       </div>

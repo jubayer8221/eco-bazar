@@ -66,37 +66,57 @@ const MobaileNavbar = () => {
     setOpenDropdown((prev) => (prev === label ? null : label));
   };
 
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
+  const toggleDropdown2 = (dropdown: string) => {
+    setActiveDropdown((prev) => (prev === dropdown ? null : dropdown));
+  };
   return (
     <>
       <div className="">
         <div className="flex items-center gap-8">
-          <div className="flex items-center gap-2">
-            <Link
-              href="/"
-              className="flex items-center relative text-[12px]"
-              // onClick={() => setLangues((prev) => !prev)}
-            >
-              Eng <IoIosArrowDown className="w-3" />
-            </Link>
-            <Link
-              href="/"
-              className="flex items-center text-[12px] relative"
-              // onClick={() => setUsd((prev) => !prev)}
-            >
-              USD <IoIosArrowDown className="w-3" />
-            </Link>
-            {/* {langues && (
-              <div className="rounded-sm text-sm p-1 absolute top-11 shadow-lg z-20 text-white bg-black">
-                <p>Eng</p>
-                <p>Bng</p>
-              </div>
-            )}
-            {usd && (
-              <div className="rounded-sm text-sm p-1 absolute top-11 shadow-lg text-white bg-black z-20">
-                <p>USD</p>
-                <p>BDT</p>
-              </div>
-            )} */}
+          <div className="flex items-center gap-2 relative">
+            {/* Language Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => toggleDropdown2("lang")}
+                className="flex items-center"
+              >
+                ENG{" "}
+                <IoIosArrowDown
+                  className={`w-3 transition-transform duration-200 ${
+                    activeDropdown === "lang" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {activeDropdown === "lang" && (
+                <div className="rounded-md text-sm p-1 absolute top-9 shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-white">
+                  <p>ENG</p>
+                  <p>BNG</p>
+                </div>
+              )}
+            </div>
+
+            {/* Currency Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => toggleDropdown2("usd")}
+                className="flex items-center"
+              >
+                USD{" "}
+                <IoIosArrowDown
+                  className={`w-3 transition-transform duration-200 ${
+                    activeDropdown === "usd" ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {activeDropdown === "usd" && (
+                <div className="rounded-md text-sm p-1 absolute top-9 shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-white">
+                  <p>USD</p>
+                  <p>BDT</p>
+                </div>
+              )}
+            </div>
           </div>
           <IoMdMenu
             className="text-[30px] cursor-pointer"
