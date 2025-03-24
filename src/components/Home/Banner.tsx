@@ -8,17 +8,17 @@ const Banner = () => {
       {/* Left Main Banner */}
       <div className="py-8  px-8 w-full h-full md:w-full xl:w-full md:h-[300px] xl:h-full relative rounded-md bg-gradient-to-r from-green-900 to-green-500 flex items-center overflow-hidden">
         <div className="text-white pr-10 sm:pr-12">
-          <h1 className="font-semibold text-[25px] sm:text[35px] md:text-[25px] xl:text-[48px] xl:w-[95%] leading-[38px] md:leading-[25px] xl:leading-[57px]">
+          <h1 className="font-semibold text-[22px] sm:text[35px] md:text-[25px] xl:text-[48px] xl:w-[95%] leading-[38px] md:leading-[25px] xl:leading-[57px]">
             Fresh & Healthy Organic Food
           </h1>
           <div className="border-l-[2px] border-[#84D187] px-2">
-            <p className="mt-4 text-[16px] md:text-[18px] leading-[28px] md:leading-[30px] xl:text[30px]">
+            <p className="mt-4 text-[12px] md:text-[18px] leading-[28px] md:leading-[30px] xl:text[30px]">
               Sale up to{" "}
-              <span className="bg-yellow-400 text-[16px] md:text-[18px] xl:text-[18px] leading-7 font-semibold text-black px-2 py-1 rounded">
+              <span className="bg-yellow-400 text-[14px] md:text-[18px] xl:text-[18px] leading-7 font-semibold text-black px-2 py-1 rounded">
                 30% OFF
               </span>
             </p>
-            <p className="mt-2 text-[10px] md:text-[12px] leading-[14px]">
+            <p className="mt-2 w-[60%] text-[10px] md:text-[12px] leading-[14px]">
               Free shipping on all your orders.
             </p>
           </div>
