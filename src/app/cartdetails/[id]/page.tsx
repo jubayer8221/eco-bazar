@@ -275,7 +275,7 @@ const CartDetails = () => {
                         })
                       );
                     }}
-                    className="px-[60px] py-[12px] bg-[#00B207] text-white text-[14px] font-semibold flex items-center gap-1 rounded-full"
+                    className="px-[30px] py-[12px] md:px-[40px] md:py-[12px] bg-[#00B207] text-white text-[14px] font-semibold flex items-center gap-1 rounded-full"
                   >
                     Add to Cart <HiOutlineShoppingBag />
                   </button>
