@@ -14,7 +14,9 @@ import Image from "next/image";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsCartPlusFill } from "react-icons/bs";
 import Link from "next/link";
+
 import { useDispatch } from "react-redux";
+import { addToWishlist } from "@/store/slices/wishlistSlice";
 import { addToCart, updateQuantity } from "@/store/slices/cartSlice";
 
 interface alldata {
@@ -42,7 +44,6 @@ const CartDetails = () => {
 
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState<string>("");
-  // Access the cart state
 
   // scrollthumbnails
   const thumbnailRef = useRef<HTMLDivElement>(null);
@@ -111,10 +112,10 @@ const CartDetails = () => {
     );
   };
 
-   const handleQuantityChange = (id: number, newQuantity: number) => {
-      if (newQuantity < 1) return;
-      dispatch(updateQuantity({ id, quantity: newQuantity }));
-    };
+  const handleQuantityChange = (id: number, newQuantity: number) => {
+    if (newQuantity < 1) return;
+    dispatch(updateQuantity({ id, quantity: newQuantity }));
+  };
   // product discription
   const [activeTab, setActiveTab] = useState("Descriptions");
   const [isTabVisible, setIsTabVisible] = useState(false);
@@ -465,7 +466,7 @@ const CartDetails = () => {
             </div>
           </div>
 
-          {/* relative product  */}
+          {/* Related  product  */}
           <div className="bg-white p-4 rounded-lg shadow-md mt-10 pl-3 pr-3 sm:pl-[100px] sm:pr-[100px] md:pl-[100px] md:pr-[100px] xl:pl-[100px] xl:pr-[100px] font-poppins">
             <div className="text-center mb-4">
               <h2 className="text-2xl font-semibold">Related Products</h2>
@@ -501,15 +502,41 @@ const CartDetails = () => {
                       </span> */}
                       {product.price && (
                         <span className="text-sm text-gray-500">
-                          {product.price} <del>{product.oldPrice}</del>
+                          ${product.price} <del>${product.oldPrice}</del>
                         </span>
                       )}
                     </div>
                     <div className="flex justify-between mx-5 space-x-4">
-                      <button className="p-2 rounded-full border border-gray-300 hover:bg-red-600">
+                      <button
+                        onClick={() =>
+                          dispatch(
+                            addToWishlist({
+                              id: product.id,
+                              name: product.name,
+                              price: product.price,
+                              image: product.image,
+                            })
+                          )
+                        }
+                        className="p-2 rounded-full border border-gray-300 hover:bg-red-600"
+                      >
                         <AiOutlineHeart size={20} />
                       </button>
-                      <button className="p-2 rounded-full border border-gray-300 hover:bg-green-600">
+
+                      <button
+                        onClick={() =>
+                          dispatch(
+                            addToCart({
+                              id: product.id,
+                              name: product.name,
+                              price: product.price,
+                              image: product.image,
+                              quantity: 1, // Use the product-specific quantity
+                            })
+                          )
+                        }
+                        className="p-2 rounded-full border border-gray-300 hover:bg-green-600"
+                      >
                         <BsCartPlusFill size={20} />
                       </button>
                     </div>
