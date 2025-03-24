@@ -5,8 +5,6 @@ import { IoMdMenu } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdClose } from "react-icons/md";
 import { GoHome } from "react-icons/go";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
 
 type NavItem = {
   label: string;
@@ -59,7 +57,6 @@ const navItems: NavItem[] = [
 ];
 
 const MobaileNavbar = () => {
-  const cart = useSelector((state: RootState) => state.cart.cart); // ✅ Redux cart state
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
@@ -178,14 +175,6 @@ const MobaileNavbar = () => {
                     )}
                   </div>
                 ))}
-                <div className="relative px-2 py-3">
-                  <Link href="/shoppingCart">
-                    <p className="flex cursor-pointer items-center gap-2 text-black hover:text-[#00B207]">
-                      <span className="text-[24px] font-bold">Cart ({cart.length})</span>
-                    </p>
-                  </Link>
-                </div>
-
                 <div className="flex gap-1 mt-3 ml-3 ">
                   <Link href="/singin" className="text-[24px] font-bold">Sign in</Link>
                   <span className="text-[24px] font-bold">/</span>
