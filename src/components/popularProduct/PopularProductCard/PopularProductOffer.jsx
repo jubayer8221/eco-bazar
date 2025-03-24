@@ -66,14 +66,14 @@ const ProductCard = ({ product, index }) => {
           )}
           {product.discount && (
             <p className="text-lg font-bold text-orange-600">
-              <span className={textColor}>Up to</span>{" "}
+              <span className={textColor}>Up to</span>
               <span className="bg-black font-poppins text-sm rounded p-1">
                 {product.discount}
               </span>
             </p>
           )}
           <div className="absolute bottom-1/2 left-1/2 transform -translate-x-1/2 translate-y-1/2">
-            <Link href="./ProductDetails">
+            <Link href="/innerpage/popularProducts">
               <button className="w-[160px] bg-white font-semibold text-[#00B207] px-4 py-2 rounded-lg hover:bg-[#00B207] hover:text-white md:w-[120px] md:text-xs">
                 {product.buttonText}
               </button>
