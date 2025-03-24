@@ -15,9 +15,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BsCartPlusFill } from "react-icons/bs";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
-import { addToCart } from "@/store/slices/cartSlice";
-import { updateQuantity } from "@/store/slices/cartSlice";
-// import { useCart } from "@/components/context/CartContext";
+import { addToCart, updateQuantity } from "@/store/slices/cartSlice";
 
 interface alldata {
   id: number;
@@ -41,12 +39,10 @@ const CartDetails = () => {
   const [allData, setAlldata] = useState<alldata[]>([]);
   const [data, setData] = useState<(typeof allData)[0] | null>(null);
   const dispatch = useDispatch();
-  // console.log("product id: ", data, params.id)
-  // add cart
-  // const { addToCart } = useCart();
 
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState<string>("");
+  // Access the cart state
 
   // scrollthumbnails
   const thumbnailRef = useRef<HTMLDivElement>(null);
@@ -249,14 +245,13 @@ const CartDetails = () => {
                 <div className="w-full flex items-center justify-between gap-3">
                   <div className="flex items-center border rounded-full border-[#E6E6E6] p-2 gap-2">
                     <button
-                      onClick={() =>
-                        handleQuantityChange(data.id, data.quantity + 1)
-                      }
-                      className="p-1 bg-[#20B5261A] rounded-full hover:bg-[#00B207] hover:text-white text-[#2C742F]"
+                      onClick={() => setQuantity(quantity + 1)}
+                      className="p-1 m-1 bg-[#20B5261A] rounded-full hover:bg-[#00B207] hover:text-white text-[#2C742F]"
                     >
                       <FiPlus className="w-4 h-4" />
                     </button>
-                    <span>{data.quantity}</span>
+                    <span className="w-6">{quantity}</span>
+
                     <button
                       onClick={() =>
                         handleQuantityChange(data.id, data.quantity - 1)
@@ -275,7 +270,7 @@ const CartDetails = () => {
                           name: data.name,
                           price: data.price,
                           image: data.image,
-                          quantity: 1,
+                          quantity: quantity,
                         })
                       );
                     }}
