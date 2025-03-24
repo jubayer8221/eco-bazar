@@ -112,10 +112,6 @@ const CartDetails = () => {
     );
   };
 
-  const handleQuantityChange = (id: number, newQuantity: number) => {
-    if (newQuantity < 1) return;
-    dispatch(updateQuantity({ id, quantity: newQuantity }));
-  };
   // product discription
   const [activeTab, setActiveTab] = useState("Descriptions");
   const [isTabVisible, setIsTabVisible] = useState(false);
