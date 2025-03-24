@@ -255,7 +255,7 @@ const CartDetails = () => {
 
                     <button
                       onClick={() =>
-                        handleQuantityChange(data.id, Math.max(1, quantity - 1))
+                        setQuantity(quantity > 1 ? quantity - 1 : 1)
                       }
                       className="p-1 bg-[#20B5261A] rounded-full hover:bg-[#00B207] hover:text-white text-[#2C742F]"
                     >
