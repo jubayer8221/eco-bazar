@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "@/store/slices/cartSlice";
 import { addToWishlist } from "@/store/slices/wishlistSlice"; // Import wishlist actions
 import Link from "next/link";
+import { FaRegHeart } from "react-icons/fa";
 
 interface ProductProps {
   id: number;
@@ -91,15 +92,11 @@ const HotdealsCart: React.FC<ProductProps> = ({
             onClick={() =>
               dispatch(addToWishlist({ id, name: title, price, image: img }))
             }
-            className="p-3 rounded-full bg-[#F2F2F2] flex items-center justify-center cursor-pointer hover:bg-[#00B207] "
+            className=""
           >
-            <Image
-              src="/icons/save.svg"
-              alt="Add to Wishlist"
-              width={20}
-              height={20}
-              className=""
-            />
+            <div className="w-[40px] h-[40px] rounded-full bg-[#F2F2F2] hover:bg-[#00B207] hover:text-white p-2 flex justify-center items-center">
+              <FaRegHeart className="w-4 h-4" />
+            </div>
           </div>
 
           {/* Add to Cart button */}

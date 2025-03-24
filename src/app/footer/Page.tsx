@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function FooterPage() {
   return (
-    <footer className="pt-4 pb-4 px-3 sm:px-[100px] md:px-[100px] xl:px-[100px] bg-[#1a1a1a] text-white">
+    <footer className="mb-[60px] md:[60px] xl:mb-0 pt-4 pb-4 px-3 sm:px-[100px] md:px-[100px] xl:px-[100px] bg-[#1a1a1a] text-white">
       <div className="w-full flex flex-col md:flex-row xl:flex-row justify-between gap-4">
         {/* First Section */}
         <div className="w-full md:w-[70%] xl:w-[60%]">

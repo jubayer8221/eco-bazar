@@ -4,8 +4,7 @@ import React, { useState } from "react";
 import { IoMdMenu } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdClose } from "react-icons/md";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
+import { GoHome } from "react-icons/go";
 
 type NavItem = {
   label: string;
@@ -58,7 +57,6 @@ const navItems: NavItem[] = [
 ];
 
 const MobaileNavbar = () => {
-  const cart = useSelector((state: RootState) => state.cart.cart); // ✅ Redux cart state
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
@@ -130,7 +128,7 @@ const MobaileNavbar = () => {
             onClick={() => setOpen(false)}
           >
             <div
-              className="absolute p-8 w-[65%] md:w-[40%] top-0 left-0 bg-gray-100 bg-opacity-90 h-screen text-black ease-in duration-500"
+              className="absolute p-8 w-[80%] md:w-[40%] top-0 left-0 bg-gray-100 bg-opacity-90 h-screen text-black ease-in duration-500"
               onClick={(e) => e.stopPropagation()}
             >
               <div
@@ -144,10 +142,15 @@ const MobaileNavbar = () => {
                   <div key={i} className="relative px-2 py-3">
                     <Link href={d.link ?? "#"}>
                       <p
-                        className="flex cursor-pointer items-center gap-2 text-black hover:text-[#00B207]"
+                        className="flex cursor-pointer items-center text-[24px] font-bold gap-2 text-black hover:text-[#00B207]"
                         onClick={() => toggleDropdown(d.label)}
                       >
                         <span>{d.label}</span>
+                        {
+                          d.label === "Home" &&(
+                            <GoHome className="text-[24px] font-bold ml-1"/>
+                          )
+                        }
                         {d.children && (
                           <IoIosArrowDown
                             className={`text-xs transition-all ${
@@ -172,18 +175,10 @@ const MobaileNavbar = () => {
                     )}
                   </div>
                 ))}
-                <div className="relative px-2 py-3">
-                  <Link href="/shoppingCart">
-                    <p className="flex cursor-pointer items-center gap-2 text-black hover:text-[#00B207]">
-                      <span>Cart ({cart.length})</span>
-                    </p>
-                  </Link>
-                </div>
-
-                <div className="flex gap-1 mt-3">
-                  <Link href="/singin">Sign in</Link>
-                  <span>/</span>
-                  <Link href="/login">Login</Link>
+                <div className="flex gap-1 mt-3 ml-3 ">
+                  <Link href="/singin" className="text-[24px] font-bold">Sign in</Link>
+                  <span className="text-[24px] font-bold">/</span>
+                  <Link href="/login" className="text-[24px] font-bold">Login</Link>
                 </div>
               </div>
             </div>

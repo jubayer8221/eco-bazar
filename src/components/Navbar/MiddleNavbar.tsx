@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { GoSearch } from "react-icons/go";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import ShoppingCardPopup from "../ShoppingCardPopup";
+import { FaRegHeart } from "react-icons/fa";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
@@ -50,13 +51,7 @@ const MiddleNavbar = () => {
         <div className="flex items-center gap-5">
           <div>
             <Link href="/Wishlist">
-              <Image
-                src="/icons/save.svg"
-                alt=""
-                width={30}
-                height={30}
-                className="text-black hover:border-red-500"
-              />
+              <FaRegHeart size={30} className="text-black hover:text-[#00B207]"/>
             </Link>
           </div>
           <span className="text-[#E6E6E6]">|</span>
