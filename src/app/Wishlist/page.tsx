@@ -106,7 +106,7 @@ export default function WishList() {
                         {/* Stock Status Column */}
                         <td className="p-2 md:p-4">
                           {item.stock ? (
-                            <span className="bg-green-100 text-green-600 text-[10px] sm:text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap">
+                            <span className="bg-green-100 text-green-600 text-[10px] md:text-[10px] lg:text-[12px] xl:text-[12px]  sm:text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap">
                               In Stock
                             </span>
                           ) : (
