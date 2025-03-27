@@ -135,11 +135,7 @@ const FeaturedProductCart: React.FC<propsType> = ({
             {/* Cart Button (Fixed Size, No Movement) */}
             <div className="w-8 h-8 flex items-center justify-center">
               <button
-                className={`rounded-full p-1 flex items-center justify-center transition-all duration-200 ease-in-out active:scale-90 ${
-                  isHover
-                    ? "bg-[#00B207] text-white w-8 h-8"
-                    : "bg-[#F2F2F2] w-8 h-8"
-                }`}
+                className=" hover:bg-[#00B207] hover:text-white rounded-full p-1 flex items-center justify-center transition-all duration-200 ease-in-out active:scale-90"
                 onClick={() => {
                   dispatch(
                     addToCart({

@@ -92,9 +92,8 @@ const HotdealsCart: React.FC<ProductProps> = ({
             onClick={() =>
               dispatch(addToWishlist({ id, name: title, price, image: img }))
             }
-            className=""
           >
-            <div className="w-[40px] h-[40px] rounded-full bg-[#F2F2F2] hover:bg-[#00B207] hover:text-white p-2 flex justify-center items-center">
+            <div className="w-[40px] h-[40px] rounded-full bg-[#F2F2F2] hover:bg-[#00B207] hover:text-white p-2 flex justify-center items-center transition-all duration-200 ease-in-out active:scale-90">
               <FaRegHeart className="w-4 h-4" />
             </div>
           </div>
@@ -106,14 +105,14 @@ const HotdealsCart: React.FC<ProductProps> = ({
                 addToCart({ id, name: title, price, image: img, quantity: 1 })
               )
             }
-            className="text-white bg-[#00B207] text-[12px] px-4 py-3 sm:px-4 sm:py-3 md:px-12 md:py-4 xl:px-8 xl:py-3 rounded-full flex items-center justify-center gap-2 md:text-[14px] xl:text-[14px] font-medium"
+            className="text-white bg-[#00B207] text-[12px] px-4 py-3 sm:px-4 sm:py-3 md:px-12 md:py-4 xl:px-8 xl:py-3 rounded-full flex items-center justify-center gap-2 md:text-[14px] xl:text-[14px] font-medium transition-all duration-200 ease-in-out active:scale-90"
           >
             Add to Cart <HiOutlineShoppingBag className="w-4 h-4" />
           </button>
 
           {/* View button */}
           <Link href={`/cartdetails/${id}`}>
-            <div className="w-[46px] h-[46px] rounded-full bg-[#F2F2F2] hover:text-white p-2 flex justify-center items-center hover:bg-[#00B207] ">
+            <div className=" w-[46px] h-[46px] rounded-full bg-[#F2F2F2] hover:text-white p-2 flex justify-center items-center hover:bg-[#00B207] transition-all duration-200 ease-in-out active:scale-90">
               <BsEye className="w-4 h-4" />
             </div>
           </Link>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { addToCart } from "@/store/slices/cartSlice";
 import { addToWishlist } from "@/store/slices/wishlistSlice";
 import { useDispatch } from "react-redux";
+import { FaRegHeart } from "react-icons/fa";
 
 // Cart Icon Component
 const CartIcon = () => (
@@ -28,30 +29,50 @@ const PopularCard = ({ name, image, price, id }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="shadow-md h-[240px] px-2 text-left border border-transparent hover:shadow-lg hover:border-green-700 transition-all mb-0 pb-0">
+    <div className="shadow-md h-[255px] px-2 text-left border border-transparent hover:shadow-lg hover:border-green-700 transition-all mb-0 pb-0">
       <Link href={`/cartdetails/${id}`}>
         <div>
-          {/* Product Image */}
-          <Image
-            src={image}
-            alt={name}
-            width={200}
-            height={200}
-            className="w-[130px] h-[135px] object-contain mx-auto"
-          />
+          <div className="relative">
+            <Image
+              src={image}
+              alt={name}
+              width={200}
+              height={200}
+              className="w-[130px] h-[135px] object-contain mx-auto"
+            />
+            {/* Wishlist Button */}
+            <button
+              className="absolute top-6 right-1"
+              onClick={() =>
+                dispatch(
+                  addToWishlist({
+                    id,
+                    name,
+                    price,
+                    image,
+                  })
+                )
+              }
+            >
+              <div className="w-[40px] h-[40px] rounded-full bg-transparent hover:bg-[#00B207] hover:text-white p-2 flex justify-center items-center">
+                <FaRegHeart className="w-4 h-4" />
+              </div>
+            </button>
+          </div>
           {/* Product Name with Hover Effect */}
-          <p className="text-gray-700 hover:text-green-600 transition-colors cursor-pointer">
+          <p className=" hover:text-green-600 transition-colors cursor-pointer leading-[21px] text-[#4D4D4D]">
             {name}
           </p>
         </div>
       </Link>
+      <div></div>
 
       {/* Price, Reviews, and Cart Button */}
       <div className="mt-2 flex justify-between items-center">
         <div className="gap-2">
           {/* Price */}
           <p className=" flex-col">
-            price: $<span className="text-green-600 flex-col">{price}</span>{" "}
+            price: $<span className="text-green-600 flex-col">{price}</span>
           </p>
 
           {/* Reviews */}
@@ -59,24 +80,25 @@ const PopularCard = ({ name, image, price, id }) => {
             <div className="text-yellow-400">★★★★☆</div>
           </div>
         </div>
-
+        <div className="justify-between">
+          <button
+            onClick={() =>
+              dispatch(
+                addToCart({
+                  id,
+                  name,
+                  price,
+                  image,
+                  quantity: 1,
+                })
+              )
+            }
+            className="w-[40px] h-[40px] rounded-full bg-transparent hover:bg-[#00B207] hover:text-white p-2 flex justify-center items-center transition-colors"
+          >
+            <CartIcon />
+          </button>
+        </div>
         {/* Cart Button */}
-        <button
-          onClick={() =>
-            dispatch(
-              addToCart({
-                id,
-                name,
-                price,
-                image,
-                quantity: 1,
-              })
-            )
-          }
-          className="p-2 text-green-600 hover:text-green-700 hover:border-green-700 transition-colors"
-        >
-          <CartIcon />
-        </button>
       </div>
     </div>
   );
