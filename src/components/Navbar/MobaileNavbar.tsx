@@ -146,11 +146,9 @@ const MobaileNavbar = () => {
                         onClick={() => toggleDropdown(d.label)}
                       >
                         <span>{d.label}</span>
-                        {
-                          d.label === "Home" &&(
-                            <GoHome className="text-[24px] font-bold ml-1"/>
-                          )
-                        }
+                        {d.label === "Home" && (
+                          <GoHome className="text-[24px] font-bold ml-1" />
+                        )}
                         {d.children && (
                           <IoIosArrowDown
                             className={`text-xs transition-all ${
@@ -176,9 +174,14 @@ const MobaileNavbar = () => {
                   </div>
                 ))}
                 <div className="flex gap-1 mt-3 ml-3 ">
-                  <Link href="/singin" className="text-[22px] font-semibold">Sign in</Link>
-                  <span className="text-[22px] font-semibold">/</span>
-                  <Link href="/login" className="text-[22px] font-semibold">Login</Link>
+                  <Link href="/singin" className="text-[24px] font-bold">
+                    Sign Up
+                  </Link>
+                  <span className="text-[24px] font-bold">/</span>
+                  <Link href="/login" className="text-[24px] font-bold">
+                    Log in
+                  </Link>
+
                 </div>
               </div>
             </div>
