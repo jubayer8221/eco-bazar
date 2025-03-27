@@ -42,7 +42,6 @@ export default function WishList() {
 
   return (
     <div className="xl:mt-32 font-poppins max-w-full mx-auto px-3 sm:px-[100px] md:px-[100px] xl:px-[100px] py-[80px] h-auto border border-gray-200 rounded-[8px] bg-white shadow-md">
-
       <h2 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6">
         My Wishlist
       </h2>
@@ -74,9 +73,7 @@ export default function WishList() {
                     <th className="p-2 md:p-4">Product</th>
                     <th className="p-2 md:p-4">Price</th>
                     <th className="p-2 md:p-4">Stock Status</th>
-                    <th className="p-2 md:p-4 hidden md:table-cell">
-                      Action
-                    </th>{" "}
+                    <th className="p-2 md:p-4 hidden md:table-cell">Action</th>
                     {/* Hide on mobile */}
                   </tr>
                 </thead>
@@ -109,11 +106,11 @@ export default function WishList() {
                         {/* Stock Status Column */}
                         <td className="p-2 md:p-4">
                           {item.stock ? (
-                            <span className="bg-green-100 text-green-600 text-[10px] sm:text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap">
+                            <span className="bg-green-100 text-green-600 text-[10px] md:text-[10px] lg:text-[12px] xl:text-[12px]  sm:text-xs font-semibold px-2 py-1 rounded-full whitespace-nowrap">
                               In Stock
                             </span>
                           ) : (
-                            <span className="bg-red-100 text-red-600 text-[10px] sm:text-[6px] font-poppins px-1 py-1 rounded-full whitespace-nowrap">
+                            <span className="bg-red-100 text-red-600 text-[10px] sm:text-[6px] md:text-[10px] lg:text-[12px] xl:text-[12px] font-poppins px-1 py-1 rounded-full whitespace-nowrap">
                               Out of Stock
                             </span>
                           )}
@@ -154,8 +151,7 @@ export default function WishList() {
 
                       {/* New Row for Add to Cart & Remove (Only on Mobile) */}
                       <tr className="md:hidden">
-                        <td className="p-2 flex justify-center space-x-4"
-                        >
+                        <td className="p-2 flex justify-center space-x-4">
                           {/* Add to Cart Button */}
                           <button
                             onClick={() =>
@@ -193,7 +189,6 @@ export default function WishList() {
             </div>
           </div>
         </div>
-
       </div>
 
       {/* Social Share */}
