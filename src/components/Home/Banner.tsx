@@ -24,7 +24,7 @@ const Banner = () => {
           </div>
 
           <Link href="/innerpage/shop">
-          <button className="mt-4 text-[14px] xl:text-[16px] leading-5 font-semibold bg-white text-green-700 px-4 py-2 xl:px-6 xl:py-3 rounded-full hover:bg-gray-900 hover:border hover:border-white hover:text-white cursor-pointer">
+          <button className="mt-4 text-[14px] xl:text-[16px] leading-5 font-semibold bg-white text-green-700 px-3 py-2 xl:px-6 xl:py-3 rounded-full hover:bg-gray-900 hover:border hover:border-white hover:text-white cursor-pointer">
             Shop now →
           </button>
           </Link>
@@ -36,7 +36,7 @@ const Banner = () => {
             alt="Organic Food"
             width={350}
             height={350}
-            className="w-[250px] sm:w-[250px] md:w-[320px] xl:w-[480px] h-auto"
+            className="w-[220px] sm:w-[250px] md:w-[320px] xl:w-[480px] h-auto"
           />
         </div>
       </div>

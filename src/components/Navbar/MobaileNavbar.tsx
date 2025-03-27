@@ -142,7 +142,7 @@ const MobaileNavbar = () => {
                   <div key={i} className="relative px-2 py-3">
                     <Link href={d.link ?? "#"}>
                       <p
-                        className="flex cursor-pointer items-center text-[24px] font-bold gap-2 text-black hover:text-[#00B207]"
+                        className="flex cursor-pointer items-center text-[22px] font-semibold gap-2 text-black hover:text-[#00B207]"
                         onClick={() => toggleDropdown(d.label)}
                       >
                         <span>{d.label}</span>
@@ -181,6 +181,7 @@ const MobaileNavbar = () => {
                   <Link href="/login" className="text-[24px] font-bold">
                     Log in
                   </Link>
+
                 </div>
               </div>
             </div>
