@@ -2,19 +2,32 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import { updateQuantity } from "@/store/slices/cartSlice";
+import {
+  updateQuantity,
+  clearCart,
+  removeFromCart,
+} from "@/store/slices/cartSlice";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import Image from "next/image";
 import Link from "next/link";
+import { RxCross2 } from "react-icons/rx";
 
 const ShoppingCart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state: RootState) => state.cart.cart);
   const totalPrice = useSelector((state: RootState) => state.cart.totalPrice);
 
+  const handleRemoveFromCart = (id: number) => {
+    dispatch(removeFromCart(id));
+  };
+
   const handleQuantityChange = (id: number, newQuantity: number) => {
     if (newQuantity < 1) return;
     dispatch(updateQuantity({ id, quantity: newQuantity }));
+  };
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
   };
 
   return (
@@ -40,6 +53,9 @@ const ShoppingCart = () => {
                   </th>
                   <th className="py-2 px-2 sm:px-2 border-b text-left font-light text-[#808080]">
                     SUBTOTAL
+                  </th>
+                  <th className="py-2 px-2 sm:px-2 border-b text-left font-light text-[#808080]">
+                    ACTION
                   </th>
                 </tr>
               </thead>
@@ -85,6 +101,15 @@ const ShoppingCart = () => {
                     <td className="py-2 px-2 sm:px-4 border-b">
                       ${(item.price * item.quantity).toFixed(2)}
                     </td>
+                    <td>
+                      {/* Remove from Cart Button */}
+                      <button
+                        onClick={() => handleRemoveFromCart(item.id)}
+                        className="text-gray-500 hover:text-red-500 text-[10px] sm:text-xs md:text-lg"
+                      >
+                        <RxCross2 className="text-gray-500 hover:text-red-500 text-[10px] sm:text-xs md:text-lg cursor-pointer lg:ml-8" />
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -96,12 +121,10 @@ const ShoppingCart = () => {
                 </button>
               </Link>
               <button
-                onClick={() => {
-                  // Optional: Add logic to update the cart
-                }}
-                className="bg-[#F2F2F2] text-[#4D4D4D] px-4 py-2 rounded hover:bg-[#ebe8e8]"
+                onClick={() => handleClearCart()}
+                className="bg-[#F2F2F2] text-[#4D4D4D] px-4 py-2 rounded hover:bg-[#ebe8e8] transition active:scale-95 duration-150 ease-in-out"
               >
-                Update Cart
+                Clear Cart
               </button>
             </div>
             <div className="max-w-3xl h-auto border border-gray-300 rounded-lg mt-4 flex items-center gap-4 flex-wrap p-4">

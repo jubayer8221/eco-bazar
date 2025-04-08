@@ -260,7 +260,7 @@ const CartDetails = () => {
                   </div>
                   <button
                     onClick={() => {
-                      setQuantity(quantity + 1);
+                      setQuantity(quantity);
                       dispatch(
                         addToCart({
                           id: data.id,
