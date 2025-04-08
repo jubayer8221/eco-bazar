@@ -51,7 +51,10 @@ const MiddleNavbar = () => {
         <div className="flex items-center gap-5">
           <div>
             <Link href="/Wishlist">
-              <FaRegHeart size={30} className="text-black hover:text-[#00B207]"/>
+              <FaRegHeart
+                size={30}
+                className="text-black hover:text-[#00B207]"
+              />
             </Link>
           </div>
           <span className="text-[#E6E6E6]">|</span>
@@ -66,7 +69,6 @@ const MiddleNavbar = () => {
               </div>
 
               <div className="absolute bg-[#2C742F] w-5 h-5 flex items-center justify-center rounded-full text-white text-[12px] top-[60px] leading-none">
-
                 {cart.length}
               </div>
             </div>
