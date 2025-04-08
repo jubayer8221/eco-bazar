@@ -240,15 +240,7 @@ const CartDetails = () => {
                 <hr className="text-[#E6E6E6] w-full mt-5 mb-3" />
                 {/* Add to cart button  */}
                 <div className="w-full flex items-center justify-between gap-3">
-                  <div className="flex items-center border rounded-full border-[#E6E6E6] p-1 sm:p-2 gap-1 sm:gap-2">
-                    <button
-                      onClick={() => setQuantity(quantity + 1)}
-                      className="p-1 m-1 bg-[#20B5261A] rounded-full hover:bg-[#00B207] hover:text-white text-[#2C742F]"
-                    >
-                      <FiPlus className="w-3 h-3 sm:w-4 sm:h-4" />
-                    </button>
-                    <span className="w-6">{quantity}</span>
-
+                  <div className="flex items-center border rounded-full border-[#E6E6E6] p-1 sm:p-2 gap-1 sm:gap-2 h-12">
                     <button
                       onClick={() =>
                         setQuantity(quantity > 1 ? quantity - 1 : 1)
@@ -256,6 +248,13 @@ const CartDetails = () => {
                       className="p-1 bg-[#20B5261A] rounded-full hover:bg-[#00B207] hover:text-white text-[#2C742F]"
                     >
                       <FiMinus className="w-4 h-4" />
+                    </button>
+                    <span className="w-4">{quantity}</span>
+                    <button
+                      onClick={() => setQuantity(quantity + 1)}
+                      className="p-1 m-1 bg-[#20B5261A] rounded-full hover:bg-[#00B207] hover:text-white text-[#2C742F]"
+                    >
+                      <FiPlus className="w-4 h-4" />
                     </button>
                   </div>
                   <button
@@ -271,7 +270,7 @@ const CartDetails = () => {
                         })
                       );
                     }}
-                    className="px-[25px] py-[10px] sm:px-[30px] sm:py-[12px] md:px-[40px] md:py-[12px] bg-[#00B207] text-white text-[12px] sm:text-[14px] font-semibold flex items-center gap-1 rounded-full"
+                    className="px-[25px] py-[10px] sm:px-[30px] sm:py-[12px] md:px-[40px] md:py-[12px] xl:px-44 bg-[#00B207] text-white text-[12px] sm:text-[14px] font-semibold flex items-center gap-1 rounded-full"
                   >
                     Add to Cart <HiOutlineShoppingBag />
                   </button>
